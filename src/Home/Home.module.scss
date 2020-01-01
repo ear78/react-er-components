@@ -1,0 +1,26 @@
+.HomeContainer {
+  display: flex;
+  border-top: 1px solid #ebebeb;
+  padding-top: 40px;
+  .Left {
+    margin: 0;
+    width: 50%;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    height: 400px;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .Right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+}

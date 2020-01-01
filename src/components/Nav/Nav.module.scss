@@ -1,0 +1,29 @@
+.NavContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  img {
+    width: 50px;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+
+  nav a {
+    color: #454545;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .8rem;
+  }
+}
