@@ -1,3 +1,8 @@
+.HoverPodsContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .Pod {
   position: relative;
   background-size: cover ;
@@ -12,7 +17,7 @@
   background: #c50043ad;
   border-radius: 50%;
   opacity: 0;
-  transition: all .2s ease;
+  transition: opacity .2s ease;
 }
 
 .HoverText {
@@ -22,7 +27,8 @@
   top: 40%;
   width: 100%;
   text-align: center;
-  transition: all .2s ease;
+  opacity: 0;
+  transition: opacity .2s ease .1s, top .2s ease.1s;
 }
 
 .Pod:hover .HoverColor,
