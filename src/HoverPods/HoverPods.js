@@ -2,34 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './HoverPods.module.scss'
 
-import building from '../assets/img/pinkBuilding.jpg'
-
 function hoverPods(props) {
-let podData = [
-  { podBgImage: building,
-    podBgColor: '#c50043ad',
-    podTextColor: '#fff',
-    podText: 'Hello'
-  },
-  { podBgImage: building,
-    podBgColor: '#c50043ad',
-    podTextColor: '#fff',
-    podText: 'Hello'
-  },
-  { podBgImage: building,
-    podBgColor: '#c50043ad',
-    podTextColor: '#fff',
-    podText: 'Hello'
-  },
-  { podBgImage: building,
-    podBgColor: '#c50043ad',
-    podTextColor: '#fff',
-    podText: 'Hello'
-  },
-]
 
-let hoverPod = podData.map(pod => {
+let hoverPod = props.podData.map((pod, index) => {
   return <div
+    key={index}
     style={{ backgroundImage: `url(${pod.podBgImage})`}}
     className={styles.Pod}>
     <div
@@ -47,9 +24,7 @@ let hoverPod = podData.map(pod => {
 }
 
 hoverPods.propTypes = {
-  podBgColor: PropTypes.string,
-  podTextColor: PropTypes.string,
-  podText: PropTypes.string
+  podData: PropTypes.array
 }
 
 export default hoverPods

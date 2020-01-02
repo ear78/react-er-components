@@ -1,16 +1,16 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styles from './App.module.scss'
 
-import building from './assets/img/pinkBuilding.jpg'
+/* Components */
 import Nav from './components/Nav/Nav'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
 import HoverPods from './HoverPods/HoverPods'
+
+/* Utilities && Data */
+import building from './assets/img/pinkBuilding.jpg'
+import { podData } from './assets/js/data'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
 
         <Switch>
           <Route path="/hover-pods">
-            <HoverPods />
+            <HoverPods podData={podData}/>
           </Route>
           <Route path="/page-banner">
             <Banner
