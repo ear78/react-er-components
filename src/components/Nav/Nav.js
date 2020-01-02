@@ -19,6 +19,9 @@ function nav() {
           <li>
             <Link to='/page-banner'>Page Banner</Link>
           </li>
+          <li>
+            <Link to='/hover-pods'>Hover Pods</Link>
+          </li>
         </ul>
       </nav>
     </div>

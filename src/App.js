@@ -1,15 +1,16 @@
-import React from 'react';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom'
-import styles from './App.module.scss';
+import styles from './App.module.scss'
 
 import building from './assets/img/pinkBuilding.jpg'
 import Nav from './components/Nav/Nav'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
+import HoverPods from './HoverPods/HoverPods'
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Nav/>
 
         <Switch>
+          <Route path="/hover-pods">
+            <HoverPods />
+          </Route>
           <Route path="/page-banner">
             <Banner
               bgImage={building}
@@ -33,7 +37,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
