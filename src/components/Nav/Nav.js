@@ -22,6 +22,9 @@ function nav() {
           <li>
             <Link to='/hover-pods'>Hover Pods</Link>
           </li>
+          <li>
+            <Link to='/team-building'>Team Building</Link>
+          </li>
         </ul>
       </nav>
     </div>

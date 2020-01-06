@@ -7,10 +7,18 @@ import Nav from './components/Nav/Nav'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
 import HoverPods from './HoverPods/HoverPods'
+import TeamBuilding from './TeamBuilding/TeamBuilding'
 
 /* Utilities && Data */
 import building from './assets/img/pinkBuilding.jpg'
 import { podData } from './assets/js/data'
+
+/* Font Awesome */
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+// import { faTwitter, faFacebookSquare, } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fab)
 
 function App() {
   return (
@@ -30,6 +38,9 @@ function App() {
               subTitle="Banners to help your site look great!"
               btnText="Kontakt"
               cta="https://www.elliotrichardson.com"/>
+          </Route>
+          <Route path="/team-building">
+            <TeamBuilding/>
           </Route>
           <Route path="/">
             <Home />
