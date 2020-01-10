@@ -15,7 +15,6 @@
   text-align: right;
 }
 
-
 .Overlay {
   position: absolute;
   width: 95%;
@@ -65,7 +64,7 @@
 }
 
 .Button {
-  background: #f34f88;
+  background: #f73a7b;
   color: #fff;
   border: none;
   text-transform: uppercase;

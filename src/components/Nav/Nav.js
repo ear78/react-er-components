@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
 import logo from '../../assets/img/er-logo.svg'
@@ -14,16 +14,16 @@ function nav() {
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <Link to='/page-banner'>Page Banner</Link>
+            <NavLink to='/page-banner'>Page Banner</NavLink>
           </li>
           <li>
-            <Link to='/hover-pods'>Hover Pods</Link>
+            <NavLink to='/hover-pods'>Hover Pods</NavLink>
           </li>
           <li>
-            <Link to='/team-building'>Team Building</Link>
+            <NavLink to='/team-building'>Team Building</NavLink>
           </li>
         </ul>
       </nav>
