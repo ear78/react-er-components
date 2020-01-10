@@ -2,17 +2,27 @@
   border-top: 1px solid #ebebeb;
   padding-top: 40px;
   display: flex;
-  justify-content: space-around;
-  .Portfolio {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  .Member {
     padding: 20px;
     border: 1px solid #ebebeb;
     border-radius: 3px;
     display: inline-block;
     position: relative;
+    margin: 1%;
+    box-sizing: border-box;
+    width: 23%;
+    transition: all .2s ease;
+    &:hover {
+      border-color: #e91e63;
+      cursor: pointer;
+      transform: scale(1.03);
+    }
   }
 
   .Image {
-    max-width: 155px;
+    width: 100%;
   }
 
   .Name {
@@ -38,8 +48,13 @@
     margin: 0;
     display: flex;
     svg {
-      margin-right: 3px;
+      padding-right: 4px;
       width: .8rem;
+      transition: all .2s ease;
+      &:hover {
+        cursor: pointer;
+        color: #e91e63;
+      }
     }
   }
 }
