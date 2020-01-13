@@ -18,21 +18,25 @@
   box-sizing: border-box;
   padding-top: 40px;
   .Member {
-    box-shadow: 0 3px 8px rgba(0,0,0,.03);
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ebebeb;
-    border-radius: 3px;
     display: inline-block;
-    position: relative;
     margin: 1%;
     box-sizing: border-box;
     width: 23%;
-    transition: all .2s ease;
-    &:hover {
+    &:hover  .MemberHoverTrigger {
       border-color: #e91e63;
       cursor: pointer;
       transform: scale(1.03);
+    }
+    .MemberHoverTrigger {
+      position: relative;
+      transition: transform .2s ease 0ms, border-color .2s ease 0ms;
+      border: 1px solid #ebebeb;
+      padding: 20px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      box-shadow: 0 3px 8px rgba(0,0,0,.03);
+      background: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,.03);
     }
   }
 
@@ -90,7 +94,7 @@
 }
 .leave {
   opacity: 1;
-  transition: opacity .1s ease;
+  transition: opacity .5s ease;
 }
 .leave.leaveActive {
   opacity: 0;

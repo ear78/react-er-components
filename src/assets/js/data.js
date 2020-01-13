@@ -36,7 +36,7 @@ export const podData = [
   },
 ]
 
-export const  portfolios = [
+export const  teamMembers = [
   {
     image: portfolio1,
     name: 'Jack Reacher',
