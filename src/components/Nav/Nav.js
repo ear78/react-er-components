@@ -14,16 +14,20 @@ function nav() {
       <nav>
         <ul>
           <li>
-            <NavLink to='/'>Home</NavLink>
+            <NavLink exact to='/'
+              activeClassName={styles.selected}>Home</NavLink>
           </li>
           <li>
-            <NavLink to='/page-banner'>Page Banner</NavLink>
+            <NavLink to='/page-banner'
+              activeClassName={styles.selected}>Page Banner</NavLink>
           </li>
           <li>
-            <NavLink to='/hover-pods'>Hover Pods</NavLink>
+            <NavLink to='/hover-pods'
+              activeClassName={styles.selected}>Hover Pods</NavLink>
           </li>
           <li>
-            <NavLink to='/team-building'>Team Building</NavLink>
+            <NavLink to='/team-building'
+              activeClassName={styles.selected}>Team Building</NavLink>
           </li>
         </ul>
       </nav>

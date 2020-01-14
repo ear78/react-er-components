@@ -40,7 +40,8 @@ function App() {
               cta="https://www.elliotrichardson.com"/>
           </Route>
           <Route path="/team-building">
-            <TeamBuilding/>
+            <TeamBuilding
+              delay={150}/>
           </Route>
           <Route path="/">
             <Home />

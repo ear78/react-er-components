@@ -66,6 +66,13 @@
   .icons {
     margin: 0;
     display: flex;
+    a {
+      display: inline-block;
+      width: inherit;
+      height: inherit;
+      line-height: inherit;
+      color: #454545;
+    }
     svg {
       padding-right: 4px;
       width: .8rem;

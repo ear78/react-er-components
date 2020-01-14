@@ -41,50 +41,80 @@ export const  teamMembers = [
     image: portfolio1,
     name: 'Jack Reacher',
     jobTitle: 'Professional Hitman',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio2,
     name: 'David Mattias',
     jobTitle: 'General Manager',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio3,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio4,
     name: 'Megan Kimberly',
     jobTitle: 'Art Director',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio5,
     name: 'Johnny Reb',
     jobTitle: 'Computerist',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio6,
     name: 'Paran John',
     jobTitle: 'Senior Developer',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio9,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio10,
     name: 'Megan Kimberly',
     jobTitle: 'Art Director',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio7,
     name: 'David Mattias',
     jobTitle: 'General Manager',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   },
   {
     image: portfolio8,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://www.linkedin.com'
   }
 ]
