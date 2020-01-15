@@ -5,6 +5,8 @@ import styles from './TeamBuilding.module.scss'
 import logo from '../assets/img/er-logo.svg'
 import { teamMembers } from '../assets/js/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PageTitle from '../components/PageTitle/PageTitle'
+
 function teamBuilding( props ) {
   /* Object generated team member page with array of Objects.  Recommended using square format for images. Example.
   [{
@@ -42,20 +44,22 @@ function teamBuilding( props ) {
     </div>
   } )
   return ( <div id={styles.TeamBuilding}>
-    <h1>&lt;Team Building/&gt;</h1>
+    <PageTitle title="Team Building"/>
     <CSSTransitionGroup component="div" className={styles.TeamBuildingContainer} transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500} transitionEnter={true} transitionLeave={true} transitionName={{
         enter: styles.enter,
         enterActive: styles.enterActive,
         leave: styles.leave,
         leaveActive: styles.leaveActive,
         appear: styles.appear,
-        appearActive: styles.appearActive,
+        appearActive: styles.appearActive
       }}>
       {members}
     </CSSTransitionGroup>
   </div> )
 }
+
 teamBuilding.propTypes = {
   delay: PropTypes.number
 }
+
 export default teamBuilding

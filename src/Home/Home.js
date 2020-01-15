@@ -1,17 +1,11 @@
 import React from 'react'
 import styles from './Home.module.scss'
+import PageTitle from '../components/PageTitle/PageTitle'
 
 function home() {
   let er = {
     fontSize: '10rem',
     lineHeight: '130px'
-  }
-
-  let components = {
-    fontSize: '1rem',
-    fontWeight: '400',
-    letterSpacing: '13px',
-    textTransform: 'uppercase'
   }
 
   let tag = {
@@ -24,7 +18,7 @@ function home() {
       </p>
       <p className={styles.Right}>
         <div style={er}>ER</div>
-        <div style={components}>&lt;Components/&gt;</div>
+        <PageTitle title="Components"/>
       </p>
     </div>
   )

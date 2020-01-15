@@ -34,7 +34,7 @@
 }
 
 .Overlay.Dark {
-  background: rgba(0,0,0, .4)
+  background: rgba(0, 0, 0, .4)
 }
 
 .PreTitle, .Title, .SubTitle {
@@ -73,6 +73,10 @@
   width: 130px;
   padding: 0;
   font-size: .7rem;
+  transition: all .2s ease;
+  &:hover {
+    background: darken(#f73a7b, 7%);
+  }
 }
 
 a {
