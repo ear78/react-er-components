@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Banner.module.scss'
 
-import { test } from '../assets/js/globalStyles'
-
 function banner( props ) {
   let btnColor = props.btnColor
   let overlayDark = props.overlayDark ? styles.Dark : ''

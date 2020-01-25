@@ -29,6 +29,10 @@ function nav() {
             <NavLink to='/team-building'
               activeClassName={styles.selected}>Team Building</NavLink>
           </li>
+          <li>
+            <NavLink to='/happy-dots'
+              activeClassName={styles.selected}>Happy Dots</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

@@ -8,6 +8,7 @@ import Home from './Home/Home'
 import Banner from './Banner/Banner'
 import HoverPods from './HoverPods/HoverPods'
 import TeamBuilding from './TeamBuilding/TeamBuilding'
+import HappyDots from './HappyDots/HappyDots'
 
 /* Utilities && Data */
 import building from './assets/img/pinkBuilding.jpg'
@@ -16,7 +17,6 @@ import { podData } from './assets/js/data'
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-// import { faTwitter, faFacebookSquare, } from '@fortawesome/free-brands-svg-icons'
 
 library.add(fab)
 
@@ -27,6 +27,9 @@ function App() {
         <Nav/>
 
         <Switch>
+          <Route path="/happy-dots">
+            <HappyDots />
+          </Route>
           <Route path="/hover-pods">
             <HoverPods podData={podData}/>
           </Route>
