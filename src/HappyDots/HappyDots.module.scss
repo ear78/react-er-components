@@ -39,6 +39,9 @@
     text-transform: uppercase;
     letter-spacing: 8px;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .Line {
