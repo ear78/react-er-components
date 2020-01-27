@@ -3,35 +3,97 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-
+  position: relative;
   img {
     width: 50px;
   }
 
-  ul {
-    display: flex;
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-  }
+  .NavDesktop {
+    display: none;
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
 
-  li {
-    margin-right: 15px;
-    list-style-type: none;
-  }
+    li {
+      margin-right: 15px;
+      list-style-type: none;
+    }
 
-  nav a {
-    color: #454545;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: .8rem;
-    transition: all .2s ease;
-    &:hover {
+    a {
+      color: #454545;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: .8rem;
+      transition: all .2s ease;
+      &:hover {
+        color: #e91e63;
+      }
+    }
+
+    a.selected {
       color: #e91e63;
     }
   }
 
-  nav a.selected {
-    color: #e91e63;
+  /*-----------------------------------------
+   * Mobile Nav Menu
+   -----------------------------------------*/
+  .NavMobile {
+    display: block;
+    position: absolute;
+    width: 85%;
+    height: 100vh;
+    background: #fff;
+    top: 56px;
+    right: 0;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: all .3s ease-in-out;
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10%;
+    }
+
+    li {
+      margin-right: 15px;
+      list-style-type: none;
+    }
+
+    a {
+      color: #454545;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: .8rem;
+      transition: all .2s ease;
+      &:hover {
+        color: #e91e63;
+      }
+    }
+
+    a.selected {
+      color: #e91e63;
+    }
+  }
+
+  .NavMobile.isActive {
+    transform: translateX(0);
+  }
+
+  @media(min-width: 1024px) {
+    .NavDesktop {
+      display: block;
+    }
+
+    .NavMobile {
+      display: none;
+    }
   }
 }

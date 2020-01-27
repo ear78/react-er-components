@@ -1,0 +1,110 @@
+button:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+.Hamburger {
+  padding: 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.Hamburger:hover {
+  opacity: 0.7;
+}
+
+.Hamburger.isActive:hover {
+  opacity: 0.7;
+}
+
+.Hamburger.isActive .HamburgerInner,
+.Hamburger.isActive .HamburgerInner::after,
+.Hamburger.isActive .HamburgerInner::before {
+  background-color: #000;
+}
+
+.HamburgerBox {
+  width: 28px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.HamburgerInner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.HamburgerInner,
+.HamburgerInner::after,
+.HamburgerInner::before {
+  width: 24px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.HamburgerInner::after,
+.HamburgerInner::before {
+  content: "";
+  display: block;
+}
+
+.HamburgerInner::before {
+  top: -8px;
+}
+
+.HamburgerInner::after {
+  bottom: -8px;
+}
+
+/*
+ * Slider
+ */
+.HamburgerSlider .HamburgerInner {
+  top: 2px;
+}
+
+.HamburgerSlider .HamburgerInner::before {
+  top: 6px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+
+.HamburgerSlider .HamburgerInner::after {
+  top: 12px;
+}
+
+.HamburgerSlider.isActive .HamburgerInner {
+  transform: translate3d(0, 8px, 0) rotate(45deg);
+}
+
+.HamburgerSlider.isActive .HamburgerInner::before {
+  transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+}
+
+.HamburgerSlider.isActive .HamburgerInner::after {
+  transform: translate3d(0, -12px, 0) rotate(-90deg);
+}
+
+@media(min-width: 1024px) {
+  .Hamburger {
+    display: none;
+  }
+}
