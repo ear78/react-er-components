@@ -4,6 +4,7 @@
   align-items: center;
   margin-bottom: 50px;
   position: relative;
+  box-sizing: border-box;
   img {
     width: 50px;
   }
@@ -44,13 +45,14 @@
   .NavMobile {
     display: block;
     position: absolute;
-    width: 85%;
+    width: 100vw;
     height: 100vh;
-    background: #fff;
-    top: 56px;
+    background: #000;
+    top: -50px;
     right: 0;
     z-index: 10;
-    transform: translateX(100%);
+    transform: translateX(-104%);
+    box-sizing: border-box;
     transition: all .3s ease-in-out;
     ul {
       display: flex;
@@ -59,7 +61,7 @@
       margin: 0;
       flex-direction: column;
       align-items: center;
-      padding-top: 10%;
+      padding-top: 50%;
     }
 
     li {
@@ -84,7 +86,7 @@
   }
 
   .NavMobile.isActive {
-    transform: translateX(0);
+    transform: translateX(10px);
   }
 
   @media(min-width: 1024px) {

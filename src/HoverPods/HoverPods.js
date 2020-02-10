@@ -11,10 +11,8 @@ function hoverPods( props ) {
     key={index}
     style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${ index * .1 }s` }}
     className={styles.Pod}>
-    <div
-      style={{ backgroundColor: `${pod.podBgColor}`}} className={styles.HoverColor}>
-      <p
-        style={{ color: `${pod.podTextColor}`}} className={styles.HoverText}>{pod.podText}</p>
+    <div style={{ backgroundColor: `${pod.podBgColor}`}} className={styles.HoverColor}>
+      <p style={{ color: `${pod.podTextColor}`}} className={styles.HoverText}>{pod.podText}</p>
     </div>
   </div>
   } )
