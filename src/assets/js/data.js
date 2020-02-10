@@ -12,6 +12,8 @@ import portfolio7 from '../img/kevin.jpg'
 import portfolio8 from '../img/krish.jpg'
 import portfolio9 from '../img/jeremy.jpg'
 import portfolio10 from '../img/robert.jpg'
+import portfolio11 from '../img/UserMale.svg'
+import portfolio12 from '../img/femaleUser.svg'
 
 export const podData = [
   { podBgImage: building,
@@ -38,7 +40,7 @@ export const podData = [
 
 export const  teamMembers = [
   {
-    image: portfolio1,
+    image: portfolio11,
     name: 'Jack Reacher',
     jobTitle: 'Professional Hitman',
     facebook: 'https://www.facebook.com',
@@ -46,7 +48,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio2,
+    image: portfolio12,
     name: 'David Mattias',
     jobTitle: 'General Manager',
     facebook: 'https://www.facebook.com',
@@ -54,7 +56,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio3,
+    image: portfolio11,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
     facebook: 'https://www.facebook.com',
@@ -62,7 +64,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio4,
+    image: portfolio12,
     name: 'Megan Kimberly',
     jobTitle: 'Art Director',
     facebook: 'https://www.facebook.com',
@@ -70,7 +72,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio5,
+    image: portfolio11,
     name: 'Johnny Reb',
     jobTitle: 'Computerist',
     facebook: 'https://www.facebook.com',
@@ -78,7 +80,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio6,
+    image: portfolio12,
     name: 'Paran John',
     jobTitle: 'Senior Developer',
     facebook: 'https://www.facebook.com',
@@ -86,7 +88,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio9,
+    image: portfolio11,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
     facebook: 'https://www.facebook.com',
@@ -94,7 +96,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio10,
+    image: portfolio12,
     name: 'Megan Kimberly',
     jobTitle: 'Art Director',
     facebook: 'https://www.facebook.com',
@@ -102,7 +104,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio7,
+    image: portfolio11,
     name: 'David Mattias',
     jobTitle: 'General Manager',
     facebook: 'https://www.facebook.com',
@@ -110,7 +112,7 @@ export const  teamMembers = [
     linkedin: 'https://www.linkedin.com'
   },
   {
-    image: portfolio8,
+    image: portfolio12,
     name: 'Elias Leonard',
     jobTitle: 'Head of Technology',
     facebook: 'https://www.facebook.com',
