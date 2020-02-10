@@ -12,7 +12,7 @@ import HappyDots from './HappyDots/HappyDots'
 
 /* Utilities && Data */
 import building from './assets/img/pinkBuilding.jpg'
-import { podData } from './assets/js/data'
+import { podData, happyData } from './assets/js/data'
 
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,7 +28,7 @@ function App() {
 
         <Switch>
           <Route path="/happy-dots">
-            <HappyDots />
+            <HappyDots data={happyData}/>
           </Route>
           <Route path="/hover-pods">
             <HoverPods podData={podData}/>

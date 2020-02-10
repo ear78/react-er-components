@@ -15,6 +15,38 @@ import portfolio10 from '../img/robert.jpg'
 import portfolio11 from '../img/UserMale.svg'
 import portfolio12 from '../img/femaleUser.svg'
 
+export const happyData = [ {
+    id: 'test',
+    text: 'Market Place',
+    lineColor: '#000',
+    dotColor: ''
+  },
+  {
+    id: 'test1',
+    text: 'Kochava Collective',
+    lineColor: '',
+    dotColor: ''
+  },
+  {
+    id: 'test2',
+    text: 'Attribution',
+    lineColor: '',
+    dotColor: ''
+  },
+  {
+    id: 'test3',
+    text: 'SmartLink',
+    lineColor: '',
+    dotColor: ''
+  },
+  {
+    id: 'test4',
+    text: 'User Experience',
+    lineColor: '',
+    dotColor: ''
+  }
+]
+
 export const podData = [
   { podBgImage: building,
     podBgColor: '#c50043ad',
