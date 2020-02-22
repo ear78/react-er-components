@@ -4,6 +4,7 @@ import styles from './App.module.scss'
 
 /* Components */
 import Nav from './components/Nav/Nav'
+import Spinner from './components/Spinner/Spinner'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
 import HoverPods from './HoverPods/HoverPods'
@@ -17,18 +18,18 @@ import { podData, happyData } from './assets/js/data'
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-
 library.add(fab)
 
 function App() {
   return (
     <Router>
+      <Spinner />
       <div className={styles.App}>
         <Nav/>
 
         <Switch>
           <Route path="/happy-dots">
-            <HappyDots data={happyData}/>
+            <HappyDots data={happyData} textColor='#fff'/>
           </Route>
           <Route path="/hover-pods">
             <HoverPods podData={podData}/>

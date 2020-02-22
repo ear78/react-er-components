@@ -27,7 +27,7 @@ function happyDots( props ) {
   let happyDot = props.data.map( ( d, i ) => {
     return <li key={i} onClick={handleScrollTo.bind(this, d.id)} className={styles.HoverItem}>
             <div style={{backgroundColor: d.lineColor }} className={styles.Line}></div>
-            <span style={{ width: `${props.textWidth}px`}} className={styles.Text}>{ d.text }</span>
+            <span style={{ width: `${props.textWidth}px`, color: `${props.textColor}`}} className={styles.Text}>{ d.text }</span>
           </li>
   } )
 
@@ -40,10 +40,10 @@ function happyDots( props ) {
         { happyDot }
       </ul>
 
-      <section id="test3" ref={test3} style={{height: '500px', width: '100%', backgroundImage: `url(${echoTower})`, backgroundSize: 'cover', filter: 'grayscale(100%)'}}></section>
-      <section id="test" ref={test} style={{height: '500px', width: '100%', backgroundImage: `url(${jail})`, backgroundSize: 'cover'}}></section>
-      <section id="test1" ref={test1} style={{height: '500px', width: '100%', backgroundImage: `url(${stairway})`, backgroundSize: 'cover'}}></section>
-      <section id="test2" ref={test2} style={{height: '500px', width: '100%', backgroundImage: `url(${stripes})`, backgroundSize: 'cover'}}></section>
+      <section id="test3" ref={test} style={{height: '500px', width: '100%', backgroundImage: `url(${echoTower})`, backgroundSize: 'cover', filter: 'grayscale(100%)'}}></section>
+      <section id="test" ref={test1} style={{height: '500px', width: '100%', backgroundImage: `url(${jail})`, backgroundSize: 'cover'}}></section>
+      <section id="test1" ref={test2} style={{height: '500px', width: '100%', backgroundImage: `url(${stairway})`, backgroundSize: 'cover'}}></section>
+      <section id="test2" ref={test3} style={{height: '500px', width: '100%', backgroundImage: `url(${stripes})`, backgroundSize: 'cover'}}></section>
       <section id="test4" ref={test4} style={{height: '500px', width: '100%', backgroundImage: `url(${chairs})`, backgroundSize: 'cover'}}></section>
     </div>
   )
@@ -53,7 +53,8 @@ happyDots.propTypes = {
   height: PropTypes.string,
   top: PropTypes.string,
   zLayer: PropTypes.string,
-  data: PropTypes.array
+  data: PropTypes.array,
+  textWidth: PropTypes.string
 }
 
 export default happyDots

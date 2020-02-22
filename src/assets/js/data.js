@@ -2,69 +2,69 @@ import building from '../img/pinkBuilding.jpg'
 import snowGhosts from '../img/snowghosts.jpg'
 import greyBuilding from '../img/building-resize.jpg'
 import about from '../img/ABOUT.jpg'
-import portfolio1 from '../img/jack-reacher.jpg'
-import portfolio2 from '../img/dave-m.jpg'
-import portfolio3 from '../img/ethan-l.jpg'
-import portfolio4 from '../img/kim-m.jpg'
-import portfolio5 from '../img/doug-l.jpg'
-import portfolio6 from '../img/paran-j.jpg'
-import portfolio7 from '../img/kevin.jpg'
-import portfolio8 from '../img/krish.jpg'
-import portfolio9 from '../img/jeremy.jpg'
-import portfolio10 from '../img/robert.jpg'
+import echoTower from '../img/echoTower.jpg'
+import jail from '../img/jail.jpg'
+import stairway from '../img/stairway.jpg'
+import stripes from '../img/stripes.jpg'
+import chairs from '../img/chairs.jpg'
+import echoTowerSml from '../img/echoTower-sml.jpg'
+import jailSml from '../img/jail-sml.jpg'
+import stairwaySml from '../img/stairway-sml.jpg'
+import stripesSml from '../img/stripes-sml.jpg'
+import chairsSml from '../img/chairs-sml.jpg'
 import portfolio11 from '../img/UserMale.svg'
 import portfolio12 from '../img/femaleUser.svg'
 
 export const happyData = [ {
     id: 'test',
     text: 'Market Place',
-    lineColor: '#000',
+    lineColor: '#fff',
     dotColor: ''
   },
   {
     id: 'test1',
     text: 'Kochava Collective',
-    lineColor: '',
+    lineColor: '#fff',
     dotColor: ''
   },
   {
     id: 'test2',
     text: 'Attribution',
-    lineColor: '',
+    lineColor: '#fff',
     dotColor: ''
   },
   {
     id: 'test3',
     text: 'SmartLink',
-    lineColor: '',
+    lineColor: '#fff',
     dotColor: ''
   },
   {
     id: 'test4',
     text: 'User Experience',
-    lineColor: '',
+    lineColor: '#fff',
     dotColor: ''
   }
 ]
 
 export const podData = [
-  { podBgImage: building,
-    podBgColor: '#c50043ad',
+  { podBgImage: echoTowerSml,
+    podBgColor: '#000000ad',
     podTextColor: '#fff',
     podText: 'Hello'
   },
-  { podBgImage: snowGhosts,
-    podBgColor: '#1663908c',
+  { podBgImage: chairsSml,
+    podBgColor: '#000000ad',
     podTextColor: '#fff',
     podText: 'I\'m'
   },
   { podBgImage: greyBuilding,
-    podBgColor: '#3f580780',
+    podBgColor: '#000000ad',
     podTextColor: '#fff',
     podText: 'A'
   },
-  { podBgImage: about,
-    podBgColor: '#33394887',
+  { podBgImage: stripesSml,
+    podBgColor: '#000000ad',
     podTextColor: '#fff',
     podText: 'Hover Pod'
   },
