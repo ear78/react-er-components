@@ -11,7 +11,6 @@ class Nav extends React.Component {
   }
 
   handleToggle() {
-    console.log('fired toggle');
     this.setState(state => ({
       isMenuActive: !state.isMenuActive
     }))

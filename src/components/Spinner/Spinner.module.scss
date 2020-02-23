@@ -6,9 +6,6 @@
   z-index: 10;
   text-align: center;
   padding-top: 20%;
-  // font-size: 1.75rem;
-  // font-family: avenir next;
-  // letter-spacing: 10px;
   color: #E91E63;
   animation-name: scale;
   animation-duration: 1.5s;
@@ -37,14 +34,7 @@
   }
 }
 
-@keyframes scale {
-  0 {font-size: 1.75rem; letter-spacing: 10px}
-  50% {font-size: 2.25rem; letter-spacing: 20px;}
-  100% {font-size: 1.75rem; letter-spacing: 10px;}
-}
-
 @keyframes rotation {
   0 {transform: rotate(0deg);}
-  // 50% {font-size: 2.25rem; letter-spacing: 20px;}
   100% {transform: rotate(360deg)}
 }
