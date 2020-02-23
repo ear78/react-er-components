@@ -10,14 +10,18 @@ class Spinner extends React.Component {
       this.setState((state) => {
         return {loading: !state.loading}
       })
-    }, 3000)
+    }, 900)
   }
 
   render(){
     let showSpinner = this.state.loading ? 'block' : 'none'
     return (
       <div style={{display: showSpinner}} className={styles.Spinner}>
-        Loading...
+        {/*Loading...*/}
+        <div className={styles.Circle}>
+          <div className={styles.Circle2}></div>
+        </div>
+
       </div>
     )
   }

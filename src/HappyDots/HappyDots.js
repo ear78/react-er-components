@@ -21,7 +21,9 @@ function happyDots( props ) {
     let found = refs.find(ref => {
       return ref.current.id === v
     })
-    found.current.scrollIntoView()
+    found.current.scrollIntoView({
+      behavior: "smooth", block: "end", inline: "nearest"
+    })
   }
 
   let happyDot = props.data.map( ( d, i ) => {

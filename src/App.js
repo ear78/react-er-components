@@ -22,7 +22,7 @@ library.add(fab)
 
 function App() {
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <Spinner />
       <div className={styles.App}>
         <Nav/>
