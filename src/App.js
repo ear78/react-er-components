@@ -8,7 +8,7 @@ import Spinner from './components/Spinner/Spinner'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
 import HoverPods from './HoverPods/HoverPods'
-import TeamBuilding from './TeamBuilding/TeamBuilding'
+import TeamBuildingParent from './TeamBuilding/TeamBuildingParent'
 import HappyDots from './HappyDots/HappyDots'
 
 /* Utilities && Data */
@@ -44,8 +44,7 @@ function App() {
               cta="https://www.elliotrichardson.com"/>
           </Route>
           <Route path="/team-building">
-            <TeamBuilding
-              delay={150}/>
+            <TeamBuildingParent/>
           </Route>
           <Route path="/">
             <Home />
