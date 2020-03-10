@@ -1,0 +1,13 @@
+.PageTitle {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+@media(min-width: 768px) {
+  .PageTitle {
+    letter-spacing: 13px;
+  }
+}

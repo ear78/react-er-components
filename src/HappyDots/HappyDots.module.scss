@@ -1,3 +1,33 @@
+.HappyDotsContainer {
+  padding: 15px;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+
+  .RefSection {
+    // height: 500px;
+    // width: 100%;
+    // background-size: cover;
+    // filter: grayscale(100%);
+    display: flex;
+    padding: 15px 0;
+  }
+
+  .BgImage {
+    filter: grayscale(100%);
+    background-size: cover;
+    height: 500px;
+    background-repeat: no-repeat;
+    width: 50%;
+  }
+
+  .TextBox {
+    width: 50%;
+    padding: 35px;
+    box-sizing: border-box;
+    background: #f7f7f7;
+  }
+}
+
 .HappyDots {
   display: flex;
   flex-direction: column;

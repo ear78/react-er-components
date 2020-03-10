@@ -34,7 +34,7 @@ function happyDots( props ) {
   } )
 
   return (
-    <div>
+    <div className={styles.HappyDotsContainer}>
       <ul style={{ height: `${props.height}px`,
         top: `${props.top}px`,
         zIndex: `${props.zLayer}`}}
@@ -42,11 +42,50 @@ function happyDots( props ) {
         { happyDot }
       </ul>
 
-      <section id="test" ref={test} style={{height: '500px', width: '100%', backgroundImage: `url(${echoTower})`, backgroundSize: 'cover', filter: 'grayscale(100%)'}}></section>
-      <section id="test1" ref={test1} style={{height: '500px', width: '100%', backgroundImage: `url(${jail})`, backgroundSize: 'cover'}}></section>
-      <section id="test2" ref={test2} style={{height: '500px', width: '100%', backgroundImage: `url(${stairway})`, backgroundSize: 'cover'}}></section>
-      <section id="test3" ref={test3} style={{height: '500px', width: '100%', backgroundImage: `url(${stripes})`, backgroundSize: 'cover'}}></section>
-      <section id="test4" ref={test4} style={{height: '500px', width: '100%', backgroundImage: `url(${chairs})`, backgroundSize: 'cover'}}></section>
+      <section
+        id="test"
+        ref={test}
+        className={styles.RefSection}>
+        <div
+          className={styles.BgImage}
+          style={{backgroundImage: `url(${echoTower})`}}></div>
+        <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
+      </section>
+      <section
+        id="test1"
+        ref={test1}
+        className={styles.RefSection}>
+        <div
+          className={styles.BgImage}
+          style={{backgroundImage: `url(${jail})`}}></div>
+        <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
+      </section>
+      <section
+        id="test2"
+        ref={test2}
+        className={styles.RefSection}>
+        <div
+          className={styles.BgImage}
+          style={{backgroundImage: `url(${stairway})`}}></div>
+        <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
+      </section>
+      <section
+        id="test3"
+        ref={test3}
+        className={styles.RefSection}>
+          <div
+            className={styles.BgImage}
+            style={{backgroundImage: `url(${stripes})`}}></div>
+          <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
+      </section>
+      <section id="test4"
+        ref={test4}
+        className={styles.RefSection}
+        >
+        <div className={styles.BgImage} style={{backgroundImage: `url(${chairs})`}}></div>
+        <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
+
+      </section>
     </div>
   )
 }
