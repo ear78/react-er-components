@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
 import Hamburger from '../Hamburger/Hamburger'
@@ -21,9 +21,9 @@ class Nav extends React.Component {
 
     return (
       <div className={styles.NavContainer}>
-        <div>
+        <Link className={styles.ImgWrapper} to="/">
           <img  src={logo} alt="ER Logo" />
-        </div>
+        </Link>
         <Hamburger
           isActive={this.state.isMenuActive}
           click={this.handleToggle.bind(this)}/>
