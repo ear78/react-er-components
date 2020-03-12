@@ -5,6 +5,10 @@
   margin-bottom: 50px;
   position: relative;
   box-sizing: border-box;
+  .ImgWrapper {
+    width: auto;
+  }
+  
   img {
     width: 50px;
   }
@@ -87,6 +91,13 @@
 
   .NavMobile.isActive {
     transform: translateX(10px);
+  }
+
+  @media (orientation: landscape) {
+    .NavMobile ul {
+      padding-top: 20%;
+      padding-bottom: 20%;
+    }
   }
 
   @media(min-width: 1024px) {

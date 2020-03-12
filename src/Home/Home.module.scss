@@ -4,25 +4,40 @@
   padding-top: 40px;
   line-height: 1.5;
   box-sizing: border-box;
+  flex-direction: column-reverse;
   .Left {
     margin: 0;
-    width: 50%;
+    width: initial;
     background: #f7f7f7;
     padding: 20px;
     border-radius: 3px;
     border: 1px solid #ebebeb;
-    height: 400px;
+    height: initial;
     span {
       font-weight: 600;
     }
   }
 
   .Right {
-    width: 50%;
+    width: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
 }
+
+@media screen and (min-width: 768px) {
+  .HomeContainer {
+    flex-direction: row;
+    .Right {
+      width: 50%;
+    }
+
+    .Left {
+      width: 50%;
+      height: 400px;
+    }
+  }
 
 }
