@@ -34,6 +34,7 @@
   position: fixed;
   z-index: 6;
   top: 35vh;
+  padding-left: 4%;
 
   .HoverItem {
     position: relative;
@@ -100,7 +101,7 @@
 
     .BgImage {
       height: 500px;
-      width: initial;
+      width: 50%;
     }
   }
 }
