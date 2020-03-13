@@ -86,3 +86,14 @@
     }
   }
 }
+
+@media(min-width: 768px) and (max-width: 1000px){
+  #HoverPodsPageContainer {
+    .HoverPodsContainer {
+      .Pod {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
