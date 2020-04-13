@@ -11,7 +11,7 @@ class hoverPods extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState((state) => {
-        return {hoverPodsMounted: !state.hoverPodsMounted}
+        return { hoverPodsMounted: !state.hoverPodsMounted }
       })
     }, 900)
 

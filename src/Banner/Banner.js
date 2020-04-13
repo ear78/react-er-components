@@ -21,7 +21,7 @@ function banner( props ) {
               <h1 className={`${styles.Title} ${textColor}`}>{props.title}</h1>
                 <p className={`${styles.SubTitle} ${textColor}`}>{props.subTitle}</p>
             <button style={{background: `${props.btnColor}`}} className={styles.Button}>
-              <a  href={props.cta}
+              <a href={props.cta}
                 target={props.target ? '_blank' : ''}>{props.btnText}</a>
             </button>
           </div>

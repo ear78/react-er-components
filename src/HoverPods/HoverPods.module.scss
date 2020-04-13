@@ -1,7 +1,9 @@
+@import '../assets/scss/_variables.scss';
+
 #HoverPodsPageContainer{
-  background: #f7f7f7;
+  background: $boxBackgroundColor;
   padding: 40px 0 75px;
-  border: 1px solid #ebebeb;
+  border: $border;
   border-radius: 3px;
 
   .title {
@@ -46,7 +48,7 @@
 
     .HoverText {
       margin: 0;
-      color: #fff;
+      color: $white;
       position: absolute;
       top: 40%;
       width: 100%;

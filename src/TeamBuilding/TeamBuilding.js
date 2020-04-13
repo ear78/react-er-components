@@ -8,18 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PageTitle from '../components/PageTitle/PageTitle'
 
 function teamBuilding( props ) {
-  /* Object generated team member page with array of Objects.  Recommended using square format for images. Example.
-  [{
-  {
-    image: portfolio1,
-    name: 'Jack Reacher',
-    jobTitle: 'Professional Hitman',
-    facebook: 'https://www.facebook.com',
-    twitter: 'https://twitter.com',
-    linkedin: 'https://www.linkedin.com'
-  }
-  }]
-  */
   let members = teamMembers.map( ( member, i ) => {
     return <div key={i} style={{
         transitionDelay: `${ props.delay * i }ms`
@@ -57,6 +45,10 @@ function teamBuilding( props ) {
     </CSSTransitionGroup>
   </div> )
 }
+
+teamBuilding.defaultProps = {
+  delay: 0
+};
 
 teamBuilding.propTypes = {
   delay: PropTypes.number
