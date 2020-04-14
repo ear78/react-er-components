@@ -4,6 +4,7 @@ import styles from './App.module.scss'
 
 /* Components */
 import Nav from './components/Nav/Nav'
+import Footer from './components/Footer/Footer'
 import Spinner from './components/Spinner/Spinner'
 import Home from './Home/Home'
 import Banner from './Banner/Banner'
@@ -50,6 +51,8 @@ function App() {
             <Home />
           </Route>
         </Switch>
+
+        <Footer />
       </div>
     </Router>
   )
