@@ -1,3 +1,4 @@
+
 import building from '../img/pinkBuilding.jpg'
 import snowGhosts from '../img/snowghosts.jpg'
 import greyBuilding from '../img/building-resize.jpg'
@@ -154,5 +155,28 @@ export const  teamMembers = [
     facebook: 'https://www.facebook.com',
     twitter: 'https://twitter.com',
     linkedin: 'https://www.linkedin.com'
+  }
+]
+
+export const sectionData = [
+  {
+    id: 'test',
+    img: echoTower
+  },
+  {
+    id: 'test1',
+    img: jail
+  },
+  {
+    id: 'test2',
+    img: stairway
+  },
+  {
+    id: 'test3',
+    img: stripes
+  },
+  {
+    id: 'test4',
+    img: chairs
   }
 ]

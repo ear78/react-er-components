@@ -2,46 +2,41 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styles from './App.module.scss'
 
-/* Components */
+/* Global Layout Components */
 import Nav from './components/Nav/Nav'
+import Footer from './components/Footer/Footer'
 import Spinner from './components/Spinner/Spinner'
-import Home from './Home/Home'
-import Banner from './Banner/Banner'
-import HoverPods from './HoverPods/HoverPods'
-import TeamBuildingParent from './TeamBuilding/TeamBuildingParent'
-import HappyDots from './HappyDots/HappyDots'
+import Layout from './components/Layout/Layout'
 
-/* Utilities && Data */
-import building from './assets/img/pinkBuilding.jpg'
-import { podData, happyData } from './assets/js/data'
+/* Views */
+import Home from './views/Home/Home'
+import BannerParent from './views/Banner/BannerParent'
+import HoverPodsParent from './views/HoverPods/HoverPodsParent'
+import TeamBuildingParent from './views/TeamBuilding/TeamBuildingParent'
+import HappyDotsParent from './views/HappyDots/HappyDotsParent'
 
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-library.add(fab)
+library.add( fab )
 
 function App() {
   return (
     <Router forceRefresh={true}>
       <Spinner />
-      <div className={styles.App}>
+
+      <Layout>
         <Nav/>
 
         <Switch>
           <Route path="/happy-dots">
-            <HappyDots data={happyData} textColor='#fff'/>
+            <HappyDotsParent/>
           </Route>
           <Route path="/hover-pods">
-            <HoverPods podData={podData}/>
+            <HoverPodsParent/>
           </Route>
           <Route path="/page-banner">
-            <Banner
-              bgImage={building}
-              preTitle="Welcome to Page Banner"
-              title="Page Banner"
-              subTitle="Banners to help your site look great!"
-              btnText="Kontakt"
-              cta="https://www.elliotrichardson.com"/>
+            <BannerParent/>
           </Route>
           <Route path="/team-building">
             <TeamBuildingParent/>
@@ -50,7 +45,10 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
+
+        <Footer />
+      </Layout>
+
     </Router>
   )
 }
