@@ -11,13 +11,49 @@ class Nav extends React.Component {
   }
 
   handleToggle() {
-    this.setState(state => ({
+    this.setState( state => ( {
       isMenuActive: !state.isMenuActive
-    }))
+    } ) )
   }
 
   render() {
     let isActive = this.state.isMenuActive ? styles.isActive : ''
+
+    const navMenu = [ {
+        route: '/',
+        text: 'Home'
+      },
+      {
+        route: '/page-banner',
+        text: 'Page Banner'
+      },
+      {
+        route: '/hover-pods',
+        text: 'Hover Pods'
+      },
+      {
+        route: '/team-building',
+        text: 'Team Building'
+      },
+      {
+        route: '/happy-dots',
+        text: 'Happy Dots'
+      }
+    ]
+
+    let navPrint = navMenu.map( ( item, i ) => {
+      return <li key={i} style={{transitionDelay: 100 * i + 'ms'}}>
+                <NavLink exact to={item.route}
+                  activeClassName={styles.selected}>{item.text}</NavLink>
+              </li>
+    } )
+
+    let mobileNavPrint = navMenu.map( ( item, i ) => {
+      return <li key={i} className={`${isActive}`} style={{transitionDelay: 100 * i + 'ms'}}>
+                     <NavLink exact to={item.route}
+                       activeClassName={styles.selected}>{item.text}</NavLink>
+                   </li>
+    } )
 
     return (
       <div className={styles.NavContainer}>
@@ -29,51 +65,13 @@ class Nav extends React.Component {
           click={this.handleToggle.bind(this)}/>
         <nav className={styles.NavDesktop}>
           <ul>
-            <li>
-              <NavLink exact to='/'
-                activeClassName={styles.selected}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/page-banner'
-                activeClassName={styles.selected}>Page Banner</NavLink>
-            </li>
-            <li>
-              <NavLink to='/hover-pods'
-                activeClassName={styles.selected}>Hover Pods</NavLink>
-            </li>
-            <li>
-              <NavLink to='/team-building'
-                activeClassName={styles.selected}>Team Building</NavLink>
-            </li>
-            <li>
-              <NavLink to='/happy-dots'
-                activeClassName={styles.selected}>Happy Dots</NavLink>
-            </li>
+            {navPrint}
           </ul>
         </nav>
 
         <nav className={`${styles.NavMobile} ${isActive}`}>
           <ul>
-            <li>
-              <NavLink exact to='/'
-                activeClassName={styles.selected}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/page-banner'
-                activeClassName={styles.selected}>Page Banner</NavLink>
-            </li>
-            <li>
-              <NavLink to='/hover-pods'
-                activeClassName={styles.selected}>Hover Pods</NavLink>
-            </li>
-            <li>
-              <NavLink to='/team-building'
-                activeClassName={styles.selected}>Team Building</NavLink>
-            </li>
-            <li>
-              <NavLink to='/happy-dots'
-                activeClassName={styles.selected}>Happy Dots</NavLink>
-            </li>
+            {mobileNavPrint}
           </ul>
         </nav>
       </div>

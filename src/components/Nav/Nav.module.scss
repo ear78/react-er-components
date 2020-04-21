@@ -8,7 +8,7 @@
   .ImgWrapper {
     width: auto;
   }
-  
+
   img {
     width: 50px;
   }
@@ -48,6 +48,7 @@
    -----------------------------------------*/
   .NavMobile {
     display: block;
+    visibility: visible;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -71,6 +72,14 @@
     li {
       margin-right: 15px;
       list-style-type: none;
+      transform: translateX(-350%);
+      opacity: 0;
+      transition: all .8s ease;
+
+      &.isActive {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     a {
@@ -90,7 +99,7 @@
   }
 
   .NavMobile.isActive {
-    transform: translateX(10px);
+    transform: translateX(3%);
   }
 
   @media (orientation: landscape) {
@@ -106,7 +115,8 @@
     }
 
     .NavMobile {
-      display: none;
+      // display: none;
+      visibility: hidden;
     }
   }
 }
