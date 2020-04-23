@@ -9,28 +9,30 @@ class hoverPods extends React.Component {
     hoverPodsMounted: false
   }
   componentDidMount() {
-    setTimeout(() => {
-      this.setState((state) => {
+    setTimeout( () => {
+      this.setState( ( state ) => {
         return { hoverPodsMounted: !state.hoverPodsMounted }
-      })
-    }, 900)
+      } )
+    }, 900 )
 
   }
   render() {
     let hoverPod
-    if(this.state.hoverPodsMounted) {
+    if ( this.state.hoverPodsMounted ) {
       hoverPod = this.props.podData.map( ( pod, index ) => {
         return <div
         key={index}
         style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${ index * .1 }s` }}
         className={styles.Pod}>
-        <div style={{ backgroundColor: `${pod.podBgColor}`}} className={styles.HoverColor}>
-          <p style={{ color: `${pod.podTextColor}`}} className={styles.HoverText}>{pod.podText}</p>
-        </div>
+        <a href={pod.podLink} target={pod.podNewTab ? '_blank' : ''}>
+          <div style={{ backgroundColor: `${pod.podBgColor}`}} className={styles.HoverColor}>
+            <p style={{ color: `${pod.podTextColor}`}} className={styles.HoverText}>{pod.podText}</p>
+          </div>
+        </a>
+
       </div>
-      })
-    }
-    else {
+      } )
+    } else {
       hoverPod = null
     }
 

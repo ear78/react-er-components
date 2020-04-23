@@ -1,32 +1,20 @@
 import React, { Component } from 'react'
-
 import styles from './SocialComp.module.css'
-import SocialLink from '../SocialLink/SocialLink'
 
-class SocialComp extends Component {
-  state = {
-    socialItems: [
-      { platform: 'linkedin',  path: 'https://linkedin.com'},
-      { platform: 'twitter-square',  path: 'https://twitter.com'},
-      { platform: 'github-square',  path: 'https://github.com/ear78'},
-      { platform: 'instagram',  path: 'https://instagram.com/elliot.richardson'},
-    ]
-  }
+import SocialIcon from '../SocialIcon/SocialIcon'
 
-  render(){
-    const socialLink = this.state.socialItems.map((item,index) => {
-      return <SocialLink
+function socialComp( props ) {
+  const socialIcon = props.data.map( ( item, index ) => {
+    return <SocialIcon
                 key={index}
                 path={item.path}
                 platform={item.platform}/>
-    })
-    return (
-      <div className={styles.SocialComp}>
-        {socialLink}
+  } )
+  return (
+    <div className={styles.SocialComp}>
+        {socialIcon}
       </div>
-    )
-  }
-
+  )
 }
 
-export default SocialComp
+export default socialComp

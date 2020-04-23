@@ -1,4 +1,3 @@
-
 import building from '../img/pinkBuilding.jpg'
 import snowGhosts from '../img/snowghosts.jpg'
 import greyBuilding from '../img/building-resize.jpg'
@@ -17,7 +16,8 @@ import portfolio11 from '../img/UserMale.svg'
 import portfolio12 from '../img/femaleUser.svg'
 
 export const homeData = {
-  desc: 'Please use the navigation to preview and try out these components I built from the ground up with React.js.  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. Technologies used are React, React Transition Group, Css Modules, Sass, and of course Javascript since React is all Javascript. Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only.'
+  desc: 'Please use the navigation to preview and try out these components I built from the ground up with React.js.  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. Technologies used are React, React Transition Group, Css Modules, Sass, and of course Javascript since React is all Javascript. Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. Current custom components are',
+  components: 'SocialComp, Nav, Copyright, HappyDots, Spinner, Banner, HoverPods, TeamBuilding'
 }
 
 export const happyData = [ {
@@ -52,31 +52,41 @@ export const happyData = [ {
   }
 ]
 
-export const podData = [
-  { podBgImage: echoTowerSml,
+export const podData = [ {
+    podBgImage: echoTowerSml,
     podBgColor: '#000000ad',
     podTextColor: '#fff',
-    podText: 'Hello'
+    podText: 'Hello',
+    podLink: 'https://www.apple.com',
+    podNewTab: true
   },
-  { podBgImage: chairsSml,
+  {
+    podBgImage: chairsSml,
     podBgColor: '#000000ad',
     podTextColor: '#fff',
-    podText: 'I\'m'
+    podText: 'I\'m',
+    podLink: 'https://www.apple.com',
+    podNewTab: true
   },
-  { podBgImage: greyBuilding,
+  {
+    podBgImage: greyBuilding,
     podBgColor: '#000000ad',
     podTextColor: '#fff',
-    podText: 'A'
+    podText: 'A',
+    podLink: 'https://www.apple.com',
+    podNewTab: true
   },
-  { podBgImage: stripesSml,
+  {
+    podBgImage: stripesSml,
     podBgColor: '#000000ad',
     podTextColor: '#fff',
-    podText: 'Hover Pod'
+    podText: 'Hover Pod',
+    podLink: 'https://www.apple.com',
+    podNewTab: true
   },
 ]
 
-export const  teamMembers = [
-  {
+export const teamMembers = [ {
     image: portfolio11,
     name: 'Jack Reacher',
     jobTitle: 'Professional Hitman',
@@ -158,14 +168,31 @@ export const  teamMembers = [
   }
 ]
 
-export const sectionData = [
+export const socialItems = [ {
+    platform: 'linkedin',
+    path: 'https://linkedin.com/in/elliot-richardson'
+  },
   {
+    platform: 'twitter-square',
+    path: 'https://twitter.com/mixermanelliot'
+  },
+  {
+    platform: 'github-square',
+    path: 'https://github.com/ear78'
+  },
+  {
+    platform: 'instagram',
+    path: 'https://instagram.com/elliot.richardson'
+  },
+]
+
+export const sectionData = [ {
     id: 'test',
-    img: echoTower
+    img: chairs
   },
   {
     id: 'test1',
-    img: jail
+    img: echoTower
   },
   {
     id: 'test2',
@@ -177,6 +204,6 @@ export const sectionData = [
   },
   {
     id: 'test4',
-    img: chairs
+    img: jail
   }
 ]

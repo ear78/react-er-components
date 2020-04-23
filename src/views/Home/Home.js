@@ -16,7 +16,7 @@ function home() {
     <div className={styles.HomeContainer}>
       <p className={styles.Left}>
         <span>Welcome to ER Components! </span>
-        {homeData.desc}
+        {homeData.desc}&nbsp;<span>{homeData.components}</span>
       </p>
       <p className={styles.Right}>
         <div style={er}>ER</div>
