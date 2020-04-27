@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
 import styles from './App.module.scss'
 
 /* Global Layout Components */
@@ -14,6 +14,7 @@ import BannerParent from './views/Banner/BannerParent'
 import HoverPodsParent from './views/HoverPods/HoverPodsParent'
 import TeamBuildingParent from './views/TeamBuilding/TeamBuildingParent'
 import HappyDotsParent from './views/HappyDots/HappyDotsParent'
+import DropperParent from './views/Dropper/DropperParent'
 
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,36 +22,37 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add( fab )
 
 function App() {
-  return (
-    <Router forceRefresh={true}>
-      <Spinner />
+  return ( <Router forceRefresh={true}>
+    <Spinner/>
 
-      <Layout>
-        <Nav/>
+    <Layout>
+      <Nav/>
 
-        <Switch>
-          <Route path="/happy-dots">
-            <HappyDotsParent/>
-          </Route>
-          <Route path="/hover-pods">
-            <HoverPodsParent/>
-          </Route>
-          <Route path="/page-banner">
-            <BannerParent/>
-          </Route>
-          <Route path="/team-building">
-            <TeamBuildingParent/>
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path="/happy-dots">
+          <HappyDotsParent/>
+        </Route>
+        <Route path="/hover-pods">
+          <HoverPodsParent/>
+        </Route>
+        <Route path="/page-banner">
+          <BannerParent/>
+        </Route>
+        <Route path="/team-building">
+          <TeamBuildingParent/>
+        </Route>
+        <Route path="/dropper">
+          <DropperParent/>
+        </Route>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
 
-        <Footer />
-      </Layout>
+      <Footer/>
+    </Layout>
 
-    </Router>
-  )
+  </Router> )
 }
 
 export default App
