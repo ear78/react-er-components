@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
 import Hamburger from '../Hamburger/Hamburger'
@@ -17,65 +17,67 @@ class Nav extends React.Component {
   }
 
   render() {
-    let isActive = this.state.isMenuActive ? styles.isActive : ''
+    let isActive = this.state.isMenuActive
+      ? styles.isActive
+      : ''
 
-    const navMenu = [ {
+    const navMenu = [
+      {
         route: '/',
-        text: 'Home'
-      },
-      {
+        text: 'Home',
+      }, {
         route: '/page-banner',
-        text: 'Page Banner'
-      },
-      {
+        text: 'Page Banner',
+      }, {
         route: '/hover-pods',
-        text: 'Hover Pods'
-      },
-      {
+        text: 'Hover Pods',
+      }, {
         route: '/team-building',
-        text: 'Team Building'
-      },
-      {
+        text: 'Team Building',
+      }, {
         route: '/happy-dots',
-        text: 'Happy Dots'
-      }
+        text: 'Happy Dots',
+      }, {
+        route: '/dropper',
+        text: 'Dropper',
+      },
     ]
 
     let navPrint = navMenu.map( ( item, i ) => {
-      return <li key={i} style={{transitionDelay: 100 * i + 'ms'}}>
-                <NavLink exact to={item.route}
-                  activeClassName={styles.selected}>{item.text}</NavLink>
-              </li>
+      return <li key={i} style={{
+          transitionDelay: 100 * i + 'ms'
+        }}>
+        <NavLink exact="exact" to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
+      </li>
     } )
 
     let mobileNavPrint = navMenu.map( ( item, i ) => {
-      return <li key={i} className={`${isActive}`} style={{transitionDelay: 100 * i + 'ms'}}>
-                     <NavLink exact to={item.route}
-                       activeClassName={styles.selected}>{item.text}</NavLink>
-                   </li>
+      return <li key={i} className={`${ isActive }`} style={{
+          transitionDelay: 100 * i + 'ms'
+        }}>
+        <NavLink exact="exact" to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
+      </li>
     } )
 
-    return (
-      <div className={styles.NavContainer}>
-        <Link className={styles.ImgWrapper} to="/">
-          <img  src={logo} alt="ER Logo" />
-        </Link>
-        <Hamburger
-          isActive={this.state.isMenuActive}
-          click={this.handleToggle.bind(this)}/>
-        <nav className={styles.NavDesktop}>
-          <ul>
-            {navPrint}
-          </ul>
-        </nav>
+    return ( <div className={styles.NavContainer}>
+      <Link className={styles.ImgWrapper} to="/">
+        <img src={logo} alt="ER Logo"/>
+      </Link>
+      <Hamburger isActive={this.state.isMenuActive} click={this
+          .handleToggle
+          .bind( this )}/>
+      <nav className={styles.NavDesktop}>
+        <ul>
+          {navPrint}
+        </ul>
+      </nav>
 
-        <nav className={`${styles.NavMobile} ${isActive}`}>
-          <ul>
-            {mobileNavPrint}
-          </ul>
-        </nav>
-      </div>
-    )
+      <nav className={`${ styles.NavMobile} ${ isActive }`}>
+        <ul>
+          {mobileNavPrint}
+        </ul>
+      </nav>
+    </div> )
   }
 }
 

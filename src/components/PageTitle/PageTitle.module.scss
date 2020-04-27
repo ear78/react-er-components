@@ -4,15 +4,15 @@
   font-weight: 400;
   letter-spacing: 10px;
   text-transform: uppercase;
+  border-radius: 3px;
 
   &.Alt {
     background: #454545;
     color: white;
     padding: 15px;
-    box-shadow: 0px 3px 8px rgba(0,0,0,.1)
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
   }
 }
-
 @media(min-width: 768px) {
   .PageTitle {
     letter-spacing: 13px;
