@@ -19,7 +19,8 @@ import DropperParent from './views/Dropper/DropperParent'
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-library.add( fab )
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+library.add( fab, faAngleDown, faAngleUp )
 
 function App() {
   return ( <Router forceRefresh={true}>
