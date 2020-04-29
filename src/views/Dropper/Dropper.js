@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Dropper.module.scss'
 
-const dropper = ( props ) => {
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
+const Dropper = ( props ) => {
+
+  const [isToggled, setToggled] = useState(false)
+
+  let active = isToggled ? styles.Active : ''
+
   return ( <section>
-    <header onClick={props.click} className={styles.DropperHeader}>
-      I'm a DropperHeader
+    <header onClick={() => setToggled(!isToggled)} className={styles.DropperHeader}>
+      <p className={styles.DropperTitle}>{props.title}</p>
+      <FontAwesomeIcon className={`${styles.DropperIcon} ${active}`} icon={props.iconName} />
     </header>
-    <div className={styles.DropperContent}>
+    <div className={`${styles.DropperContent} ${active}`}>
       I'm the content that is connected to the dropper...
     </div>
   </section> )
 }
 
-export default dropper
+export default Dropper
