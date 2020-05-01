@@ -207,3 +207,26 @@ export const sectionData = [ {
     img: jail
   }
 ]
+
+export const dropperData = [
+  {
+    title: 'I\'m a dropper title...',
+    icon: 'angle-down',
+    content: 'I\'m the content that is connected to the dropper...'
+  },
+  {
+    title: 'I\'m a dropper title...',
+    icon: 'angle-down',
+    content: 'I\'m the content that is connected to the dropper...'
+  },
+  {
+    title: 'I\'m a dropper title...',
+    icon: 'angle-down',
+    content: 'I\'m the content that is connected to the dropper...'
+  },
+  {
+    title: 'I\'m a dropper title...',
+    icon: 'angle-down',
+    content: 'I\'m the content that is connected to the dropper...'
+  },
+]

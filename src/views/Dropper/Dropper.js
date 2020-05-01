@@ -15,7 +15,7 @@ const Dropper = ( props ) => {
       <FontAwesomeIcon className={`${styles.DropperIcon} ${active}`} icon={props.iconName} />
     </header>
     <div className={`${styles.DropperContent} ${active}`}>
-      I'm the content that is connected to the dropper...
+      {props.children}
     </div>
   </section> )
 }
