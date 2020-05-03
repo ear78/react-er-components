@@ -9,7 +9,7 @@ const Dropper = ( props ) => {
 
   let active = isToggled ? styles.Active : ''
 
-  return ( <section>
+  return ( <section className={styles.Dropper}>
     <header onClick={() => setToggled(!isToggled)} className={styles.DropperHeader}>
       <p className={styles.DropperTitle}>{props.title}</p>
       <FontAwesomeIcon className={`${styles.DropperIcon} ${active}`} icon={props.iconName} />
