@@ -1,9 +1,11 @@
 import React from 'react'
+import { dropperData } from '../../assets/js/data'
+import styles from './DropperParent'
+
 import Dropper from './Dropper'
 import PageTitle from '../../components/PageTitle/PageTitle'
 import Spacer from '../../components/Spacer/Spacer'
-import { dropperData } from '../../assets/js/data'
-import styles from './DropperParent'
+import Container from '../../components/Container/Container'
 
 class DropperParent extends React.Component {
 
@@ -14,9 +16,11 @@ class DropperParent extends React.Component {
     })
     return (
       <section className={styles.DropperParent}>
-        <PageTitle title="Dropper"/>
-        <Spacer height={50}/>
-        {dropper}
+        <Container>
+          <PageTitle title="Dropper"/>
+          <Spacer height={50}/>
+          {dropper}
+        </Container>
       </section>
 
     )
