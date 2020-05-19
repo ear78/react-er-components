@@ -16,7 +16,7 @@ function happyDots( props ) {
       return ref.current.id === v
     })
     found.current.scrollIntoView({
-      behavior: "smooth", block: "end", inline: "nearest"
+      behavior: "smooth", block: "center", inline: "nearest"
     })
   }
 

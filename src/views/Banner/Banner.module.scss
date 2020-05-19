@@ -97,10 +97,9 @@ a {
   }
 }
 @media (min-width: 768px) {
-  .BackgroundImg {
-    min-height: 500px;
-  }
-
+  // .BackgroundImg {
+  //   min-height: 500px;
+  // }
   .Title {
     font-size: 4rem;
   }
@@ -120,7 +119,7 @@ a {
 }
 @media (min-width: 1024px) {
   .BackgroundImg {
-    min-height: 550px;
+    min-height: 500px;
   }
 
   .Overlay {

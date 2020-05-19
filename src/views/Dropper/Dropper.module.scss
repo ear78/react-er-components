@@ -22,6 +22,11 @@
   }
 }
 
+.DropperHeader.Active {
+  background: $black;
+  color: $white;
+}
+
 .DropperIcon {
   transition: all 0.2s ease;
 }

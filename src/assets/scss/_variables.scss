@@ -1,9 +1,12 @@
 /** Colors */
-
 $white: #fff;
+$black: #000;
 $lighterGray: #f7f7f7;
 $lightGray: #ebebeb;
 $hotPink: #f73a7b;
-
 $border: 1px solid $lightGray;
 $boxBackgroundColor: $lighterGray;
+/** Mixins */
+@mixin border {
+  border: 1px solid $lightGray;
+}

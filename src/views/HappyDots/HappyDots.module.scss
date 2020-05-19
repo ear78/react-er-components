@@ -1,6 +1,8 @@
+@import '../../assets/scss/_variables.scss';
+
 .HappyDotsContainer {
   padding: 15px;
-  border: 1px solid #ebebeb;
+  @include border;
   border-radius: 3px;
 
   .RefSection {
@@ -22,7 +24,7 @@
     width: initial;
     padding: 35px;
     box-sizing: border-box;
-    background: #f7f7f7;
+    background: $lighterGray;
   }
 }
 
@@ -47,6 +49,7 @@
 
     &:hover {
       cursor: pointer;
+      background: $white;
       // border: 3px solid #212121;
     }
 
@@ -88,7 +91,6 @@
     transition: all 0.35s ease;
   }
 }
-
 @media screen and (min-width: 768px) {
   .HappyDotsContainer {
     .RefSection {
@@ -100,7 +102,6 @@
     }
 
     .BgImage {
-      height: 500px;
       width: 50%;
     }
   }
