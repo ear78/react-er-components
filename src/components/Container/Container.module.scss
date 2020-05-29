@@ -1,6 +1,8 @@
+@import '../../assets/scss/variables.scss';
+
 .Container {
-  background: #f7f7f7;
+  background: $lighterGray;
   padding: 40px 15px 75px;
-  border: 1px solid #ebebeb;
+  @include border;
   border-radius: 3px;
 }

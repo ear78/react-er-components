@@ -1,0 +1,11 @@
+@import '../../assets/scss/variables.scss';
+
+.ContainerLeft {
+  @include border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  background: $black;
+  padding: 15px;
+}
