@@ -5,7 +5,7 @@ import styles from './PageTitle.module.scss'
 function pageTitle( props ) {
   let alt = props.alt ? styles.Alt : ''
 
-  return ( <h1 className={`${styles.PageTitle} ${alt}`}>&lt;{props.title}/&gt;</h1> )
+  return ( <h1 style={{color: props.color}} className={`${styles.PageTitle} ${alt}`}>&lt;{props.title}/&gt;</h1> )
 }
 
 pageTitle.propTypes = {

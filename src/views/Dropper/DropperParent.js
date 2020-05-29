@@ -4,8 +4,9 @@ import styles from './DropperParent'
 
 import Dropper from './Dropper'
 import PageTitle from '../../components/PageTitle/PageTitle'
-import Spacer from '../../components/Spacer/Spacer'
 import Container from '../../components/Container/Container'
+import ContainerRight from '../../components/ContainerRight/ContainerRight'
+import ContainerLeft from '../../components/ContainerLeft/ContainerLeft'
 
 class DropperParent extends React.Component {
 
@@ -16,10 +17,13 @@ class DropperParent extends React.Component {
     })
     return (
       <section className={styles.DropperParent}>
-        <Container>
-          <PageTitle title="Dropper"/>
-          <Spacer height={50}/>
-          {dropper}
+        <Container display="flex" padding={40}>
+          <ContainerLeft>
+            <PageTitle title="Dropper" color={'#f73a7b'}/>
+          </ContainerLeft>
+          <ContainerRight>
+            {dropper}
+          </ContainerRight>
         </Container>
       </section>
 
