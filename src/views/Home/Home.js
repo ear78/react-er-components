@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Home.module.scss'
-import PageTitle from '../../components/PageTitle/PageTitle'
-import { homeData } from '../../assets/js/data'
+import PageTitle from 'components/PageTitle/PageTitle'
+import { homeData } from 'assets/js/data'
 
 function home() {
   let er = {

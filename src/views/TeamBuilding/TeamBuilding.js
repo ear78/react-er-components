@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransitionGroup } from 'react-transition-group'
 import styles from './TeamBuilding.module.scss'
-import logo from '../../assets/img/er-logo.svg'
-import { teamMembers } from '../../assets/js/data'
+import logo from 'assets/img/er-logo.svg'
+import { teamMembers } from 'assets/js/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PageTitle from '../../components/PageTitle/PageTitle'
+import PageTitle from 'components/PageTitle/PageTitle'
 
 function teamBuilding( props ) {
   let members = teamMembers.map( ( member, i ) => {

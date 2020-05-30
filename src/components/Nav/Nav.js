@@ -2,8 +2,8 @@ import React from 'react'
 import { NavLink, Link, } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
-import Hamburger from '../Hamburger/Hamburger'
-import logo from '../../assets/img/er-logo.svg'
+import Hamburger from 'components/Hamburger/Hamburger'
+import logo from 'assets/img/er-logo.svg'
 
 class Nav extends React.Component {
   state = {

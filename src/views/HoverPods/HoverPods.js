@@ -2,7 +2,7 @@ import React from 'react'
 import { CSSTransitionGroup } from 'react-transition-group'
 import PropTypes from 'prop-types'
 import styles from './HoverPods.module.scss'
-import PageTitle from '../../components/PageTitle/PageTitle'
+import PageTitle from 'components/PageTitle/PageTitle'
 
 class hoverPods extends React.Component {
   state = {
