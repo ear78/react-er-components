@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './HappyDotsParent.module.scss'
-import PageTitle from '../../components/PageTitle/PageTitle'
-import Spacer from '../../components/Spacer/Spacer'
+import PageTitle from 'components/PageTitle/PageTitle'
+import Spacer from 'components/Spacer/Spacer'
 import HappyDots from './HappyDots'
-import { happyData, sectionData } from '../../assets/js/data'
+import { happyData, sectionData } from 'assets/js/data'
 
 class HappyDotsParent extends React.Component {
   render() {

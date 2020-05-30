@@ -1,12 +1,12 @@
 import React from 'react'
-import { dropperData } from '../../assets/js/data'
+import { dropperData } from 'assets/js/data'
 import styles from './DropperParent'
 
 import Dropper from './Dropper'
-import PageTitle from '../../components/PageTitle/PageTitle'
-import Container from '../../components/Container/Container'
-import ContainerRight from '../../components/ContainerRight/ContainerRight'
-import ContainerLeft from '../../components/ContainerLeft/ContainerLeft'
+import PageTitle from 'components/PageTitle/PageTitle'
+import Container from 'components/Container/Container'
+import ContainerRight from 'components/ContainerRight/ContainerRight'
+import ContainerLeft from 'components/ContainerLeft/ContainerLeft'
 
 class DropperParent extends React.Component {
 
