@@ -1,6 +1,7 @@
 import React from 'react'
 import { dropperData } from 'assets/js/data'
 import styles from './DropperParent'
+import colors from 'assets/js/colors'
 
 import Dropper from './Dropper'
 import PageTitle from 'components/PageTitle/PageTitle'
@@ -18,8 +19,8 @@ class DropperParent extends React.Component {
     return (
       <section className={styles.DropperParent}>
         <Container display="flex" padding={40}>
-          <ContainerLeft>
-            <PageTitle title="Dropper" color={'#f73a7b'}/>
+          <ContainerLeft background={colors.black}>
+            <PageTitle title="Dropper" color={colors.hotPink}/>
           </ContainerLeft>
           <ContainerRight>
             {dropper}
