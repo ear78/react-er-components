@@ -1,13 +1,29 @@
 /** Colors */
 $white: #fff;
 $black: #000;
+$charcoal: #454545;
 $lighterGray: #f7f7f7;
 $lightGray: #ebebeb;
 $hotPink: #f73a7b;
+/** Element Colors **/
+$textColor: $charcoal;
 $border: 1px solid $lightGray;
 $boxBackgroundColor: $lighterGray;
 /** Mixins */
 @mixin border($radius: 3px) {
   border: 1px solid $lightGray;
   border-radius: $radius;
+}
+@mixin button() {
+  background: $hotPink;
+  color: $white;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+  padding: 0;
+  font-size: 0.7rem;
+  border-radius: 25px;
+  transition: all 0.2s ease;
 }

@@ -1,10 +1,12 @@
+@import '../../assets/scss/_variables.scss';
+
 .BackgroundImg {
   position: relative;
-  background: #000;
+  background: $black;
   background-size: cover;
   width: 100%;
   min-height: 450px;
-  color: #fff;
+  color: $white;
 }
 
 .BackgroundImg.Center {
@@ -37,10 +39,14 @@
   background: rgba(0, 0, 0, .4);
 }
 
+.Overlay.OverlayNone {
+  background: transparent;
+}
+
 .PreTitle,
 .SubTitle,
 .Title {
-  color: #fff;
+  color: $white;
 }
 
 .PreTitle {
@@ -62,29 +68,22 @@
 .PreTitle.DarkText,
 .SubTitle.DarkText,
 .Title.DarkText {
-  color: #454545;
+  color: $textColor;
 }
 
 .Button {
-  background: #f73a7b;
-  color: #fff;
-  border: none;
-  text-transform: uppercase;
-  font-weight: 600;
-  height: 40px;
-  width: 130px;
-  padding: 0;
-  font-size: 0.7rem;
-  transition: all 0.2s ease;
+  @include button;
 
   &:hover {
     background: rgba(0,0,0,.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.5);
   }
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: $white;
   display: block;
   width: 100%;
   height: 100%;
@@ -97,9 +96,6 @@ a {
   }
 }
 @media (min-width: 768px) {
-  // .BackgroundImg {
-  //   min-height: 500px;
-  // }
   .Title {
     font-size: 4rem;
   }
