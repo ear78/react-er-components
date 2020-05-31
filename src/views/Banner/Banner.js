@@ -5,6 +5,7 @@ import styles from './Banner.module.scss'
 
 function banner( props ) {
   let btnColor = props.btnColor
+  let overlay = props.overlay ? '' : styles.OverlayNone
   let overlayDark = props.overlayDark ? styles.Dark : ''
   let overlayFull = props.overlayFull ? styles.Full : ''
   let textAlign = props.textAlign === 'center' ? styles.Center : props.textAlign === 'right' ? styles.Right : ''
@@ -17,12 +18,12 @@ function banner( props ) {
     <div
       className={`${styles.BackgroundImg} ${textAlign}`}
         style={backgroundImg}>
-        <div className={`${styles.Overlay} ${overlayFull} ${overlayDark}`}>
+        <div className={`${styles.Overlay} ${overlayFull} ${overlayDark} ${overlay}`}>
             <p className={`${styles.PreTitle} ${textColor}`}>{props.preTitle}</p>
               <h1 className={`${styles.Title} ${textColor}`}>{props.title}</h1>
                 <p className={`${styles.SubTitle} ${textColor}`}>{props.subTitle}</p>
             <button style={{background: `${props.btnColor}`}} className={styles.Button}>
-              <a href={props.cta}
+              <a href={props.ctaUrl}
                 target={props.target ? '_blank' : ''}>{props.btnText}</a>
             </button>
           </div>
@@ -32,6 +33,7 @@ function banner( props ) {
 
 banner.defaultProps = {
   target: true,
+  overlay: true,
   overlayFull: false,
   overlayDark: false
 };
@@ -39,13 +41,14 @@ banner.defaultProps = {
 banner.propTypes = {
   bgImage: PropTypes.string,
   btnColor: PropTypes.string,
-  preTitle: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string,
   btnText: PropTypes.string,
-  cta: PropTypes.string,
+  ctaUrl: PropTypes.string,
+  preTitle: PropTypes.string,
+  overlay: PropTypes.bool,
+  subTitle: PropTypes.string,
   target: PropTypes.bool,
-  textColor: PropTypes.string
+  textColor: PropTypes.string,
+  title: PropTypes.string.isRequired
 }
 
 export default banner

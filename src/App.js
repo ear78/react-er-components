@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
-import styles from './App.module.scss'
 
 /* Global Layout Components */
 import Nav from './components/Nav/Nav'
