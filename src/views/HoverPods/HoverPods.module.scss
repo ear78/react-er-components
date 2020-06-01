@@ -1,6 +1,6 @@
 @import '../../assets/scss/_variables.scss';
 
-#HoverPodsPageContainer{
+#HoverPodsPageContainer {
   background: $boxBackgroundColor;
   padding: 40px 0 75px;
   border: $border;
@@ -23,7 +23,7 @@
 
     .Pod {
       position: relative;
-      background-size: cover ;
+      background-size: cover;
       width: 200px;
       height: 200px;
       border-radius: 50%;
@@ -33,7 +33,7 @@
       &:hover .HoverText {
         top: 45%;
         cursor: pointer;
-        opacity: 1
+        opacity: 1;
       }
 
       a {
@@ -47,7 +47,8 @@
       background: #c50043ad;
       border-radius: 50%;
       opacity: 0;
-      transition: opacity .2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.2s ease;
     }
 
     .HoverText {
@@ -58,33 +59,37 @@
       width: 100%;
       text-align: center;
       opacity: 0;
-      transition: opacity .2s ease .1s, top .2s ease.1s;
+      transition: opacity 0.2s ease 0.1s, top 0.2s ease.1s;
     }
+  }
 }
 
-}
 .appear {
   opacity: 0;
 }
+
 .appear.appearActive {
   opacity: 1;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
-  .enter {
+
+.enter {
   opacity: 0;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
+
 .enter.enterActive {
   opacity: 1;
 }
+
 .leave {
   opacity: 1;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
+
 .leave.leaveActive {
   opacity: 0;
 }
-
 @media(min-width: 768px) {
   #HoverPodsPageContainer {
     .HoverPodsContainer {
@@ -92,8 +97,7 @@
     }
   }
 }
-
-@media(min-width: 768px) and (max-width: 1000px){
+@media(min-width: 768px) and (max-width: 1000px) {
   #HoverPodsPageContainer {
     .HoverPodsContainer {
       .Pod {
