@@ -9,11 +9,13 @@ $hotPink: #f73a7b;
 $textColor: $charcoal;
 $border: 1px solid $lightGray;
 $boxBackgroundColor: $lighterGray;
+
 /** Mixins */
 @mixin border($radius: 3px) {
   border: 1px solid $lightGray;
   border-radius: $radius;
 }
+
 @mixin button() {
   background: $hotPink;
   color: $white;
