@@ -9,6 +9,11 @@
     display: flex;
     padding: 15px 0;
     flex-direction: column;
+    border-bottom: 1px solid $lightGray;
+  }
+
+  .RefSection:last-child {
+    border: none;
   }
 
   .BgImage {
@@ -68,10 +73,12 @@
     &::before {
       position: absolute;
       content: "";
+      top: -1px;
+      left: -1px;
       height: 12px;
       width: 12px;
       background-color: $white;
-      // border: 1px solid yellow;
+      border: 1px solid $hotPink;
       border-radius: 50%;
       display: inline-block;
       z-index: -1;
