@@ -5,10 +5,16 @@ $charcoal: #454545;
 $lighterGray: #f7f7f7;
 $lightGray: #ebebeb;
 $hotPink: #f73a7b;
+
 /** Element Colors **/
 $textColor: $charcoal;
 $border: 1px solid $lightGray;
 $boxBackgroundColor: $lighterGray;
+
+/** Transitions **/
+$fastTransition: all 0.125s ease;
+$mediumTransition: all 0.3s ease;
+$slowTransition: all 0.5s ease;
 
 /** Mixins */
 @mixin border($radius: 3px) {
@@ -27,5 +33,5 @@ $boxBackgroundColor: $lighterGray;
   padding: 0;
   font-size: 0.7rem;
   border-radius: 25px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
