@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './Banner'
+import AppForm from '../../components/AppForm/AppForm'
 import building from 'assets/img/pinkBuilding.jpg'
 
 
@@ -12,7 +13,30 @@ class BannerParent extends React.Component {
       title: 'Page Banner',
       subTitle: 'Banners to help your site look great!',
       btnText: 'Kontakt',
-      ctaUrl: 'https://www.elliotrichardson.com'
+      ctaUrl: 'https://www.elliotrichardson.com',
+      btnColor: '',
+      formData: [
+        {
+          inputType: 'text',
+          labelText: 'Banner Pre Title',
+          change: this.handlePreTitle
+        },
+        {
+          inputType: 'text',
+          labelText: 'Banner Title',
+          change: this.handleTitle
+        },
+        {
+          inputType: 'text',
+          labelText: 'Banner Sub Title',
+          change: this.handleSubTitle
+        },
+        {
+          inputType: 'text',
+          labelText: 'Banner Button Text',
+          change: this.handleButtonText
+        }
+      ]
     }
   }
 
@@ -39,6 +63,24 @@ class BannerParent extends React.Component {
     })
   }
 
+  handleButtonText = (event) => {
+    let btnText = event.target.value
+    this.setState((state) => {
+      return {
+        btnText: btnText
+      }
+    })
+  }
+
+  handleButtonColor = (event) => {
+    let btnColor = event.target.value
+    this.setState((state) => {
+      return {
+        btnColor: btnColor
+      }
+    })
+  }
+
   render() {
     return <div>
             <Banner
@@ -47,24 +89,11 @@ class BannerParent extends React.Component {
                     title={this.state.title}
                     subTitle={this.state.subTitle}
                     btnText={this.state.btnText}
-                    ctaUrl={this.state.ctaUrl}/>
-                  <form>
-                    <label>
-                      Pre Title:
-                      <input type="text"  onChange={this.handlePreTitle}/>
-                    </label>
-
-                    <label>
-                      Title:
-                      <input type="text" onChange={this.handleTitle}/>
-                    </label>
-
-                    <label>
-                      Sub Title:
-                      <input type="text" onChange={this.handleSubTitle}/>
-                    </label>
-                  </form>
-            </div>
+                    ctaUrl={this.state.ctaUrl}
+                    btnColor={this.state.btnColor}/>
+            <AppForm
+              formData={this.state.formData}/>
+          </div>
   }
 }
 

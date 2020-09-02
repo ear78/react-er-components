@@ -3,14 +3,11 @@ import PropTypes from 'prop-types'
 import styles from './Banner.module.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faChevronRight,
-  faArrowRight
-} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 
 function banner( props ) {
-  let btnColor = props.btnColor
+  let btnColor = props.btnColor ? props.btnColor : ''
   let overlay = props.overlay ? '' : styles.OverlayNone
   let overlayDark = props.overlayDark ? styles.Dark : ''
   let overlayFull = props.overlayFull ? styles.Full : ''
