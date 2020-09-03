@@ -82,19 +82,23 @@
 
   a {
     transform: translateX(5px);
-    transition: all 0.4s ease 0.2s;
+    transition: all 0.4s ease 0.1s;
+  }
+
+  &:hover a {
+    transform: translateX(0px);
   }
 
   .Arrow {
     visibility: hidden;
     opacity: 0;
-    transition: all 0.4s ease 0.2s;
+    transition: all 0.4s ease 0.1s;
   }
 
   &:hover .Arrow {
     visibility: visible;
     opacity: 1;
-    transform: translateX(7px);
+    transform: translateX(8px);
   }
 }
 

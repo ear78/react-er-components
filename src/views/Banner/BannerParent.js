@@ -8,6 +8,7 @@ class BannerParent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      showAppForm: false,
       bgImage: building,
       preTitle: 'Welcome to Page Banner',
       title: 'Page Banner',
@@ -82,6 +83,10 @@ class BannerParent extends React.Component {
   }
 
   render() {
+    let appForm = this.state.showAppForm ?
+    <AppForm formData={this.state.formData}/> :
+      null
+      
     return <div>
             <Banner
                     bgImage={building}
@@ -91,8 +96,7 @@ class BannerParent extends React.Component {
                     btnText={this.state.btnText}
                     ctaUrl={this.state.ctaUrl}
                     btnColor={this.state.btnColor}/>
-            <AppForm
-              formData={this.state.formData}/>
+            {appForm}
           </div>
   }
 }
