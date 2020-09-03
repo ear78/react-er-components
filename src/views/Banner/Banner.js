@@ -2,9 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Banner.module.scss'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
 
 function banner( props ) {
-  let btnColor = props.btnColor
+  let btnColor = props.btnColor ? props.btnColor : ''
   let overlay = props.overlay ? '' : styles.OverlayNone
   let overlayDark = props.overlayDark ? styles.Dark : ''
   let overlayFull = props.overlayFull ? styles.Full : ''
@@ -24,7 +27,9 @@ function banner( props ) {
                 <p className={`${styles.SubTitle} ${textColor}`}>{props.subTitle}</p>
             <button style={{background: `${props.btnColor}`}} className={styles.Button}>
               <a href={props.ctaUrl}
-                target={props.target ? '_blank' : ''}>{props.btnText}</a>
+                target={props.target ? '_blank' : ''}>{props.btnText}&nbsp;
+                <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight}/>
+              </a>
             </button>
           </div>
         </div>
