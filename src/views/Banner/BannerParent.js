@@ -8,7 +8,7 @@ class BannerParent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showAppForm: false,// show form for demo
+      showAppForm: true,// show form for demo
       bgImage: building,
       preTitle: 'Welcome to Page Banner',
       title: 'Page Banner',

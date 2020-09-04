@@ -12,9 +12,10 @@ function FormInput(props) {
       placeholder={props.placeHolder}
       onChange={props.change}/>
   }
-  return <label>
+  return <label className={styles.Container}>
           {props.labelText}
           {input}
+          {props.inputType === 'checkbox' ? <span className={styles.Checkmark}></span> : null }
         </label>
 }
 
