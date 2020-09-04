@@ -8,7 +8,7 @@ class BannerParent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showAppForm: false,
+      showAppForm: false,// show form for demo
       bgImage: building,
       preTitle: 'Welcome to Page Banner',
       title: 'Page Banner',
@@ -16,6 +16,9 @@ class BannerParent extends React.Component {
       btnText: 'Kontakt',
       ctaUrl: 'https://www.elliotrichardson.com',
       btnColor: '',
+      overlay: false,
+      overlayDark: false,
+      overlayFull: false,
       formData: [
         {
           inputType: 'text',
@@ -36,7 +39,27 @@ class BannerParent extends React.Component {
           inputType: 'text',
           labelText: 'Banner Button Text',
           change: this.handleButtonText
-        }
+        },
+        {
+          inputType: 'text',
+          labelText: 'Banner Button Color',
+          change: this.handleButtonColor
+        },
+        {
+          inputType: 'checkbox',
+          labelText: 'Banner Overlay',
+          change: this.handleOverlay
+        },
+        {
+          inputType: 'checkbox',
+          labelText: 'Banner Overlay Dark',
+          change: this.handleOverlayDark
+        },
+        {
+          inputType: 'checkbox',
+          labelText: 'Banner Overlay Full',
+          change: this.handleOverlayFull
+        },
       ]
     }
   }
@@ -82,11 +105,38 @@ class BannerParent extends React.Component {
     })
   }
 
+  handleOverlay = (event) => {
+    let overlay = event.target.checked
+    this.setState((state) => {
+      return {
+        overlay: overlay
+      }
+    })
+  }
+
+  handleOverlayDark = (event) => {
+    let overlayDark = event.target.checked
+    this.setState((state) => {
+      return {
+        overlayDark: overlayDark
+      }
+    })
+  }
+
+  handleOverlayFull = (event) => {
+    let overlayFull = event.target.checked
+    this.setState((state) => {
+      return {
+        overlayFull: overlayFull
+      }
+    })
+  }
+
   render() {
     let appForm = this.state.showAppForm ?
     <AppForm formData={this.state.formData}/> :
       null
-      
+
     return <div>
             <Banner
                     bgImage={building}
@@ -95,7 +145,10 @@ class BannerParent extends React.Component {
                     subTitle={this.state.subTitle}
                     btnText={this.state.btnText}
                     ctaUrl={this.state.ctaUrl}
-                    btnColor={this.state.btnColor}/>
+                    btnColor={this.state.btnColor}
+                    overlay={this.state.overlay}
+                    overlayDark={this.state.overlayDark}
+                    overlayFull={this.state.overlayFull}/>
             {appForm}
           </div>
   }

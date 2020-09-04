@@ -6,7 +6,7 @@ function AppForm(props) {
   let input = props.formData.map((d, i) => {
     return <FormInput key={i}
       labelText={d.labelText}
-      type={d.inputType}
+      inputType={d.inputType}
       change={d.change}
       placeholder={d.placeHolder}/>
   })
