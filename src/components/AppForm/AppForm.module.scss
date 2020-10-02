@@ -2,4 +2,9 @@
   display: flex;
   justify-content: space-between;
   padding: 30px 0 0;
+  flex-wrap: wrap;
+
+  input[type="checkbox"] {
+    margin-top: 10px;
+  }
 }
