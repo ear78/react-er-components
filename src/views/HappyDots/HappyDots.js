@@ -34,7 +34,7 @@ function happyDots( props ) {
                   key={d.id}
                   id={d.id}
                   ref={refs[i]}
-                  className={styles.RefSection}>
+                  className={(i % 2 !== 0) ? styles.RefReverse : styles.RefSection}>
                   <div
                     className={styles.BgImage}
                     style={{backgroundImage: `url(${d.img})`}}></div>

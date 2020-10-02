@@ -7,9 +7,7 @@
 
   .RefSection {
     display: flex;
-    padding: 15px 0;
     flex-direction: column;
-    border-bottom: 1px solid $lightGray;
   }
 
   .RefSection:last-child {
@@ -55,7 +53,6 @@
     &:hover {
       cursor: pointer;
       background: $white;
-      // border: 3px solid #212121;
     }
 
     &:hover .Text {
@@ -135,6 +132,11 @@
   .HappyDotsContainer {
     .RefSection {
       flex-direction: row;
+    }
+
+    .RefReverse {
+      display: flex;
+      flex-direction: row-reverse;
     }
 
     .TextBox {
