@@ -230,3 +230,7 @@ export const dropperData = [
     content: 'I\'m the content that is connected to the dropper...'
   },
 ]
+
+export const esliderData = [
+  building, snowGhosts, greyBuilding, echoTower
+]
