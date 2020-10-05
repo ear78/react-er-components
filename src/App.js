@@ -14,6 +14,7 @@ import HoverPodsParent from './views/HoverPods/HoverPodsParent'
 import TeamBuildingParent from './views/TeamBuilding/TeamBuildingParent'
 import HappyDotsParent from './views/HappyDots/HappyDotsParent'
 import DropperParent from './views/Dropper/DropperParent'
+import Eslider from './views/Eslider/Eslider'
 
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -29,6 +30,9 @@ function App() {
       <Nav/>
 
       <Switch>
+        <Route path="/e-slider">
+          <Eslider/>
+        </Route>
         <Route path="/happy-dots">
           <HappyDotsParent/>
         </Route>
