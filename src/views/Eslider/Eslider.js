@@ -8,12 +8,20 @@ class Eslider extends React.Component {
 
     this.state = {
       height: 0,
-      elements: []
+      elements: [],
     }
   }
 
   initSlides() {
-    console.log('init');
+    let initiedSlider = this.state.elements.map((el, i) => {
+      if(i === 0) {
+        el.isSlideActive = true
+      }
+      return el
+    })
+    this.setState((state) => ({
+      elements: [...initiedSlider, ...state.elements]
+    }))
   }
 
   componentDidMount() {
@@ -28,7 +36,9 @@ class Eslider extends React.Component {
       let domEl = React.createRef()
 
       return {
+        id: `img-${index}`,
         img: slide,
+        isSlideActive: false,
         ref: React.createRef()
       }
     })
@@ -40,20 +50,14 @@ class Eslider extends React.Component {
 
   }
 
-  // handleImageHeight() {
-    // let x = this.image.current.height
-    // console.log(x);
-  // }
-
   render() {
 
     let slides = this.state.elements.map((slide, index) => {
       let domEl = React.createRef()
-      return <div className={styles.ImageContainer}>
-              <img ref={slide.ref} id={`img-${index}`} src={slide.img}/>
+      return <div key={index} className={`${styles.ImageContainer} ${slide.isSlideActive ? styles.Active : ''}`}>
+              <img ref={slide.ref} id={slide.id} src={slide.img}/>
              </div>
     })
-    // console.log(this.state.elements);
 
     return (
       <section className={styles.Eslider}>
