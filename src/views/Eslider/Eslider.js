@@ -9,7 +9,26 @@ class Eslider extends React.Component {
     this.state = {
       height: 0,
       elements: [],
+      slideIndex: 0
     }
+  }
+
+  handleNext() {
+    console.log('fired');
+    if(this.state.slideIndex < this.state.elements.length)
+    this.setState((state) => ({
+      slideIndex: state.slideIndex + 1
+    }))
+  }
+
+  handlePrev() {
+    console.log('fired');
+    if(this.state.slideIndex > 0) {
+      this.setState((state) => ({
+        slideIndex: state.slideIndex - 1
+      }))
+    }
+
   }
 
   initSlides() {
@@ -19,8 +38,10 @@ class Eslider extends React.Component {
       }
       return el
     })
+
     this.setState((state) => ({
-      elements: [...initiedSlider, ...state.elements]
+      elements: [...initiedSlider],
+      slideIndex: 0
     }))
   }
 
@@ -47,7 +68,6 @@ class Eslider extends React.Component {
       elements: [...slides, ...this.state.elements]
     }))
 
-
   }
 
   render() {
@@ -60,8 +80,12 @@ class Eslider extends React.Component {
     })
 
     return (
-      <section className={styles.Eslider}>
-        {slides}
+      <section className={styles.EsliderContainer}>
+        <button onClick={this.handlePrev.bind(this)}>Prev</button>
+        <button onClick={this.handleNext.bind(this)}>Next</button>
+        <section className={styles.Eslider}>
+          {slides}
+        </section>
       </section>
     )
   }
