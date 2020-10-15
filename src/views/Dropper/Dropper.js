@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
 import styles from './Dropper.module.scss'
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -18,6 +20,11 @@ const Dropper = ( props ) => {
       {props.children}
     </div>
   </section> )
+}
+
+Dropper.propTypes = {
+  title: PropTypes.string,
+  iconName: PropTypes.string
 }
 
 export default Dropper
