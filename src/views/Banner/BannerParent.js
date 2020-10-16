@@ -1,5 +1,8 @@
 import React from 'react'
+import styles from './BannerParent.module.scss'
+
 import Banner from './Banner'
+import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from 'assets/img/pinkBuilding.jpg'
 
@@ -137,19 +140,27 @@ class BannerParent extends React.Component {
     <AppForm formData={this.state.formData}/> :
       null
 
-    return <div>
-            <Banner
-                    bgImage={building}
-                    preTitle={this.state.preTitle}
-                    title={this.state.title}
-                    subTitle={this.state.subTitle}
-                    btnText={this.state.btnText}
-                    ctaUrl={this.state.ctaUrl}
-                    btnColor={this.state.btnColor}
-                    overlay={this.state.overlay}
-                    overlayDark={this.state.overlayDark}
-                    overlayFull={this.state.overlayFull}/>
-            {appForm}
+    return <div className={styles.BannerParent}>
+            <div style={{maxHeight: '500px'}} className={styles.Sidebar}>
+              <H3Comp
+                title="Adjuster"
+                margin="0 0 20px 0"/>
+              {appForm}
+            </div>
+
+            <div className={styles.Content}>
+              <Banner
+                      bgImage={building}
+                      preTitle={this.state.preTitle}
+                      title={this.state.title}
+                      subTitle={this.state.subTitle}
+                      btnText={this.state.btnText}
+                      ctaUrl={this.state.ctaUrl}
+                      btnColor={this.state.btnColor}
+                      overlay={this.state.overlay}
+                      overlayDark={this.state.overlayDark}
+                      overlayFull={this.state.overlayFull}/>
+            </div>
           </div>
   }
 }
