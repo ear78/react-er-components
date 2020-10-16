@@ -5,6 +5,9 @@ import Banner from './Banner'
 import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from 'assets/img/pinkBuilding.jpg'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
+
 
 
 class BannerParent extends React.Component {
@@ -12,6 +15,7 @@ class BannerParent extends React.Component {
     super(props)
     this.state = {
       showAppForm: true,// show form for demo
+      isMenuActive: false,
       bgImage: building,
       preTitle: 'Welcome to Page Banner',
       title: 'Page Banner',
@@ -65,6 +69,18 @@ class BannerParent extends React.Component {
         },
       ]
     }
+  }
+
+  handleMenuOpen = () => {
+    this.setState((state) => ({
+      isMenuActive: !state.isMenuActive
+    }))
+  }
+
+  handleMenuClose = () => {
+    this.setState(() => ({
+      isMenuActive: false
+    }))
   }
 
   handlePreTitle = (event) => {
@@ -136,12 +152,18 @@ class BannerParent extends React.Component {
   }
 
   render() {
+    let menuActive = this.state.isMenuActive ? styles.active : ''
     let appForm = this.state.showAppForm ?
     <AppForm formData={this.state.formData}/> :
       null
 
     return <div className={styles.BannerParent}>
-            <div style={{maxHeight: '500px'}} className={styles.Sidebar}>
+            <div
+              className={styles.MenuTrigger}
+              onClick={this.handleMenuOpen.bind(this)}>
+              <FontAwesomeIcon icon={["fab", "elementor" ]} />
+            </div>
+            <div style={{maxHeight: '500px'}} className={`${styles.Sidebar} ${menuActive}`}>
               <H3Comp
                 title="Adjuster"
                 margin="0 0 20px 0"/>
