@@ -8,12 +8,41 @@ class Eslider extends React.Component {
 
     this.state = {
       height: 0,
-      elements: []
+      elements: [],
+      slideIndex: 0
     }
   }
 
+  handleNext() {
+    console.log('fired');
+    if(this.state.slideIndex < this.state.elements.length)
+    this.setState((state) => ({
+      slideIndex: state.slideIndex + 1
+    }))
+  }
+
+  handlePrev() {
+    console.log('fired');
+    if(this.state.slideIndex > 0) {
+      this.setState((state) => ({
+        slideIndex: state.slideIndex - 1
+      }))
+    }
+
+  }
+
   initSlides() {
-    console.log('init');
+    let initiedSlider = this.state.elements.map((el, i) => {
+      if(i === 0) {
+        el.isSlideActive = true
+      }
+      return el
+    })
+
+    this.setState((state) => ({
+      elements: [...initiedSlider],
+      slideIndex: 0
+    }))
   }
 
   componentDidMount() {
@@ -28,7 +57,9 @@ class Eslider extends React.Component {
       let domEl = React.createRef()
 
       return {
+        id: `img-${index}`,
         img: slide,
+        isSlideActive: false,
         ref: React.createRef()
       }
     })
@@ -37,27 +68,24 @@ class Eslider extends React.Component {
       elements: [...slides, ...this.state.elements]
     }))
 
-
   }
-
-  // handleImageHeight() {
-    // let x = this.image.current.height
-    // console.log(x);
-  // }
 
   render() {
 
     let slides = this.state.elements.map((slide, index) => {
       let domEl = React.createRef()
-      return <div className={styles.ImageContainer}>
-              <img ref={slide.ref} id={`img-${index}`} src={slide.img}/>
+      return <div key={index} className={`${styles.ImageContainer} ${slide.isSlideActive ? styles.Active : ''}`}>
+              <img ref={slide.ref} id={slide.id} src={slide.img}/>
              </div>
     })
-    // console.log(this.state.elements);
 
     return (
-      <section className={styles.Eslider}>
-        {slides}
+      <section className={styles.EsliderContainer}>
+        <button onClick={this.handlePrev.bind(this)}>Prev</button>
+        <button onClick={this.handleNext.bind(this)}>Next</button>
+        <section className={styles.Eslider}>
+          {slides}
+        </section>
       </section>
     )
   }
