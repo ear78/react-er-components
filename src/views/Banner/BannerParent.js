@@ -163,7 +163,7 @@ class BannerParent extends React.Component {
               onClick={this.handleMenuOpen.bind(this)}>
               <FontAwesomeIcon icon={["fab", "elementor" ]} />
             </div>
-            <div style={{maxHeight: '500px'}} className={`${styles.Sidebar} ${menuActive}`}>
+            <div className={`${styles.Sidebar} ${menuActive}`}>
               <H3Comp
                 title="Adjuster"
                 margin="0 0 20px 0"/>
