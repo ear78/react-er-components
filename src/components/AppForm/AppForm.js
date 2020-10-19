@@ -10,7 +10,7 @@ function AppForm(props) {
       change={d.change}
       placeholder={d.placeHolder}/>
   })
-  return <form style={{maxHeight: '400px'}} className={styles.AppForm}>{input}</form>
+  return <form className={styles.AppForm}>{input}</form>
 }
 
 export default AppForm
