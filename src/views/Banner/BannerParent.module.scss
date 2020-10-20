@@ -4,21 +4,6 @@
   display: flex;
   position: relative;
 
-  .MenuTrigger {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    padding: 10px 0 0 0;
-    box-sizing: border-box;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    background: white;
-    right: 5px;
-    top: 5px;
-    position: absolute;
-  }
-
   .Sidebar {
     position: absolute;
     top: 25px;

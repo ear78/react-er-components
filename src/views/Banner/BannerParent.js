@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './BannerParent.module.scss'
+import { bannerForm } from '../../assets/js/data'
 
 import Banner from './Banner'
+import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu'
 import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from 'assets/img/pinkBuilding.jpg'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 
@@ -158,11 +159,9 @@ class BannerParent extends React.Component {
       null
 
     return <div className={styles.BannerParent}>
-            <div
-              className={styles.MenuTrigger}
-              onClick={this.handleMenuOpen.bind(this)}>
-              <FontAwesomeIcon icon={["fab", "elementor" ]} />
-            </div>
+            <AdjusterMenu
+              click={this.handleMenuOpen}/>
+
             <div className={`${styles.Sidebar} ${menuActive}`}>
               <H3Comp
                 title="Adjuster"
