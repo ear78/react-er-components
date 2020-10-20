@@ -18,10 +18,11 @@ import Eslider from './views/Eslider/Eslider'
 
 /* Font Awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { fab, faElementor } from '@fortawesome/free-brands-svg-icons'
 import { far, faCompass } from '@fortawesome/free-regular-svg-icons'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-library.add( fab, far, faAngleDown, faAngleUp, faCompass, faElementor )
+library.add( fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown )
 
 function App() {
   return ( <Router forceRefresh={true}>
