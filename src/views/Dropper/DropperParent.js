@@ -3,7 +3,7 @@ import { dropperData } from 'assets/js/data'
 import styles from './DropperParent'
 import colors from 'assets/js/colors'
 
-import Dropper from './Dropper'
+import Dropper from '../../components/Dropper/Dropper'
 import PageTitle from 'components/PageTitle/PageTitle'
 import Container from 'components/Container/Container'
 import ContainerRight from 'components/ContainerRight/ContainerRight'

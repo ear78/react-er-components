@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './BannerParent.module.scss'
 import { bannerForm } from '../../assets/js/data'
 
-import Banner from './Banner'
+import Banner from '../../components/Banner/Banner'
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu'
 import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'

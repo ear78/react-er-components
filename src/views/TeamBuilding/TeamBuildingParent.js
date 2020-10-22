@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TeamBuilding from './TeamBuilding'
+import TeamBuilding from '../../components/TeamBuilding/TeamBuilding'
 
 class TeamBuildingParent extends React.Component {
   state = {
