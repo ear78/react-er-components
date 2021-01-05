@@ -8,9 +8,6 @@ import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from 'assets/img/pinkBuilding.jpg'
 
-
-
-
 class BannerParent extends React.Component {
   constructor(props) {
     super(props)
