@@ -25,7 +25,7 @@ import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 library.add( fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown )
 
 function App() {
-  return ( <Router >
+  return ( <Router forceRefresh={true}>
     <Spinner/>
 
     <Layout>
