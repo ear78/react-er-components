@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from './SocialComp.module.css'
 
-import SocialIcon from 'components/SocialIcon/SocialIcon'
+import SocialIcon from '../../components/SocialIcon/SocialIcon'
 
 function socialComp( props ) {
   const socialIcon = props.data.map( ( item, index ) => {
