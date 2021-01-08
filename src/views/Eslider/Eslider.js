@@ -54,7 +54,7 @@ class Eslider extends React.Component {
 
   componentWillMount() {
     let slides = esliderData.map((slide, index) => {
-      let domEl = React.createRef()
+      // let domEl = React.createRef()
 
       return {
         id: `img-${index}`,
@@ -73,9 +73,9 @@ class Eslider extends React.Component {
   render() {
 
     let slides = this.state.elements.map((slide, index) => {
-      let domEl = React.createRef()
+      // let domEl = React.createRef()
       return <div key={index} className={`${styles.ImageContainer} ${slide.isSlideActive ? styles.Active : ''}`}>
-              <img ref={slide.ref} id={slide.id} src={slide.img}/>
+              <img ref={slide.ref} id={slide.id} src={slide.img} alt="Slide"/>
              </div>
     })
 

@@ -24,7 +24,7 @@ class hoverPods extends React.Component {
         key={index}
         style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${ index * .1 }s` }}
         className={styles.Pod}>
-        <a href={pod.podLink} target={pod.podNewTab ? '_blank' : ''}>
+        <a href={pod.podLink} rel="noreferrer" target={pod.podNewTab ? '_blank' : ''}>
           <div style={{ backgroundColor: `${pod.podBgColor}`}} className={styles.HoverColor}>
             <p style={{ color: `${pod.podTextColor}`}} className={styles.HoverText}>{pod.podText}</p>
           </div>
