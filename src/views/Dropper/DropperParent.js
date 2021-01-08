@@ -1,13 +1,13 @@
 import React from 'react'
-import { dropperData } from 'assets/js/data'
+import { dropperData } from '../../assets/js/data'
 import styles from './DropperParent'
-import colors from 'assets/js/colors'
+import colors from '../../assets/js/colors'
 
 import Dropper from '../../components/Dropper/Dropper'
-import PageTitle from 'components/PageTitle/PageTitle'
-import Container from 'components/Container/Container'
-import ContainerRight from 'components/ContainerRight/ContainerRight'
-import ContainerLeft from 'components/ContainerLeft/ContainerLeft'
+import PageTitle from '../../components/PageTitle/PageTitle'
+import Container from '../../components/Container/Container'
+import ContainerRight from '../../components/ContainerRight/ContainerRight'
+import ContainerLeft from '../../components/ContainerLeft/ContainerLeft'
 
 class DropperParent extends React.Component {
 

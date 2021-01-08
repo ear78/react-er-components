@@ -1,5 +1,5 @@
 import React from 'react'
-import { esliderData } from 'assets/js/data'
+import { esliderData } from '../../assets/js/data'
 import styles from './Eslider.module.scss'
 
 class Eslider extends React.Component {
