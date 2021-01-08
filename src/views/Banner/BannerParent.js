@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './BannerParent.module.scss'
-import { bannerForm } from '../../assets/js/data'
 
 import Banner from '../../components/Banner/Banner'
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu'

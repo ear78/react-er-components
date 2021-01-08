@@ -27,7 +27,8 @@ function banner( props ) {
                 <p className={`${styles.SubTitle} ${textColor}`}>{props.subTitle}</p>
             <button style={{background: `${props.btnColor}`}} className={styles.Button}>
               <a href={props.ctaUrl}
-                target={props.target ? '_blank' : ''}>{props.btnText}&nbsp;
+                target={props.target ? '_blank' : ''}
+                rel="noreferrer">{props.btnText}&nbsp;
                 <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight}/>
               </a>
             </button>

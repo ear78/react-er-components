@@ -9,9 +9,6 @@ function home() {
     lineHeight: '130px'
   }
 
-  let tag = {
-    fontSize: '5rem'
-  }
   return (
     <div className={styles.HomeContainer}>
       <p className={styles.Left}>

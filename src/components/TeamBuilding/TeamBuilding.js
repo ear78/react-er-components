@@ -16,7 +16,7 @@ function teamBuilding( props ) {
         <img className={styles.Image} src={member.image} alt={member.name}/>
         <h3 className={styles.Name}>{member.name}</h3>
         <p className={styles.JobTitle}>{member.jobTitle}</p>
-        <img className={styles.CompanyLogo} src={logo}/>
+        <img className={styles.CompanyLogo} src={logo} alt="Logo"/>
         <div className={styles.icons}>
           <a href={member.facebook}>
             <FontAwesomeIcon icon={[ 'fab', 'facebook-square', ]}/>
