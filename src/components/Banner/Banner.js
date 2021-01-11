@@ -16,19 +16,23 @@ function banner( props ) {
   let backgroundImg = {
     backgroundImage: `url(${props.bgImage})`
   }
+  let preTitle = !props.preTitle ? 'Welcome to Page Banner' : props.preTitle
+  let title = !props.title ? 'Page Banner' : props.title
+  let subTitle = !props.subTitle ? 'Banners to help your site look great!' : props.subTitle
+  let btnText = !props.btnText ? 'Kontakt' : props.btnText
 
   return (
     <div
       className={`${styles.BackgroundImg} ${textAlign}`}
         style={backgroundImg}>
         <div className={`${styles.Overlay} ${overlayFull} ${overlayDark} ${overlay}`}>
-            <p className={`${styles.PreTitle} ${textColor}`}>{props.preTitle}</p>
-              <h1 className={`${styles.Title} ${textColor}`}>{props.title}</h1>
-                <p className={`${styles.SubTitle} ${textColor}`}>{props.subTitle}</p>
+            <p className={`${styles.PreTitle} ${textColor}`}>{preTitle}</p>
+              <h1 className={`${styles.Title} ${textColor}`}>{title}</h1>
+                <p className={`${styles.SubTitle} ${textColor}`}>{subTitle}</p>
             <button style={{background: `${props.btnColor}`}} className={styles.Button}>
               <a href={props.ctaUrl}
                 target={props.target ? '_blank' : ''}
-                rel="noreferrer">{props.btnText}&nbsp;
+                rel="noreferrer">{btnText}&nbsp;
                 <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight}/>
               </a>
             </button>
