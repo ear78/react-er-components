@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
+
+/* Data */
+import { esliderData } from './assets/js/data';
 
 /* Global Layout Components */
 import Nav from './components/Nav/Nav'
@@ -25,21 +28,32 @@ import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 library.add( fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown )
 
 function App() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        setMounted(!mounted);
+      }, 900)
+    })
+  });
+
   return ( <Router forceRefresh={true}>
-    <Spinner/>
+    <Spinner mounted={mounted} />
 
     <Layout>
       <Nav/>
 
       <Switch>
         <Route path="/e-slider">
-          <Eslider/>
+          <Eslider data={esliderData}/>
         </Route>
         <Route path="/happy-dots">
           <HappyDotsParent/>
         </Route>
         <Route path="/hover-pods">
-          <HoverPodsParent/>
+          <HoverPodsParent 
+          mounted={mounted}/>
         </Route>
         <Route path="/page-banner">
           <BannerParent/>

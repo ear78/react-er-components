@@ -21,31 +21,31 @@ export const homeData = {
 }
 
 export const happyData = [ {
-    id: 'test',
+    id: 0,
     text: 'Market Place',
     lineColor: '#fff',
     dotColor: ''
   },
   {
-    id: 'test1',
+    id: 1,
     text: 'LifeTime Data',
     lineColor: '#fff',
     dotColor: ''
   },
   {
-    id: 'test2',
+    id: 2,
     text: 'Attribution',
     lineColor: '#fff',
     dotColor: ''
   },
   {
-    id: 'test3',
+    id: 3,
     text: 'Smart Data',
     lineColor: '#fff',
     dotColor: ''
   },
   {
-    id: 'test4',
+    id: 4,
     text: 'User Experience',
     lineColor: '#fff',
     dotColor: ''
@@ -187,24 +187,29 @@ export const socialItems = [ {
 ]
 
 export const sectionData = [ {
-    id: 'test',
-    img: chairs
+    id: 0,
+    img: chairs,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.'
   },
   {
-    id: 'test1',
-    img: echoTower
+    id: 1,
+    img: echoTower,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.'
   },
   {
-    id: 'test2',
-    img: stairway
+    id: 2,
+    img: stairway,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.'
   },
   {
-    id: 'test3',
-    img: stripes
+    id: 3,
+    img: stripes,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.'
   },
   {
-    id: 'test4',
-    img: jail
+    id: 4,
+    img: jail,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.'
   }
 ]
 
@@ -232,5 +237,28 @@ export const dropperData = [
 ]
 
 export const esliderData = [
-  building, snowGhosts, greyBuilding, echoTower
+  {
+    image: building,
+    text: `Night in New York.`
+  },
+  {
+    image: snowGhosts,
+    text: `Snow Ghosts of Schweitzer.`
+  },
+  {
+    image: greyBuilding,
+    text: `Downtown L.A.`
+  },
+  {
+    image: echoTower,
+    text: `Tower of communication.`
+  },
+  {
+    image: stripes,
+    text: `Stripes to the future.`
+  },
+  {
+    image: chairs,
+    text: `Musical Chairs.`
+  }
 ]

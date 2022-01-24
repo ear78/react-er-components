@@ -40,14 +40,17 @@ class Nav extends React.Component {
       }, {
         route: '/dropper',
         text: 'Dropper',
-      },
+      },{
+        route: '/e-slider',
+        text: 'E-Slider'
+      }
     ]
 
     let navPrint = navMenu.map( ( item, i ) => {
       return <li key={i} style={{
           transitionDelay: 100 * i + 'ms'
         }}>
-        <NavLink exact="exact" to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
+        <NavLink exact={true} to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
       </li>
     } )
 
@@ -55,7 +58,7 @@ class Nav extends React.Component {
       return <li key={i} className={`${ isActive }`} style={{
           transitionDelay: 100 * i + 'ms'
         }}>
-        <NavLink exact="exact" to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
+        <NavLink exact={true} to={item.route} activeClassName={styles.selected}>{item.text}</NavLink>
       </li>
     } )
 
