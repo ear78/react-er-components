@@ -1,94 +1,45 @@
 import React from 'react'
-import { esliderData } from '../../assets/js/data'
 import styles from './Eslider.module.scss'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-class Eslider extends React.Component {
-  constructor(props) {
-    super(props)
+const Eslider = ( { data } ) => {
+  const scrollContainerRef = React.createRef(); // Ref of scroll container
 
-    this.state = {
-      height: 0,
-      elements: [],
-      slideIndex: 0
+  /**
+   * Handles scrolling event and positions the slider depending on container width
+   * and position
+   */
+  const handleScroll = () => {
+    let sWidth = scrollContainerRef.current.scrollWidth; //Get scroll width of container
+    let sPosition = scrollContainerRef.current.scrollLeft; // Get scroll position
+
+    if(sPosition > 1) {
+      scrollContainerRef.current.scrollTo(0,0)
+    } else {
+      scrollContainerRef.current.scrollTo(sWidth, 0)
     }
   }
 
-  handleNext() {
-    console.log('fired');
-    if(this.state.slideIndex < this.state.elements.length)
-    this.setState((state) => ({
-      slideIndex: state.slideIndex + 1
-    }))
-  }
+  let slides = data.map((slide, i) => {
+    let slideLength = data.length - 1;
+    let isLastSlide = slideLength === i ? `0` : `2%`
+    return <div key={i} style={{backgroundImage: `url(${slide.image})`, marginRight: isLastSlide}} className={styles.Slide}>
+      <div className={styles.OverlayText}>{slide.text}</div>
+      <div className={styles.Overlay}></div>
+    </div>
+  })
 
-  handlePrev() {
-    console.log('fired');
-    if(this.state.slideIndex > 0) {
-      this.setState((state) => ({
-        slideIndex: state.slideIndex - 1
-      }))
-    }
-
-  }
-
-  initSlides() {
-    let initiedSlider = this.state.elements.map((el, i) => {
-      if(i === 0) {
-        el.isSlideActive = true
-      }
-      return el
-    })
-
-    this.setState((state) => ({
-      elements: [...initiedSlider],
-      slideIndex: 0
-    }))
-  }
-
-  componentDidMount() {
-    window.addEventListener('load', () => {
-      this.initSlides()
-    })
-
-  }
-
-  componentWillMount() {
-    let slides = esliderData.map((slide, index) => {
-      // let domEl = React.createRef()
-
-      return {
-        id: `img-${index}`,
-        img: slide,
-        isSlideActive: false,
-        ref: React.createRef()
-      }
-    })
-
-    this.setState(() => ({
-      elements: [...slides, ...this.state.elements]
-    }))
-
-  }
-
-  render() {
-
-    let slides = this.state.elements.map((slide, index) => {
-      // let domEl = React.createRef()
-      return <div key={index} className={`${styles.ImageContainer} ${slide.isSlideActive ? styles.Active : ''}`}>
-              <img ref={slide.ref} id={slide.id} src={slide.img} alt="Slide"/>
-             </div>
-    })
-
-    return (
-      <section className={styles.EsliderContainer}>
-        <button onClick={this.handlePrev.bind(this)}>Prev</button>
-        <button onClick={this.handleNext.bind(this)}>Next</button>
-        <section className={styles.Eslider}>
-          {slides}
-        </section>
-      </section>
-    )
-  }
+  return (
+    <div ref={scrollContainerRef} className={styles.EsliderContainer}>
+      <div className={styles.SlideContainer}>
+      {slides}
+      </div>
+      <div className={styles.SlideBtns}>
+        <span onClick={handleScroll}><FontAwesomeIcon icon={["fas", 'chevron-left']} /></span>
+        <span onClick={handleScroll}><FontAwesomeIcon icon={["fas", 'chevron-right']} /></span>
+      </div>
+    </div>
+  )
 }
 
 export default Eslider

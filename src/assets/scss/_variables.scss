@@ -35,3 +35,37 @@ $slowTransition: all 0.5s ease;
   border-radius: 25px;
   transition: all 0.3s ease;
 }
+
+@mixin breakpoint($var){
+  @if $var == sm {
+    @media (min-width: 549px){
+      @content
+    }
+  } @else if $var == md {
+    @media (min-width: 768px) {
+      @content
+    }
+  } @else if $var == lg {
+    @media (min-width: 1024px) {
+      @content
+    }
+  } @else if $var == xl {
+    @media (min-width: 1440px) {
+      @content
+    }
+  } @else {
+    @error "Unknown variable #{$var} please use sm, md, lg, xl."
+  }
+}
+
+@mixin transitions($var: sm) {
+  @if $var == xs {
+    transition: all .1s ease;
+  } @else if $var == sm {
+    transition: all .2s ease;
+  } @else if $var == md {
+    transition: all .5s ease;
+  } @else if $var == lg {
+    transition: all .75s ease;
+  }
+}

@@ -1,36 +1,5 @@
 @import "../../assets/scss/_variables.scss";
 
-.HappyDotsContainer {
-  padding: 15px;
-  @include border;
-  border-radius: 3px;
-
-  .RefSection {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .RefSection:last-child {
-    border: none;
-  }
-
-  .BgImage {
-    filter: grayscale(100%);
-    background-size: cover;
-    background-position: center;
-    height: 350px;
-    background-repeat: no-repeat;
-    width: initial;
-  }
-
-  .TextBox {
-    width: initial;
-    padding: 35px;
-    box-sizing: border-box;
-    background: $lighterGray;
-  }
-}
-
 .HappyDots {
   display: flex;
   flex-direction: column;
@@ -125,26 +94,5 @@
   100% {
     transform: scale(3);
     opacity: 0;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .HappyDotsContainer {
-    .RefSection {
-      flex-direction: row;
-    }
-
-    .RefReverse {
-      display: flex;
-      flex-direction: row-reverse;
-    }
-
-    .TextBox {
-      width: 50%;
-    }
-
-    .BgImage {
-      width: 50%;
-    }
   }
 }

@@ -1,1 +1,9 @@
-.HappyDotsParent {}
+@import '../../assets/scss/variables';
+
+.HappyDotsParent {
+  .HappyDotsContainer {
+    padding: 15px;
+    @include border;
+    border-radius: 3px;
+  }
+}

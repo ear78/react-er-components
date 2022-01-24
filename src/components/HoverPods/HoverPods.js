@@ -4,22 +4,11 @@ import PropTypes from 'prop-types'
 import styles from './HoverPods.module.scss'
 import PageTitle from '../../components/PageTitle/PageTitle'
 
-class hoverPods extends React.Component {
-  state = {
-    hoverPodsMounted: false
-  }
-  componentDidMount() {
-    setTimeout( () => {
-      this.setState( ( state ) => {
-        return { hoverPodsMounted: !state.hoverPodsMounted }
-      } )
-    }, 900 )
+const HoverPods = ({ mounted, podData }) => {
 
-  }
-  render() {
     let hoverPod
-    if ( this.state.hoverPodsMounted ) {
-      hoverPod = this.props.podData.map( ( pod, index ) => {
+    if ( mounted ) {
+      hoverPod = podData.map( ( pod, index ) => {
         return <div
         key={index}
         style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${ index * .1 }s` }}
@@ -55,10 +44,9 @@ class hoverPods extends React.Component {
 
     )
   }
-}
 
-hoverPods.propTypes = {
+HoverPods.propTypes = {
   podData: PropTypes.array
 }
 
-export default hoverPods
+export default HoverPods

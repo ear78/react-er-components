@@ -2,20 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './HappyDots.module.scss'
 
-function happyDots( props ) {
-
-    let test = React.createRef()
-    let test1 = React.createRef()
-    let test2 = React.createRef()
-    let test3 = React.createRef()
-    let test4 = React.createRef()
-    let refs = [ test, test1, test2, test3, test4 ]
+function HappyDots( props ) {
 
     function handleScrollTo( v ) {
-        let found = refs.find( ref => {
-            return ref.current.id === v
-        } )
-        found.current.scrollIntoView( {
+        v.current.scrollIntoView( {
             behavior: "smooth",
             block: "center",
             inline: "nearest"
@@ -23,41 +13,23 @@ function happyDots( props ) {
     }
 
     let happyDot = props.data.map( ( d, i ) => {
-        return <li key={i} onClick={handleScrollTo.bind(this, d.id)} className={styles.HoverItem}>
+        return <li key={i} onClick={handleScrollTo.bind(this, props.refs[i])} className={styles.HoverItem}>
             <div style={{backgroundColor: d.lineColor }} className={styles.Line}></div>
             <span style={{ width: `${props.textWidth}px`, color: `${props.textColor}`}} className={styles.Text}>{ d.text }</span>
           </li>
     } )
 
-    let sections = props.sectionData.map( ( d, i ) => {
-        return <section
-                  key={d.id}
-                  id={d.id}
-                  ref={refs[i]}
-                  className={(i % 2 !== 0) ? styles.RefReverse : styles.RefSection}>
-                  <div
-                    className={styles.BgImage}
-                    style={{backgroundImage: `url(${d.img})`}}></div>
-                  <div className={styles.TextBox}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta non pulvinar neque laoreet suspendisse. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Senectus et netus et malesuada fames ac turpis.</div>
-                </section>
-    } )
-
     return (
-        <div className={styles.HappyDotsContainer}>
-          <ul style={{ height: `${props.height}px`,
-            top: `${props.top}px`,
-            zIndex: `${props.zLayer}`}}
-            className={styles.HappyDots}>
-            { happyDot }
-          </ul>
-
-          {sections}
-
-        </div>
+      <ul style={{ height: `${props.height}px`,
+        top: `${props.top}px`,
+        zIndex: `${props.zLayer}`}}
+        className={styles.HappyDots}>
+        { happyDot }
+      </ul>
     )
 }
 
-happyDots.propTypes = {
+HappyDots.propTypes = {
     height: PropTypes.string,
     top: PropTypes.string,
     zLayer: PropTypes.string,
@@ -65,4 +37,4 @@ happyDots.propTypes = {
     textWidth: PropTypes.string
 }
 
-export default happyDots
+export default HappyDots
