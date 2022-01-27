@@ -46,7 +46,7 @@ function App() {
 
       <Switch>
         <Route path="/e-slider">
-          <Eslider data={esliderData}/>
+          <Eslider mounted={mounted} data={esliderData}/>
         </Route>
         <Route path="/happy-dots">
           <HappyDotsParent/>
