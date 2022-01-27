@@ -40,6 +40,12 @@
     display: flex;
     align-items: flex-end;
     @include transitions();
+  
+    &.isBlurred {
+      animation: blurred;
+      animation-duration: .75s;
+      animation-iteration-count: 1;
+    }
 
     @include breakpoint(lg) {
       min-width: 350px;
@@ -77,6 +83,16 @@
     &:hover .OverlayText {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes blurred {
+    from {
+      filter: blur(8px);
+    }
+
+    to {
+      filter: blur(0);
     }
   }
 }
