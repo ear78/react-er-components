@@ -6,10 +6,14 @@ function FormInput(props) {
   if(props.inputType === 'checkbox') {
     input = <input type={props.inputType}
       placeholder={props.placeHolder}
+      name={props.name}
+      value={props.inputVal}
       onClick={props.change}/>
   } else {
     input = <input type={props.inputType}
       placeholder={props.placeHolder}
+      name={props.name}
+      value={props.inputVal}
       onChange={props.change}/>
   }
   return <label className={styles.Container}>

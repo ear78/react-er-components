@@ -23,49 +23,80 @@ class BannerParent extends React.Component {
       overlay: false,
       overlayDark: false,
       overlayFull: false,
+      formData: []
+    }
+  }
+
+  componentDidMount() {
+    this.setState((state) => ({
       formData: [
         {
           inputType: 'text',
           labelText: 'Banner Pre Title',
-          change: this.handlePreTitle
+          inputVal: this.state.preTitle,
+          name: 'preTitle',
+          change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Title',
-          change: this.handleTitle
+          inputVal: this.state.title,
+          name: 'title',
+          change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Sub Title',
-          change: this.handleSubTitle
+          inputVal: this.state.subTitle,
+          name: 'subTitle',
+          change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Button Text',
-          change: this.handleButtonText
+          inputVal: this.state.btnText,
+          name: 'btnText',
+          change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Button Color',
-          change: this.handleButtonColor
+          inputVal: this.state.btnColor,
+          name: 'btnColor',
+          change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay',
-          change: this.handleOverlay
+          inputVal: this.state.overlay,
+          name: 'overlay',
+          change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay Dark',
-          change: this.handleOverlayDark
+          inputVal: this.state.overlayDark,
+          name: 'overlayDark',
+          change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay Full',
-          change: this.handleOverlayFull
+          inputVal: this.state.overlayFull,
+          name: 'overlayFull',
+          change: this.handleForm
         },
       ]
-    }
+    }))
+  }
+
+  handleForm = (event) => {
+    let value = event.target.value;
+    let name = event.target.name;
+    this.setState((state) => ({
+      ...state,
+      [name]: value
+    }))
   }
 
   handleMenuOpen = () => {
@@ -78,74 +109,6 @@ class BannerParent extends React.Component {
     this.setState(() => ({
       isMenuActive: false
     }))
-  }
-
-  handlePreTitle = (event) => {
-    let preTitle = event.target.value
-      this.setState((state, props) => ({
-          preTitle: preTitle
-      }))
-  }
-
-  handleTitle = (event) => {
-    let title = event.target.value
-    this.setState((state, props) => ({
-        title: title
-    }))
-  }
-
-  handleSubTitle = (event) => {
-    let subTitle = event.target.value
-    this.setState((state) => {
-      return {
-        subTitle: subTitle
-      }
-    })
-  }
-
-  handleButtonText = (event) => {
-    let btnText = event.target.value
-    this.setState((state) => {
-      return {
-        btnText: btnText
-      }
-    })
-  }
-
-  handleButtonColor = (event) => {
-    let btnColor = event.target.value
-    this.setState((state) => {
-      return {
-        btnColor: btnColor
-      }
-    })
-  }
-
-  handleOverlay = (event) => {
-    let overlay = event.target.checked
-    this.setState((state) => {
-      return {
-        overlay: overlay
-      }
-    })
-  }
-
-  handleOverlayDark = (event) => {
-    let overlayDark = event.target.checked
-    this.setState((state) => {
-      return {
-        overlayDark: overlayDark
-      }
-    })
-  }
-
-  handleOverlayFull = (event) => {
-    let overlayFull = event.target.checked
-    this.setState((state) => {
-      return {
-        overlayFull: overlayFull
-      }
-    })
   }
 
   render() {
