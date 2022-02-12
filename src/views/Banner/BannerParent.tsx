@@ -107,8 +107,9 @@ class BannerParent extends React.Component<BannerProps, BannerState> {
   }
 
   handleForm = (event: any) => {
-    let value = event.target.value;
-    let name = event.target.name;
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
     this.setState((state) => ({
       ...state,
       [name]: value
