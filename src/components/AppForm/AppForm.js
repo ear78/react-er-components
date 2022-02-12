@@ -7,6 +7,7 @@ function AppForm(props) {
     return <FormInput key={i}
       labelText={d.labelText}
       inputType={d.inputType}
+      name={d.name}
       change={d.change}
       placeholder={d.placeHolder}/>
   })
