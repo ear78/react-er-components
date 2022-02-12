@@ -7,10 +7,27 @@ import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from '../../assets/img/pinkBuilding.jpg'
 
-class BannerParent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+// Delare Props & State types
+type BannerProps = {}
+type BannerState = {
+  showAppForm: boolean;
+  isMenuActive: boolean;
+  bgImage: string;
+  preTitle: string;
+  title: string;
+  subTitle: string;
+  btnText: string;
+  ctaUrl: string;
+  btnColor: string;
+  overlay: boolean;
+  overlayDark: boolean;
+  overlayFull: boolean;
+  formData: any[];
+};
+
+class BannerParent extends React.Component<BannerProps, BannerState> {
+
+    state: BannerState = {
       showAppForm: true,// show form for demo
       isMenuActive: false,
       bgImage: building,
@@ -25,7 +42,6 @@ class BannerParent extends React.Component {
       overlayFull: false,
       formData: []
     }
-  }
 
   componentDidMount() {
     this.setState((state) => ({
@@ -33,56 +49,56 @@ class BannerParent extends React.Component {
         {
           inputType: 'text',
           labelText: 'Banner Pre Title',
-          inputVal: this.state.preTitle,
+          inputVal: state.preTitle,
           name: 'preTitle',
           change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Title',
-          inputVal: this.state.title,
+          inputVal: state.title,
           name: 'title',
           change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Sub Title',
-          inputVal: this.state.subTitle,
+          inputVal: state.subTitle,
           name: 'subTitle',
           change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Button Text',
-          inputVal: this.state.btnText,
+          inputVal: state.btnText,
           name: 'btnText',
           change: this.handleForm
         },
         {
           inputType: 'text',
           labelText: 'Banner Button Color',
-          inputVal: this.state.btnColor,
+          inputVal: state.btnColor,
           name: 'btnColor',
           change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay',
-          inputVal: this.state.overlay,
+          inputVal: state.overlay,
           name: 'overlay',
           change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay Dark',
-          inputVal: this.state.overlayDark,
+          inputVal: state.overlayDark,
           name: 'overlayDark',
           change: this.handleForm
         },
         {
           inputType: 'checkbox',
           labelText: 'Banner Overlay Full',
-          inputVal: this.state.overlayFull,
+          inputVal: state.overlayFull,
           name: 'overlayFull',
           change: this.handleForm
         },
@@ -90,7 +106,7 @@ class BannerParent extends React.Component {
     }))
   }
 
-  handleForm = (event) => {
+  handleForm = (event: any) => {
     let value = event.target.value;
     let name = event.target.name;
     this.setState((state) => ({
