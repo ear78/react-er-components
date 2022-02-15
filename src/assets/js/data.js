@@ -16,7 +16,7 @@ import portfolio11 from '../img/UserMale.svg'
 import portfolio12 from '../img/femaleUser.svg'
 
 export const homeData = {
-  desc: 'Please use the navigation to preview and try out these components I built from the ground up with React.js.  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. Technologies used are React, React Transition Group, Css Modules, Sass, and of course Javascript since React is all Javascript. Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. Current custom components are',
+  desc: 'Please use the navigation to preview and try out these components I built from the ground up with React.js.  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. Technologies used are React, Typescript, Jest, React Transition Group, Css Modules, Sass, and of course Javascript since React is all Javascript. Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. Current custom components are',
   components: 'SocialComp, Nav, Copyright, HappyDots, Spinner, Banner, HoverPods, TeamBuilding, Dropper'
 }
 
@@ -217,22 +217,22 @@ export const dropperData = [
   {
     title: 'I\'m a dropper title...',
     icon: 'angle-down',
-    content: 'I\'m the content that is connected to the dropper...'
+    content: 'I\'m the content that is connected to the dropper... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     title: 'I\'m a dropper title...',
     icon: 'angle-down',
-    content: 'I\'m the content that is connected to the dropper...'
+    content: 'I\'m the content that is connected to the dropper... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     title: 'I\'m a dropper title...',
     icon: 'angle-down',
-    content: 'I\'m the content that is connected to the dropper...'
+    content: 'I\'m the content that is connected to the dropper... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     title: 'I\'m a dropper title...',
     icon: 'angle-down',
-    content: 'I\'m the content that is connected to the dropper...'
+    content: 'I\'m the content that is connected to the dropper... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
 ]
 

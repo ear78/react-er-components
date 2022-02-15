@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styles from './Eslider.module.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const Eslider = ( { data, mounted } ) => {
+type EsliderProps = {
+  data: {
+    image: string;
+    text: string;
+  }[];
+  mounted: boolean;
+};
 
-  const scrollContainerRef = React.createRef(); // Ref of scroll container
+const Eslider = ( { data, mounted }: EsliderProps ) => {
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null!); // Ref of scroll container
 
   /**
    * Handles scrolling event and positions the slider depending on container width
    * and position
    */
-  const handleScroll = ($arg) => {
+  const handleScroll = ($arg: number) => {
     let sWidth = scrollContainerRef.current.scrollWidth; //Get scroll width of container
     let sPosition = scrollContainerRef.current.scrollLeft; // Get scroll position
 
