@@ -28,6 +28,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .HomeTitle {
+      font-size: 8rem;
+      line-height: 130px;
+
+      @media (min-width: 768px) {
+        font-size: 10rem;
+      }
+    }
+    
   }
 }
 @media screen and (min-width: 768px) {
@@ -40,7 +50,7 @@
 
     .Left {
       width: 50%;
-      height: 400px;
+      min-height: 350px;
     }
   }
 }
