@@ -3,9 +3,9 @@ import styles from './BannerParent.module.scss'
 
 import Banner from '../../components/Banner/Banner'
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu'
-import H3Comp from '../../components/H3Comp/H3Comp'
 import AppForm from '../../components/AppForm/AppForm'
 import building from '../../assets/img/pinkBuilding.jpg'
+import Typography from '../../components/Typography/Typography';
 
 // Delare Props & State types
 type BannerProps = {}
@@ -139,9 +139,10 @@ class BannerParent extends React.Component<BannerProps, BannerState> {
               click={this.handleMenuOpen}/>
 
             <div className={`${styles.Sidebar} ${menuActive}`}>
-              <H3Comp
+              <Typography
                 title="Adjuster"
-                margin="0 0 20px 0"/>
+                margin="0 0 20px 0"
+                variant='h3' />
               {appForm}
             </div>
 
