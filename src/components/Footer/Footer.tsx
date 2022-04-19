@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './Footer.module.css'
+import styles from './Footer.module.scss'
 import { socialItems } from '../../assets/js/data'
 
 import Copyright from '../../components/Copyright/Copyright'
