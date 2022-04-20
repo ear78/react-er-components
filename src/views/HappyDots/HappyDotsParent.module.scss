@@ -6,4 +6,55 @@
     @include border;
     border-radius: 3px;
   }
+
+  .RefSection,
+  .RefReverse {
+    display: flex;
+  }
+
+  .RefSection,
+  .RefReverse {
+    flex-direction: column;
+
+    &:last-child {
+      border: none;
+    }
+
+    .BgImage {
+      filter: grayscale(100%);
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      background-repeat: no-repeat;
+      width: initial;
+    }
+    
+    .TextBox {
+      width: initial;
+      padding: 35px;
+      box-sizing: border-box;
+      background: $lighterGray;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .RefReverse,
+    .RefSection {
+      .TextBox {
+        width: 50%;
+      }
+    
+      .BgImage {
+        width: 50%;
+      }
+    }
+
+    .RefSection {
+      flex-direction: row;
+    }
+
+    .RefReverse {
+      flex-direction: row-reverse;
+    }
+  }
 }

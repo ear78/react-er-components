@@ -1,4 +1,12 @@
+@import '../../assets/scss/variables';
+
 .ContainerRight {
-  padding: 0 0 0 15px;
-  width: 65%;
+  padding: auto;
+  width: auto;
+  margin-bottom: 1rem;
+
+  @include breakpoint(sm) {
+    padding: 0 0 0 15px;
+    width: 65%;
+  }
 }

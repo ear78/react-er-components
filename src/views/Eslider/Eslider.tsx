@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
-import styles from './Eslider.module.scss'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, { useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './Eslider.module.scss';
 
 type EsliderProps = {
   data: {
@@ -10,8 +10,7 @@ type EsliderProps = {
   mounted: boolean;
 };
 
-const Eslider = ( { data, mounted }: EsliderProps ) => {
-
+function Eslider({ data, mounted }: EsliderProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null!); // Ref of scroll container
 
   /**
@@ -19,39 +18,42 @@ const Eslider = ( { data, mounted }: EsliderProps ) => {
    * and position
    */
   const handleScroll = ($arg: number) => {
-    let sWidth = scrollContainerRef.current.scrollWidth; //Get scroll width of container
-    let sPosition = scrollContainerRef.current.scrollLeft; // Get scroll position
+    const sWidth = scrollContainerRef.current.scrollWidth; // Get scroll width of container
+    const sPosition = scrollContainerRef.current.scrollLeft; // Get scroll position
 
-    if(sPosition > 1 && $arg === 1) {
-      scrollContainerRef.current.scrollTo(0,0)
-    } else if(sPosition !== sWidth && $arg !== 1) {
-      scrollContainerRef.current.scrollTo(sWidth, 0)
+    if (sPosition > 1 && $arg === 1) {
+      scrollContainerRef.current.scrollTo(0, 0);
+    } else if (sPosition !== sWidth && $arg !== 1) {
+      scrollContainerRef.current.scrollTo(sWidth, 0);
     }
-  }
+  };
 
-
-  let slides = data.map((slide, i) => {
-    let slideLength = data.length - 1;
-    let isLastSlide = slideLength === i ? `0` : `2%`
-    return <div key={i} 
-              style={{backgroundImage: `url(${slide.image})`, marginRight: isLastSlide}} 
-              className={`${styles.Slide} ${mounted ? styles.isBlurred : ''}`}>
-      <div className={styles.OverlayText}>{slide.text}</div>
-      <div className={styles.Overlay}></div>
-    </div>
-  })  
+  const slides = data.map((slide, i) => {
+    const slideLength = data.length - 1;
+    const isLastSlide = slideLength === i ? '0' : '2%';
+    return (
+      <div
+        key={slide.image}
+        style={{ backgroundImage: `url(${slide.image})`, marginRight: isLastSlide }}
+        className={`${styles.Slide} ${mounted ? styles.isBlurred : ''}`}
+      >
+        <div className={styles.OverlayText}>{slide.text}</div>
+        <div className={styles.Overlay} />
+      </div>
+    );
+  });
 
   return (
     <div ref={scrollContainerRef} className={styles.EsliderContainer}>
       <div className={styles.SlideContainer}>
-      {slides}
+        {slides}
       </div>
       <div className={styles.SlideBtns}>
-        <span onClick={() => handleScroll(1)}><FontAwesomeIcon icon={["fas", 'chevron-left']} /></span>
-        <span onClick={() => handleScroll(2)}><FontAwesomeIcon icon={["fas", 'chevron-right']} /></span>
+        <span role="button" aria-label="left" tabIndex={0} onClick={() => handleScroll(1)}><FontAwesomeIcon icon={['fas', 'chevron-left']} /></span>
+        <span role="button" aria-label="right" tabIndex={0} onClick={() => handleScroll(2)}><FontAwesomeIcon icon={['fas', 'chevron-right']} /></span>
       </div>
     </div>
-  )
+  );
 }
 
-export default Eslider
+export default Eslider;

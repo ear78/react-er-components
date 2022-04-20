@@ -61,35 +61,31 @@
       opacity: 0;
       transition: opacity 0.2s ease 0.1s, top 0.2s ease .1s;
     }
+
+    .HP {
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
+    
+    .HPEnterActive {
+      opacity: 1;
+    }
+
+    .HPEnterDone {
+      opacity: 1;
+    }
+    
+    .HPExit {
+      opacity: 1;
+      transition: opacity .5s ease;
+    }
+    
+    .HPExitActive {
+      opacity: 0;
+    }
   }
 }
 
-.appear {
-  opacity: 0;
-}
-
-.appear.appearActive {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.enter {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.enter.enterActive {
-  opacity: 1;
-}
-
-.leave {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.leave.leaveActive {
-  opacity: 0;
-}
 @media(min-width: 768px) {
   #HoverPodsPageContainer {
     .HoverPodsContainer {
@@ -97,6 +93,7 @@
     }
   }
 }
+
 @media(min-width: 768px) and (max-width: 1000px) {
   #HoverPodsPageContainer {
     .HoverPodsContainer {

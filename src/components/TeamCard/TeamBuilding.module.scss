@@ -31,6 +31,11 @@
       background: #fff;
       box-shadow: 0 3px 8px rgba(0,0,0,.03);
     }
+
+    &.appearActive {
+      opacity: 1;
+      transition: all .5s ease;
+    }
   }
 
   .Image {
@@ -77,28 +82,30 @@
       }
     }
   }
-}
 
-.appear {
-  opacity: 0;
-}
-.appear.appearActive {
-  opacity: 1;
-  transition: opacity .5s ease;
-}
-  .enter {
-  opacity: 0;
-  transition: opacity .5s ease;
-}
-.enter.enterActive {
-  opacity: 1;
-}
-.leave {
-  opacity: 1;
-  transition: opacity .5s ease;
-}
-.leave.leaveActive {
-  opacity: 0;
+  .TC {
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+  
+  .TCEnterActive {
+    opacity: 1;
+  }
+
+  .TCEnterDone {
+    opacity: 1;
+  }
+  
+  .TCExit {
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+  
+  .TCExitActive {
+    opacity: 0;
+  }
+
+  
 }
 
 @media(min-width: 480px) {
@@ -108,6 +115,7 @@
     }
   }
 }
+
 @media(min-width: 768px) {
   .TeamBuildingContainer {
     .Member {
@@ -115,6 +123,7 @@
     }
   }
 }
+
 @media(min-width: 1024px) {
   .TeamBuildingContainer {
     .Member {
