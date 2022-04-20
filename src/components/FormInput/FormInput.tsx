@@ -6,7 +6,7 @@ type FormInputProps = {
   placeHolder: string;
   name: string;
   inputVal?: string;
-  change: () => void;
+  change: (event: React.ChangeEvent<HTMLInputElement>) => void;
   labelText: string;
 };
 
@@ -21,7 +21,7 @@ function FormInput({
         placeholder={placeHolder}
         name={name}
         value={inputVal}
-        onClick={change}
+        onChange={change}
       />
     );
   } else {
@@ -36,7 +36,7 @@ function FormInput({
     );
   }
   return (
-    <label htmlFor={labelText} className={styles.Container}>
+    <label htmlFor={name} className={styles.Container}>
       {labelText}
       {input}
       {inputType === 'checkbox' ? <span className={styles.Checkmark} /> : null }

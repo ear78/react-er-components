@@ -104,7 +104,8 @@ class BannerParent extends React.Component<BannerProps, BannerState> {
     }));
   }
 
-  handleForm = (event: any) => {
+  handleForm = (event: any): any => {
+    console.log('fired', event);
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;

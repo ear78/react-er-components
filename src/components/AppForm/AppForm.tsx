@@ -5,10 +5,11 @@ import FormInput from '../FormInput/FormInput';
 type AppFormProps = {
   formData: {}[];
 };
+
 function AppForm({ formData }: AppFormProps) {
   const input = formData.map((d: any) => (
     <FormInput
-      key={d.labelText}
+      key={d.name}
       labelText={d.labelText}
       inputType={d.inputType}
       name={d.name}
