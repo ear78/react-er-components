@@ -1,6 +1,9 @@
+@import '../../assets/scss/variables';
+
 .DropperParent {
-  .LeftContainer {
-    width: 30%;
+
+  .ContainerLeft {
+    width: auto;
     padding: 0 15px;
     background: #000;
     border-radius: 3px;
@@ -9,9 +12,13 @@
     justify-content: center;
     color: white;
     flex-direction: column;
+
+    @include breakpoint(md) {
+      width: 30%;
+    }
   }
 
-  .RightContainer {
+  .ContainerRight {
     width: 70%;
     padding: 0 0 0 15px;
   }

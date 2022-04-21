@@ -1,16 +1,7 @@
-html {
-  scroll-behavior: smooth;
-}
+.App {}
 
-.App {
-  font-family: Avenir next;
-  padding: 50px 3%;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  color: #454545;
-}
-
-p {
-  margin: 0;
+.Content {
+  // Fallback to 2012
+  min-height: 40vh;
+  min-height: calc(100vh - 322px);
 }

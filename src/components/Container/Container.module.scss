@@ -1,8 +1,14 @@
 @import '../../assets/scss/variables.scss';
 
 .Container {
+  display: flex;
+  flex-direction: column;
   background: $lighterGray;
   padding: 40px 15px 75px;
   @include border;
   border-radius: 3px;
+
+  @include breakpoint(sm) {
+    flex-direction: row;
+  }
 }
