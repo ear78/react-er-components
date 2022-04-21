@@ -1,3 +1,5 @@
+@import '../../assets/scss/variables';
+
 .NavContainer {
   display: flex;
   justify-content: space-between;
@@ -31,19 +33,19 @@
     }
 
     a {
-      color: #454545;
+      color: $primary;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 0.8rem;
       transition: all 0.2s ease;
 
       &:hover {
-        color: #e91e63;
+        color: $secondary;
       }
     }
 
     a.selected {
-      color: #e91e63;
+      color: $secondary;
     }
   }
 
@@ -56,10 +58,10 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: #000;
+    background: $black;
     top: 0;
     right: 0;
-    z-index: 0;
+    z-index: -1;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out;
     opacity: 0;
@@ -88,19 +90,19 @@
     }
 
     a {
-      color: #454545;
+      color: $primary;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 0.8rem;
       transition: all 0.2s ease;
 
       &:hover {
-        color: #e91e63;
+        color: $secondary;
       }
     }
 
     a.selected {
-      color: #e91e63;
+      color: $secondary;
     }
   }
 

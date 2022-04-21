@@ -1,7 +1,6 @@
 @import '../../assets/scss/_variables';
 
 .HomeContainer {
-  display: flex;
   border-top: $border;
   padding-top: 40px;
   line-height: 1.5;
@@ -9,7 +8,7 @@
   flex-direction: column-reverse;
 
   .Left {
-    margin: 0;
+    margin: 0 0 1rem;
     width: initial;
     background: $boxBackgroundColor;
     padding: 20px;
@@ -28,6 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 0 1rem;
 
     .HomeTitle {
       font-size: 8rem;
@@ -40,16 +40,12 @@
     
   }
 }
-@media screen and (min-width: 768px) {
+
+@include breakpoint(lg) {
   .HomeContainer {
     flex-direction: row;
 
-    .Right {
-      width: 50%;
-    }
-
     .Left {
-      width: 50%;
       min-height: 350px;
     }
   }

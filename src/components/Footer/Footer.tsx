@@ -1,20 +1,19 @@
-import React, { Component } from 'react'
-import styles from './Footer.module.scss'
-import { socialItems } from '../../assets/js/data'
+import React from 'react';
+import styles from './Footer.module.scss';
+import { socialItems } from '../../assets/js/data';
 
-import Copyright from '../../components/Copyright/Copyright'
-import SocialComp from '../../components/SocialComp/SocialComp'
+import Copyright from '../Copyright/Copyright';
+import SocialComp from '../SocialComp/SocialComp';
 
-class Footer extends Component {
-  render() {
-    return (
-      <div className={styles.Footer}>
-        <SocialComp
-          data={socialItems}/>
-        <Copyright />
-      </div>
-    )
-  }
+function Footer() {
+  return (
+    <div className={styles.Footer}>
+      <SocialComp
+        data={socialItems}
+      />
+      <Copyright />
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

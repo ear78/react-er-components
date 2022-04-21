@@ -8,14 +8,16 @@ type TypographyProps = {
   variant: string;
 };
 
-function Typography({ margin, padding, variant, title }: TypographyProps) {
+function Typography({
+  margin, padding, variant, title,
+}: TypographyProps) {
   const styleAdjust = {
-    margin: margin,
-    padding: padding,
+    margin,
+    padding,
   };
 
   let element;
-  switch(variant) {
+  switch (variant) {
     case 'h1':
       element = <h1 style={styleAdjust} className={styles.Typography}>{title}</h1>;
       break;
@@ -35,7 +37,7 @@ function Typography({ margin, padding, variant, title }: TypographyProps) {
       element = <h6 style={styleAdjust} className={styles.Typography}>{title}</h6>;
       break;
     default:
-      element = <p style={styleAdjust} className={styles.Typography}>{title}</p>
+      element = <p style={styleAdjust} className={styles.Typography}>{title}</p>;
   }
 
   return element;
