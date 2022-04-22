@@ -23,3 +23,31 @@
     transform: scale(1.05);
   }
 }
+
+.Sidebar {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: $lighterGray;
+  border-top: 1px solid $lightGray;
+  border-left: 1px solid $lightGray;
+  border-bottom: 1px solid $lightGray;
+  max-height: 450px;
+  box-sizing: border-box;
+  z-index: -1;
+  opacity: 0;
+  padding: 15px;
+  width: 300px;
+  overflow-y: auto;
+  height: auto;
+  transform: translate3d(0, -3px, 0);
+  transition: opacity .5s ease 0ms, transform 2s ease 0ms, z-index 0ms ease 500ms;
+  border-radius: $borderRadius;
+
+  &.active {
+    opacity: 1;
+    z-index: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity .5s ease 0ms, transform 1s ease 0ms, z-index 0ms ease 0ms;
+  }
+}

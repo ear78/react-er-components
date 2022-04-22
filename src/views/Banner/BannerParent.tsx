@@ -128,25 +128,17 @@ class BannerParent extends React.Component<BannerProps, BannerState> {
       preTitle, title,
       subTitle, btnText, ctaUrl, btnColor, overlay, overlayDark, overlayFull,
     } = this.state;
-    const menuActive = isMenuActive ? styles.active : '';
+
     const appForm = showAppForm
       ? <AppForm formData={formData} />
       : null;
 
     return (
       <div className={styles.BannerParent}>
-        <AdjusterMenu
-          click={this.toggleAdjusterMenu}
-        />
-
-        <div className={`${styles.Sidebar} ${menuActive}`}>
-          <Typography
-            title="Adjuster"
-            margin="0 0 20px 0"
-            variant="h3"
-          />
+        <AdjusterMenu click={this.toggleAdjusterMenu} menuActive={isMenuActive}>
+          <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
           {appForm}
-        </div>
+        </AdjusterMenu>
 
         <div className={styles.Content}>
           <Banner

@@ -21,7 +21,7 @@ import Spinner from './components/Spinner/Spinner';
 import Home from './views/Home/Home';
 import BannerParent from './views/Banner/BannerParent';
 import HoverPodsParent from './views/HoverPods/HoverPodsParent';
-import TeamBuildingParent from './views/TeamBuilding/TeamBuilding';
+import TeamBuilding from './views/TeamBuilding/TeamBuilding';
 import HappyDotsParent from './views/HappyDots/HappyDotsParent';
 import DropperParent from './views/Dropper/DropperParent';
 import Eslider from './views/Eslider/Eslider';
@@ -67,7 +67,7 @@ function App() {
               <BannerParent />
             </Route>
             <Route path="/team-building">
-              <TeamBuildingParent />
+              <TeamBuilding mounted={mounted} />
             </Route>
             <Route path="/dropper">
               <DropperParent />

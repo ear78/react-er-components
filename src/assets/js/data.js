@@ -176,6 +176,24 @@ export const teamMembers = [{
   twitter: 'https://twitter.com',
   linkedin: 'https://www.linkedin.com',
 },
+{
+  id: 10,
+  image: portfolio11,
+  name: 'David Mattias',
+  jobTitle: 'General Manager',
+  facebook: 'https://www.facebook.com',
+  twitter: 'https://twitter.com',
+  linkedin: 'https://www.linkedin.com',
+},
+{
+  id: 11,
+  image: portfolio12,
+  name: 'Paran John',
+  jobTitle: 'Senior Developer',
+  facebook: 'https://www.facebook.com',
+  twitter: 'https://twitter.com',
+  linkedin: 'https://www.linkedin.com',
+},
 ];
 
 export const socialItems = [{
