@@ -66,18 +66,10 @@ class TeamBuilding extends React.Component<TeamBuildingParentProps, TeamBuilding
     }
     return (
       <div className={styles.TeamBuilding}>
-        <AdjusterMenu
-          click={this.toggleAdjusterMenu}
-        />
-
-        <div className={`${styles.Sidebar} ${isMenuActive ? styles.active : ''}`}>
-          <Typography
-            title="Adjuster"
-            margin="0 0 20px 0"
-            variant="h3"
-          />
+        <AdjusterMenu click={this.toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
+          <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
           <AppForm formData={formData} />
-        </div>
+        </AdjusterMenu>
 
         <PageTitle title="Team Building" />
         {teamBuilding}

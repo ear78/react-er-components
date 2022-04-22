@@ -4,36 +4,6 @@
   display: flex;
   position: relative;
 
-  .Sidebar {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: $lighterGray;
-    border-top: 1px solid $lightGray;
-    border-left: 1px solid $lightGray;
-    border-bottom: 1px solid $lightGray;
-    max-height: 450px;
-    box-sizing: border-box;
-    overflow-y: hidden;
-    visibility: hidden;
-    z-index: 1;
-    opacity: 0;
-    padding: 0;
-    width: 0;
-    height: 0;
-    transition: $mediumTransition;
-    border-radius: $borderRadius;
-  
-    &.active {
-      height: 90%;
-      padding: 15px 15px;
-      width: 300px;
-      visibility: visible;
-      opacity: 1;
-      transition: $mediumTransition;
-    }
-  }
-
   .Content {
     width: 100%;
   }
