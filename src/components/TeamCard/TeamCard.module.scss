@@ -1,25 +1,21 @@
-#TeamBuilding {
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
-  background: #f7f7f7;
-  padding-top: 40px;
-}
-
 .TeamBuildingContainer {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   padding-top: 40px;
+
   .Member {
     display: inline-block;
     margin: 1%;
     box-sizing: border-box;
     width: 98%;
-    &:hover  .MemberHoverTrigger {
+
+    &:hover .MemberHoverTrigger {
       border-color: #e91e63;
       cursor: pointer;
       transform: scale(1.03);
     }
+
     .MemberHoverTrigger {
       position: relative;
       transition: transform .2s ease 0ms, border-color .2s ease 0ms;
@@ -27,14 +23,32 @@
       padding: 20px;
       border-radius: 3px;
       box-sizing: border-box;
-      box-shadow: 0 3px 8px rgba(0,0,0,.03);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, .03);
       background: #fff;
-      box-shadow: 0 3px 8px rgba(0,0,0,.03);
-    }
+      box-shadow: 0 3px 8px rgba(0, 0, 0, .03);
 
-    &.appearActive {
-      opacity: 1;
-      transition: all .5s ease;
+      &.AltLayout {
+        display: flex;
+        justify-content: space-between;
+
+        .AltLayoutLeft {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 140px;
+          margin-right: 10px;
+        }
+
+        .AltLayoutRight {}
+
+        .Image {
+          max-width: 95px;
+        }
+
+        .icons {
+          margin-top: 10px;
+        }
+      }
     }
   }
 
@@ -59,12 +73,13 @@
     position: absolute;
     width: 25px;
     right: 18px;
-    bottom: 15px;
+    bottom: 20px;
   }
 
   .icons {
     margin: 0;
     display: flex;
+
     a {
       display: inline-block;
       width: inherit;
@@ -72,10 +87,12 @@
       line-height: inherit;
       color: #454545;
     }
+
     svg {
       padding-right: 4px;
       width: .8rem;
       transition: all .2s ease;
+
       &:hover {
         cursor: pointer;
         color: #e91e63;
@@ -87,7 +104,7 @@
     opacity: 0;
     transition: opacity .5s ease;
   }
-  
+
   .TCEnterActive {
     opacity: 1;
   }
@@ -95,17 +112,17 @@
   .TCEnterDone {
     opacity: 1;
   }
-  
+
   .TCExit {
     opacity: 1;
     transition: opacity .5s ease;
   }
-  
+
   .TCExitActive {
     opacity: 0;
   }
 
-  
+
 }
 
 @media(min-width: 480px) {
