@@ -50,6 +50,10 @@ class Nav extends React.Component<NavProps, NavState> {
         route: '/e-slider',
         text: 'E-Slider',
       },
+      {
+        route: '/dashboard',
+        text: 'Dashboard',
+      },
     ];
 
     const navPrint = navMenu.map((item, i) => (

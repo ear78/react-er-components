@@ -25,6 +25,7 @@ import TeamBuilding from './views/TeamBuilding/TeamBuilding';
 import HappyDotsParent from './views/HappyDots/HappyDotsParent';
 import DropperParent from './views/Dropper/DropperParent';
 import Eslider from './views/Eslider/Eslider';
+import Dashboard from './views/Dashboard/Dashboard';
 
 /** Css */
 import styles from './App.module.scss';
@@ -52,6 +53,9 @@ function App() {
 
         <Grid component="section" className={styles.Content}>
           <Switch>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
             <Route path="/e-slider">
               <Eslider mounted={mounted} data={esliderData} />
             </Route>
