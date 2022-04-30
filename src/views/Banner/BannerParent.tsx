@@ -8,143 +8,105 @@ import building from '../../assets/img/pinkBuilding.jpg';
 import Typography from '../../components/Typography/Typography';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-type BannerState = {
-  bgImage: string;
-  preTitle?: string;
-  title: string;
-  subTitle: string;
-  btnText: string;
-  ctaUrl: string;
-  btnColor?: string;
-  overlay?: boolean;
-  overlayDark?: boolean;
-  overlayFull?: boolean;
-  showBtn?: boolean;
-  textAlign?: string;
-};
-
-function BannerParent() {
+function BannerParent(props: any) {
   const dispatch = useDispatch();
+  const { components } = props;
+  const { settings } = components[0];
   const formRef = useRef<HTMLFormElement>(null);
-  // const reduxSettings = useSelector((state: any) => state.app.components[0].settings);
-  const [settingsData, setSettingsData] = useState<BannerState>({
-    bgImage: '',
-    preTitle: '',
-    title: '',
-    subTitle: '',
-    btnText: '',
-    ctaUrl: '',
-    btnColor: '',
-    overlay: false,
-    overlayDark: false,
-    overlayFull: false,
-    showBtn: true,
-    textAlign: '',
-  });
 
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [formData, setFormData] = useState<{}[]>([]);
 
   useEffect(() => {
-    // if (Object.keys(reduxSettings).length) {
-    //   // console.log('fired');
-
-    //   setSettingsData((prevState) => ({
-    //     ...prevState,
-    //     ...reduxSettings,
-    //   }));
-    // }
-
     setFormData([
       {
         inputType: 'text',
         labelText: 'Background Image',
-        inputVal: settingsData.bgImage,
+        inputVal: settings.bgImage,
         name: 'bgImage',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Banner Pre Title',
-        inputVal: settingsData.preTitle,
+        inputVal: settings.preTitle,
         name: 'preTitle',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Cta Url',
-        inputVal: settingsData.ctaUrl,
+        inputVal: settings.ctaUrl,
         name: 'ctaUrl',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Banner Title',
-        inputVal: settingsData.title,
+        inputVal: settings.title,
         name: 'title',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Banner Sub Title',
-        inputVal: settingsData.subTitle,
+        inputVal: settings.subTitle,
         name: 'subTitle',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Banner Button Text',
-        inputVal: settingsData.btnText,
+        inputVal: settings.btnText,
         name: 'btnText',
         change: handleForm,
       },
       {
         inputType: 'text',
         labelText: 'Banner Button Color',
-        inputVal: settingsData.btnColor,
+        inputVal: settings.btnColor,
         name: 'btnColor',
         change: handleForm,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay',
-        inputVal: settingsData.overlay,
+        inputVal: settings.overlay,
         name: 'overlay',
         change: handleForm,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay Dark',
-        inputVal: settingsData.overlayDark,
+        inputVal: settings.overlayDark,
         name: 'overlayDark',
         change: handleForm,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay Full',
-        inputVal: settingsData.overlayFull,
+        inputVal: settings.overlayFull,
         name: 'overlayFull',
         change: handleForm,
       },
       {
         inputType: 'checkbox',
         labelText: 'Show CTA Button',
-        inputVal: settingsData.showBtn,
+        inputVal: settings.showBtn,
         name: 'showBtn',
         change: handleForm,
       },
       {
-        inputType: 'text',
+        inputType: 'radio',
         labelText: 'Banner Alignment',
-        inputVal: settingsData.textAlign,
+        inputVal: settings.textAlign,
         name: 'textAlign',
         change: handleForm,
       },
     ]);
-  }, [settingsData]);
+  }, [settings]);
 
   const handleForm = (event: any): any => {
-    // console.log(event);
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
@@ -152,8 +114,8 @@ function BannerParent() {
       [name]: value,
     };
 
-    setSettingsData((prevState) => ({
-      ...prevState,
+    dispatch(setComponentSettings({
+      ...settings,
       ...formObj,
     }));
   };
@@ -165,12 +127,9 @@ function BannerParent() {
   const handleSettingsSave = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(setComponentSettings({
-      id: 0,
-      ...settingsData,
+      ...settings,
     }));
 
-    // Reset Form Inputs
-    formRef.current?.reset();
     setIsMenuActive(false);
   };
 
@@ -184,17 +143,17 @@ function BannerParent() {
       <div className={styles.Content}>
         <Banner
           bgImage={building}
-          preTitle={settingsData.preTitle}
-          title={settingsData.title}
-          subTitle={settingsData.subTitle}
-          btnText={settingsData.btnText}
-          ctaUrl={settingsData.ctaUrl}
-          btnColor={settingsData.btnColor}
-          overlay={settingsData.overlay}
-          overlayDark={settingsData.overlayDark}
-          overlayFull={settingsData.overlayFull}
-          textAlign={settingsData.textAlign}
-          showBtn={settingsData.showBtn}
+          preTitle={settings.preTitle}
+          title={settings.title}
+          subTitle={settings.subTitle}
+          btnText={settings.btnText}
+          ctaUrl={settings.ctaUrl}
+          btnColor={settings.btnColor}
+          overlay={settings.overlay}
+          overlayDark={settings.overlayDark}
+          overlayFull={settings.overlayFull}
+          textAlign={settings.textAlign}
+          showBtn={settings.showBtn}
         />
       </div>
     </div>

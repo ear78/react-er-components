@@ -38,7 +38,7 @@ function TeamBuilding(props: any) {
     };
 
     dispatch(setComponentSettings({
-      id: 2,
+      ...settings,
       ...formObj,
     }));
   };
