@@ -5,12 +5,11 @@ import PageTitle from '../PageTitle/PageTitle';
 
 type HoverPodsProps = {
   podData: {}[];
-  mounted: boolean;
 };
 
-function HoverPods({ mounted, podData }: HoverPodsProps) {
+function HoverPods({ podData }: HoverPodsProps) {
   let hoverPod;
-  if (mounted) {
+  if (podData.length) {
     hoverPod = podData.map((pod: any, index) => (
       <CSSTransition
         key={pod.podBgImage}
@@ -20,7 +19,7 @@ function HoverPods({ mounted, podData }: HoverPodsProps) {
           exitActive: styles.HPExit,
           exitDone: styles.HPExitActive,
         }}
-        timeout={750}
+        timeout={100}
       >
         <div
           style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${index * 0.1}s` }}

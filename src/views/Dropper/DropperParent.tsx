@@ -1,13 +1,13 @@
 import React from 'react';
+import Grid from '@mui/material/Grid';
 import { dropperData } from '../../assets/js/data';
 import styles from './DropperParent.module.scss';
 import colors from '../../assets/js/colors';
-
 import Dropper from '../../components/Dropper/Dropper';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import Container from '../../components/Container/Container';
-import ContainerRight from '../../components/ContainerRight/ContainerRight';
-import ContainerLeft from '../../components/ContainerLeft/ContainerLeft';
+// import Container from '../../components/Container/Container';
+// import ContainerRight from '../../components/ContainerRight/ContainerRight';
+// import ContainerLeft from '../../components/ContainerLeft/ContainerLeft';
 
 function DropperParent() {
   const dropper = dropperData.map((d) => (
@@ -15,16 +15,16 @@ function DropperParent() {
   ));
 
   return (
-    <section className={styles.DropperParent}>
-      <Container display="flex" padding={40}>
-        <ContainerLeft background={colors.black}>
+    <Grid container component="section" flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperParent}>
+      <Grid container flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperWrapper}>
+        <Grid item xs={12} sm={5} className={styles.Left}>
           <PageTitle title="Dropper" color={colors.hotPink} />
-        </ContainerLeft>
-        <ContainerRight>
+        </Grid>
+        <Grid item xs={12} sm={7} className={styles.Right}>
           {dropper}
-        </ContainerRight>
-      </Container>
-    </section>
+        </Grid>
+      </Grid>
+    </Grid>
 
   );
 }

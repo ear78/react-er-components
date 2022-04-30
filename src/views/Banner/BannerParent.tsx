@@ -1,162 +1,204 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './BannerParent.module.scss';
 import Banner from '../../components/Banner/Banner';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import AppForm from '../../components/AppForm/AppForm';
 import building from '../../assets/img/pinkBuilding.jpg';
 import Typography from '../../components/Typography/Typography';
+import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-// Delare Props & State types
-type BannerProps = {};
 type BannerState = {
-  showAppForm: boolean;
-  isMenuActive: boolean;
   bgImage: string;
-  preTitle: string;
+  preTitle?: string;
   title: string;
   subTitle: string;
   btnText: string;
   ctaUrl: string;
-  btnColor: string;
-  overlay: boolean;
-  overlayDark: boolean;
-  overlayFull: boolean;
-  formData: any[];
+  btnColor?: string;
+  overlay?: boolean;
+  overlayDark?: boolean;
+  overlayFull?: boolean;
+  showBtn?: boolean;
+  textAlign?: string;
 };
 
-class BannerParent extends React.Component<BannerProps, BannerState> {
-  state: BannerState = {
-    showAppForm: true, // show form for demo
-    isMenuActive: false,
-    bgImage: building,
-    preTitle: 'Welcome to Page Banner',
-    title: 'Page Banner',
-    subTitle: 'Banners to help your site look great!',
-    btnText: 'Kontakt',
-    ctaUrl: 'https://www.elliotrichardson.com',
+function BannerParent() {
+  const dispatch = useDispatch();
+  const formRef = useRef<HTMLFormElement>(null);
+  // const reduxSettings = useSelector((state: any) => state.app.components[0].settings);
+  const [settingsData, setSettingsData] = useState<BannerState>({
+    bgImage: '',
+    preTitle: '',
+    title: '',
+    subTitle: '',
+    btnText: '',
+    ctaUrl: '',
     btnColor: '',
     overlay: false,
     overlayDark: false,
     overlayFull: false,
-    formData: [],
-  };
+    showBtn: true,
+    textAlign: '',
+  });
 
-  componentDidMount() {
-    this.setState((state) => ({
-      formData: [
-        {
-          inputType: 'text',
-          labelText: 'Banner Pre Title',
-          inputVal: state.preTitle,
-          name: 'preTitle',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'text',
-          labelText: 'Banner Title',
-          inputVal: state.title,
-          name: 'title',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'text',
-          labelText: 'Banner Sub Title',
-          inputVal: state.subTitle,
-          name: 'subTitle',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'text',
-          labelText: 'Banner Button Text',
-          inputVal: state.btnText,
-          name: 'btnText',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'text',
-          labelText: 'Banner Button Color',
-          inputVal: state.btnColor,
-          name: 'btnColor',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'checkbox',
-          labelText: 'Banner Overlay',
-          inputVal: state.overlay,
-          name: 'overlay',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'checkbox',
-          labelText: 'Banner Overlay Dark',
-          inputVal: state.overlayDark,
-          name: 'overlayDark',
-          change: this.handleForm,
-        },
-        {
-          inputType: 'checkbox',
-          labelText: 'Banner Overlay Full',
-          inputVal: state.overlayFull,
-          name: 'overlayFull',
-          change: this.handleForm,
-        },
-      ],
-    }));
-  }
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const [formData, setFormData] = useState<{}[]>([]);
 
-  handleForm = (event: any): any => {
+  useEffect(() => {
+    // if (Object.keys(reduxSettings).length) {
+    //   // console.log('fired');
+
+    //   setSettingsData((prevState) => ({
+    //     ...prevState,
+    //     ...reduxSettings,
+    //   }));
+    // }
+
+    setFormData([
+      {
+        inputType: 'text',
+        labelText: 'Background Image',
+        inputVal: settingsData.bgImage,
+        name: 'bgImage',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Pre Title',
+        inputVal: settingsData.preTitle,
+        name: 'preTitle',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Cta Url',
+        inputVal: settingsData.ctaUrl,
+        name: 'ctaUrl',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Title',
+        inputVal: settingsData.title,
+        name: 'title',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Sub Title',
+        inputVal: settingsData.subTitle,
+        name: 'subTitle',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Button Text',
+        inputVal: settingsData.btnText,
+        name: 'btnText',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Button Color',
+        inputVal: settingsData.btnColor,
+        name: 'btnColor',
+        change: handleForm,
+      },
+      {
+        inputType: 'checkbox',
+        labelText: 'Banner Overlay',
+        inputVal: settingsData.overlay,
+        name: 'overlay',
+        change: handleForm,
+      },
+      {
+        inputType: 'checkbox',
+        labelText: 'Banner Overlay Dark',
+        inputVal: settingsData.overlayDark,
+        name: 'overlayDark',
+        change: handleForm,
+      },
+      {
+        inputType: 'checkbox',
+        labelText: 'Banner Overlay Full',
+        inputVal: settingsData.overlayFull,
+        name: 'overlayFull',
+        change: handleForm,
+      },
+      {
+        inputType: 'checkbox',
+        labelText: 'Show CTA Button',
+        inputVal: settingsData.showBtn,
+        name: 'showBtn',
+        change: handleForm,
+      },
+      {
+        inputType: 'text',
+        labelText: 'Banner Alignment',
+        inputVal: settingsData.textAlign,
+        name: 'textAlign',
+        change: handleForm,
+      },
+    ]);
+  }, [settingsData]);
+
+  const handleForm = (event: any): any => {
+    // console.log(event);
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
-    this.setState((state) => ({
-      ...state,
+    const formObj = {
       [name]: value,
+    };
+
+    setSettingsData((prevState) => ({
+      ...prevState,
+      ...formObj,
     }));
   };
 
-  toggleAdjusterMenu = () => {
-    this.setState((state) => ({
-      isMenuActive: !state.isMenuActive,
-    }));
+  const toggleAdjusterMenu = () => {
+    setIsMenuActive(!isMenuActive);
   };
 
-  render() {
-    const {
-      isMenuActive,
-      showAppForm,
-      formData,
-      preTitle, title,
-      subTitle, btnText, ctaUrl, btnColor, overlay, overlayDark, overlayFull,
-    } = this.state;
+  const handleSettingsSave = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    dispatch(setComponentSettings({
+      id: 0,
+      ...settingsData,
+    }));
 
-    const appForm = showAppForm
-      ? <AppForm formData={formData} />
-      : null;
+    // Reset Form Inputs
+    formRef.current?.reset();
+    setIsMenuActive(false);
+  };
 
-    return (
-      <div className={styles.BannerParent}>
-        <AdjusterMenu click={this.toggleAdjusterMenu} menuActive={isMenuActive}>
-          <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
-          {appForm}
-        </AdjusterMenu>
+  return (
+    <div className={styles.BannerParent}>
+      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
+        <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
+        <AppForm click={handleSettingsSave} formData={formData} formRef={formRef} />
+      </AdjusterMenu>
 
-        <div className={styles.Content}>
-          <Banner
-            bgImage={building}
-            preTitle={preTitle}
-            title={title}
-            subTitle={subTitle}
-            btnText={btnText}
-            ctaUrl={ctaUrl}
-            btnColor={btnColor}
-            overlay={overlay}
-            overlayDark={overlayDark}
-            overlayFull={overlayFull}
-          />
-        </div>
+      <div className={styles.Content}>
+        <Banner
+          bgImage={building}
+          preTitle={settingsData.preTitle}
+          title={settingsData.title}
+          subTitle={settingsData.subTitle}
+          btnText={settingsData.btnText}
+          ctaUrl={settingsData.ctaUrl}
+          btnColor={settingsData.btnColor}
+          overlay={settingsData.overlay}
+          overlayDark={settingsData.overlayDark}
+          overlayFull={settingsData.overlayFull}
+          textAlign={settingsData.textAlign}
+          showBtn={settingsData.showBtn}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default BannerParent;

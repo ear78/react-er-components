@@ -5,23 +5,24 @@ import styles from './Banner.module.scss';
 
 type BannerProps = {
   bgImage: string;
-  btnColor: string;
+  btnColor?: string;
   btnText: string;
   ctaUrl: string;
-  preTitle: string;
-  overlay: boolean;
-  overlayDark: boolean;
-  overlayFull: boolean;
-  subTitle: string;
+  preTitle?: string;
+  overlay?: boolean;
+  overlayDark?: boolean;
+  overlayFull?: boolean;
+  showBtn?: boolean;
+  subTitle?: string;
   target?: boolean;
   textAlign?: string;
   textColor?: string;
   title: string;
 };
 
-function banner({
+function Banner({
   bgImage, btnColor, btnText, ctaUrl, preTitle, overlay, overlayDark, overlayFull,
-  subTitle, target, textColor, title, textAlign,
+  showBtn = true, subTitle, target, textColor, title, textAlign,
 }: BannerProps) {
   const bannerBtnColor = btnColor || '';
   const bannerOverlay = overlay ? '' : styles.OverlayNone;
@@ -46,20 +47,24 @@ function banner({
         <p className={`${styles.PreTitle} ${bannerTextColor}`}>{bannerPreTitle}</p>
         <h1 className={`${styles.Title} ${bannerTextColor}`}>{bannerTitle}</h1>
         <p className={`${styles.SubTitle} ${bannerTextColor}`}>{bannerSubTitle}</p>
-        <button type="button" style={{ background: `${bannerBtnColor}` }} className={styles.Button}>
-          <a
-            href={ctaUrl}
-            target={target ? '_blank' : ''}
-            rel="noreferrer"
-          >
-            {bannerBtnText}
+        {showBtn
+          ? (
+            <button type="button" style={{ background: `${bannerBtnColor}` }} className={styles.Button}>
+              <a
+                href={ctaUrl}
+                target={target ? '_blank' : ''}
+                rel="noreferrer"
+              >
+                {bannerBtnText}
 &nbsp;
-            <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight} />
-          </a>
-        </button>
+                <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight} />
+              </a>
+            </button>
+          )
+          : null}
       </div>
     </div>
   );
 }
 
-export default banner;
+export default Banner;

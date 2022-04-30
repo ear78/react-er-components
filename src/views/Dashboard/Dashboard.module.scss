@@ -52,6 +52,17 @@
     .Description {
       margin: 0.5rem 0 1rem;
       font-size: .9rem;
+
+      .SettingsPill {
+        display: inline-block;
+        background: #efefef;
+        border-radius: 15px;
+        padding: 1px 10px;
+        margin: 0 5px 0 0;
+        font-weight: 500;
+        white-space: pre;
+        margin-bottom: 4px;
+      }
     }
 
     .Footer {

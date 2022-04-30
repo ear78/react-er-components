@@ -6,7 +6,7 @@ type SpinnerProps = {
 };
 
 function Spinner({ mounted }: SpinnerProps) {
-  const showSpinner = mounted ? 'none' : 'block';
+  const showSpinner = !mounted ? 'none' : 'block';
   return (
     <div style={{ display: showSpinner }} className={styles.Spinner}>
       <div className={styles.Circle}>

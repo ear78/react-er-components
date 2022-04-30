@@ -1,6 +1,9 @@
 @import '../../assets/scss/variables';
 
 .HappyDotsParent {
+  padding-top: 3rem;
+  border-top: $border;
+
   .HappyDotsContainer {
     padding: 15px;
     @include border;
@@ -28,7 +31,7 @@
       background-repeat: no-repeat;
       width: initial;
     }
-    
+
     .TextBox {
       width: initial;
       padding: 35px;
@@ -38,12 +41,13 @@
   }
 
   @media screen and (min-width: 768px) {
+
     .RefReverse,
     .RefSection {
       .TextBox {
         width: 50%;
       }
-    
+
       .BgImage {
         width: 50%;
       }

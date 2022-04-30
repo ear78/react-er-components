@@ -29,11 +29,13 @@
       border-radius: 50%;
       margin-bottom: 20px;
 
-      &:hover .HoverColor,
-      &:hover .HoverText {
-        top: 45%;
-        cursor: pointer;
-        opacity: 1;
+      @include breakpoint(lg) {
+        &:hover .HoverColor,
+        &:hover .HoverText {
+          top: 45%;
+          cursor: pointer;
+          opacity: 1;
+        }
       }
 
       a {
@@ -46,7 +48,7 @@
       height: 100%;
       background: #c50043ad;
       border-radius: 50%;
-      opacity: 0;
+      opacity: 1;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transition: opacity 0.2s ease;
     }
@@ -55,18 +57,27 @@
       margin: 0;
       color: $white;
       position: absolute;
-      top: 40%;
+      top: 45%;
       width: 100%;
       text-align: center;
-      opacity: 0;
+      opacity: 1;
       transition: opacity 0.2s ease 0.1s, top 0.2s ease .1s;
     }
 
+    @include breakpoint(lg) {
+      .HoverColor,
+      .HoverText {
+        opacity: 0;
+        top: 40%
+      }
+    }
+
+    // Appear animation
     .HP {
       opacity: 0;
       transition: opacity .5s ease;
     }
-    
+
     .HPEnterActive {
       opacity: 1;
     }
@@ -74,12 +85,12 @@
     .HPEnterDone {
       opacity: 1;
     }
-    
+
     .HPExit {
       opacity: 1;
       transition: opacity .5s ease;
     }
-    
+
     .HPExitActive {
       opacity: 0;
     }
