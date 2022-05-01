@@ -19,7 +19,10 @@ function HoverPods({ podData }: HoverPodsProps) {
           exitActive: styles.HPExit,
           exitDone: styles.HPExitActive,
         }}
-        timeout={100}
+        timeout={{
+          appear: 900,
+          enter: 100,
+        }}
       >
         <div
           style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${index * 0.1}s` }}

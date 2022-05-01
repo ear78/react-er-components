@@ -11,6 +11,7 @@ export const dashboardSlice = createSlice({
         description: "The Page Banner component helps you create a reusable page banner component for your app along with a few different options. You're current settings used are: ",
         settings: {
           id: 0,
+          bgImage: '/pinkBuilding.jpg',
           preTitle: 'Welcome to Page Banner',
           title: 'Page Banner',
           subTitle: 'Banners to help your site look great!',

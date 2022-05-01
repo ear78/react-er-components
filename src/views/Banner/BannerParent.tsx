@@ -4,8 +4,8 @@ import styles from './BannerParent.module.scss';
 import Banner from '../../components/Banner/Banner';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import AppForm from '../../components/AppForm/AppForm';
-import building from '../../assets/img/pinkBuilding.jpg';
 import Typography from '../../components/Typography/Typography';
+import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
 function BannerParent(props: any) {
@@ -24,95 +24,90 @@ function BannerParent(props: any) {
         labelText: 'Background Image',
         inputVal: settings.bgImage,
         name: 'bgImage',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Banner Pre Title',
         inputVal: settings.preTitle,
         name: 'preTitle',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Cta Url',
         inputVal: settings.ctaUrl,
         name: 'ctaUrl',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Banner Title',
         inputVal: settings.title,
         name: 'title',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Banner Sub Title',
         inputVal: settings.subTitle,
         name: 'subTitle',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Banner Button Text',
         inputVal: settings.btnText,
         name: 'btnText',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'text',
         labelText: 'Banner Button Color',
         inputVal: settings.btnColor,
         name: 'btnColor',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay',
         inputVal: settings.overlay,
         name: 'overlay',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay Dark',
         inputVal: settings.overlayDark,
         name: 'overlayDark',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'checkbox',
         labelText: 'Banner Overlay Full',
         inputVal: settings.overlayFull,
         name: 'overlayFull',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'checkbox',
         labelText: 'Show CTA Button',
         inputVal: settings.showBtn,
         name: 'showBtn',
-        change: handleForm,
+        change: updateSettings,
       },
       {
         inputType: 'radio',
         labelText: 'Banner Alignment',
         inputVal: settings.textAlign,
         name: 'textAlign',
-        change: handleForm,
+        change: updateSettings,
       },
     ]);
   }, [settings]);
 
-  const handleForm = (event: any): any => {
-    const { target } = event;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { name } = target;
-    const formObj = {
-      [name]: value,
-    };
+  const updateSettings = (event: any) => {
+    const formObj = handleForm(event);
 
     dispatch(setComponentSettings({
       ...settings,
@@ -142,7 +137,7 @@ function BannerParent(props: any) {
 
       <div className={styles.Content}>
         <Banner
-          bgImage={building}
+          bgImage={settings.bgImage}
           preTitle={settings.preTitle}
           title={settings.title}
           subTitle={settings.subTitle}

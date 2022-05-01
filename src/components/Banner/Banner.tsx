@@ -30,9 +30,7 @@ function Banner({
   const bannerOverlayFull = overlayFull ? styles.Full : '';
   const bannerTextAlign = textAlign === 'center' ? styles.Center : textAlign === 'right' ? styles.Right : '';
   const bannerTextColor = textColor === 'dark' ? styles.DarkText : '';
-  const bannerBackgroundImg = {
-    backgroundImage: `url(${bgImage})`,
-  };
+  const bannerBackgroundImg = bgImage.length ? { backgroundImage: `url(${bgImage})` } : { backgroundImage: 'url(/pinkBuilding.jpg)' };
   const bannerPreTitle = !preTitle ? 'Welcome to Page Banner' : preTitle;
   const bannerTitle = !title ? 'Page Banner' : title;
   const bannerSubTitle = !subTitle ? 'Banners to help your site look great!' : subTitle;

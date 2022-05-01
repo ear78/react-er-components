@@ -6,6 +6,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import Typography from '../../components/Typography/Typography';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import styles from './TeamBuilding.module.scss';
+import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
 function TeamBuilding(props: any) {
@@ -24,18 +25,13 @@ function TeamBuilding(props: any) {
         labelText: 'Alternate Layout',
         inputVal: settings.altLayout,
         name: 'altLayout',
-        change: handleForm,
+        change: updateSettings,
       },
     ]);
   }, [settings]);
 
-  const handleForm = (event: any): any => {
-    const { target } = event;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { name } = target;
-    const formObj = {
-      [name]: value,
-    };
+  const updateSettings = (event: any) => {
+    const formObj = handleForm(event);
 
     dispatch(setComponentSettings({
       ...settings,
