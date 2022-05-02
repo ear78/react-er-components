@@ -24,11 +24,11 @@ import Spinner from './components/Spinner/Spinner';
 
 /* Views */
 import Home from './views/Home/Home';
-import BannerParent from './views/Banner/BannerParent';
+import BannerParent from './views/Banner/BannerView';
 import HoverPodsParent from './views/HoverPods/HoverPodsView';
 import TeamBuilding from './views/TeamBuilding/TeamBuilding';
 import HappyDotsParent from './views/HappyDots/HappyDotsParent';
-import DropperParent from './views/Dropper/DropperParent';
+import DropperParent from './views/Dropper/DropperView';
 import Eslider from './views/Eslider/Eslider';
 import Dashboard from './views/Dashboard/Dashboard';
 
