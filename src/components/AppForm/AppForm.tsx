@@ -9,8 +9,8 @@ import styles from './AppForm.module.scss';
 
 type AppFormProps = {
   formData: {}[];
-  formRef: React.LegacyRef<HTMLFormElement> | undefined;
-  click: (event: React.SyntheticEvent) => void;
+  formRef?: React.LegacyRef<HTMLFormElement> | undefined;
+  click?: (event: React.SyntheticEvent) => void;
 };
 function AppForm({ formData, click, formRef }: AppFormProps) {
   const input = formData.map((d: any) => (

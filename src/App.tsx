@@ -59,7 +59,9 @@ function App() {
         <Grid component="section" className={styles.Content}>
           <Switch>
             <Route path="/dashboard">
-              <Dashboard />
+              <ReduxPass>
+                <Dashboard />
+              </ReduxPass>
             </Route>
             <Route path="/e-slider">
               <Eslider data={esliderData} />

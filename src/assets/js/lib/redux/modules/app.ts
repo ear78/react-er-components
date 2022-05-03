@@ -32,6 +32,7 @@ export const dashboardSlice = createSlice({
         You're current settings used are: `,
         settings: {
           id: 1,
+          isSquared: false,
         },
       },
       {

@@ -1,8 +1,7 @@
 @import '../../assets/scss/variables';
 
 .EsliderContainer {
-  border-top: $border;
-  padding-top: 3rem;
+  
 }
 
 .Eslider {
@@ -48,7 +47,7 @@
   
     &.isBlurred {
       animation: blurred;
-      animation-duration: 2s;
+      animation-duration: 1s;
       animation-iteration-count: 1;
     }
 

@@ -1,117 +1,109 @@
 @import '../../assets/scss/_variables.scss';
 
-#HoverPodsPageContainer {
-  background: $boxBackgroundColor;
-  padding: 40px 0 75px;
-  border: $border;
-  border-radius: 3px;
+.title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 13px;
+  text-transform: uppercase;
+}
 
-  .title {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 13px;
-    text-transform: uppercase;
+.HoverPodsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 40px;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint(md) {
+    flex-direction: row;
   }
 
-  .HoverPodsContainer {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 40px;
-    flex-direction: column;
-    align-items: center;
+  .Pod {
+    position: relative;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 
-    .Pod {
-      position: relative;
-      background-size: cover;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-
-      @include breakpoint(lg) {
-        &:hover .HoverColor,
-        &:hover .HoverText {
-          top: 45%;
-          cursor: pointer;
-          opacity: 1;
-        }
-      }
-
-      a {
-        line-height: 1.4;
-      }
-    }
-
-    .HoverColor {
-      width: 100%;
-      height: 100%;
-      background: #c50043ad;
-      border-radius: 50%;
-      opacity: 1;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: opacity 0.2s ease;
-    }
-
-    .HoverText {
-      margin: 0;
-      color: $white;
-      position: absolute;
-      top: 45%;
-      width: 100%;
-      text-align: center;
-      opacity: 1;
-      transition: opacity 0.2s ease 0.1s, top 0.2s ease .1s;
+    @media(min-width: 768px) and (max-width: 1000px) {
+      width: 150px;
+      height: 150px;
     }
 
     @include breakpoint(lg) {
-      .HoverColor,
-      .HoverText {
-        opacity: 0;
-        top: 40%
+
+      &:hover .HoverColor,
+      &:hover .HoverText {
+        top: 45%;
+        cursor: pointer;
+        opacity: 1;
       }
     }
 
-    // Appear animation
-    .HP {
-      opacity: 0;
-      transition: opacity .5s ease;
-    }
-
-    .HPEnterActive {
-      opacity: 1;
-    }
-
-    .HPEnterDone {
-      opacity: 1;
-    }
-
-    .HPExit {
-      opacity: 1;
-      transition: opacity .5s ease;
-    }
-
-    .HPExitActive {
-      opacity: 0;
+    a {
+      line-height: 1.4;
     }
   }
-}
 
-@media(min-width: 768px) {
-  #HoverPodsPageContainer {
-    .HoverPodsContainer {
-      flex-direction: row;
+  .HoverColor {
+    width: 100%;
+    height: 100%;
+    background: #c50043ad;
+    border-radius: 50%;
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.2s ease;
+  }
+
+  .HoverText {
+    margin: 0;
+    color: $white;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.2s ease 0.1s, top 0.2s ease .1s;
+  }
+
+  .Pod,
+  .HoverColor {
+    &.Squared {
+      border-radius: 0;
     }
   }
-}
 
-@media(min-width: 768px) and (max-width: 1000px) {
-  #HoverPodsPageContainer {
-    .HoverPodsContainer {
-      .Pod {
-        width: 150px;
-        height: 150px;
-      }
+  @include breakpoint(lg) {
+
+    .HoverColor,
+    .HoverText {
+      opacity: 0;
+      top: 40%
     }
+  }
+
+  // Appear animation
+  .HP {
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+
+  .HPEnterActive {
+    opacity: 1;
+  }
+
+  .HPEnterDone {
+    opacity: 1;
+  }
+
+  .HPExit {
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+
+  .HPExitActive {
+    opacity: 0;
   }
 }

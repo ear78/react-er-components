@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './AdjusterMenu.module.scss';
 
 type AdjusterMenuProps = {
-  click: () => void;
+  click?: () => void;
   children: React.ReactNode;
-  menuActive: boolean;
+  menuActive?: boolean;
   bgColor?: string;
 };
 

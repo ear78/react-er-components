@@ -1,13 +1,14 @@
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styles from './HoverPods.module.scss';
-import PageTitle from '../PageTitle/PageTitle';
 
 type HoverPodsProps = {
+  isSquared?: boolean;
   podData: {}[];
 };
 
-function HoverPods({ podData }: HoverPodsProps) {
+function HoverPods({ podData, isSquared = false }: HoverPodsProps) {
+  const hoverPodSquared = isSquared ? styles.Squared : '';
   let hoverPod;
   if (podData.length) {
     hoverPod = podData.map((pod: any, index) => (
@@ -26,10 +27,10 @@ function HoverPods({ podData }: HoverPodsProps) {
       >
         <div
           style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${index * 0.1}s` }}
-          className={`${styles.Pod} ${styles.HP}`}
+          className={`${styles.Pod} ${styles.HP} ${hoverPodSquared}`}
         >
           <a href={pod.podLink} rel="noreferrer" target={pod.podNewTab ? '_blank' : ''}>
-            <div style={{ backgroundColor: `${pod.podBgColor}` }} className={styles.HoverColor}>
+            <div style={{ backgroundColor: `${pod.podBgColor}` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
               <p style={{ color: `${pod.podTextColor}` }} className={styles.HoverText}>{pod.podText}</p>
             </div>
           </a>
@@ -42,13 +43,9 @@ function HoverPods({ podData }: HoverPodsProps) {
   }
 
   return (
-    <section id={styles.HoverPodsPageContainer}>
-      <PageTitle title="Hover Pods" />
-      <TransitionGroup className={styles.HoverPodsContainer} appear>
-        {hoverPod}
-      </TransitionGroup>
-    </section>
-
+    <TransitionGroup className={styles.HoverPodsContainer} appear>
+      {hoverPod}
+    </TransitionGroup>
   );
 }
 

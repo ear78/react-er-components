@@ -1,13 +1,10 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import { dropperData } from '../../assets/js/data';
-import styles from './DropperParent.module.scss';
+import styles from './DropperView.module.scss';
 import colors from '../../assets/js/colors';
 import Dropper from '../../components/Dropper/Dropper';
 import PageTitle from '../../components/PageTitle/PageTitle';
-// import Container from '../../components/Container/Container';
-// import ContainerRight from '../../components/ContainerRight/ContainerRight';
-// import ContainerLeft from '../../components/ContainerLeft/ContainerLeft';
 
 function DropperParent() {
   const dropper = dropperData.map((d) => (

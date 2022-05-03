@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './BannerParent.module.scss';
+import styles from './BannerView.module.scss';
 import Banner from '../../components/Banner/Banner';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import AppForm from '../../components/AppForm/AppForm';
