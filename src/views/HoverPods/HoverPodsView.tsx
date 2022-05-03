@@ -7,7 +7,7 @@ import { podData } from '../../assets/js/data';
 function HoverPodsView() {
   return (
     <section id={styles.HoverPodsView}>
-      <PageTitle title="Hover Pods" />
+      <PageTitle title="HoverPods" />
       <HoverPods podData={podData} />
     </section>
   );

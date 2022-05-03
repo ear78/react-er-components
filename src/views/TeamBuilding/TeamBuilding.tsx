@@ -60,7 +60,7 @@ function TeamBuilding(props: any) {
         <AppForm click={handleSettingsSave} formRef={formRef} formData={formData} />
       </AdjusterMenu>
 
-      <PageTitle title="Team Building" />
+      <PageTitle title="TeamBuilding" />
       <TeamCard delay={100} altLayout={settings.altLayout} />
     </div>
   );

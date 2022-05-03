@@ -52,7 +52,7 @@ function Eslider({ data }: EsliderProps) {
     <Grid container component="section" className={styles.EsliderContainer}>
       <Spinner mounted={isLoading} />
       <Grid item xs={12} mb={6}>
-        <PageTitle title="Easy Slider" />
+        <PageTitle title="EasySlider" />
       </Grid>
       <Grid item xs={12}>
         <div ref={scrollContainerRef} className={styles.Eslider}>
