@@ -5,7 +5,7 @@ type FormInputProps = {
   inputType: string;
   placeHolder: string;
   name: string;
-  inputVal?: string;
+  inputVal?: any;
   change: (event: React.ChangeEvent<HTMLInputElement>) => void;
   labelText: string;
 };
@@ -20,7 +20,7 @@ function FormInput({
         type={inputType}
         placeholder={placeHolder}
         name={name}
-        value={inputVal}
+        checked={inputVal}
         onChange={change}
       />
     );

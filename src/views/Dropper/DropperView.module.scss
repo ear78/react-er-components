@@ -1,0 +1,58 @@
+@import '../../assets/scss/variables';
+
+.DropperParent {
+
+  .DropperWrapper {
+    border: $border;
+    border-radius: 5px;
+    padding: 15px;
+
+    @include breakpoint(md) {
+      padding: 25px;
+    }
+
+    .Left {
+      background: black;
+      min-height: 200px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 1rem;
+      border-radius: 3px;
+
+      @include breakpoint(sm) {
+        margin: 0;
+      }
+    }
+
+    .Right {
+      padding: 0;
+
+      @include breakpoint(sm) {
+        padding: 0 0 0 1rem
+      }
+    }
+  }
+
+  // .ContainerLeft {
+  //   width: auto;
+  //   padding: 0 15px;
+  //   background: #000;
+  //   border-radius: 3px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   color: white;
+  //   flex-direction: column;
+
+  //   @include breakpoint(md) {
+  //     width: 30%;
+  //   }
+  // }
+
+  // .ContainerRight {
+  //   width: 70%;
+  //   padding: 0 0 0 15px;
+  // }
+}

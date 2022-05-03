@@ -1,7 +1,11 @@
+@import './assets/scss/variables';
+
 .App {}
 
 .Content {
   // Fallback to 2012
   min-height: 40vh;
   min-height: calc(100vh - 322px);
+  border-top: 1px solid $lightGray;
+  padding-top: 3rem;
 }

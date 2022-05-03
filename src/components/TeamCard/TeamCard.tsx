@@ -57,7 +57,10 @@ function TeamCard({ delay = 0, altLayout = false }: TeamCardProps) {
     return (
       <CSSTransition
         key={member.id}
-        timeout={100}
+        timeout={{
+          appear: 900,
+          enter: 100,
+        }}
         style={{
           transitionDelay: `${delay * i}ms`,
         }}

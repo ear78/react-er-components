@@ -2,6 +2,7 @@
 $white: #fff;
 $black: #000;
 $charcoal: #454545;
+$gray: #767676;
 $lighterGray: #f7f7f7;
 $lightGray: #ebebeb;
 $hotPink: #f73a7b;
@@ -36,8 +37,6 @@ $longTransition: all 0.5s ease;
   border: none;
   text-transform: uppercase;
   font-weight: 600;
-  height: 40px;
-  width: 130px;
   padding: 0;
   font-size: 0.7rem;
   border-radius: 25px;
@@ -46,7 +45,7 @@ $longTransition: all 0.5s ease;
 
 @mixin breakpoint($var){
   @if $var == sm {
-    @media (min-width: 549px){
+    @media (min-width: 600px){
       @content
     }
   } @else if $var == md {

@@ -1,0 +1,107 @@
+@import '../../assets/scss/variables';
+
+.Dashboard {
+
+  .User {
+    margin-bottom: 1rem;
+
+    img {
+      max-width: 100px;
+      filter: grayscale(0.5);
+      background: $lighterGray;
+      border-radius: 50%;
+      padding: 15px;
+      box-sizing: border-box;
+
+      @include breakpoint(md) {
+        max-width: 175px;
+      }
+    }
+
+    .Name {
+      margin-bottom: 5px;
+    }
+
+    .Username {
+      margin: 0;
+      color: $gray;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+
+  .Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: $border;
+    border-radius: 10px;
+    padding: 20px;
+    height: calc(100% - 2.6rem);
+
+    .Header {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      margin: 0;
+
+      img {
+        width: 20px;
+        margin-right: 8px;
+      }
+    }
+
+    .Description {
+      margin: 0.5rem 0 1rem;
+      font-size: .9rem;
+
+      .SettingsPill {
+        display: inline-flex;
+        background: #efefef;
+        border-radius: 15px;
+        padding: 1px 10px;
+        margin: 0 5px 0 0;
+        font-weight: 500;
+        white-space: pre;
+        margin-bottom: 4px;
+      }
+    }
+
+    .Footer {
+      display: flex;
+      align-items: center;
+      margin: auto 0 0 0;
+      text-transform: uppercase;
+      font-size: .75rem;
+      font-weight: 500;
+      color: $gray;
+
+      .Circle {
+        margin-right: 10px;
+        height: 13px;
+        width: 13px;
+        display: inline-block;
+        background: lighten($hotPink, 15%);
+        border: 1px solid lighten($hotPink, 10%);
+        border-radius: 50%;
+      }
+
+      .EditBtn {
+        text-transform: capitalize;
+        font-size: .75rem;
+        font-weight: 600;
+        margin-left: auto;
+        background: black;
+        color: white;
+        border: 1px solid black;
+        padding: 5px 10px;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+          background: lighten(black, 20%);
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,22 @@
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Grid from '@mui/material/Grid';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import Spinner from '../../components/Spinner/Spinner';
 import styles from './Eslider.module.scss';
 
 type EsliderProps = {
   data: {
+    id: number;
     image: string;
     text: string;
   }[];
-  mounted: boolean;
 };
 
-function Eslider({ data, mounted }: EsliderProps) {
+function Eslider({ data }: EsliderProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null!); // Ref of scroll container
+  const isLoading = useSelector((state: any) => state.app.appLoading);
 
   /**
    * Handles scrolling event and positions the slider depending on container width
@@ -33,9 +38,9 @@ function Eslider({ data, mounted }: EsliderProps) {
     const isLastSlide = slideLength === i ? '0' : '2%';
     return (
       <div
-        key={slide.image}
+        key={slide.id}
         style={{ backgroundImage: `url(${slide.image})`, marginRight: isLastSlide }}
-        className={`${styles.Slide} ${mounted ? styles.isBlurred : ''}`}
+        className={`${styles.Slide} ${!isLoading ? styles.isBlurred : ''}`}
       >
         <div className={styles.OverlayText}>{slide.text}</div>
         <div className={styles.Overlay} />
@@ -44,15 +49,23 @@ function Eslider({ data, mounted }: EsliderProps) {
   });
 
   return (
-    <div ref={scrollContainerRef} className={styles.EsliderContainer}>
-      <div className={styles.SlideContainer}>
-        {slides}
-      </div>
-      <div className={styles.SlideBtns}>
-        <span role="button" aria-label="left" tabIndex={0} onClick={() => handleScroll(1)}><FontAwesomeIcon icon={['fas', 'chevron-left']} /></span>
-        <span role="button" aria-label="right" tabIndex={0} onClick={() => handleScroll(2)}><FontAwesomeIcon icon={['fas', 'chevron-right']} /></span>
-      </div>
-    </div>
+    <Grid container component="section" className={styles.EsliderContainer}>
+      <Spinner mounted={isLoading} />
+      <Grid item xs={12} mb={6}>
+        <PageTitle title="Easy Slider" />
+      </Grid>
+      <Grid item xs={12}>
+        <div ref={scrollContainerRef} className={styles.Eslider}>
+          <div className={styles.SlideContainer}>
+            {slides}
+          </div>
+          <div className={styles.SlideBtns}>
+            <span role="button" aria-label="left" tabIndex={0} onClick={() => handleScroll(1)}><FontAwesomeIcon icon={['fas', 'chevron-left']} /></span>
+            <span role="button" aria-label="right" tabIndex={0} onClick={() => handleScroll(2)}><FontAwesomeIcon icon={['fas', 'chevron-right']} /></span>
+          </div>
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 

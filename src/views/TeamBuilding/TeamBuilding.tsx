@@ -1,81 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import TeamCard from '../../components/TeamCard/TeamCard';
 import AppForm from '../../components/AppForm/AppForm';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Typography from '../../components/Typography/Typography';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import styles from './TeamBuilding.module.scss';
+import { handleForm } from '../../assets/js/util/helpers';
+import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-type TeamBuildingParentProps = {
-  mounted: boolean;
-};
+function TeamBuilding(props: any) {
+  const dispatch = useDispatch();
+  const { components } = props; // destructure props
+  const { settings } = components[2]; // destructure settings
 
-type TeamBuildingParentState = {
-  isAltLayout: boolean;
-  isMenuActive: boolean;
-  formData: any[];
-};
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const [formData, setFormData] = useState<{}[]>([]);
 
-class TeamBuilding extends React.Component<TeamBuildingParentProps, TeamBuildingParentState> {
-  state: TeamBuildingParentState = {
-    isAltLayout: false,
-    isMenuActive: false,
-    formData: [],
-  };
+  useEffect(() => {
+    setFormData([
+      {
+        inputType: 'checkbox',
+        labelText: 'Alternate Layout',
+        inputVal: settings.altLayout,
+        name: 'altLayout',
+        change: updateSettings,
+      },
+    ]);
+  }, [settings]);
 
-  componentDidMount() {
-    this.setState((state) => ({
-      formData: [
-        {
-          inputType: 'checkbox',
-          labelText: 'Alternate Layout',
-          inputVal: state.isAltLayout,
-          name: 'isAltLayout',
-          change: this.handleForm,
-        },
-      ],
-    }
-    ));
-  }
+  const updateSettings = (event: any) => {
+    const formObj = handleForm(event);
 
-  handleForm = (event: any): any => {
-    const { target } = event;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { name } = target;
-    this.setState((state) => ({
-      ...state,
-      [name]: value,
+    dispatch(setComponentSettings({
+      ...settings,
+      ...formObj,
     }));
   };
 
-  toggleAdjusterMenu = () => {
-    this.setState((state) => ({
-      isMenuActive: !state.isMenuActive,
+  const handleSettingsSave = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    dispatch(setComponentSettings({
+      id: 2,
+      ...settings,
     }));
+
+    setIsMenuActive(false);
   };
 
-  render() {
-    const { mounted } = this.props;
-    const { formData, isAltLayout, isMenuActive } = this.state;
-    let teamBuilding;
+  const toggleAdjusterMenu = () => {
+    setIsMenuActive(() => (!isMenuActive));
+  };
 
-    if (mounted) {
-      teamBuilding = <TeamCard delay={100} altLayout={isAltLayout} />;
-    } else {
-      teamBuilding = null;
-    }
-    return (
-      <div className={styles.TeamBuilding}>
-        <AdjusterMenu click={this.toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
-          <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
-          <AppForm formData={formData} />
-        </AdjusterMenu>
+  return (
+    <div className={styles.TeamBuilding}>
+      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
+        <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
+        <AppForm click={handleSettingsSave} formRef={formRef} formData={formData} />
+      </AdjusterMenu>
 
-        <PageTitle title="Team Building" />
-        {teamBuilding}
-      </div>
-    );
-  }
+      <PageTitle title="Team Building" />
+      <TeamCard delay={100} altLayout={settings.altLayout} />
+    </div>
+  );
 }
 
 export default TeamBuilding;

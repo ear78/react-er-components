@@ -5,8 +5,13 @@
   background: $black;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 400px;
   color: $white;
+  background-repeat: no-repeat;
+
+  @include breakpoint(lg) {
+    min-height: 500px;
+  }
 }
 
 .BackgroundImg.Center {
@@ -27,6 +32,10 @@
   box-sizing: border-box;
   padding: 30px 10px 0;
   transition: all 0.14s ease;
+
+  @include breakpoint(lg) {
+    padding: 100px 15px 0;
+  }
 }
 
 .Overlay.Full {
@@ -58,12 +67,32 @@
   font-size: 2.5rem;
   margin: 0;
   transition: all 0.14s ease;
+
+  @include breakpoint(sm) {
+    font-size: 3rem;
+  }
+
+  @include breakpoint(md) {
+    font-size: 4rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 5rem;
+  }
 }
 
 .SubTitle {
   margin-top: 0;
   font-size: 1rem;
   margin-bottom: 30px;
+
+  @include breakpoint(md) {
+    font-size: 1.15rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 1.25rem;
+  }
 }
 
 .PreTitle.DarkText,
@@ -74,6 +103,7 @@
 
 .Button {
   @include button;
+  display: inline-block;
 
   &:hover {
     background: rgba(0, 0, 0, 0.9) !important;
@@ -81,7 +111,14 @@
   }
 
   a {
-    transform: translateX(5px);
+    display: flex;
+    padding: 14px 34px;
+    line-height: 1;
+    text-decoration: none;
+    color: $white;
+    width: auto;
+    margin: 0;
+    transform: translateX(6px);
     transition: all 0.4s ease;
   }
 
@@ -99,55 +136,5 @@
     visibility: visible;
     opacity: 1;
     transform: translateX(8px);
-  }
-}
-
-a {
-  text-decoration: none;
-  color: $white;
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 40px;
-}
-@media (min-width: 550px) {
-  .Title {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 768px) {
-  .Title {
-    font-size: 4rem;
-  }
-
-  .SubTitle {
-    font-size: 1.15rem;
-  }
-
-  .Button {
-    height: 43px;
-    width: 140px;
-  }
-
-  a {
-    line-height: 42px;
-  }
-}
-@media (min-width: 1024px) {
-  .BackgroundImg {
-    min-height: 500px;
-  }
-
-  .Overlay {
-    padding: 100px 15px 0;
-  }
-
-  .Title {
-    font-size: 5rem;
-  }
-
-  .SubTitle {
-    font-size: 1.25rem;
   }
 }
