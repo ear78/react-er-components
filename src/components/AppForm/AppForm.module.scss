@@ -1,9 +1,12 @@
+@import '../../assets/scss/variables';
+
 .AppForm {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 85%;
+  min-height: 6rem;
 
   input[type="checkbox"] {
     margin-top: 10px;

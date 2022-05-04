@@ -1,0 +1,12 @@
+@import '../../assets/scss/variables';
+
+.AlertBanner {
+  color: $error;
+  background: lighten($error, 50%);
+  padding: 20px;
+  border-radius: 8px;
+
+  .Error {
+    color: $error;
+  }
+}

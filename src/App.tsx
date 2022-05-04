@@ -70,7 +70,9 @@ function App() {
               <HappyDotsParent />
             </Route>
             <Route path="/hover-pods">
-              <HoverPodsParent />
+              <ReduxPass>
+                <HoverPodsParent />
+              </ReduxPass>
             </Route>
             <Route path="/page-banner">
               <ReduxPass>

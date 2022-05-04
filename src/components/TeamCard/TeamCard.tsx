@@ -11,13 +11,15 @@ type TeamCardProps = {
 };
 
 function TeamCard({ delay = 0, altLayout = false }: TeamCardProps) {
-  // eslint-disable-next-line arrow-body-style
   const members = teamMembers.map((member, i) => {
     if (altLayout) {
       return (
         <CSSTransition
           key={member.id}
-          timeout={100}
+          timeout={{
+            appear: 900,
+            enter: 100,
+          }}
           style={{
             transitionDelay: `${delay * i}ms`,
           }}
