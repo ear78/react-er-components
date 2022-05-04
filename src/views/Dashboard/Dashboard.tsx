@@ -114,21 +114,21 @@ function Dashboard(props: any) {
       [{
         inputType: 'checkbox',
         labelText: 'Squared Hover Pod',
-        inputVal: components[1].isSquared,
+        inputVal: components[1].settings.isSquared,
         name: 'isSquared',
         change: updateSettings,
       }],
       [{
         inputType: 'checkbox',
         labelText: 'Alternate Layout',
-        inputVal: components[2].altLayout,
+        inputVal: components[2].settings.altLayout,
         name: 'altLayout',
         change: updateSettings,
       },
       ],
     ];
     setFormData(setupForms[componentId]);
-  }, [components, componentId]);
+  }, [components, componentId, isModalActive]);
 
   const updateSettings = (event: any) => {
     const formObj = handleForm(event);

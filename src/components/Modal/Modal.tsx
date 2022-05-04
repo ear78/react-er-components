@@ -10,16 +10,12 @@ type ModalProps = {
 
 function Modal({ children, isModalActive, click }: ModalProps) {
   return (
-    isModalActive
-      ? (
-        <div className={styles.Modal}>
-          <div className={styles.Content}>
-            <Close role="button" tabIndex={0} onClick={click} className={styles.CloseBtn} fontSize="inherit">close</Close>
-            {children}
-          </div>
-        </div>
-      )
-      : null
+    <div className={`${styles.Modal} ${isModalActive ? styles.ModalActive : ''}`}>
+      <div className={styles.Content}>
+        <Close role="button" tabIndex={0} onClick={click} className={styles.CloseBtn} fontSize="inherit">close</Close>
+        {children}
+      </div>
+    </div>
   );
 }
 

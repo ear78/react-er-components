@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const dashboardSlice = createSlice({
   name: 'app',
@@ -86,7 +86,6 @@ export const dashboardSlice = createSlice({
       if (found) {
         found.settings = action.payload;
       }
-      console.log('redux: ', current(state.components), action.payload);
     },
   },
 });

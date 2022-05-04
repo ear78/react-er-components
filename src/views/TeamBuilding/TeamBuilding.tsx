@@ -10,10 +10,12 @@ import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
 function TeamBuilding(props: any) {
+  // Redux
   const dispatch = useDispatch();
   const { components } = props; // destructure props
   const { settings } = components[2]; // destructure settings
 
+  // Local State
   const formRef = useRef<HTMLFormElement>(null);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [formData, setFormData] = useState<{}[]>([]);
@@ -60,7 +62,7 @@ function TeamBuilding(props: any) {
         <AppForm click={handleSettingsSave} formRef={formRef} formData={formData} />
       </AdjusterMenu>
 
-      <PageTitle title="Team Building" />
+      <PageTitle title="TeamBuilding" />
       <TeamCard delay={100} altLayout={settings.altLayout} />
     </div>
   );

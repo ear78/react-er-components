@@ -5,9 +5,10 @@ import styles from './HoverPods.module.scss';
 type HoverPodsProps = {
   isSquared?: boolean;
   podData: {}[];
+  delay?: number;
 };
 
-function HoverPods({ podData, isSquared = false }: HoverPodsProps) {
+function HoverPods({ delay = 0, podData, isSquared = false }: HoverPodsProps) {
   const hoverPodSquared = isSquared ? styles.Squared : '';
   let hoverPod;
   if (podData.length) {
@@ -25,17 +26,16 @@ function HoverPods({ podData, isSquared = false }: HoverPodsProps) {
           enter: 100,
         }}
       >
-        <div
-          style={{ backgroundImage: `url(${pod.podBgImage})`, transitionDelay: `${index * 0.1}s` }}
-          className={`${styles.Pod} ${styles.HP} ${hoverPodSquared}`}
-        >
-          <a href={pod.podLink} rel="noreferrer" target={pod.podNewTab ? '_blank' : ''}>
-            <div style={{ backgroundColor: `${pod.podBgColor}` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
-              <p style={{ color: `${pod.podTextColor}` }} className={styles.HoverText}>{pod.podText}</p>
-            </div>
-          </a>
-
+        <div style={{ transitionDelay: `${index * delay}ms` }} className={styles.HP}>
+          <div style={{ backgroundImage: `url(${pod.podBgImage})` }} className={`${styles.Pod} ${hoverPodSquared}`}>
+            <a href={pod.podLink} rel="noreferrer" target={pod.podNewTab ? '_blank' : ''}>
+              <div style={{ backgroundColor: `${pod.podBgColor}` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
+                <p style={{ color: `${pod.podTextColor}` }} className={styles.HoverText}>{pod.podText}</p>
+              </div>
+            </a>
+          </div>
         </div>
+
       </CSSTransition>
     ));
   } else {

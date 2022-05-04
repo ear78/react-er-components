@@ -6,6 +6,7 @@ $gray: #767676;
 $lighterGray: #f7f7f7;
 $lightGray: #ebebeb;
 $hotPink: #f73a7b;
+$error: #b22222;
 
 /** Color Theme */
 $primary: $charcoal;
@@ -21,9 +22,9 @@ $boxBackgroundColor: $lighterGray;
 $borderRadius: 3px;
 
 /** Transitions **/
-$fastTransition: all 0.125s ease;
-$mediumTransition: all 0.3s ease;
-$longTransition: all 0.5s ease;
+$transitionShort: all 0.125s ease;
+$transitionMedium: all 0.3s ease;
+$transitionLong: all 0.5s ease;
 
 /** Mixins */
 @mixin border($radius: 3px) {
