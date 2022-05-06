@@ -71,7 +71,7 @@ function HappyDots() {
       <PageTitle title="HappyDots" />
       <Spacer height={50} />
       <div className={styles.HappyDotsContainer}>
-        <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
+        <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
           <AppForm click={handleSettingsSave} formData={formData} />
         </AdjusterMenu>
         <Dots

@@ -70,7 +70,7 @@ function HoverPodsView() {
 
   return (
     <section id={styles.HoverPodsView}>
-      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
+      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
         <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
         <AppForm click={handleSettingsSave} formData={formData} />
       </AdjusterMenu>
