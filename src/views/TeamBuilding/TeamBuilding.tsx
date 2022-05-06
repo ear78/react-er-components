@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TeamCard from '../../components/TeamCard/TeamCard';
 import AppForm from '../../components/AppForm/AppForm';
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -9,10 +9,10 @@ import styles from './TeamBuilding.module.scss';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-function TeamBuilding(props: any) {
+function TeamBuilding() {
   // Redux
   const dispatch = useDispatch();
-  const { components } = props; // destructure props
+  const { components } = useSelector((state: any) => state.app); // destructure props
   const { settings } = components[2]; // destructure settings
 
   // Local State

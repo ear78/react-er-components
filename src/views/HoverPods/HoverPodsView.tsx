@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import HoverPods from '../../components/HoverPods/HoverPods';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
@@ -10,10 +10,10 @@ import { handleForm } from '../../assets/js/util/helpers';
 import { podData } from '../../assets/js/data';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-function HoverPodsView(props: any) {
+function HoverPodsView() {
   // Redux
   const dispatch = useDispatch();
-  const { components } = props;
+  const { components } = useSelector((state: any) => state.app);
   const { settings } = components[1];
 
   // Local State
@@ -23,10 +23,24 @@ function HoverPodsView(props: any) {
   useEffect(() => {
     setFormData([
       {
+        inputType: 'color',
+        labelText: 'Hover Color',
+        inputVal: settings.hoverColor,
+        name: 'hoverColor',
+        change: updateSettings,
+      },
+      {
         inputType: 'checkbox',
         labelText: 'Squared Pods',
         inputVal: settings.isSquared,
         name: 'isSquared',
+        change: updateSettings,
+      },
+      {
+        inputType: 'checkbox',
+        labelText: 'Open New Tab',
+        inputVal: settings.openTab,
+        name: 'openTab',
         change: updateSettings,
       },
     ]);
@@ -62,7 +76,13 @@ function HoverPodsView(props: any) {
       </AdjusterMenu>
 
       <PageTitle title="HoverPods" />
-      <HoverPods delay={100} isSquared={settings.isSquared} podData={podData} />
+      <HoverPods
+        delay={100}
+        hoverColor={settings.hoverColor}
+        isSquared={settings.isSquared}
+        openTab={settings.openTab}
+        podData={podData}
+      />
     </section>
   );
 }

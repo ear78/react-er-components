@@ -14,7 +14,6 @@ import { far, faCompass } from '@fortawesome/free-regular-svg-icons';
 import { esliderData } from './assets/js/data';
 
 /* Redux */
-import ReduxPass from './components/ReduxPass/ReduxPass';
 import { setAppLoading } from './assets/js/lib/redux/modules/app';
 
 /* Global Layout Components */
@@ -24,10 +23,10 @@ import Spinner from './components/Spinner/Spinner';
 
 /* Views */
 import Home from './views/Home/Home';
-import BannerParent from './views/Banner/BannerView';
-import HoverPodsParent from './views/HoverPods/HoverPodsView';
+import BannerView from './views/Banner/BannerView';
+import HoverPodsView from './views/HoverPods/HoverPodsView';
 import TeamBuilding from './views/TeamBuilding/TeamBuilding';
-import HappyDotsParent from './views/HappyDots/HappyDotsParent';
+import HappyDotsView from './views/HappyDots/HappyDotsView';
 import DropperParent from './views/Dropper/DropperView';
 import Eslider from './views/Eslider/Eslider';
 import Dashboard from './views/Dashboard/Dashboard';
@@ -59,30 +58,22 @@ function App() {
         <Grid component="section" className={styles.Content}>
           <Switch>
             <Route path="/dashboard">
-              <ReduxPass>
-                <Dashboard />
-              </ReduxPass>
+              <Dashboard />
             </Route>
             <Route path="/e-slider">
               <Eslider data={esliderData} />
             </Route>
             <Route path="/happy-dots">
-              <HappyDotsParent />
+              <HappyDotsView />
             </Route>
             <Route path="/hover-pods">
-              <ReduxPass>
-                <HoverPodsParent />
-              </ReduxPass>
+              <HoverPodsView />
             </Route>
             <Route path="/page-banner">
-              <ReduxPass>
-                <BannerParent />
-              </ReduxPass>
+              <BannerView />
             </Route>
             <Route path="/team-building">
-              <ReduxPass>
-                <TeamBuilding />
-              </ReduxPass>
+              <TeamBuilding />
             </Route>
             <Route path="/dropper">
               <DropperParent />
