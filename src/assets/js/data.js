@@ -283,3 +283,99 @@ export const esliderData = [
     text: 'Musical Chairs.',
   },
 ];
+
+export const forms = [
+  [
+    {
+      inputType: 'text',
+      labelText: 'Background Image',
+      name: 'bgImage',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Pre Title',
+      name: 'preTitle',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Cta Url',
+      name: 'ctaUrl',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Title',
+      name: 'title',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Sub Title',
+      name: 'subTitle',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Button Text',
+      name: 'btnText',
+    },
+    {
+      inputType: 'color',
+      labelText: 'Banner Button Color',
+      name: 'btnColor',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay',
+      name: 'overlay',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay Dark',
+      name: 'overlayDark',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay Full',
+      name: 'overlayFull',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Show CTA Button',
+      name: 'showBtn',
+    },
+    {
+      inputType: 'radio',
+      labelText: 'Banner Alignment',
+      name: 'textAlign',
+    },
+  ],
+  [
+    {
+      inputType: 'color',
+      labelText: 'Hover Color',
+      name: 'hoverColor',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Squared Pods',
+      name: 'isSquared',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Open New Tab',
+      name: 'openTab',
+    },
+  ],
+  [
+    {
+      inputType: 'checkbox',
+      labelText: 'Alternate Layout',
+      name: 'altLayout',
+    },
+  ],
+  [
+    {
+      inputType: 'color',
+      labelText: 'Dot Color',
+      name: 'dotColor',
+    },
+  ],
+];

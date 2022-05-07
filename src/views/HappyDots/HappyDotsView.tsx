@@ -1,56 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useRef } from 'react';
 import styles from './HappyDotsView.module.scss';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Spacer from '../../components/Spacer/Spacer';
 import Dots from '../../components/Dots/Dots';
-import { happyData, sectionData } from '../../assets/js/data';
+import { happyData, sectionData, forms } from '../../assets/js/data';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import AppForm from '../../components/AppForm/AppForm';
-import { handleForm } from '../../assets/js/util/helpers';
-import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import usePageSettings from '../../assets/js/hooks/usePageSettings';
 
 function HappyDots() {
-  const dispatch = useDispatch();
-  const { components } = useSelector((state: any) => state.app);
-  const { settings } = components[3];
-
   const elementRefs = sectionData.map(() => useRef<HTMLUListElement>(null));
-  const [formData, setFormData] = useState<{}[]>([]);
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  useEffect(() => {
-    setFormData([
-      {
-        inputType: 'color',
-        labelText: 'Dot Color',
-        inputVal: settings.dotColor,
-        name: 'dotColor',
-        change: updateSettings,
-      },
-    ]);
-  }, [settings]);
-
-  const updateSettings = (event: any) => {
-    const formObj = handleForm(event);
-
-    dispatch(setComponentSettings({
-      ...settings,
-      ...formObj,
-    }));
-  };
-
-  const handleSettingsSave = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    dispatch(setComponentSettings({
-      ...settings,
-    }));
-
-    setIsMenuActive(false);
-  };
-
-  const toggleAdjusterMenu = () => {
-    setIsMenuActive(() => (!isMenuActive));
-  };
+  const pageSettings = usePageSettings(forms, 3);
 
   const sections = sectionData.map((d, i) => (
     <section
@@ -71,14 +31,14 @@ function HappyDots() {
       <PageTitle title="HappyDots" />
       <Spacer height={50} />
       <div className={styles.HappyDotsContainer}>
-        <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
-          <AppForm click={handleSettingsSave} formData={formData} />
+        <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
+          <AppForm click={pageSettings.handleSettingsSave} formData={pageSettings.formData} />
         </AdjusterMenu>
         <Dots
           refs={elementRefs}
           data={happyData}
-          textColor={settings.textColor}
-          dotColor={settings.dotColor}
+          textColor={pageSettings.settings.textColor}
+          dotColor={pageSettings.settings.dotColor}
         />
         {sections}
       </div>

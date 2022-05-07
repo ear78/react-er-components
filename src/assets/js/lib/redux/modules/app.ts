@@ -45,8 +45,6 @@ export const dashboardSlice = createSlice({
         settings: {
           id: 2,
           altLayout: false,
-          openTab: true,
-          hoverColor: '#000000',
         },
       },
       {

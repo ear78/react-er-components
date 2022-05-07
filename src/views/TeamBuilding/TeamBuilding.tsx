@@ -1,69 +1,32 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useRef } from 'react';
 import TeamCard from '../../components/TeamCard/TeamCard';
 import AppForm from '../../components/AppForm/AppForm';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Typography from '../../components/Typography/Typography';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
 import styles from './TeamBuilding.module.scss';
-import { handleForm } from '../../assets/js/util/helpers';
-import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import usePageSettings from '../../assets/js/hooks/usePageSettings';
+import { forms } from '../../assets/js/data';
 
 function TeamBuilding() {
-  // Redux
-  const dispatch = useDispatch();
-  const { components } = useSelector((state: any) => state.app); // destructure props
-  const { settings } = components[2]; // destructure settings
+  const pageSettings = usePageSettings(forms, 2);
 
   // Local State
   const formRef = useRef<HTMLFormElement>(null);
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  const [formData, setFormData] = useState<{}[]>([]);
-
-  useEffect(() => {
-    setFormData([
-      {
-        inputType: 'checkbox',
-        labelText: 'Alternate Layout',
-        inputVal: settings.altLayout,
-        name: 'altLayout',
-        change: updateSettings,
-      },
-    ]);
-  }, [settings]);
-
-  const updateSettings = (event: any) => {
-    const formObj = handleForm(event);
-
-    dispatch(setComponentSettings({
-      ...settings,
-      ...formObj,
-    }));
-  };
-
-  const handleSettingsSave = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    dispatch(setComponentSettings({
-      id: 2,
-      ...settings,
-    }));
-
-    setIsMenuActive(false);
-  };
-
-  const toggleAdjusterMenu = () => {
-    setIsMenuActive(() => (!isMenuActive));
-  };
 
   return (
     <div className={styles.TeamBuilding}>
-      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive} bgColor="white">
+      <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
         <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
-        <AppForm click={handleSettingsSave} formRef={formRef} formData={formData} />
+        <AppForm
+          click={pageSettings.handleSettingsSave}
+          formRef={formRef}
+          formData={pageSettings.formData}
+        />
       </AdjusterMenu>
 
       <PageTitle title="TeamBuilding" />
-      <TeamCard delay={100} altLayout={settings.altLayout} />
+      <TeamCard delay={100} altLayout={pageSettings.settings.altLayout} />
     </div>
   );
 }

@@ -112,33 +112,33 @@ function Dashboard() {
       ],
       [
         {
+          inputType: 'color',
+          labelText: 'Hover Color',
+          inputVal: components[1].settings.hoverColor,
+          name: 'hoverColor',
+          change: updateSettings,
+        },
+        {
           inputType: 'checkbox',
           labelText: 'Squared Hover Pod',
           inputVal: components[1].settings.isSquared,
           name: 'isSquared',
           change: updateSettings,
         },
-      ],
-      [
-        {
-          inputType: 'color',
-          labelText: 'Hover Color',
-          inputVal: components[2].settings.hoverColor,
-          name: 'hoverColor',
-          change: updateSettings,
-        },
-        {
-          inputType: 'checkbox',
-          labelText: 'Squared Pods',
-          inputVal: components[2].settings.isSquared,
-          name: 'isSquared',
-          change: updateSettings,
-        },
         {
           inputType: 'checkbox',
           labelText: 'Open New Tab',
-          inputVal: components[2].settings.openTab,
+          inputVal: components[1].settings.openTab,
           name: 'openTab',
+          change: updateSettings,
+        },
+      ],
+      [
+        {
+          inputType: 'checkbox',
+          labelText: 'Alternate Layout',
+          inputVal: components[2].settings.altLayout,
+          name: 'altLayout',
           change: updateSettings,
         },
       ],
