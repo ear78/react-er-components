@@ -11,11 +11,10 @@ import AppForm from '../../components/AppForm/AppForm';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-function Dashboard(props: any) {
+function Dashboard() {
   // Redux
   const dispatch = useDispatch();
-  const { components } = props;
-  const settingsData = useSelector((state: any) => state.app);
+  const { components } = useSelector((state: any) => state.app);
   const dashboard = useSelector((state: any) => state.dashboard);
 
   // Local State
@@ -69,7 +68,7 @@ function Dashboard(props: any) {
           change: updateSettings,
         },
         {
-          inputType: 'text',
+          inputType: 'color',
           labelText: 'Banner Button Color',
           inputVal: components[0].settings.btnColor,
           name: 'btnColor',
@@ -111,20 +110,46 @@ function Dashboard(props: any) {
           change: updateSettings,
         },
       ],
-      [{
-        inputType: 'checkbox',
-        labelText: 'Squared Hover Pod',
-        inputVal: components[1].settings.isSquared,
-        name: 'isSquared',
-        change: updateSettings,
-      }],
-      [{
-        inputType: 'checkbox',
-        labelText: 'Alternate Layout',
-        inputVal: components[2].settings.altLayout,
-        name: 'altLayout',
-        change: updateSettings,
-      },
+      [
+        {
+          inputType: 'color',
+          labelText: 'Hover Color',
+          inputVal: components[1].settings.hoverColor,
+          name: 'hoverColor',
+          change: updateSettings,
+        },
+        {
+          inputType: 'checkbox',
+          labelText: 'Squared Hover Pod',
+          inputVal: components[1].settings.isSquared,
+          name: 'isSquared',
+          change: updateSettings,
+        },
+        {
+          inputType: 'checkbox',
+          labelText: 'Open New Tab',
+          inputVal: components[1].settings.openTab,
+          name: 'openTab',
+          change: updateSettings,
+        },
+      ],
+      [
+        {
+          inputType: 'checkbox',
+          labelText: 'Alternate Layout',
+          inputVal: components[2].settings.altLayout,
+          name: 'altLayout',
+          change: updateSettings,
+        },
+      ],
+      [
+        {
+          inputType: 'color',
+          labelText: 'Dot Color',
+          inputVal: components[3].settings.dotColor,
+          name: 'dotColor',
+          change: updateSettings,
+        },
       ],
     ];
     setFormData(setupForms[componentId]);
@@ -163,8 +188,8 @@ function Dashboard(props: any) {
   };
 
   let cards;
-  if (settingsData) {
-    cards = settingsData.components.map((component: any) => (
+  if (components) {
+    cards = components.map((component: any) => (
       <Grid key={component.id} item xs={12} md={6}>
         <div className={styles.Card}>
           <p className={styles.Header}>

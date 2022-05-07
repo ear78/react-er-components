@@ -4,11 +4,15 @@ import styles from './HoverPods.module.scss';
 
 type HoverPodsProps = {
   isSquared?: boolean;
+  hoverColor?: string;
+  openTab?: boolean;
   podData: {}[];
   delay?: number;
 };
 
-function HoverPods({ delay = 0, podData, isSquared = false }: HoverPodsProps) {
+function HoverPods({
+  delay = 0, podData, isSquared = false, hoverColor = '', openTab = true,
+}: HoverPodsProps) {
   const hoverPodSquared = isSquared ? styles.Squared : '';
   let hoverPod;
   if (podData.length) {
@@ -28,9 +32,9 @@ function HoverPods({ delay = 0, podData, isSquared = false }: HoverPodsProps) {
       >
         <div style={{ transitionDelay: `${index * delay}ms` }} className={styles.HP}>
           <div style={{ backgroundImage: `url(${pod.podBgImage})` }} className={`${styles.Pod} ${hoverPodSquared}`}>
-            <a href={pod.podLink} rel="noreferrer" target={pod.podNewTab ? '_blank' : ''}>
-              <div style={{ backgroundColor: `${pod.podBgColor}` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
-                <p style={{ color: `${pod.podTextColor}` }} className={styles.HoverText}>{pod.podText}</p>
+            <a href={pod.podLink} rel="noreferrer" target={openTab ? '_blank' : ''}>
+              <div style={{ backgroundColor: `${hoverColor}ad` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
+                <p className={styles.HoverText}>{pod.podText}</p>
               </div>
             </a>
           </div>

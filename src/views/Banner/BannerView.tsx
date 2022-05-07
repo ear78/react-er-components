@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './BannerView.module.scss';
 import Banner from '../../components/Banner/Banner';
 import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
@@ -8,9 +8,10 @@ import Typography from '../../components/Typography/Typography';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 
-function BannerParent(props: any) {
+function BannerParent() {
   const dispatch = useDispatch();
-  const { components } = props;
+  const { components } = useSelector((state: any) => state.app);
+
   const { settings } = components[0];
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -62,7 +63,7 @@ function BannerParent(props: any) {
         change: updateSettings,
       },
       {
-        inputType: 'text',
+        inputType: 'color',
         labelText: 'Banner Button Color',
         inputVal: settings.btnColor,
         name: 'btnColor',

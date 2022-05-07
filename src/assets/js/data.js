@@ -16,73 +16,56 @@ import portfolio11 from '../img/UserMale.svg';
 import portfolio12 from '../img/femaleUser.svg';
 
 export const homeData = {
-  desc: 'Please use the navigation to preview and try out these components I built from the ground up with React.js.  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. Technologies used are React, Typescript, Jest, React Transition Group, Css Modules, Sass, and of course Javascript since React is all Javascript. Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. Current custom components are',
-  components: 'SocialComp, Nav, Copyright, HappyDots, Spinner, Banner, HoverPods, TeamBuilding, Dropper',
+  desc: `Please use the navigation to preview and try out these components I built from the ground up with React.js. 
+  Actually, everything on the site was designed and built by me from the ground with the exception of the Container and form components used from Mui. 
+  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. 
+  Technologies used are React, Typescript, Redux, Jest, React Transition Group, Css Modules, Sass, deployed to Heroku, and of course Javascript since React is all Javascript. 
+  Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. 
+  Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. The current customizable components are`,
+  components: 'HappyDots, Banner, HoverPods, TeamBuilding, Dropper, EasySlider, Dashboard',
 };
 
 export const happyData = [{
   id: 0,
   text: 'Market Place',
-  lineColor: '#fff',
-  dotColor: '',
 },
 {
   id: 1,
   text: 'LifeTime Data',
-  lineColor: '#fff',
-  dotColor: '',
 },
 {
   id: 2,
   text: 'Attribution',
-  lineColor: '#fff',
-  dotColor: '',
 },
 {
   id: 3,
   text: 'Smart Data',
-  lineColor: '#fff',
-  dotColor: '',
 },
 {
   id: 4,
   text: 'User Experience',
-  lineColor: '#fff',
-  dotColor: '',
 },
 ];
 
 export const podData = [{
   podBgImage: echoTowerSml,
-  podBgColor: '#000000ad',
-  podTextColor: '#fff',
   podText: 'Hello',
   podLink: 'https://www.apple.com',
-  podNewTab: true,
 },
 {
   podBgImage: chairsSml,
-  podBgColor: '#000000ad',
-  podTextColor: '#fff',
   podText: 'I\'m',
   podLink: 'https://www.apple.com',
-  podNewTab: true,
 },
 {
   podBgImage: greyBuilding,
-  podBgColor: '#000000ad',
-  podTextColor: '#fff',
   podText: 'A',
   podLink: 'https://www.apple.com',
-  podNewTab: true,
 },
 {
   podBgImage: stripesSml,
-  podBgColor: '#000000ad',
-  podTextColor: '#fff',
   podText: 'Hover Pod',
   podLink: 'https://www.apple.com',
-  podNewTab: true,
 },
 ];
 
@@ -299,4 +282,100 @@ export const esliderData = [
     image: chairs,
     text: 'Musical Chairs.',
   },
+];
+
+export const forms = [
+  [
+    {
+      inputType: 'text',
+      labelText: 'Background Image',
+      name: 'bgImage',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Pre Title',
+      name: 'preTitle',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Cta Url',
+      name: 'ctaUrl',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Title',
+      name: 'title',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Sub Title',
+      name: 'subTitle',
+    },
+    {
+      inputType: 'text',
+      labelText: 'Banner Button Text',
+      name: 'btnText',
+    },
+    {
+      inputType: 'color',
+      labelText: 'Banner Button Color',
+      name: 'btnColor',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay',
+      name: 'overlay',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay Dark',
+      name: 'overlayDark',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Banner Overlay Full',
+      name: 'overlayFull',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Show CTA Button',
+      name: 'showBtn',
+    },
+    {
+      inputType: 'radio',
+      labelText: 'Banner Alignment',
+      name: 'textAlign',
+    },
+  ],
+  [
+    {
+      inputType: 'color',
+      labelText: 'Hover Color',
+      name: 'hoverColor',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Squared Pods',
+      name: 'isSquared',
+    },
+    {
+      inputType: 'checkbox',
+      labelText: 'Open New Tab',
+      name: 'openTab',
+    },
+  ],
+  [
+    {
+      inputType: 'checkbox',
+      labelText: 'Alternate Layout',
+      name: 'altLayout',
+    },
+  ],
+  [
+    {
+      inputType: 'color',
+      labelText: 'Dot Color',
+      name: 'dotColor',
+    },
+  ],
 ];

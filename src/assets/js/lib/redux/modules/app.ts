@@ -32,7 +32,9 @@ export const dashboardSlice = createSlice({
         You're current settings used are: `,
         settings: {
           id: 1,
+          hoverColor: '#000000',
           isSquared: false,
+          openTab: true,
         },
       },
       {
@@ -52,6 +54,8 @@ export const dashboardSlice = createSlice({
         You're current settings used are: `,
         settings: {
           id: 3,
+          dotColor: '#f73a7b',
+          textColor: '#fff',
         },
       },
       {
