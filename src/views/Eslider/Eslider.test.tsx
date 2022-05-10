@@ -1,26 +1,10 @@
 import React from 'react';
-// import { unmountComponentAtNode } from 'react-dom';
-// import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import { store } from '../../assets/js/lib/redux/store';
 import Eslider from './Eslider';
-
 import '@testing-library/jest-dom';
 
-// let container = null;
-// beforeEach(() => {
-//   // setup a DOM element as a render target
-//   container = document.createElement('div');
-//   document.body.appendChild(container);
-// });
-
-// afterEach(() => {
-//   // cleanup on exiting
-//   unmountComponentAtNode(container);
-//   container.remove();
-//   container = null;
-// });
 type IData = {
   id: number;
   image: string;
@@ -35,8 +19,6 @@ const data: IData[] = [
 ];
 
 it('renders without crashing, passes array of data and prints it', () => {
-  // act(() => {
   const { getByText } = render(<Provider store={store}><Eslider data={data} /></Provider>);
-  // });
   expect(getByText('some2')).toBeInTheDocument();
 });
