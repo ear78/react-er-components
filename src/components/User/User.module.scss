@@ -1,0 +1,143 @@
+@import '../../assets/scss/variables';
+
+.UserSkeleton {
+  .Image {
+    height: 100px;
+    width: 100px;
+    background-color: $lightGray;
+    border-radius: 50%;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      background: linear-gradient(270deg, transparent, #0000004a, transparent);
+      content: '';
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      filter: blur(0px);
+      top: 0;
+      left: 0;
+      background-size: 400%;
+      animation: swipe 1s ease infinite;
+    }
+
+    @include breakpoint(md) {
+      height: 175px;
+      width: 175px;
+
+      &::before {
+        width: 175px;
+        height: 175px;
+      }
+    }
+    
+  }
+
+  .Name {
+    width: 50%;
+    height: 2rem;
+  }
+
+  .Username {
+    height: 2rem;
+  }
+
+  .Description {
+    height: 5rem;
+  }
+
+  .Name,
+  .Username,
+  .Description {
+    position: relative;
+    background: $lightGray;
+    border-radius: 8px;
+
+    &::before {
+      position: absolute;
+      background: linear-gradient(270deg, transparent, #0000004a, transparent);
+      content: '';
+      border-radius: 8px;
+      height: 100%;
+      width: 100%;
+      filter: blur(0px);
+      top: 0;
+      left: 0;
+      background-size: 400%;
+      animation: swipe 1s ease infinite;
+    }
+  }
+
+  @keyframes swipe {
+    0% {
+      background-position-x: 10%;
+      opacity: 0;
+    }
+
+    15% {
+      opacity: 1;
+    }
+
+    100% {
+      background-position-x: -80%;
+      opacity: 0;
+    }
+  }
+}
+
+.User {
+  margin-bottom: 1rem;
+  opacity: 1;
+  transition: opacity 1.5s ease;
+
+  img {
+    min-height: 100px;
+    max-width: 100px;
+    filter: grayscale(0.5);
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    @include breakpoint(md) {
+      min-height: 100px;
+      max-width: 175px;
+    }
+  }
+
+  .Name {
+    margin-bottom: 5px;
+  }
+
+  .Username {
+    margin: 0;
+    color: $gray;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  &.Ready {
+    opacity: 1;
+  }
+}
+
+.UserTransition {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.UserTransitionEnterActive {
+  opacity: 1;
+}
+
+.UserTransitionEnterDone {
+  opacity: 1;
+}
+
+.UserTransitionExit {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.UserTransitionExitActive {
+  opacity: 0;
+}
