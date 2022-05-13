@@ -3,19 +3,18 @@ import Grid from '@mui/material/Grid';
 import Edit from '@mui/icons-material/Edit';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Dashboard.module.scss';
-import UserMale from '../../assets/img/UserMale.svg';
 import logo from '../../assets/img/er-logo.svg';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Modal from '../../components/Modal/Modal';
 import AppForm from '../../components/AppForm/AppForm';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import User from '../../components/User/User';
 
 function Dashboard() {
   // Redux
   const dispatch = useDispatch();
   const { components } = useSelector((state: any) => state.app);
-  const dashboard = useSelector((state: any) => state.dashboard);
 
   // Local State
   const [isModalActive, setIsModalActive] = useState(false);
@@ -233,13 +232,8 @@ function Dashboard() {
       <Grid item xs={12} mb={6}>
         <PageTitle title="Dashboard" />
       </Grid>
-      <Grid item className={styles.User} xs={12} sm={3}>
-        <div className={styles.ImageContainer}>
-          <img src={UserMale} alt="user male" />
-        </div>
-        <h3 className={styles.Name}>{dashboard.user.fullName}</h3>
-        <p className={styles.Username}>{dashboard.user.userName}</p>
-        <p className={styles.UserDescription}>{dashboard.user.description}</p>
+      <Grid item xs={12} sm={3}>
+        <User />
       </Grid>
       <Grid item xs={12} sm={9}>
         <Grid container rowSpacing={2} columnSpacing={2}>
