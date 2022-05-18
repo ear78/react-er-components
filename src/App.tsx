@@ -39,20 +39,20 @@ library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChe
 
 function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector((state: any) => state.app.appLoading);
+  const { appLoading, isModalActive } = useSelector((state: any) => state.app);
 
   useEffect(() => {
     // Fake data delay
     setTimeout(() => {
       dispatch(setAppLoading(false));
     }, 900);
-  }, [isLoading]);
+  }, [appLoading]);
 
   return (
     <Router>
-      <Spinner mounted={isLoading} />
+      <Spinner mounted={appLoading} />
 
-      <Container component="main" maxWidth="lg">
+      <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>
         <Nav />
 
         <Grid component="section" className={styles.Content}>
