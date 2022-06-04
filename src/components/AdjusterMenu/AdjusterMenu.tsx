@@ -14,14 +14,14 @@ function AdjusterMenu({
 }: AdjusterMenuProps) {
   return (
     <>
-      <div
-        role="button"
-        tabIndex={0}
+      <button
+        type="button"
+        aria-pressed={menuActive}
         className={styles.MenuTrigger}
         onClick={click}
       >
         <FontAwesomeIcon icon={['fas', 'chevron-down']} />
-      </div>
+      </button>
       <div style={{ background: bgColor }} className={`${styles.Sidebar} ${menuActive ? styles.active : ''}`}>
         {children}
       </div>
