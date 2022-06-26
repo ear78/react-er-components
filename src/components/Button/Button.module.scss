@@ -1,0 +1,45 @@
+@import '../../assets/scss/variables';
+
+.Button {
+  @include button;
+  display: inline-block;
+  background: #000;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.9) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  a {
+    display: flex;
+    padding: 14px 34px;
+    line-height: 1;
+    text-decoration: none;
+    color: $white;
+    width: auto;
+    margin: 0;
+    transform: translateX(6px);
+    transition: all 0.4s ease;
+  }
+
+  &:hover a {
+    transform: translateX(0px);
+  }
+
+  .Arrow {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  &:hover .Arrow {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(8px);
+  }
+
+  &.ButtonCenter {
+    display: block;
+    margin: auto;
+  }
+}

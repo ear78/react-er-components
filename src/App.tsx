@@ -33,6 +33,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 
 /** Css */
 import styles from './App.module.scss';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 /* Font Awesome */
 library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown);
@@ -42,6 +43,10 @@ function App() {
   const isLoading = useSelector((state: any) => state.app.appLoading);
 
   useEffect(() => {
+    // window.addEventListener('load', () => {
+    //   dispatch(setAppLoading(false));
+    // });
+
     // Fake data delay
     setTimeout(() => {
       dispatch(setAppLoading(false));
@@ -51,6 +56,7 @@ function App() {
   return (
     <Router>
       <Spinner mounted={isLoading} />
+      <ScrollToTop />
 
       <Container component="main" maxWidth="lg">
         <Nav />

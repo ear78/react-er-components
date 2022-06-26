@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { Suspense, lazy, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Grid from '@mui/material/Grid';
-import PageTitle from '../../components/PageTitle/PageTitle';
-import Spinner from '../../components/Spinner/Spinner';
 import styles from './Eslider.module.scss';
+
+// Lazy load components
+const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 
 type EsliderProps = {
   data: {
@@ -50,9 +51,10 @@ function Eslider({ data }: EsliderProps) {
 
   return (
     <Grid container component="section" className={styles.EsliderContainer}>
-      <Spinner mounted={isLoading} />
       <Grid item xs={12} mb={6}>
-        <PageTitle title="EasySlider" />
+        <Suspense fallback="<div>Loading...</div>">
+          <PageTitle title="EasySlider" />
+        </Suspense>
       </Grid>
       <Grid item xs={12}>
         <div ref={scrollContainerRef} className={styles.Eslider}>

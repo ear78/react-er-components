@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  Suspense, lazy, useEffect, useState,
+} from 'react';
 import Grid from '@mui/material/Grid';
 import Edit from '@mui/icons-material/Edit';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Dashboard.module.scss';
 import logo from '../../assets/img/er-logo.svg';
-import PageTitle from '../../components/PageTitle/PageTitle';
-import Modal from '../../components/Modal/Modal';
-import AppForm from '../../components/AppForm/AppForm';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 import User from '../../components/User/User';
+
+// Lazy load components
+const Modal = lazy(() => import('../../components/Modal/Modal'));
+const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
+const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 
 function Dashboard() {
   // Redux
@@ -226,11 +230,15 @@ function Dashboard() {
 
   return (
     <Grid container columnSpacing={2} className={styles.Dashboard}>
-      <Modal isModalActive={isModalActive} click={toggleModal}>
-        <AppForm click={handleSettingsSave} formData={formData} />
-      </Modal>
+      <Suspense fallback="<div>Loading...</div>">
+        <Modal isModalActive={isModalActive} click={toggleModal}>
+          <AppForm click={handleSettingsSave} formData={formData} />
+        </Modal>
+      </Suspense>
       <Grid item xs={12} mb={6}>
-        <PageTitle title="Dashboard" />
+        <Suspense fallback="<div>Loading...</div>">
+          <PageTitle title="Dashboard" />
+        </Suspense>
       </Grid>
       <Grid item xs={12} sm={3}>
         <User />
