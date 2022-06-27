@@ -4,6 +4,7 @@ export const dashboardSlice = createSlice({
   name: 'app',
   initialState: {
     appLoading: true,
+    isModalActive: false,
     components: [
       {
         id: 0,
@@ -85,6 +86,9 @@ export const dashboardSlice = createSlice({
     setAppLoading: (state, action) => {
       state.appLoading = action.payload;
     },
+    setIsModalActive: (state, action) => {
+      state.isModalActive = action.payload;
+    },
     setComponentSettings: (state, action) => {
       const found = state.components.find((item) => item.id === action.payload.id);
       if (found) {
@@ -94,6 +98,11 @@ export const dashboardSlice = createSlice({
   },
 });
 
-export const { setAppState, setComponentSettings, setAppLoading } = dashboardSlice.actions;
+export const {
+  setAppState,
+  setComponentSettings,
+  setIsModalActive,
+  setAppLoading,
+} = dashboardSlice.actions;
 
 export default dashboardSlice.reducer;

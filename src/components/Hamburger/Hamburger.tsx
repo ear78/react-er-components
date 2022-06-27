@@ -9,7 +9,7 @@ type HamburgerProps = {
 function Hamburger({ isActive, click }: HamburgerProps) {
   const styleActive = isActive ? styles.isActive : '';
   return (
-    <button onClick={click} className={`${styles.Hamburger} ${styles.HamburgerSlider} ${styleActive}`} type="button">
+    <button aria-pressed={isActive} onClick={click} className={`${styles.Hamburger} ${styles.HamburgerSlider} ${styleActive}`} type="button">
       <span className={styles.HamburgerBox}>
         <span className={styles.HamburgerInner} />
       </span>

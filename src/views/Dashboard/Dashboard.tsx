@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './Dashboard.module.scss';
 import logo from '../../assets/img/er-logo.svg';
 import { handleForm } from '../../assets/js/util/helpers';
-import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import { setComponentSettings, setIsModalActive } from '../../assets/js/lib/redux/modules/app';
 import User from '../../components/User/User';
 
 // Lazy load components
@@ -18,10 +18,10 @@ const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 function Dashboard() {
   // Redux
   const dispatch = useDispatch();
-  const { components } = useSelector((state: any) => state.app);
+  const { components, isModalActive } = useSelector((state: any) => state.app);
 
   // Local State
-  const [isModalActive, setIsModalActive] = useState(false);
+  // const [isModalActive, setIsModalActive] = useState(false);
   const [componentId, setComponentId] = useState<number>(0);
   const [formData, setFormData] = useState<{}[]>([]);
 
@@ -168,12 +168,12 @@ function Dashboard() {
   };
 
   const toggleModal = () => {
-    setIsModalActive(!isModalActive);
+    dispatch(setIsModalActive(!isModalActive));
   };
 
   const editSettings = (id: number) => {
     setComponentId(id);
-    setIsModalActive(!isModalActive);
+    dispatch(setIsModalActive(true));
   };
 
   const handleSettingsSave = (event: React.SyntheticEvent) => {
@@ -182,7 +182,7 @@ function Dashboard() {
       ...components[componentId].settings,
     }));
 
-    setIsModalActive(false);
+    dispatch(setIsModalActive(false));
   };
 
   const truncate = (str: any, maxLength = 30) => {
