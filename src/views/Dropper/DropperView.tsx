@@ -22,7 +22,9 @@ function DropperParent() {
           </Suspense>
         </Grid>
         <Grid item xs={12} sm={7} className={styles.Right}>
-          {dropper}
+          <Suspense fallback="<div>Loading...</div>">
+            {dropper}
+          </Suspense>
         </Grid>
       </Grid>
     </Grid>
