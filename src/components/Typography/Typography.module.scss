@@ -1,20 +1,22 @@
+@import '../../assets/scss/variables';
+
 h1.Typography {
-  font-size: 4rem;
+  font-size: 1.75rem;
   margin: 0;
 }
 
 h2.Typography {
-  font-size: 3rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
 h3.Typography {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   margin: 0;
 }
 
 h4.Typography {
-  font-size: 1.125rem;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -26,4 +28,36 @@ h5.Typography {
 h6.Typography {
   font-size: .8rem;
   margin: 0;
+}
+
+@include breakpoint(md) {
+  h1.Typography {
+    font-size: 2.75rem;
+  }
+  
+  h2.Typography {
+    font-size: 2.125rem;
+  }
+  
+  h3.Typography {
+    font-size: 1.35rem;
+  }
+}
+
+@include breakpoint(lg) {
+  h1.Typography {
+    font-size: 4rem;
+  }
+  
+  h2.Typography {
+    font-size: 2.75rem;
+  }
+  
+  h3.Typography {
+    font-size: 1.5rem;
+  }
+  
+  h4.Typography {
+    font-size: 1.125rem;
+  }
 }

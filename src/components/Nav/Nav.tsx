@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import styles from './Nav.module.scss';
 import Hamburger from '../Hamburger/Hamburger';
 import logo from '../../assets/img/er-logo.svg';
-import { setAppLoading } from '../../assets/js/lib/redux/modules/app';
+import useResetApploading from '../../assets/js/hooks/useResetAppLoading';
 
 function Nav() {
+  const resetAppLoading = useResetApploading();
   const [isMenuActive, setIsMenuActive] = useState(false);
-
-  const dispatch = useDispatch();
 
   const handleToggle = () => {
     setIsMenuActive(!isMenuActive);
   };
 
   const resetPageLoad = () => {
-    dispatch(setAppLoading(true));
+    resetAppLoading();
     setIsMenuActive(false);
   };
 
@@ -91,7 +89,11 @@ function Nav() {
 
   return (
     <div className={styles.NavContainer}>
-      <Link className={styles.ImgWrapper} to="/">
+      <Link
+        className={styles.ImgWrapper}
+        to="/"
+        onClick={resetPageLoad}
+      >
         <img src={logo} alt="ER Logo" />
       </Link>
       <Hamburger

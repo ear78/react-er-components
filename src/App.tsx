@@ -33,6 +33,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 
 /** Css */
 import styles from './App.module.scss';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 /* Font Awesome */
 library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown);
@@ -51,6 +52,7 @@ function App() {
   return (
     <Router>
       <Spinner mounted={appLoading} />
+      <ScrollToTop />
 
       <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>
         <Nav />

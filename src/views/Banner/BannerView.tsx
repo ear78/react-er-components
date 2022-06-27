@@ -1,12 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  lazy, Suspense, useEffect, useRef, useState,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './BannerView.module.scss';
-import Banner from '../../components/Banner/Banner';
-import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
-import AppForm from '../../components/AppForm/AppForm';
-import Typography from '../../components/Typography/Typography';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+
+// Lazy load components
+const Banner = lazy(() => import('../../components/Banner/Banner'));
+const AdjusterMenu = lazy(() => import('../../components/AdjusterMenu/AdjusterMenu'));
+const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
+const Typography = lazy(() => import('../../components/Typography/Typography'));
 
 function BannerParent() {
   const dispatch = useDispatch();
@@ -131,27 +135,29 @@ function BannerParent() {
 
   return (
     <div className={styles.BannerParent}>
-      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
-        <Typography margin="0 0 20px 0" variant="h3">Adjuster Menu</Typography>
-        <AppForm click={handleSettingsSave} formData={formData} formRef={formRef} />
-      </AdjusterMenu>
+      <Suspense fallback="<div>Loading...</div>">
+        <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
+          <Typography sx={{ margin: '0 0 20px 0' }} variant="h3">Adjuster Menu</Typography>
+          <AppForm click={handleSettingsSave} formData={formData} formRef={formRef} />
+        </AdjusterMenu>
 
-      <div className={styles.Content}>
-        <Banner
-          bgImage={settings.bgImage}
-          preTitle={settings.preTitle}
-          title={settings.title}
-          subTitle={settings.subTitle}
-          btnText={settings.btnText}
-          ctaUrl={settings.ctaUrl}
-          btnColor={settings.btnColor}
-          overlay={settings.overlay}
-          overlayDark={settings.overlayDark}
-          overlayFull={settings.overlayFull}
-          textAlign={settings.textAlign}
-          showBtn={settings.showBtn}
-        />
-      </div>
+        <div className={styles.Content}>
+          <Banner
+            bgImage={settings.bgImage}
+            preTitle={settings.preTitle}
+            title={settings.title}
+            subTitle={settings.subTitle}
+            btnText={settings.btnText}
+            ctaUrl={settings.ctaUrl}
+            btnColor={settings.btnColor}
+            overlay={settings.overlay}
+            overlayDark={settings.overlayDark}
+            overlayFull={settings.overlayFull}
+            textAlign={settings.textAlign}
+            showBtn={settings.showBtn}
+          />
+        </div>
+      </Suspense>
     </div>
   );
 }

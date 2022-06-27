@@ -14,12 +14,18 @@ import stripesSml from '../img/stripes-sml.jpg';
 import chairsSml from '../img/chairs-sml.jpg';
 import portfolio11 from '../img/UserMale.svg';
 import portfolio12 from '../img/femaleUser.svg';
+import PageBanner from '../img/pagebanner-screenshot.png';
+import HoverPods from '../img/hoverpods-screenshot.png';
+import TeamBuilding from '../img/teambuilding-screenshot.png';
+import HappyDots from '../img/happydots-screenshot.png';
+import Dropper from '../img/dropper-screenshot.png';
+import EasySlider from '../img/easyslider-screenshot.png';
 
 export const homeData = {
   desc: `Please use the navigation to preview and try out these components I built from the ground up with React.js. 
-  Actually, everything on the site was designed and built by me from the ground with the exception of the Container and form components used from Mui. 
-  The purpose of this project is show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. 
-  Technologies used are React, Typescript, Redux, Jest, React Transition Group, Css Modules, Sass, deployed to Heroku, and of course Javascript since React is all Javascript. 
+  Actually, everything on the site was designed and built by me from the ground up with the exception of the Container and form components used from Mui. 
+  The purpose of this project is to show my skills as a Front End UI Developer, and also to show the process of building and design UI/UX components from the ground up. 
+  Technologies used are React, Typescript, Redux, Jest, React Transition Group, Css Modules, Sass, deployed to Netlify, and of course Javascript since React is all Javascript. 
   Data is all custom data I created off in the data.js section of the app to be able to pull into components via imports and where images are imported and handled by webpack. 
   Currently a work in progress as I continue to build out the project with more components and features. Really built for portfolio demonstration purposes only. The current customizable components are`,
   components: 'HappyDots, Banner, HoverPods, TeamBuilding, Dropper, EasySlider, Dashboard',
@@ -378,4 +384,69 @@ export const forms = [
       name: 'dotColor',
     },
   ],
+];
+
+export const pageSectionData = [
+  {
+    id: 0,
+    title: 'Page Banner Component',
+    component: 'Page Banner',
+    description: `is an easy to use good looking banner to help you get
+    started out of the box. It allows you to easily update the Pre title text,
+    Title text, Sub title text, button color, text alignment, and overlay.`,
+    img: PageBanner,
+    page: '/page-banner',
+  },
+  {
+    id: 1,
+    title: 'Hover Pods Component',
+    component: 'Hover Pods',
+    description: `is a creative way to make clickable links with a simple hover animation.
+    The changeable props are background hover color, text color, squared format,
+    open tab on click.`,
+    img: HoverPods,
+    page: '/hover-pods',
+  },
+  {
+    id: 2,
+    title: 'Team Building Component',
+    component: 'Team Building',
+    description: `is simple component that can create a user/team member card
+    with a simple hover animation.
+    It has an alt layout prop, and you can pass an object to dynamically represent
+    each card.`,
+    img: TeamBuilding,
+    page: '/team-building',
+  },
+  {
+    id: 3,
+    title: 'Happy Dots Component',
+    component: 'Happy Dots',
+    description: `is simple component that can create a scrollable menu
+    with a simple hover animation.
+    It has a ref prop, dot color prop, text color prop, and you can pass an object to
+    dynamically represent each dot as well.`,
+    img: HappyDots,
+    page: '/happy-dots',
+  },
+  {
+    id: 4,
+    title: 'Dropper Component',
+    component: 'Dropper',
+    description: `is simple component that can create a simple dropdown
+    with a simple hover and click animation.
+    It takes a title prop and passes the content as children`,
+    img: Dropper,
+    page: '/dropper',
+  },
+  {
+    id: 5,
+    title: 'Easy Slider Component',
+    component: 'Easy Slider',
+    description: `is simple component that can create a simple image slider
+    with a simple hover animation.
+    It takes a title prop and passes the content as children`,
+    img: EasySlider,
+    page: '/e-slider',
+  },
 ];

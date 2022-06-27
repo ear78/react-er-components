@@ -1,0 +1,22 @@
+.HomeSections {
+
+  p {
+    text-align: center;
+    margin: 0 auto 25px;
+    max-width: 800px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.LazyLoad {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: all 1s ease-in-out;
+  &.Active {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0);
+  }
+}
