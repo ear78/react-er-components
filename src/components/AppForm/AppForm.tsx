@@ -35,6 +35,7 @@ function AppForm({ formData, click, formRef }: AppFormProps) {
             name={d.name}
             value={d.inputVal}
             onChange={d.change}
+            sx={{ margin: '.5rem 0' }}
           >
             <FormControlLabel labelPlacement="start" value="left" control={<Radio />} label="Left" />
             <FormControlLabel labelPlacement="start" value="center" control={<Radio />} label="Center" />
@@ -70,15 +71,6 @@ function AppForm({ formData, click, formRef }: AppFormProps) {
           size="small"
         />
       );
-    // <FormInput
-    //   key={d.name}
-    //   labelText={d.labelText}
-    //   inputType={d.inputType}
-    //   inputVal={d.inputVal}
-    //   name={d.name}
-    //   change={d.change}
-    //   placeHolder={d.placeHolder}
-    // />
     });
   }
 
@@ -86,8 +78,7 @@ function AppForm({ formData, click, formRef }: AppFormProps) {
     ? (
       <form ref={formRef} onSubmit={click} className={styles.AppForm}>
         {input}
-        {/* <button type="submit">Save</button> */}
-        <Button sx={{ borderRadius: '25px', mt: 2 }} type="submit" color="secondary" variant="contained">Save</Button>
+        <Button sx={{ borderRadius: '25px', mt: 'auto', mb: '2.5rem' }} type="submit" color="secondary" variant="contained">Save</Button>
       </form>
     )
     : (

@@ -19,7 +19,7 @@ type PageSectionProps = {
 };
 
 function PageSection({
-  data, setThreshold = 0.45, setMarginOffset = '0',
+  data, setThreshold = 0.3, setMarginOffset = '0',
 }: PageSectionProps) {
   const resetAppLoading = useResetApploading(); // Reset AppLoading
   const refEl = useRef<HTMLElement>(null);
