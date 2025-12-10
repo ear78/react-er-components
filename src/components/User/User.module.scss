@@ -19,7 +19,7 @@
       top: 0;
       left: 0;
       background-size: 400%;
-      animation: swipe 1s ease infinite;
+      animation: pulse 1s ease infinite;
     }
 
     @include breakpoint(md) {
@@ -65,23 +65,21 @@
       top: 0;
       left: 0;
       background-size: 400%;
-      animation: swipe 1s ease infinite;
+      animation: pulse 1.5s ease infinite;
     }
   }
 
-  @keyframes swipe {
+  @keyframes pulse {
     0% {
-      background-position-x: 10%;
-      opacity: 0;
+      opacity: .05;
     }
 
-    15% {
+    50% {
       opacity: 1;
     }
 
     100% {
-      background-position-x: -80%;
-      opacity: 0;
+      opacity: .05;
     }
   }
 }

@@ -10,29 +10,33 @@ type GitData = {
   type: string;
 };
 
-function User() {
+function User({ profileId = 'ear78' }: { profileId?: string }) {
   const [userDataReady, setUserDataReady] = useState(false);
   const [error, setError] = useState(false);
   const [gitData, setGitData] = useState<any>({} as GitData);
 
-  useEffect(() => {
-    fetch('https://api.github.com/users/ear78', {
-      headers: {
-        accept: 'application/vnd.github.v3+json',
-      },
-    })
-      .then((response) => response.json())
-      .then((resp) => {
-        setGitData(resp);
+  useEffect((): void => {
+    try {
+      const fetchData = async () => {
+        const response = await fetch(`https://api.github.com/users/${profileId}`, {
+          headers: {
+            accept: 'application/vnd.github.v3+json',
+          },
+        });
+
+        const data = await response.json();
+        setGitData(data);
         // Fake delay to show skeleton
         setTimeout(() => {
           setUserDataReady(true);
-        }, 1000);
-      })
-      .catch((err) => {
-        setError(true);
-        return `Something went wrong with fetching the data ${err}`;
-      });
+        }, 2000);
+      };
+      fetchData();
+      return undefined;
+    } catch (err) {
+      setError(true);
+      return console.error(`Something went wrong with fetching the data ${err}`);
+    }
   }, [userDataReady]);
 
   let user;
