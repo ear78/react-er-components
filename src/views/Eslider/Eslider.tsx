@@ -1,4 +1,6 @@
-import React, { Suspense, lazy, useRef } from 'react';
+import React, {
+  Suspense, lazy, useEffect, useRef, useState,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Grid from '@mui/material/Grid';
@@ -18,21 +20,57 @@ type EsliderProps = {
 function Eslider({ data }: EsliderProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null!); // Ref of scroll container
   const isLoading = useSelector((state: any) => state.app.appLoading);
+  const [isPrevBtnDisabled, setIsPrevBtnDisabled] = useState<boolean>(false);
+  const [isNextBtnDisabled, setIsNextBtnDisabled] = useState<boolean>(false);
 
-  /**
-   * Handles scrolling event and positions the slider depending on container width
-   * and position
-   */
-  const handleScroll = ($arg: number) => {
-    const sWidth = scrollContainerRef.current.scrollWidth; // Get scroll width of container
-    const sPosition = scrollContainerRef.current.scrollLeft; // Get scroll position
+  const goToPrev = () => {
+    scrollContainerRef.current?.scrollBy({
+      left: -scrollContainerRef.current.offsetWidth / data.length,
+      behavior: 'smooth',
+    });
 
-    if (sPosition > 1 && $arg === 1) {
-      scrollContainerRef.current.scrollTo(0, 0);
-    } else if (sPosition !== sWidth && $arg !== 1) {
-      scrollContainerRef.current.scrollTo(sWidth, 0);
+    if (scrollContainerRef.current?.scrollLeft === 0) {
+      setIsPrevBtnDisabled(true);
+    } else {
+      setIsPrevBtnDisabled(false);
     }
   };
+
+  const goToNext = () => {
+    scrollContainerRef.current?.scrollBy({
+      left: scrollContainerRef.current.offsetWidth / data.length,
+      behavior: 'smooth',
+    });
+
+    if (
+      scrollContainerRef.current
+      && scrollContainerRef.current.scrollLeft
+      + scrollContainerRef.current.offsetWidth
+      >= scrollContainerRef.current.scrollWidth
+    ) {
+      setIsNextBtnDisabled(true);
+    } else {
+      setIsNextBtnDisabled(false);
+    }
+  };
+
+  /**
+   * Handles scrolling events to enable/disable navigation buttons
+   */
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      setIsPrevBtnDisabled(scrollContainerRef.current.scrollLeft === 0);
+      setIsNextBtnDisabled(
+        scrollContainerRef.current.scrollLeft
+        + scrollContainerRef.current.offsetWidth
+        >= scrollContainerRef.current.scrollWidth,
+      );
+    }
+  };
+
+  useEffect(() => {
+    setIsPrevBtnDisabled(true);
+  }, []);
 
   const slides = data.map((slide, i) => {
     const slideLength = data.length - 1;
@@ -40,7 +78,10 @@ function Eslider({ data }: EsliderProps) {
     return (
       <div
         key={slide.id}
-        style={{ backgroundImage: `url(${slide.image})`, marginRight: isLastSlide }}
+        style={{
+          backgroundImage: `url(${slide.image})`,
+          marginRight: isLastSlide,
+        }}
         className={`${styles.Slide} ${!isLoading ? styles.isBlurred : ''}`}
       >
         <div className={styles.OverlayText}>{slide.text}</div>
@@ -57,13 +98,29 @@ function Eslider({ data }: EsliderProps) {
         </Suspense>
       </Grid>
       <Grid item xs={12}>
-        <div ref={scrollContainerRef} className={styles.Eslider}>
-          <div className={styles.SlideContainer}>
-            {slides}
-          </div>
+        <div
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className={styles.Eslider}
+        >
+          <div className={styles.SlideContainer}>{slides}</div>
           <div className={styles.SlideBtns}>
-            <span role="button" aria-label="left" tabIndex={0} onClick={() => handleScroll(1)}><FontAwesomeIcon icon={['fas', 'chevron-left']} /></span>
-            <span role="button" aria-label="right" tabIndex={0} onClick={() => handleScroll(2)}><FontAwesomeIcon icon={['fas', 'chevron-right']} /></span>
+            <button
+              type="button"
+              aria-label="left"
+              onClick={goToPrev}
+              disabled={isPrevBtnDisabled}
+            >
+              <FontAwesomeIcon icon={['fas', 'chevron-left']} />
+            </button>
+            <button
+              type="button"
+              aria-label="right"
+              onClick={goToNext}
+              disabled={isNextBtnDisabled}
+            >
+              <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+            </button>
           </div>
         </div>
       </Grid>

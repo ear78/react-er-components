@@ -1,31 +1,42 @@
 @import '../../assets/scss/variables';
 
-.EsliderContainer {
-  
-}
-
 .Eslider {
   overflow-x: auto;
   margin: 0 auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 
   .SlideBtns {
     display: flex;
     padding: 10px 0;
     position: absolute;
+    width: 75px;
+    justify-content: space-between;
 
-    span {
+    button {
+      border: 2px solid transparent;
       border-radius: 50%;
       height: 35px;
       width: 35px;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #efefef;
       @include transitions();
 
-      &:hover {
-        cursor: pointer;
-        background: #efefef;
+      @media (hover: hover) {
+        &:hover:not(:disabled) {
+          cursor: pointer;
+          background: color-mix(in srgb, #efefef 60%, #ffffff 40%);
+          border: 2px solid $primary;
+          transform: scale(1.125);
+        }
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        transform: scale(1);
       }
     }
   }
@@ -43,6 +54,8 @@
     position: relative;
     display: flex;
     align-items: flex-end;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     @include transitions();
   
     &.isBlurred {
@@ -81,7 +94,7 @@
       opacity: 1;
       height: 100%;
       width: 100%;
-      background-image: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5));
+      background-image: linear-gradient(0deg, rgba(0,0,0,.6), rgba(0,0,0,.6));
     }
 
     &:hover .OverlayText {
