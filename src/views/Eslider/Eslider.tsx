@@ -1,11 +1,13 @@
-import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Grid from "@mui/material/Grid";
-import styles from "./Eslider.module.scss";
+import React, {
+  Suspense, lazy, useEffect, useRef, useState,
+} from 'react';
+import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Grid from '@mui/material/Grid';
+import styles from './Eslider.module.scss';
 
 // Lazy load components
-const PageTitle = lazy(() => import("../../components/PageTitle/PageTitle"));
+const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 
 type EsliderProps = {
   data: {
@@ -24,7 +26,7 @@ function Eslider({ data }: EsliderProps) {
   const goToPrev = () => {
     scrollContainerRef.current?.scrollBy({
       left: -scrollContainerRef.current.offsetWidth / data.length,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
 
     if (scrollContainerRef.current?.scrollLeft === 0) {
@@ -37,14 +39,14 @@ function Eslider({ data }: EsliderProps) {
   const goToNext = () => {
     scrollContainerRef.current?.scrollBy({
       left: scrollContainerRef.current.offsetWidth / data.length,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
 
     if (
-      scrollContainerRef.current &&
-      scrollContainerRef.current.scrollLeft +
-        scrollContainerRef.current.offsetWidth >=
-        scrollContainerRef.current.scrollWidth
+      scrollContainerRef.current
+      && scrollContainerRef.current.scrollLeft
+      + scrollContainerRef.current.offsetWidth
+      >= scrollContainerRef.current.scrollWidth
     ) {
       setIsNextBtnDisabled(true);
     } else {
@@ -59,9 +61,9 @@ function Eslider({ data }: EsliderProps) {
     if (scrollContainerRef.current) {
       setIsPrevBtnDisabled(scrollContainerRef.current.scrollLeft === 0);
       setIsNextBtnDisabled(
-        scrollContainerRef.current.scrollLeft +
-          scrollContainerRef.current.offsetWidth >=
-          scrollContainerRef.current.scrollWidth
+        scrollContainerRef.current.scrollLeft
+        + scrollContainerRef.current.offsetWidth
+        >= scrollContainerRef.current.scrollWidth,
       );
     }
   };
@@ -72,7 +74,7 @@ function Eslider({ data }: EsliderProps) {
 
   const slides = data.map((slide, i) => {
     const slideLength = data.length - 1;
-    const isLastSlide = slideLength === i ? "0" : "2%";
+    const isLastSlide = slideLength === i ? '0' : '2%';
     return (
       <div
         key={slide.id}
@@ -80,7 +82,7 @@ function Eslider({ data }: EsliderProps) {
           backgroundImage: `url(${slide.image})`,
           marginRight: isLastSlide,
         }}
-        className={`${styles.Slide} ${!isLoading ? styles.isBlurred : ""}`}
+        className={`${styles.Slide} ${!isLoading ? styles.isBlurred : ''}`}
       >
         <div className={styles.OverlayText}>{slide.text}</div>
         <div className={styles.Overlay} />
@@ -109,7 +111,7 @@ function Eslider({ data }: EsliderProps) {
               onClick={goToPrev}
               disabled={isPrevBtnDisabled}
             >
-              <FontAwesomeIcon icon={["fas", "chevron-left"]} />
+              <FontAwesomeIcon icon={['fas', 'chevron-left']} />
             </button>
             <button
               type="button"
@@ -117,7 +119,7 @@ function Eslider({ data }: EsliderProps) {
               onClick={goToNext}
               disabled={isNextBtnDisabled}
             >
-              <FontAwesomeIcon icon={["fas", "chevron-right"]} />
+              <FontAwesomeIcon icon={['fas', 'chevron-right']} />
             </button>
           </div>
         </div>
