@@ -40,6 +40,7 @@
   padding: 15px;
   width: 80vw;
   overflow-y: auto;
+  overflow-x: hidden;
   height: auto;
   transform: translate3d(0, -3px, 0);
   transition: opacity .5s ease 0ms, transform 2s ease 0ms, z-index 0ms ease 500ms;
