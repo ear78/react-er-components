@@ -1,0 +1,26 @@
+.BackToTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 5;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

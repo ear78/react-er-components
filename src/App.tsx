@@ -20,6 +20,7 @@ import { setAppLoading } from './assets/js/lib/redux/modules/app';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Spinner from './components/Spinner/Spinner';
+import BackToTopButton from './components/BackToTopButton/BackToTopButton';
 
 /* Views */
 import Home from './views/Home/Home';
@@ -86,6 +87,7 @@ function App() {
           </Switch>
         </Grid>
         <Footer />
+        <BackToTopButton />
       </Container>
 
     </Router>
