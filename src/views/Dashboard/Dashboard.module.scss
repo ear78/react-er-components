@@ -2,13 +2,27 @@
 
 .Dashboard {
 
+  &.Dark {
+    .Card {
+      .Header {
+        img {
+          filter: invert(1);
+        }
+      }
+
+      .SettingsPill{
+        background: var(--gray-700);
+      }
+    }
+  }
+
   .User {
     margin-bottom: 1rem;
 
     img {
       max-width: 100px;
       filter: grayscale(0.5);
-      background: $lighterGray;
+      background: var(--gray-200);
       border-radius: 50%;
       padding: 15px;
       box-sizing: border-box;
@@ -24,7 +38,7 @@
 
     .Username {
       margin: 0;
-      color: $gray;
+      color: var(--gray-500);
       font-size: 1.125rem;
       font-weight: 500;
     }
@@ -34,7 +48,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: $border;
+    border: var(--border);
     border-radius: 10px;
     padding: 20px;
     height: calc(100% - 2.6rem);
@@ -55,17 +69,17 @@
     .Description {
       margin: 0.5rem 0 1rem;
       font-size: .9rem;
+    }
 
-      .SettingsPill {
-        display: inline-flex;
-        background: #efefef;
-        border-radius: 15px;
-        padding: 1px 10px;
-        margin: 0 5px 0 0;
-        font-weight: 500;
-        white-space: pre;
-        margin-bottom: 4px;
-      }
+    .SettingsPill {
+      display: inline-flex;
+      background: #efefef;
+      border-radius: 15px;
+      padding: 1px 10px;
+      margin: 0 5px 0 0;
+      font-weight: 500;
+      white-space: pre;
+      margin-bottom: 4px;
     }
 
     .Footer {
@@ -75,15 +89,15 @@
       text-transform: uppercase;
       font-size: .75rem;
       font-weight: 500;
-      color: $gray;
+      color: var(--gray-500);
 
       .Circle {
         margin-right: 10px;
         height: 13px;
         width: 13px;
         display: inline-block;
-        background: lighten($hotPink, 15%);
-        border: 1px solid lighten($hotPink, 10%);
+        background: color-mix(in srgb, var(--secondary-color) 50%, white);
+        border: 1px solid color-mix(in srgb, var(--secondary-color) 90%, white);
         border-radius: 50%;
       }
 

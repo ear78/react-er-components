@@ -8,9 +8,10 @@ import { teamMembers } from '../../assets/js/data';
 type TeamCardProps = {
   delay?: number;
   altLayout?: boolean;
+  isDarkMode?: boolean;
 };
 
-function TeamCard({ delay = 0, altLayout = false }: TeamCardProps) {
+function TeamCard({ delay = 0, altLayout = false, isDarkMode = false }: TeamCardProps) {
   const members = teamMembers.map((member, i) => {
     if (altLayout) {
       return (
@@ -47,7 +48,7 @@ function TeamCard({ delay = 0, altLayout = false }: TeamCardProps) {
                 </div>
               </div>
               <div className={styles.AltLayoutRight}>
-                <h3 className={styles.Name}>{member.name}</h3>
+                <h3 className={`${styles.Name} ${isDarkMode ? styles.Dark : ''}`}>{member.name}</h3>
                 <p className={styles.JobTitle}>{member.jobTitle}</p>
               </div>
               <img className={styles.CompanyLogo} src={logo} alt="Logo" />
@@ -76,7 +77,7 @@ function TeamCard({ delay = 0, altLayout = false }: TeamCardProps) {
         <div style={{ transitionDelay: `${delay * i}ms` }} className={`${styles.Member} ${styles.TC}`}>
           <div className={styles.MemberHoverTrigger}>
             <img className={styles.Image} src={member.image} alt={member.name} />
-            <h3 className={styles.Name}>{member.name}</h3>
+            <h3 className={`${styles.Name} ${isDarkMode ? styles.Dark : ''}`}>{member.name}</h3>
             <p className={styles.JobTitle}>{member.jobTitle}</p>
             <img className={styles.CompanyLogo} src={logo} alt="Logo" />
             <div className={styles.icons}>

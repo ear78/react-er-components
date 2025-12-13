@@ -1,8 +1,12 @@
 @import '../../assets/scss/variables';
 
 #HoverPodsView {
-  background: $boxBackgroundColor;
+  background: $gray-100;
   padding: 40px 0 75px;
   border-radius: $borderRadius;
   position: relative;
+
+  &.Dark {
+    background: $gray-800;
+  }
 }

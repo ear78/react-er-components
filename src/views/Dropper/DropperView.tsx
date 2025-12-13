@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import { dropperData } from '../../assets/js/data';
 import styles from './DropperView.module.scss';
@@ -9,8 +10,11 @@ const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 const Dropper = lazy(() => import('../../components/Dropper/Dropper'));
 
 function DropperParent() {
+  const { isDarkMode } = useSelector((state: any) => state.app);
   const dropper = dropperData.map((d) => (
-    <Dropper key={d.id} title={d.title} iconName={d.icon}>{d.content}</Dropper>
+    <Dropper key={d.id} title={d.title} iconName={d.icon} isDarkMode={isDarkMode}>
+      {d.content}
+    </Dropper>
   ));
 
   return (

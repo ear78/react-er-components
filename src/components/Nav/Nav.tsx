@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDarkMode } from '../../assets/js/lib/redux/modules/app';
 import styles from './Nav.module.scss';
 import Hamburger from '../Hamburger/Hamburger';
 import logo from '../../assets/img/er-logo.svg';
 import useResetApploading from '../../assets/js/hooks/useResetAppLoading';
+import DarkModeButton from '../DarkModeButton/DarkModeButton';
 
 function Nav() {
+  const dispatch = useDispatch();
   const resetAppLoading = useResetApploading();
+  const { isDarkMode } = useSelector((state: any) => state.app);
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   const handleToggle = () => {
     setIsMenuActive(!isMenuActive);
+  };
+
+  const handleDarkMode = () => {
+    dispatch(setDarkMode(!isDarkMode));
   };
 
   const resetPageLoad = () => {
@@ -88,7 +97,7 @@ function Nav() {
   ));
 
   return (
-    <div className={styles.NavContainer}>
+    <div className={`${styles.NavContainer} ${isDarkMode ? styles.Dark : ''}`}>
       <Link
         className={styles.ImgWrapper}
         to="/"
@@ -99,6 +108,7 @@ function Nav() {
       <Hamburger
         isActive={isMenuActive}
         click={handleToggle}
+        isDarkMode={isDarkMode}
       />
       <nav className={styles.NavDesktop}>
         <ul>
@@ -111,6 +121,7 @@ function Nav() {
           {mobileNavPrint}
         </ul>
       </nav>
+      <DarkModeButton isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} />
     </div>
   );
 }

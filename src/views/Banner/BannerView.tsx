@@ -14,7 +14,7 @@ const Typography = lazy(() => import('../../components/Typography/Typography'));
 
 function BannerParent() {
   const dispatch = useDispatch();
-  const { components } = useSelector((state: any) => state.app);
+  const { components, isDarkMode } = useSelector((state: any) => state.app);
 
   const { settings } = components[0];
   const formRef = useRef<HTMLFormElement>(null);
@@ -137,8 +137,13 @@ function BannerParent() {
     <div className={styles.BannerParent}>
       <Suspense fallback="<div>Loading...</div>">
         <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
-          <Typography sx={{ margin: '0 0 20px 0' }} variant="h3">Adjuster Menu</Typography>
-          <AppForm click={handleSettingsSave} formData={formData} formRef={formRef} />
+          <Typography sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Typography>
+          <AppForm
+            click={handleSettingsSave}
+            formData={formData}
+            formRef={formRef}
+            isDarkMode={isDarkMode}
+          />
         </AdjusterMenu>
 
         <div className={styles.Content}>

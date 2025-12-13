@@ -11,9 +11,12 @@ import AlertBanner from '../AlertBanner/AlertBanner';
 type AppFormProps = {
   formData: {}[];
   formRef?: React.LegacyRef<HTMLFormElement> | undefined;
+  isDarkMode?: boolean;
   click?: (event: React.SyntheticEvent) => void;
 };
-function AppForm({ formData, click, formRef }: AppFormProps) {
+function AppForm({
+  formData, click, formRef, isDarkMode,
+}: AppFormProps) {
   let input;
   if (formData) {
     input = formData.map((d: any) => {
@@ -76,8 +79,10 @@ function AppForm({ formData, click, formRef }: AppFormProps) {
 
   return (formData
     ? (
-      <form ref={formRef} onSubmit={click} className={styles.AppForm}>
-        {input}
+      <form ref={formRef} onSubmit={click} className={`${styles.AppForm} ${isDarkMode ? styles.Dark : ''}`}>
+        <div className={styles.FormInputs}>
+          {input}
+        </div>
         <Button sx={{ borderRadius: '25px', mt: 'auto', mb: '2.5rem' }} type="submit" color="secondary" variant="contained">Save</Button>
       </form>
     )

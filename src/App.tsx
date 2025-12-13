@@ -41,7 +41,7 @@ library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChe
 
 function App() {
   const dispatch = useDispatch();
-  const { appLoading, isModalActive } = useSelector((state: any) => state.app);
+  const { appLoading, isModalActive, isDarkMode } = useSelector((state: any) => state.app);
 
   useEffect(() => {
     // Fake data delay
@@ -51,46 +51,48 @@ function App() {
   }, [appLoading]);
 
   return (
-    <Router>
-      <Spinner mounted={appLoading} />
-      <ScrollToTop />
+    <div className={`site-wrapper ${isDarkMode ? 'dark' : ''}`}>
+      <Router>
+        <Spinner mounted={appLoading} isDarkMode={isDarkMode} />
+        <ScrollToTop />
 
-      <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>
-        <Nav />
+        <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>
+          <Nav />
 
-        <Grid component="section" className={styles.Content}>
-          <Switch>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/e-slider">
-              <Eslider data={esliderData} />
-            </Route>
-            <Route path="/happy-dots">
-              <HappyDotsView />
-            </Route>
-            <Route path="/hover-pods">
-              <HoverPodsView />
-            </Route>
-            <Route path="/page-banner">
-              <BannerView />
-            </Route>
-            <Route path="/team-building">
-              <TeamBuilding />
-            </Route>
-            <Route path="/dropper">
-              <DropperParent />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Grid>
-        <Footer />
-        <BackToTopButton />
-      </Container>
+          <Grid component="section" className={styles.Content}>
+            <Switch>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route path="/e-slider">
+                <Eslider data={esliderData} />
+              </Route>
+              <Route path="/happy-dots">
+                <HappyDotsView />
+              </Route>
+              <Route path="/hover-pods">
+                <HoverPodsView />
+              </Route>
+              <Route path="/page-banner">
+                <BannerView />
+              </Route>
+              <Route path="/team-building">
+                <TeamBuilding />
+              </Route>
+              <Route path="/dropper">
+                <DropperParent />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Grid>
+          <Footer />
+          <BackToTopButton />
+        </Container>
 
-    </Router>
+      </Router>
+    </div>
   );
 }
 

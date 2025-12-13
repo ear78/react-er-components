@@ -35,7 +35,11 @@
       width: initial;
       padding: 35px;
       box-sizing: border-box;
-      background: $lighterGray;
+      background: $gray-100;
+
+      &.Dark {
+        background: var(--gray-800);
+      }
     }
   }
 

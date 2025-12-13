@@ -7,12 +7,13 @@ import styles from './SocialIcon.module.scss';
 type SocialIconProps = {
   path: string;
   platform: any;
+  isDarkMode?: boolean;
 };
 
-function SocialIcon({ path, platform = 'linkedin' }: SocialIconProps) {
+function SocialIcon({ path, platform = 'linkedin', isDarkMode }: SocialIconProps) {
   return (
     <a
-      className={`${styles.Links}`}
+      className={`${styles.Links} ${isDarkMode ? styles.Dark : ''}`}
       href={path}
       target="_blank"
       rel="noreferrer"

@@ -14,7 +14,7 @@
     // Fallback to 2012
     min-height: 40vh;
     min-height: calc(100vh - 322px);
-    border-top: 1px solid $lightGray;
+    border-top: 1px solid $gray-200;
     padding-top: 3rem;
   }
 }
