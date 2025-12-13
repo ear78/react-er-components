@@ -108,6 +108,7 @@ function Nav() {
       <Hamburger
         isActive={isMenuActive}
         click={handleToggle}
+        isDarkMode={isDarkMode}
       />
       <nav className={styles.NavDesktop}>
         <ul>
