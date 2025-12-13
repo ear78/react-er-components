@@ -53,7 +53,7 @@ function App() {
   return (
     <div className={`site-wrapper ${isDarkMode ? 'dark' : ''}`}>
       <Router>
-        <Spinner mounted={appLoading} />
+        <Spinner mounted={appLoading} isDarkMode={isDarkMode} />
         <ScrollToTop />
 
         <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>

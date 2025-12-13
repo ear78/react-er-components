@@ -24,8 +24,12 @@ function HoverPodsView() {
     <section id={styles.HoverPodsView} className={`${isDarkMode ? styles.Dark : ''}`}>
       <Suspense fallback="<div>Loading...</div>">
         <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
-          <Typography sx={{ margin: '0 0 20px 0' }} variant="h3">Adjuster Menu</Typography>
-          <AppForm click={pageSettings.handleSettingsSave} formData={pageSettings.formData} />
+          <Typography sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Typography>
+          <AppForm
+            click={pageSettings.handleSettingsSave}
+            formData={pageSettings.formData}
+            isDarkMode={isDarkMode}
+          />
         </AdjusterMenu>
 
         <PageTitle title="HoverPods" />
