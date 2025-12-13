@@ -5,13 +5,16 @@ type PageTitleProps = {
   alt?: boolean;
   color?: string;
   title: string;
+  isDarkMode?: boolean;
 };
 
-function PageTitle({ alt, color, title }: PageTitleProps) {
+function PageTitle({
+  alt, color, title, isDarkMode,
+}: PageTitleProps) {
   const alternateStyle = alt ? styles.Alt : '';
 
   return (
-    <h1 style={{ color }} className={`${styles.PageTitle} ${alternateStyle}`}>
+    <h1 style={{ color }} className={`${styles.PageTitle} ${alternateStyle} ${isDarkMode ? styles.Dark : ''}`}>
       &lt;
       {title}
       /&gt;

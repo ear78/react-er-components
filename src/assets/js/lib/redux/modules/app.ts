@@ -5,6 +5,7 @@ export const dashboardSlice = createSlice({
   initialState: {
     appLoading: true,
     isModalActive: false,
+    isDarkMode: false,
     components: [
       {
         id: 0,
@@ -80,6 +81,9 @@ export const dashboardSlice = createSlice({
     ],
   },
   reducers: {
+    setDarkMode: (state, action) => {
+      state.isDarkMode = action.payload;
+    },
     setAppState: (state, action) => {
       state += action.payload;
     },
@@ -99,6 +103,7 @@ export const dashboardSlice = createSlice({
 });
 
 export const {
+  setDarkMode,
   setAppState,
   setComponentSettings,
   setIsModalActive,

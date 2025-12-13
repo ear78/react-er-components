@@ -1,3 +1,31 @@
+:root {
+  /* Color Palette */
+  --white: #ffffff;
+  --black: #000000;
+
+  --gray-100: #f7f7f7;
+  --gray-200: #ebebeb;
+  --gray-500: #767676;
+  --gray-700: #454545;
+  --gray-800: #1b1b1b;
+  --gray-900: #121212;
+
+  --pink-900: #f73a7b;
+
+  --primary-color: var(--gray-700);
+  --secondary-color: var(--pink-900);
+  --tertiary-color: var(--black);
+
+  --dark-background-color: #121212;
+  --dark-text-color: #f1f1f1;
+
+  --error: #b22222;
+  --success: #228b22;
+
+  /* UI Styles */
+  --border: 1px solid var(--gray-200);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,7 +41,16 @@ body {
 
   font-size: 16px;
   box-sizing: border-box;
-  color: #454545;
+  color: var(--primary-color);
+}
+
+.site-wrapper {
+  min-height: 100vh;
+}
+
+.dark {
+  background-color: var(--dark-background-color);
+  color: var(--dark-text-color);
 }
 
 code {

@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 // import HoverPods from '../../components/HoverPods/HoverPods';
 // import PageTitle from '../../components/PageTitle/PageTitle';
 // import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
@@ -16,10 +17,11 @@ const Typography = lazy(() => import('../../components/Typography/Typography'));
 const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
 
 function HoverPodsView() {
+  const { isDarkMode } = useSelector((state: any) => state.app);
   const pageSettings = usePageSettings(forms, 1);
 
   return (
-    <section id={styles.HoverPodsView}>
+    <section id={styles.HoverPodsView} className={`${isDarkMode ? styles.Dark : ''}`}>
       <Suspense fallback="<div>Loading...</div>">
         <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
           <Typography sx={{ margin: '0 0 20px 0' }} variant="h3">Adjuster Menu</Typography>

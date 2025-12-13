@@ -8,6 +8,40 @@
   position: relative;
   box-sizing: border-box;
 
+  &.Dark {
+    .ImgWrapper img {
+      filter: invert(1);
+    }
+  }
+
+  // .DarkModeToggle {
+  //   background: none;
+  //   border: none;
+  //   cursor: pointer;
+  //   position: relative;
+  //   width: 18px;
+  //   height: 18px;
+  //   padding: 0;
+
+  //   .Moon, .Sun {
+  //     position: absolute;
+  //     opacity: 0;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     transition: opacity 0.2s linear;
+  //   }
+
+  //   .Sun {
+  //     color: $white;
+  //   }
+
+  //   .Moon.active {
+  //     opacity: 1;
+  //   }
+  // }
+
   .ImgWrapper {
     display: flex;
     width: auto;

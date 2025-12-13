@@ -5,12 +5,13 @@
   align-items: center;
   justify-content: space-around;
   transition: all .14s ease-out;
+
+  &:hover a {
+    color: var(--gray-500);
+  }
+
+  i {
+    font-size: 1.65em;
+  }
 }
 
-.SocialComp:hover a {
-  color: grey;
-}
-
-.SocialComp i {
-  font-size: 1.65em;
-}

@@ -18,7 +18,7 @@ const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 function Dashboard() {
   // Redux
   const dispatch = useDispatch();
-  const { components, isModalActive } = useSelector((state: any) => state.app);
+  const { components, isModalActive, isDarkMode } = useSelector((state: any) => state.app);
 
   // Local State
   // const [isModalActive, setIsModalActive] = useState(false);
@@ -217,7 +217,7 @@ function Dashboard() {
             <span className={styles.Circle} />
             {component.component}
           &nbsp; settings
-            <button type="button" onClick={() => editSettings(component.id)} className={styles.EditBtn}>
+            <button type="button" aria-label={`Edit settings for ${component.component}`} onClick={() => editSettings(component.id)} className={styles.EditBtn}>
               <Edit fontSize="inherit">edit</Edit>
             </button>
           </p>
@@ -229,10 +229,10 @@ function Dashboard() {
   }
 
   return (
-    <Grid container columnSpacing={2} className={styles.Dashboard}>
+    <Grid container columnSpacing={2} className={`${styles.Dashboard} ${isDarkMode ? styles.Dark : ''}`}>
       <Suspense fallback="<div>Loading...</div>">
-        <Modal isModalActive={isModalActive} click={toggleModal}>
-          <AppForm click={handleSettingsSave} formData={formData} />
+        <Modal isModalActive={isModalActive} click={toggleModal} isDarkMode={isDarkMode}>
+          <AppForm click={handleSettingsSave} formData={formData} isDarkMode={isDarkMode} />
         </Modal>
       </Suspense>
       <Grid item xs={12} mb={6}>

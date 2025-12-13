@@ -4,7 +4,7 @@
   .Image {
     height: 100px;
     width: 100px;
-    background-color: $lightGray;
+    background-color: $gray-200;
     border-radius: 50%;
     position: relative;
 
@@ -51,7 +51,7 @@
   .Username,
   .Description {
     position: relative;
-    background: $lightGray;
+    background: $gray-200;
     border-radius: 8px;
 
     &::before {

@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import styles from './HappyDotsView.module.scss';
 import { happyData, sectionData, forms } from '../../assets/js/data';
 import usePageSettings from '../../assets/js/hooks/usePageSettings';
@@ -11,6 +12,7 @@ const Dots = lazy(() => import('../../components/Dots/Dots'));
 const Spacer = lazy(() => import('../../components/Spacer/Spacer'));
 
 function HappyDots() {
+  const { isDarkMode } = useSelector((state: any) => state.app);
   const elementRefs = sectionData.map(() => useRef<HTMLUListElement>(null));
   const pageSettings = usePageSettings(forms, 3);
 
@@ -24,7 +26,10 @@ function HappyDots() {
         className={styles.BgImage}
         style={{ backgroundImage: `url(${d.img})` }}
       />
-      <div className={styles.TextBox}>{d.text}</div>
+      <div className={`${styles.TextBox} ${isDarkMode ? styles.Dark : ''}`}>
+        <h2>{d.title}</h2>
+        <p>{d.text}</p>
+      </div>
     </section>
   ));
 

@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import Grid from '@mui/material/Grid';
+import { useSelector } from 'react-redux';
 import styles from './Home.module.scss';
 import { homeData, pageSectionData } from '../../assets/js/data';
 
@@ -8,13 +9,14 @@ const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 const PageSection = lazy(() => import('../../components/PageSection/PageSection'));
 
 function Home() {
+  const { isDarkMode } = useSelector((state: any) => state.app);
   const pageSection = pageSectionData.map((section) => (
     <PageSection key={section.id} data={section} />
   ));
 
   return (
     <>
-      <Grid container component="section" flexDirection={{ xs: 'column-reverse', md: 'row' }} className={styles.HomeContainer}>
+      <Grid container component="section" flexDirection={{ xs: 'column-reverse', md: 'row' }} className={`${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
         <Grid item xs={12} md={6} className={styles.Left}>
           <span>Welcome to ER Components! </span>
           {homeData.desc}
@@ -24,7 +26,7 @@ function Home() {
         <Grid item xs={12} md={6} className={styles.Right}>
           <div className={styles.HomeTitle}>ER</div>
           <Suspense fallback="<div>Loading...</div>">
-            <PageTitle title="Components" />
+            <PageTitle title="Components" isDarkMode={isDarkMode} />
           </Suspense>
         </Grid>
       </Grid>
