@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './AlertBanner.module.scss';
 
 type AlertBannerProps = {
+  isDarkMode?: boolean;
   children: React.ReactNode;
 };
 
-function AlertBanner({ children }: AlertBannerProps) {
+function AlertBanner({ isDarkMode, children }: AlertBannerProps) {
   return (
-    <article className={styles.AlertBanner}>
+    <article data-testid="alert-banner" className={`${styles.AlertBanner} ${isDarkMode ? styles.Dark : ''}`}>
       {children}
     </article>
   );
