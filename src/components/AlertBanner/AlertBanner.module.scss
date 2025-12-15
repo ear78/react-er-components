@@ -5,8 +5,14 @@
   background: lighten($error, 50%);
   padding: 20px;
   border-radius: 8px;
+  border: 1px solid color-mix(in srgb,var(--error) 30%, white 70%);
 
   .Error {
     color: $error;
+  }
+
+  &.Dark {
+    background: var(--black);
+    border: 1px solid var(--black);
   }
 }
