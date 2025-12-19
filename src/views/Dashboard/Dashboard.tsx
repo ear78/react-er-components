@@ -193,7 +193,7 @@ function Dashboard() {
   let cards;
   if (components) {
     cards = components.map((component: any) => (
-      <Grid key={component.id} item xs={12} md={6}>
+      <Grid key={component.id} size={{ xs: 12, md: 6 }}>
         <div className={styles.Card}>
           <p className={styles.Header}>
             <img src={logo} alt="logo" />
@@ -201,7 +201,7 @@ function Dashboard() {
           </p>
           <p className={styles.Description}>
             {component.description}
-            { Object.keys(component.settings).length > 1
+            {Object.keys(component.settings).length > 1
               ? Object.entries(component.settings).map(([key, value]: any) => (
                 <span key={key} className={styles.SettingsPill}>
                   <b>{`${key}:`}</b>
@@ -216,7 +216,7 @@ function Dashboard() {
           <p className={styles.Footer}>
             <span className={styles.Circle} />
             {component.component}
-          &nbsp; settings
+            &nbsp; settings
             <button type="button" aria-label={`Edit settings for ${component.component}`} onClick={() => editSettings(component.id)} className={styles.EditBtn}>
               <Edit fontSize="inherit">edit</Edit>
             </button>
@@ -235,15 +235,15 @@ function Dashboard() {
           <AppForm click={handleSettingsSave} formData={formData} isDarkMode={isDarkMode} />
         </Modal>
       </Suspense>
-      <Grid item xs={12} mb={6}>
+      <Grid size={12} mb={6}>
         <Suspense fallback="<div>Loading...</div>">
           <PageTitle title="Dashboard" />
         </Suspense>
       </Grid>
-      <Grid item xs={12} sm={3}>
+      <Grid size={{ xs: 12, sm: 3 }} style={{ position: 'relative' }}>
         <User />
       </Grid>
-      <Grid item xs={12} sm={9}>
+      <Grid size={{ xs: 12, sm: 9 }}>
         <Grid container rowSpacing={2} columnSpacing={2}>
           {cards}
         </Grid>

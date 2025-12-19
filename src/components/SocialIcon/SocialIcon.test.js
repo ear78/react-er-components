@@ -1,6 +1,7 @@
+import { createRoot } from "react-dom/client";
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import SocialIcon from './SocialIcon';
 
 let container = null;
@@ -11,15 +12,16 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
+  const root = createRoot(container);
+  root.unmount();
   container.remove();
   container = null;
 });
 
 it('renders when passing a string to href', () => {
   act(() => {
-    render(<SocialIcon path="https://helloworld.com" platform="twitter-square"/>, container);
+    const root = createRoot(container);
+    root.render(<SocialIcon path="https://helloworld.com" platform="twitter-square"/>);
   });
   expect(container.firstChild.href).toBe("https://helloworld.com/");
   

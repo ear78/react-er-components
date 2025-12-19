@@ -1,6 +1,7 @@
+import { createRoot } from "react-dom/client";
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import ParaText from './ParaText';
 
 let container = null;
@@ -11,20 +12,22 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
+  const root = createRoot(container);
+  root.unmount();
   container.remove();
   container = null;
 });
 
 it('renders when passing a string and when passing an empty string', () => {
   act(() => {
-    render(<ParaText>Hello World!</ParaText>, container);
+    const root = createRoot(container);
+    root.render(<ParaText>Hello World!</ParaText>);
   });
   expect(container.textContent).toBe("Hello World!");
 
   act(() => {
-    render(<ParaText></ParaText>, container);
+    const root = createRoot(container);
+    root.render(<ParaText></ParaText>);
   });
   expect(container.textContent).toBe("");
   

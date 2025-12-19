@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 import styles from './User.module.scss';
 
 type GitData = {
@@ -12,7 +12,7 @@ type GitData = {
 
 function User({ profileId = 'ear78' }: { profileId?: string }) {
   const [userDataReady, setUserDataReady] = useState(false);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const [gitData, setGitData] = useState<any>({} as GitData);
 
   useEffect((): void => {
@@ -34,46 +34,27 @@ function User({ profileId = 'ear78' }: { profileId?: string }) {
       fetchData();
       return undefined;
     } catch (err) {
-      setError(true);
+      // setError(true);
       return console.error(`Something went wrong with fetching the data ${err}`);
     }
   }, [userDataReady]);
 
-  let user;
-  if (!userDataReady || error) {
-    user = (
-      <div className={styles.UserSkeleton}>
+  return (
+    <>
+      <div className={`${styles.UserSkeleton} ${!userDataReady ? styles.FadeIn : styles.UserTransition}`}>
         <p className={styles.Image} />
         <p className={styles.Name} />
-        <p className={styles.UserName} />
+        <p className={styles.Username} />
         <p className={styles.Description} />
       </div>
-    );
-  } else if (userDataReady) {
-    user = (
-      <CSSTransition
-        in={userDataReady}
-        timeout={100}
-        appear
-        classNames={{
-          enterActive: styles.UserTransitionEnterActive,
-          enterDone: styles.UserTransitionEnterDone,
-          exitActive: styles.UserTransitionExit,
-          exitDone: styles.UserTransitionExitActive,
-        }}
-      >
-        <section className={`${styles.User} ${styles.UserTransition}`}>
-          <img src={gitData.avatar_url} alt={`${gitData.type} ${gitData.login}`} />
-          <h3 className={styles.Name}>{gitData.name}</h3>
-          <p className={styles.Username}>{gitData.login}</p>
-          <p className={styles.UserDescription}>{gitData.bio}</p>
-        </section>
-      </CSSTransition>
-    );
-  } else {
-    user = null;
-  }
-  return user;
+      <section className={`${styles.User} ${styles.UserTransition} ${userDataReady ? styles.FadeIn : ''}`}>
+        <img src={gitData.avatar_url} alt={`${gitData.type} ${gitData.login}`} />
+        <h3 className={styles.Name}>{gitData.name}</h3>
+        <p className={styles.Username}>{gitData.login}</p>
+        <p className={styles.UserDescription}>{gitData.bio}</p>
+      </section>
+    </>
+  );
 }
 
 export default User;

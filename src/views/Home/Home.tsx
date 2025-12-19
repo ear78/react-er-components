@@ -16,14 +16,14 @@ function Home() {
 
   return (
     <>
-      <Grid container component="section" flexDirection={{ xs: 'column-reverse', md: 'row' }} className={`${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
-        <Grid item xs={12} md={6} className={styles.Left}>
+      <Grid container spacing={2} component="section" flexDirection={{ xs: 'column-reverse', md: 'row' }} className={`${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
+        <Grid size={{ xs: 12, md: 6 }} className={styles.Left}>
           <span>Welcome to ER Components! </span>
           {homeData.desc}
-        &nbsp;
+          &nbsp;
           <span>{homeData.components}</span>
         </Grid>
-        <Grid item xs={12} md={6} className={styles.Right}>
+        <Grid size={{ xs: 12, md: 6 }} className={styles.Right}>
           <div className={styles.HomeTitle}>ER</div>
           <Suspense fallback="<div>Loading...</div>">
             <PageTitle title="Components" isDarkMode={isDarkMode} />
@@ -33,7 +33,6 @@ function Home() {
       <Suspense fallback="<div>Loading...</div>">
         {pageSection}
       </Suspense>
-
     </>
   );
 }

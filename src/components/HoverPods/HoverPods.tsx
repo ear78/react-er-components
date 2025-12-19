@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { useSelector } from 'react-redux';
 import styles from './HoverPods.module.scss';
 
 type HoverPodsProps = {
@@ -14,43 +14,29 @@ function HoverPods({
   delay = 0, podData, isSquared = false, hoverColor = '', openTab = true,
 }: HoverPodsProps) {
   const hoverPodSquared = isSquared ? styles.Squared : '';
+  const isLoading = useSelector((state: any) => state.app.appLoading);
+
   let hoverPod;
   if (podData.length) {
     hoverPod = podData.map((pod: any, index) => (
-      <CSSTransition
-        key={pod.podBgImage}
-        classNames={{
-          enterActive: styles.HPEnterActive,
-          enterDone: styles.HPEnterDone,
-          exitActive: styles.HPExit,
-          exitDone: styles.HPExitActive,
-        }}
-        timeout={{
-          appear: 900,
-          enter: 100,
-        }}
-      >
-        <div style={{ transitionDelay: `${index * delay}ms` }} className={styles.HP}>
-          <div style={{ backgroundImage: `url(${pod.podBgImage})` }} className={`${styles.Pod} ${hoverPodSquared}`}>
-            <a href={pod.podLink} rel="noreferrer" target={openTab ? '_blank' : ''}>
-              <div style={{ backgroundColor: `${hoverColor}ad` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
-                <p className={styles.HoverText}>{pod.podText}</p>
-              </div>
-            </a>
-          </div>
+      <div style={{ transitionDelay: `${index * delay}ms` }} className={`${styles.HP} ${!isLoading ? styles.FadeIn : ''}`}>
+        <div style={{ backgroundImage: `url(${pod.podBgImage})` }} className={`${styles.Pod} ${hoverPodSquared}`}>
+          <a href={pod.podLink} rel="noreferrer" target={openTab ? '_blank' : ''}>
+            <div style={{ backgroundColor: `${hoverColor}ad` }} className={`${styles.HoverColor} ${hoverPodSquared}`}>
+              <p className={styles.HoverText}>{pod.podText}</p>
+            </div>
+          </a>
         </div>
-
-      </CSSTransition>
+      </div>
     ));
   } else {
     hoverPod = null;
   }
 
   return (
-    <TransitionGroup className={styles.HoverPodsContainer} appear>
+    <div className={`${styles.HoverPodsContainer}`}>
       {hoverPod}
-    </TransitionGroup>
+    </div>
   );
 }
-
 export default HoverPods;

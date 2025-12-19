@@ -92,12 +92,12 @@ function Eslider({ data }: EsliderProps) {
 
   return (
     <Grid container component="section" className={styles.EsliderContainer}>
-      <Grid item xs={12} mb={6}>
+      <Grid size={12} mb={6}>
         <Suspense fallback="<div>Loading...</div>">
           <PageTitle title="EasySlider" />
         </Suspense>
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={12}>
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
