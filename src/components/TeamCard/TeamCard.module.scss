@@ -12,7 +12,8 @@
     box-sizing: border-box;
     width: 98%;
 
-    &:hover .MemberHoverTrigger {
+    &:hover .MemberHoverTrigger,
+    &:hover .MemberHoverTrigger.Dark {
       border-color: var(--secondary-color);
       cursor: pointer;
       transform: scale(1.03);
@@ -29,6 +30,15 @@
       background: #fff;
       box-shadow: 0 3px 8px rgba(0, 0, 0, .03);
 
+      &.Dark {
+        border: 1px solid transparent;
+        background: var(--gray-900);
+
+        .CompanyLogo {
+          filter: invert(1);
+        }
+      }
+
       &.AltLayout {
         display: flex;
         justify-content: space-between;
@@ -41,8 +51,6 @@
           margin-right: 10px;
         }
 
-        .AltLayoutRight {}
-
         .Image {
           max-width: 95px;
         }
@@ -50,6 +58,13 @@
         .icons {
           margin-top: 10px;
         }
+      }
+
+      .CompanyLogo {
+        position: absolute;
+        width: 25px;
+        right: 18px;
+        bottom: 20px;
       }
     }
   }
@@ -73,13 +88,6 @@
     color: #757575;
     margin-bottom: 20px;
     font-size: .9rem;
-  }
-
-  .CompanyLogo {
-    position: absolute;
-    width: 25px;
-    right: 18px;
-    bottom: 20px;
   }
 
   .icons {
@@ -108,27 +116,12 @@
 
   .TC {
     opacity: 0;
-    transition: opacity .5s ease;
+    transition: opacity 1s ease;
+
+    &.fadeIn {
+      opacity: 1;
+    }
   }
-
-  .TCEnterActive {
-    opacity: 1;
-  }
-
-  .TCEnterDone {
-    opacity: 1;
-  }
-
-  .TCExit {
-    opacity: 1;
-    transition: opacity .5s ease;
-  }
-
-  .TCExitActive {
-    opacity: 0;
-  }
-
-
 }
 
 @media(min-width: 480px) {

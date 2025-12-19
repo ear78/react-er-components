@@ -20,12 +20,12 @@ function DropperParent() {
   return (
     <Grid container component="section" flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperParent}>
       <Grid container flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperWrapper}>
-        <Grid item xs={12} sm={5} className={styles.Left}>
+        <Grid size={{ xs: 12, sm: 5 }} className={styles.Left}>
           <Suspense fallback="<div>Loading...</div>">
             <PageTitle title="Dropper" color={colors.hotPink} />
           </Suspense>
         </Grid>
-        <Grid item xs={12} sm={7} className={styles.Right}>
+        <Grid size={{ xs: 12, sm: 7 }} className={styles.Right}>
           <Suspense fallback="<div>Loading...</div>">
             {dropper}
           </Suspense>

@@ -4,17 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-/* Data */
+/* Icons */
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   fas, faChevronDown, faAngleDown, faAngleUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { fab, faElementor } from '@fortawesome/free-brands-svg-icons';
 import { far, faCompass } from '@fortawesome/free-regular-svg-icons';
-import { esliderData } from './assets/js/data';
 
 /* Redux */
 import { setAppLoading } from './assets/js/lib/redux/modules/app';
+
+/* Data */
+import { esliderData } from './assets/js/data';
 
 /* Global Layout Components */
 import Nav from './components/Nav/Nav';

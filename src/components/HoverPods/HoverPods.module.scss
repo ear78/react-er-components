@@ -79,23 +79,9 @@
   // Appear animation
   .HP {
     opacity: 0;
-    transition: opacity .5s ease;
-  }
-
-  .HPEnterActive {
-    opacity: 1;
-  }
-
-  .HPEnterDone {
-    opacity: 1;
-  }
-
-  .HPExit {
-    opacity: 1;
-    transition: opacity .5s ease;
-  }
-
-  .HPExitActive {
-    opacity: 0;
+    transition: opacity 1s ease;
+    &.FadeIn {
+      opacity: 1;
+    }
   }
 }

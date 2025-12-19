@@ -4,6 +4,9 @@
 
   &.Dark {
     .Card {
+      background: var(--gray-800);
+      border: 1px solid transparent;
+
       .Header {
         img {
           filter: invert(1);

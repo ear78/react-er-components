@@ -7,18 +7,17 @@
 
   &.Dark {
     .Left {
-      background: $gray-900;
+      background: $gray-800;
+      border-color: transparent;
     }
   }
 
   .Left {
     margin: 0 0 1rem;
-    width: initial;
     background: $boxBackgroundColor;
     padding: 20px;
     border-radius: 3px;
     border: $border;
-    height: initial;
 
     span {
       font-weight: 600;
@@ -26,7 +25,6 @@
   }
 
   .Right {
-    width: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;

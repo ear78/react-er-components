@@ -50,7 +50,7 @@ function PageSection({
 
   return (
     <Grid container ref={refEl} component="section">
-      <Grid item className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
+      <Grid className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
         <Typography variant="h2" sx={{ textAlign: 'center', margin: '100px 0 25px' }}>{data.title}</Typography>
         <Typography variant="p">
           The&nbsp;

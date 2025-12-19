@@ -4,13 +4,14 @@
   .Image {
     height: 100px;
     width: 100px;
+    margin: .5rem 0;
     background-color: $gray-200;
     border-radius: 50%;
     position: relative;
 
     &::before {
       position: absolute;
-      background: linear-gradient(270deg, transparent, #0000004a, transparent);
+      background: var(--gray-500);
       content: '';
       border-radius: 50%;
       height: 100px;
@@ -18,8 +19,8 @@
       filter: blur(0px);
       top: 0;
       left: 0;
-      background-size: 400%;
-      animation: pulse 1s ease infinite;
+      background-size: 100%;
+      animation: pulse 1.25s ease-in-out infinite;
     }
 
     @include breakpoint(md) {
@@ -40,6 +41,7 @@
   }
 
   .Username {
+    width: 35%;
     height: 2rem;
   }
 
@@ -56,7 +58,7 @@
 
     &::before {
       position: absolute;
-      background: linear-gradient(270deg, transparent, #0000004a, transparent);
+      background: var(--gray-500);
       content: '';
       border-radius: 8px;
       height: 100%;
@@ -64,8 +66,8 @@
       filter: blur(0px);
       top: 0;
       left: 0;
-      background-size: 400%;
-      animation: pulse 1.5s ease infinite;
+      background-size: 100%;
+      animation: pulse 1.25s ease-in-out infinite;
     }
   }
 
@@ -75,7 +77,7 @@
     }
 
     50% {
-      opacity: 1;
+      opacity: .3;
     }
 
     100% {
@@ -88,6 +90,7 @@
   margin-bottom: 1rem;
 
   img {
+    margin: .5rem 0;
     min-height: 100px;
     max-width: 100px;
     filter: grayscale(0.5);
@@ -112,25 +115,15 @@
   }
 }
 
-// React transition group styles
 .UserTransition {
+  content-visibility: hidden;
   opacity: 0;
-  transition: opacity 1s ease;
-}
+  width: 100%;
+  transition: all 1s ease-out;
 
-.UserTransitionEnterActive {
-  opacity: 1;
-}
-
-.UserTransitionEnterDone {
-  opacity: 1;
-}
-
-.UserTransitionExit {
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-
-.UserTransitionExitActive {
-  opacity: 0;
+  &.FadeIn {
+    content-visibility: visible;
+    opacity: 1;
+    transition: all 1s ease-in;
+  }
 }

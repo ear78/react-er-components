@@ -1,10 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-// import HoverPods from '../../components/HoverPods/HoverPods';
-// import PageTitle from '../../components/PageTitle/PageTitle';
-// import AdjusterMenu from '../../components/AdjusterMenu/AdjusterMenu';
-// import Typography from '../../components/Typography/Typography';
-// import AppForm from '../../components/AppForm/AppForm';
 import styles from './HoverPodsView.module.scss';
 import { podData, forms } from '../../assets/js/data';
 import usePageSettings from '../../assets/js/hooks/usePageSettings';
