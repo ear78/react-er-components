@@ -1,24 +1,24 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './SocialIcon.module.scss';
 
 type SocialIconProps = {
   path: string;
-  platform: any;
+  target?: boolean;
   isDarkMode?: boolean;
+  children: React.ReactNode;
 };
 
-function SocialIcon({ path, platform = 'linkedin', isDarkMode }: SocialIconProps) {
+function SocialIcon({
+  path, target = false, isDarkMode, children,
+}: SocialIconProps) {
   return (
     <a
       className={`${styles.Links} ${isDarkMode ? styles.Dark : ''}`}
       href={path}
-      target="_blank"
+      target={target ? '_blank' : ''}
       rel="noreferrer"
     >
-      <FontAwesomeIcon icon={['fab', platform]} />
+      {children}
     </a>
   );
 }

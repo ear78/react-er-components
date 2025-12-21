@@ -6,7 +6,7 @@ const copyright = () => {
   const year = d.getFullYear();
 
   return (
-    <div className={styles.Copyright}>
+    <div data-testid='copyright-component' className={styles.Copyright}>
       <p>
         All Rights Reserved Elliot Richardson &copy;
         {' '}

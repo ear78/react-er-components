@@ -12,9 +12,10 @@ function SocialComp({ data, isDarkMode }: SocialCompProps) {
     <SocialIcon
       key={item.path}
       path={item.path}
-      platform={item.platform}
       isDarkMode={isDarkMode}
-    />
+    >
+      {item.icon}
+    </SocialIcon>
   ));
   return (
     <div className={styles.SocialComp}>

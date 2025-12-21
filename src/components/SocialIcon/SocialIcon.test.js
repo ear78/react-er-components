@@ -1,28 +1,14 @@
-import { createRoot } from "react-dom/client";
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react";
+import React from 'react';
+import { render } from '@testing-library/react';
 import SocialIcon from './SocialIcon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  const root = createRoot(container);
-  root.unmount();
-  container.remove();
-  container = null;
-});
-
-it('renders when passing a string to href', () => {
-  act(() => {
-    const root = createRoot(container);
-    root.render(<SocialIcon path="https://helloworld.com" platform="twitter-square"/>);
-  });
-  expect(container.firstChild.href).toBe("https://helloworld.com/");
-  
+it('renders href when passing a string to href', () => {
+  const { container } = render(
+    <SocialIcon path='https://helloworld.com/'>
+      <FontAwesomeIcon icon={faTwitterSquare} />
+    </SocialIcon>
+  );
+  expect(container.firstChild.href).toBe('https://helloworld.com/');
 });
