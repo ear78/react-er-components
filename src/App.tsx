@@ -53,7 +53,7 @@ function App() {
   }, [appLoading]);
 
   return (
-    <div className={`site-wrapper ${isDarkMode ? 'dark' : ''}`}>
+    <div data-testid="app-component" className={`site-wrapper ${isDarkMode ? 'dark' : ''}`}>
       <Router>
         <Spinner mounted={appLoading} isDarkMode={isDarkMode} />
         <ScrollToTop />
