@@ -154,6 +154,7 @@ function BannerParent() {
             overlayFull={settings.overlayFull}
             textAlign={settings.textAlign}
             showBtn={settings.showBtn}
+            target
             webpSizes={{ lgWebp: bannerImgWebp, smWebp: bannerImgWebpSm }}
           />
         </div>

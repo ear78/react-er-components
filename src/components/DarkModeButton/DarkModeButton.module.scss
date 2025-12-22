@@ -10,6 +10,7 @@
   padding: 0;
 
   .Moon, .Sun {
+    color: var(--primary-color);
     position: absolute;
     opacity: 0;
     top: 0;
@@ -20,7 +21,7 @@
   }
 
   .Sun {
-    color: $white;
+    color: white;
   }
 
   .Moon.active, .Sun.active {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Button.module.scss';
@@ -32,10 +31,10 @@ function Button({
       style={{ ...sx }}
       className={`${styles.Button} ${centeredClass} ${primaryClass} ${secondaryClass} ${tertiaryClass}`}
     >
-      <Link to={href} target={isTarget} rel="noreferrer">
+      <a href={href} target={isTarget} rel="noreferrer">
         {children}
         <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight} />
-      </Link>
+      </a>
     </button>
   );
 }

@@ -22,31 +22,21 @@
     transition: all 0.4s ease;
   }
 
-  &:hover a {
-    transform: translateX(0px);
-  }
-
   .Arrow {
     visibility: hidden;
     opacity: 0;
     transition: all 0.4s ease;
   }
 
-  &:hover .Arrow {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(8px);
-  }
-
   &.ButtonCenter {
     display: block;
     margin: auto;
   }
-
+  
   /* Button Variants */
   &.Primary {
     background: var(--primary-color, var(--black));
-
+    
     &:hover {
       background: color-mix(in srgb, var(--primary-color) 90%, white 10%);
     }
@@ -54,17 +44,51 @@
   
   &.Secondary {
     background: var(--secondary-color, var(--black));
-
+    
     &:hover {
       background: color-mix(in srgb, var(--secondary-color) 90%, white 10%);
     }
   }
-
+  
   &.Tertiary {
     background: var(--tertiary-color, var(--black));
-
+    
     &:hover {
       background: color-mix(in srgb, var(--tertiary-color) 90%, white 10%);
+    }
+  }
+  
+  @media (hover:hover){
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,.2);
+    }
+
+    &:hover a {
+      transform: translateX(0px);
+    }
+    
+    &:hover .Arrow {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(8px);
+    }
+
+    &.Primary {    
+      &:hover {
+        background: color-mix(in srgb, var(--primary-color) 90%, white 10%);
+      }
+    }
+  
+    &.Secondary {    
+      &:hover {
+        background: color-mix(in srgb, var(--secondary-color) 90%, white 10%);
+      }
+    }
+  
+    &.Tertiary {    
+      &:hover {
+        background: color-mix(in srgb, var(--tertiary-color) 90%, white 10%);
+      }
     }
   }
 }

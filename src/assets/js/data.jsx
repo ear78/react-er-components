@@ -71,21 +71,25 @@ export const happyData = [
 
 export const podData = [
   {
+    id: 1,
     podBgImage: echoTowerSml,
     podText: 'Hello',
     podLink: 'https://www.apple.com',
   },
   {
+    id: 2,
     podBgImage: chairsSml,
     podText: "I'm",
     podLink: 'https://www.apple.com',
   },
   {
+    id: 3,
     podBgImage: greyBuilding,
     podText: 'A',
     podLink: 'https://www.apple.com',
   },
   {
+    id: 4,
     podBgImage: stripesSml,
     podText: 'Hover Pod',
     podLink: 'https://www.apple.com',
