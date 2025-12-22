@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styles from './Banner.module.scss';
 import Button from '../Button/Button';
 
-/** 
- * Banner prop types 
+/**
+ * Banner prop types
  */
 interface BannerProps {
   /** URL of the background image */
@@ -36,7 +36,7 @@ interface BannerProps {
   title: string;
   /** Optional WebP image sources for responsive images. { lgWebp: string; smWebp: string } */
   webpSizes?: { lgWebp: string; smWebp: string };
-};
+}
 
 function Banner({
   bgImage, btnColor, btnText, ctaUrl, preTitle, overlay, overlayDark, overlayFull,
