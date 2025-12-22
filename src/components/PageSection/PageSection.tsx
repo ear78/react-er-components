@@ -61,7 +61,7 @@ function PageSection({
           </b>
           {data.description}
         </Typography>
-        <Button center margin="auto auto 35px" click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
+        <Button tertiary center sx={{ margin: 'auto auto 35px' }} click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
         <img loading="lazy" src={data.img} alt="Easy Slider Component" />
       </Grid>
     </Grid>

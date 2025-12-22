@@ -1,21 +1,21 @@
-@import '../../assets/scss/variables';
-
 .Button {
-  @include button;
+  background: var(--button-default-bg-color, black);
+  color: var(--button-default-text-color, white);
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0;
+  font-size: 0.7rem;
+  border-radius: var(--button-border-radius);
+  transition: all 0.3s ease;
   display: inline-block;
-  background: #000;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.9) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  }
 
   a {
     display: flex;
-    padding: 14px 34px;
+    padding: var(--button-padding);
     line-height: 1;
     text-decoration: none;
-    color: $white;
+    color: white;
     width: auto;
     margin: 0;
     transform: translateX(6px);
@@ -41,5 +41,30 @@
   &.ButtonCenter {
     display: block;
     margin: auto;
+  }
+
+  /* Button Variants */
+  &.Primary {
+    background: var(--primary-color, var(--black));
+
+    &:hover {
+      background: color-mix(in srgb, var(--primary-color) 90%, white 10%);
+    }
+  }
+  
+  &.Secondary {
+    background: var(--secondary-color, var(--black));
+
+    &:hover {
+      background: color-mix(in srgb, var(--secondary-color) 90%, white 10%);
+    }
+  }
+
+  &.Tertiary {
+    background: var(--tertiary-color, var(--black));
+
+    &:hover {
+      background: color-mix(in srgb, var(--tertiary-color) 90%, white 10%);
+    }
   }
 }

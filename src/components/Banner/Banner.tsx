@@ -1,67 +1,91 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
 import styles from './Banner.module.scss';
+import Button from '../Button/Button';
 
 type BannerProps = {
+  /* URL of the background image */
   bgImage: string;
+  /* Custom color of the button */
   btnColor?: string;
+  /* Text displayed on the button */
   btnText: string;
+  /* URL for the call to action */
   ctaUrl: string;
+  /* Pre title text */
   preTitle?: string;
+  /* Whether to show overlay */
   overlay?: boolean;
+  /* Whether the overlay is dark */
   overlayDark?: boolean;
+  /* Whether the overlay covers full height */
   overlayFull?: boolean;
+  /* Whether to show the button */
   showBtn?: boolean;
+  /* Subtitle text */
   subTitle?: string;
+  /* Whether the link opens in a new tab */
   target?: boolean;
+  /* Text alignment: 'left', 'center', 'right' */
   textAlign?: string;
+  /* Text color: 'dark' or default */
   textColor?: string;
+  /* Main title text */
   title: string;
+  /* Optional WebP image sources for responsive images. { lgWebp: string; smWebp: string } */
+  webpSizes?: { lgWebp: string; smWebp: string };
 };
 
 function Banner({
   bgImage, btnColor, btnText, ctaUrl, preTitle, overlay, overlayDark, overlayFull,
-  showBtn = true, subTitle, target, textColor, title, textAlign,
+  showBtn = true, subTitle, target, textColor, title, textAlign, webpSizes,
 }: BannerProps) {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   const bannerBtnColor = btnColor || '';
   const bannerOverlay = overlay ? '' : styles.OverlayNone;
   const bannerOverlayDark = overlayDark ? styles.Dark : '';
   const bannerOverlayFull = overlayFull ? styles.Full : '';
   const bannerTextAlign = textAlign === 'center' ? styles.Center : textAlign === 'right' ? styles.Right : '';
   const bannerTextColor = textColor === 'dark' ? styles.DarkText : '';
-  const bannerBackgroundImg = bgImage.length ? { backgroundImage: `url(${bgImage})` } : { backgroundImage: 'url(/pinkBuilding.jpg)' };
+  const bannerImg = bgImage.length ? bgImage : '';
   const bannerPreTitle = !preTitle ? 'Welcome to Page Banner' : preTitle;
   const bannerTitle = !title ? 'Page Banner' : title;
   const bannerSubTitle = !subTitle ? 'Banners to help your site look great!' : subTitle;
   const bannerBtnText = !btnText ? 'Kontakt' : btnText;
 
   return (
-    <div
+    <section
       className={`${styles.BackgroundImg} ${bannerTextAlign}`}
-      style={bannerBackgroundImg}
     >
+      <picture>
+        {webpSizes ? (
+          <>
+            <source srcSet={`${webpSizes.lgWebp}`} type="image/webp" media="(width >= 800px)" />
+            <source srcSet={`${webpSizes.smWebp}`} type="image/webp" media="(width < 800px)" />
+          </>
+        ) : null}
+        <img
+          className={`${styles.Image} ${isImageLoaded ? styles.ImageLoaded : ''}`}
+          src={`${bannerImg}`}
+          alt={bannerTitle}
+          onLoad={() => setIsImageLoaded(true)}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
       <div className={`${styles.Overlay} ${bannerOverlayFull} ${bannerOverlayDark} ${bannerOverlay}`}>
         <p className={`${styles.PreTitle} ${bannerTextColor}`}>{bannerPreTitle}</p>
         <h1 className={`${styles.Title} ${bannerTextColor}`}>{bannerTitle}</h1>
         <p className={`${styles.SubTitle} ${bannerTextColor}`}>{bannerSubTitle}</p>
         {showBtn
           ? (
-            <button type="button" style={{ background: `${bannerBtnColor}` }} className={styles.Button}>
-              <a
-                href={ctaUrl}
-                target={target ? '_blank' : ''}
-                rel="noreferrer"
-              >
-                {bannerBtnText}
-&nbsp;
-                <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight} />
-              </a>
-            </button>
+            <Button href={ctaUrl} target={target} secondary sx={{ background: `${bannerBtnColor}` }}>
+              {bannerBtnText}
+            </Button>
           )
           : null}
       </div>
-    </div>
+    </section>
   );
 }
 

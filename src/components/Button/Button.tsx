@@ -7,23 +7,31 @@ import styles from './Button.module.scss';
 type ButtonProps = {
   children: React.ReactNode;
   href?: string;
+  primary?: boolean;
+  secondary?: boolean;
+  tertiary?: boolean;
   target?: boolean;
   center?: boolean;
-  margin?: string;
+  sx?: React.CSSProperties;
   click?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 function Button({
-  children, href = '/', target, center, margin, click,
-}:ButtonProps) {
-  const isCentered = center ? styles.ButtonCenter : '';
+  children, href = '/', primary, secondary, tertiary, target, center, click, sx,
+}: ButtonProps) {
+  const primaryClass = primary ? styles.Primary : '';
+  const secondaryClass = secondary ? styles.Secondary : '';
+  const tertiaryClass = tertiary ? styles.Tertiary : '';
+  const centeredClass = center ? styles.ButtonCenter : '';
   const isTarget = target ? '_blank' : '';
-  const styleObj = {
-    margin,
-  };
 
   return (
-    <button type="button" onClick={click} style={styleObj} className={`${styles.Button} ${isCentered}`}>
+    <button
+      type="button"
+      onClick={click}
+      style={{ ...sx }}
+      className={`${styles.Button} ${centeredClass} ${primaryClass} ${secondaryClass} ${tertiaryClass}`}
+    >
       <Link to={href} target={isTarget} rel="noreferrer">
         {children}
         <FontAwesomeIcon className={styles.Arrow} icon={faArrowRight} />

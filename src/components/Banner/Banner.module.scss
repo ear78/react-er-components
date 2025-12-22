@@ -2,15 +2,27 @@
 
 .BackgroundImg {
   position: relative;
-  background: $black;
-  background-size: cover;
+  background: var(--banner-bg-color, var(--gray-500));
   width: 100%;
-  min-height: 400px;
   color: $white;
   background-repeat: no-repeat;
+}
 
+.Image {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+  object-fit: cover;
+  filter: blur(30px);
+  transition: filter 2s ease;
+  
   @include breakpoint(lg) {
     min-height: 500px;
+  }
+  
+  &.ImageLoaded {
+    filter: blur(0);
   }
 }
 
@@ -26,7 +38,7 @@
   position: absolute;
   width: 95%;
   height: 95%;
-  background: rgba(255, 255, 255, 0.176);
+  background: rgba(255, 255, 255, 0.15);
   bottom: 0;
   left: 2.5%;
   box-sizing: border-box;
