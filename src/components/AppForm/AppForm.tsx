@@ -10,7 +10,7 @@ import AlertBanner from '../AlertBanner/AlertBanner';
 
 type AppFormProps = {
   formData: {}[];
-  formRef?: React.LegacyRef<HTMLFormElement> | undefined;
+  formRef?: React.Ref<HTMLFormElement> | undefined;
   isDarkMode?: boolean;
   click?: (event: React.SyntheticEvent) => void;
 };
@@ -18,7 +18,7 @@ function AppForm({
   formData, click, formRef, isDarkMode,
 }: AppFormProps) {
   /* strip HTML tags from input values */
-  const stripHtmlTags = (str: string) => str.replace(/<\/?[^>]+(>|$)/g, '');
+  const stripHtmlTags = (str: string) => str?.replace(/<\/?[^>]+(>|$)/g, '');
 
   let input;
   if (formData) {
