@@ -2,36 +2,39 @@ import React, { useState } from 'react';
 import styles from './Banner.module.scss';
 import Button from '../Button/Button';
 
-type BannerProps = {
-  /* URL of the background image */
+/** 
+ * Banner prop types 
+ */
+interface BannerProps {
+  /** URL of the background image */
   bgImage: string;
-  /* Custom color of the button */
+  /** Custom color of the button */
   btnColor?: string;
-  /* Text displayed on the button */
+  /** Text displayed on the button */
   btnText: string;
-  /* URL for the call to action */
+  /** URL for the call to action */
   ctaUrl: string;
-  /* Pre title text */
+  /** Pre title text */
   preTitle?: string;
-  /* Whether to show overlay */
+  /** Whether to show overlay */
   overlay?: boolean;
-  /* Whether the overlay is dark */
+  /** Whether the overlay is dark */
   overlayDark?: boolean;
-  /* Whether the overlay covers full height */
+  /** Whether the overlay covers full height */
   overlayFull?: boolean;
-  /* Whether to show the button */
+  /** Whether to show the button */
   showBtn?: boolean;
-  /* Subtitle text */
+  /** Subtitle text */
   subTitle?: string;
-  /* Whether the link opens in a new tab */
+  /** Whether the link opens in a new tab */
   target?: boolean;
-  /* Text alignment: 'left', 'center', 'right' */
+  /** Text alignment: 'left', 'center', 'right' */
   textAlign?: string;
-  /* Text color: 'dark' or default */
+  /** Text color: 'dark' or default */
   textColor?: string;
-  /* Main title text */
+  /** Main title text */
   title: string;
-  /* Optional WebP image sources for responsive images. { lgWebp: string; smWebp: string } */
+  /** Optional WebP image sources for responsive images. { lgWebp: string; smWebp: string } */
   webpSizes?: { lgWebp: string; smWebp: string };
 };
 
