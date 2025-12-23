@@ -88,7 +88,7 @@
       list-style-type: none;
       transform: translateY(-40%);
       opacity: 0;
-      transition: all .5s ease-in-out;
+      transition: all .3s ease-in-out;
 
       &.isActive {
         opacity: 1;
@@ -117,6 +117,7 @@
   .NavMobile.isActive {
     opacity: 1;
     z-index: 10;
+    transition: opacity .3s ease;
   }
 
   @media (orientation: landscape) {
