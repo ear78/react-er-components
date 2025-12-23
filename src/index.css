@@ -24,6 +24,23 @@
 
   /* UI Styles */
   --border: 1px solid var(--gray-200);
+
+  /* Banner Styles */
+  --banner-bg-color: var(--gray-500);
+
+  /* Button Styles */
+  --button-default-text-color: white;
+  --button-primary-text-color: var(--white);
+  --button-secondary-text-color: var(--white);
+  --button-tertiary-text-color: var(--white);
+
+  --button-default-bg-color: black;
+  --button-primary-bg-color: var(--primary-color);
+  --button-secondary-bg-color: var(--secondary-color);
+  --button-tertiary-bg-color: var(--tertiary-color);
+
+  --button-border-radius: 25px;
+  --button-padding: .875rem 2.5rem;
 }
 
 html {

@@ -10,13 +10,16 @@ import AlertBanner from '../AlertBanner/AlertBanner';
 
 type AppFormProps = {
   formData: {}[];
-  formRef?: React.LegacyRef<HTMLFormElement> | undefined;
+  formRef?: React.Ref<HTMLFormElement> | undefined;
   isDarkMode?: boolean;
   click?: (event: React.SyntheticEvent) => void;
 };
 function AppForm({
   formData, click, formRef, isDarkMode,
 }: AppFormProps) {
+  /* strip HTML tags from input values */
+  const stripHtmlTags = (str: string) => str?.replace(/<\/?[^>]+(>|$)/g, '');
+
   let input;
   if (formData) {
     input = formData.map((d: any) => {
@@ -66,7 +69,7 @@ function AppForm({
           key={`textinput-${d.name}`}
           id={`outlined-${d.name}`}
           label={d.labelText}
-          value={d.inputVal}
+          value={stripHtmlTags(d.inputVal)}
           onChange={d.change}
           name={d.name}
           variant="outlined"

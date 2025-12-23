@@ -19,7 +19,7 @@ export const dashboardSlice = createSlice({
           subTitle: 'Banners to help your site look great!',
           btnText: 'Kontakt',
           ctaUrl: 'https://www.elliotrichardson.com',
-          btnColor: '#f73a7b',
+          btnColor: '',
           overlay: false,
           overlayDark: false,
           overlayFull: false,

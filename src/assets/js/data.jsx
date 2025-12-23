@@ -6,7 +6,6 @@ import {
   faSquareLinkedin,
   faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import building from '../img/pinkBuilding.jpg';
 import snowGhosts from '../img/snowghosts.jpg';
 import greyBuilding from '../img/building-resize.jpg';
 // import about from '../img/ABOUT.jpg'
@@ -28,6 +27,13 @@ import TeamBuilding from '../img/teambuilding-screenshot.png';
 import HappyDots from '../img/happydots-screenshot.png';
 import Dropper from '../img/dropper-screenshot.png';
 import EasySlider from '../img/easyslider-screenshot.png';
+import pinkBuildingWebp from '../img/pinkBuilding.webp';
+import pinkBuildingWebpSm from '../img/pinkBuilding-sm.webp';
+import pinkBuildingJpg from '../img/pinkBuilding.jpg';
+
+export const bannerImgWebp = pinkBuildingWebp;
+export const bannerImgWebpSm = pinkBuildingWebpSm;
+export const bannerImgJpg = pinkBuildingJpg;
 
 export const homeData = {
   desc: `Please use the navigation to preview and try out these components I built from the ground up with React.js. 
@@ -65,21 +71,25 @@ export const happyData = [
 
 export const podData = [
   {
+    id: 1,
     podBgImage: echoTowerSml,
     podText: 'Hello',
     podLink: 'https://www.apple.com',
   },
   {
+    id: 2,
     podBgImage: chairsSml,
     podText: "I'm",
     podLink: 'https://www.apple.com',
   },
   {
+    id: 3,
     podBgImage: greyBuilding,
     podText: 'A',
     podLink: 'https://www.apple.com',
   },
   {
+    id: 4,
     podBgImage: stripesSml,
     podText: 'Hover Pod',
     podLink: 'https://www.apple.com',
@@ -287,7 +297,7 @@ export const dropperData = [
 export const esliderData = [
   {
     id: 0,
-    image: building,
+    image: pinkBuildingJpg,
     text: 'Night in New York.',
   },
   {

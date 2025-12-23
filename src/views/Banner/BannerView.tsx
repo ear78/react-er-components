@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './BannerView.module.scss';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 
 // Lazy load components
 const Banner = lazy(() => import('../../components/Banner/Banner'));
@@ -24,13 +25,6 @@ function BannerParent() {
 
   useEffect(() => {
     setFormData([
-      {
-        inputType: 'text',
-        labelText: 'Background Image',
-        inputVal: settings.bgImage,
-        name: 'bgImage',
-        change: updateSettings,
-      },
       {
         inputType: 'text',
         labelText: 'Banner Pre Title',
@@ -160,6 +154,8 @@ function BannerParent() {
             overlayFull={settings.overlayFull}
             textAlign={settings.textAlign}
             showBtn={settings.showBtn}
+            target
+            webpSizes={{ lgWebp: bannerImgWebp, smWebp: bannerImgWebpSm }}
           />
         </div>
       </Suspense>

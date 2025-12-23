@@ -51,7 +51,15 @@ function PageSection({
   return (
     <Grid container ref={refEl} component="section">
       <Grid className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
-        <Typography variant="h2" sx={{ textAlign: 'center', margin: '100px 0 25px' }}>{data.title}</Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: 'center',
+            margin: '0 0 1rem',
+          }}
+        >
+          {data.title}
+        </Typography>
         <Typography variant="p">
           The&nbsp;
           <b>
@@ -61,7 +69,7 @@ function PageSection({
           </b>
           {data.description}
         </Typography>
-        <Button center margin="auto auto 35px" click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
+        <Button tertiary center sx={{ margin: 'auto auto 35px' }} click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
         <img loading="lazy" src={data.img} alt="Easy Slider Component" />
       </Grid>
     </Grid>

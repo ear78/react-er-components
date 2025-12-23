@@ -1,4 +1,11 @@
+@import "../../assets/scss/_variables.scss";
+
 .HomeSections {
+  margin: 3.5rem 0 0;
+
+  @include breakpoint(lg){
+    margin: 6rem 0 0;
+  }
 
   p {
     text-align: center;
