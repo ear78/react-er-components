@@ -62,7 +62,7 @@ function Nav() {
     <li
       key={item.text}
       style={{
-        transitionDelay: `${100 * i}ms`,
+        transitionDelay: `${0 * i}ms`,
       }}
     >
       <NavLink
@@ -82,7 +82,7 @@ function Nav() {
       key={item.text}
       className={`${isActive}`}
       style={{
-        transitionDelay: `${100 * i}ms`,
+        transitionDelay: `${35 * i}ms`,
       }}
     >
       <NavLink

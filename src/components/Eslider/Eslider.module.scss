@@ -1,49 +1,12 @@
 @import '../../assets/scss/variables';
 
 .Eslider {
+  display: flex;
   overflow-x: auto;
   margin: 0 auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-
-  .SlideBtns {
-    display: flex;
-    padding: 10px 0;
-    position: absolute;
-    width: 75px;
-    justify-content: space-between;
-
-    button {
-      border: 2px solid transparent;
-      border-radius: 50%;
-      height: 35px;
-      width: 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #efefef;
-      @include transitions();
-
-      @media (hover: hover) {
-        &:hover:not(:disabled) {
-          cursor: pointer;
-          background: color-mix(in srgb, #efefef 60%, #ffffff 40%);
-          border: 2px solid $primary;
-          transform: scale(1.125);
-        }
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-        opacity: 0.5;
-        transform: scale(1);
-      }
-    }
-  }
-
-  .SlideContainer {
-    display: flex;
-  }
+  scrollbar-width: none;
 
   .Slide {
     min-width: 250px;
@@ -54,7 +17,7 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
     @include transitions();
   
@@ -62,6 +25,10 @@
       animation: blurred;
       animation-duration: 1s;
       animation-iteration-count: 1;
+    }
+
+    @include breakpoint(sm) {
+      scroll-snap-align: start;
     }
 
     @include breakpoint(lg) {
@@ -111,5 +78,77 @@
     to {
       filter: blur(0);
     }
+  }
+}
+
+.SlideBtns {
+  display: flex;
+  padding: 10px 0;
+  position: absolute;
+  width: 75px;
+  justify-content: space-between;
+  z-index: 1;
+
+  button {
+    color: black;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #efefef;
+    @include transitions();
+
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        cursor: pointer;
+        background: color-mix(in srgb, #efefef 60%, #ffffff 40%);
+        border: 2px solid $primary;
+        transform: scale(1.125);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      transform: scale(1);
+    }
+  }
+}
+
+.Dots {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1.25rem 0;
+}
+
+.Dot {
+  background: gray;
+  border: none;
+  border-radius: 100%;
+  height: 8px;
+  width: 8px;
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .Sr:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
+  &:active,
+  &.ActiveDot {
+    background: var(--secondary-color);
   }
 }

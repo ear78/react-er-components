@@ -3,6 +3,7 @@
 .MenuTrigger {
   width: 40px;
   height: 40px;
+  color: black;
   text-align: center;
   padding: 4px 0 0 0;
   box-sizing: border-box;
@@ -19,9 +20,11 @@
   transition: $transitionMedium;
   border: none;
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.05);
+  @media(hover:hover) {
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -29,10 +32,9 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  background: $gray-100;
-  border-top: 1px solid $gray-200;
-  border-left: 1px solid $gray-200;
-  border-bottom: 1px solid $gray-200;
+  background: var(--gray-100);
+  border: var(--border);
+  box-shadow: var(--box-shadow-md);
   max-height: 450px;
   box-sizing: border-box;
   z-index: -1;
@@ -44,7 +46,7 @@
   height: auto;
   transform: translate3d(0, -3px, 0);
   transition: opacity .5s ease 0ms, transform 2s ease 0ms, z-index 0ms ease 500ms;
-  border-radius: $borderRadius;
+  border-radius: var(--border-radius-md);
 
   @include breakpoint(sm) {
     width: 300px;

@@ -8,5 +8,5 @@ test('renders copyright component with rights text and current dynamic year', ()
 
   render(<Copyright />);
   const allRights = screen.getByTestId('copyright-component');
-  expect(allRights.innerHTML).toBe('<p>All Rights Reserved Elliot Richardson © 2025</p>');
+  expect(allRights.innerHTML).toBe('<p>All Rights Reserved Elliot Richardson © 2026</p>');
 });

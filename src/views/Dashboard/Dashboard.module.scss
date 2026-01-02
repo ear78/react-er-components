@@ -76,13 +76,15 @@
 
     .SettingsPill {
       display: inline-flex;
-      background: #efefef;
+      background: var(--gray-200);
       border-radius: 15px;
       padding: 1px 10px;
       margin: 0 5px 0 0;
       font-weight: 500;
       white-space: pre;
       margin-bottom: 4px;
+      max-width: calc(100% - 20px);
+      overflow-x: clip;
     }
 
     .Footer {
