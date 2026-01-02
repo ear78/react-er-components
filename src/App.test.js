@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render, act, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { store } from './assets/js/lib/redux/store';
 import App from './App';
 

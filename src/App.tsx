@@ -31,7 +31,7 @@ import HoverPodsView from './views/HoverPods/HoverPodsView';
 import TeamBuilding from './views/TeamBuilding/TeamBuilding';
 import HappyDotsView from './views/HappyDots/HappyDotsView';
 import DropperParent from './views/Dropper/DropperView';
-import Eslider from './views/Eslider/Eslider';
+import Eslider from './views/Eslider/EsliderView';
 import Dashboard from './views/Dashboard/Dashboard';
 
 /** Css */
