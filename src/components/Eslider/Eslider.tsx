@@ -37,13 +37,15 @@ export default function Eslider({
   /**
    * Function to go to current slide
    */
-  const scrollToSlide = (slide: number) => (
-    scrollContainerRef.current?.children[slide]?.scrollIntoView({
-      block: 'end',
-      inline: 'start',
-      behavior: 'smooth',
-    })
-  );
+  const scrollToSlide = (slide: number) => {
+    if (scrollContainerRef.current) {
+      const item = scrollContainerRef.current.children[slide].clientWidth * slide;
+      scrollContainerRef.current?.scrollTo({
+        left: item,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   /**
    * Progress backwards to next step
@@ -87,7 +89,6 @@ export default function Eslider({
    * @param slide
    */
   const goToSlide = (slide: number): any => {
-    // console.log('slide', slide);
     setCurrentSlide(slide);
     scrollToSlide(slide);
   };
