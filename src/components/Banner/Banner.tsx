@@ -36,11 +36,13 @@ interface BannerProps {
   title: string;
   /** Optional WebP image sources for responsive images. { lgWebp: string; smWebp: string } */
   webpSizes?: { lgWebp: string; smWebp: string };
+  /** Optional loading state for listening on a page load */
+  isLoading?: boolean;
 }
 
 function Banner({
   bgImage, btnColor, btnText, ctaUrl, preTitle, overlay, overlayDark, overlayFull,
-  showBtn = true, subTitle, target, textColor, title, textAlign, webpSizes,
+  showBtn = true, subTitle, target, textColor, title, textAlign, webpSizes, isLoading = false,
 }: BannerProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -68,7 +70,7 @@ function Banner({
           </>
         ) : null}
         <img
-          className={`${styles.Image} ${isImageLoaded ? styles.ImageLoaded : ''}`}
+          className={`${styles.Image} ${isImageLoaded && !isLoading ? styles.ImageLoaded : ''}`}
           src={`${bannerImg}`}
           alt={bannerTitle}
           onLoad={() => setIsImageLoaded(true)}

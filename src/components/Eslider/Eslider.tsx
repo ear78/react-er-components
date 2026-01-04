@@ -27,7 +27,6 @@ export default function Eslider({
   const [isPrevBtnDisabled, setIsPrevBtnDisabled] = useState<boolean>(false);
   const [isNextBtnDisabled, setIsNextBtnDisabled] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [sliderScrollPosition, setSliderScrollPosition] = useState<number>(0);
 
   // Create refs for the slides
   const scrollRefs = useRef<any>(
@@ -98,31 +97,27 @@ export default function Eslider({
    */
   const setActiveSlides = () => {
     if (scrollContainerRef.current) {
-      const left = scrollContainerRef.current.scrollLeft;
-      // Increment pagination when scroll is progressing
-      if (left < 1) {
-        setCurrentSlide(0);
-        setSliderScrollPosition(0);
-      } else if (left > sliderScrollPosition) {
-        const prevLeft = scrollContainerRef.current.scrollLeft;
-        setSliderScrollPosition(prevLeft);
-        setCurrentSlide(currentSlide + 1);
-      } else {
-        setCurrentSlide(currentSlide - 1);
-      }
+      const slideCalc = scrollContainerRef.current.scrollWidth
+        / scrollContainerRef.current.childElementCount;
+      const currentPage = Math.ceil(scrollContainerRef.current.scrollLeft / slideCalc) === 0
+        ? 0 : Math.round(scrollContainerRef.current.scrollLeft / slideCalc);
 
       // Logging for button/pagination work WIP
-      // const slideCalc = scrollContainerRef.current.scrollWidth / data.length;
       // console.log({
-      //   currentSlide,
+      //   // currentSlide,
       //   left: Math.ceil(scrollContainerRef.current.scrollLeft),
       //   slideWidth: slideCalc,
       //   slides: Math.round(scrollContainerRef.current.scrollWidth / slideCalc),
-      //   pagination: Math.ceil(scrollContainerRef.current.scrollLeft / slideCalc),
+      //   pages: Math.ceil(
+      //     (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth)
+      //     / slideCalc,
+      //   ),
+      //   currentPage,
       //   scrollWidth: scrollContainerRef.current.scrollWidth,
       //   slidesPerScreen: scrollContainerRef.current.offsetWidth / slideCalc,
       //   offsetWidth: scrollContainerRef.current.offsetWidth,
       // });
+      setCurrentSlide(currentPage);
 
       setIsPrevBtnDisabled(scrollContainerRef.current.scrollLeft === 0);
       setIsNextBtnDisabled(
