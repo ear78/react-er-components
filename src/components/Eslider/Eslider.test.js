@@ -13,7 +13,7 @@ const data = [
 ];
 
 beforeEach(() => {
-  window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  window.HTMLElement.prototype.scrollTo = jest.fn();
   global.ResizeObserver = jest.fn().mockImplementation(() => ({
     observe: jest.fn(),
     unobserve: jest.fn(),

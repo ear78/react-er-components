@@ -15,7 +15,7 @@ const Typography = lazy(() => import('../../components/Typography/Typography'));
 
 function BannerParent() {
   const dispatch = useDispatch();
-  const { components, isDarkMode } = useSelector((state: any) => state.app);
+  const { components, isDarkMode, appLoading } = useSelector((state: any) => state.app);
 
   const { settings } = components[0];
   const formRef = useRef<HTMLFormElement>(null);
@@ -156,6 +156,7 @@ function BannerParent() {
             showBtn={settings.showBtn}
             target
             webpSizes={{ lgWebp: bannerImgWebp, smWebp: bannerImgWebpSm }}
+            isLoading={appLoading}
           />
         </div>
       </Suspense>
