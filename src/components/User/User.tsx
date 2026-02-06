@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { CSSTransition } from 'react-transition-group';
-import styles from './User.module.scss';
+import styles from '@/components/User/User.module.scss';
 
 type GitData = {
   avatar_url: string;

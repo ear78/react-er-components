@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Grid from '@mui/material/Grid';
-import Typography from '../Typography/Typography';
+import Heading from '../Heading/Heading';
 import styles from './PageSection.module.scss';
 import Button from '../Button/Button';
 import useResetApploading from '../../assets/js/hooks/useResetAppLoading';
@@ -51,7 +51,7 @@ function PageSection({
   return (
     <Grid container ref={refEl} component="section">
       <Grid className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
-        <Typography
+        <Heading
           variant="h2"
           sx={{
             textAlign: 'center',
@@ -59,8 +59,8 @@ function PageSection({
           }}
         >
           {data.title}
-        </Typography>
-        <Typography variant="p">
+        </Heading>
+        <Heading variant="p">
           The&nbsp;
           <b>
             {data.component}
@@ -68,7 +68,7 @@ function PageSection({
             Component&nbsp;
           </b>
           {data.description}
-        </Typography>
+        </Heading>
         <Button tertiary center sx={{ margin: 'auto auto 35px' }} click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
         <img loading="lazy" src={data.img} alt="Easy Slider Component" />
       </Grid>

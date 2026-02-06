@@ -11,7 +11,7 @@ import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 const Banner = lazy(() => import('../../components/Banner/Banner'));
 const AdjusterMenu = lazy(() => import('../../components/AdjusterMenu/AdjusterMenu'));
 const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
-const Typography = lazy(() => import('../../components/Typography/Typography'));
+const Typography = lazy(() => import('@/components/Heading/Heading'));
 
 function BannerParent() {
   const dispatch = useDispatch();

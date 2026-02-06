@@ -8,7 +8,7 @@ import usePageSettings from '../../assets/js/hooks/usePageSettings';
 const HoverPods = lazy(() => import('../../components/HoverPods/HoverPods'));
 const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 const AdjusterMenu = lazy(() => import('../../components/AdjusterMenu/AdjusterMenu'));
-const Typography = lazy(() => import('../../components/Typography/Typography'));
+const Typography = lazy(() => import('@/components/Heading/Heading'));
 const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
 
 function HoverPodsView() {

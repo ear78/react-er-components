@@ -211,22 +211,22 @@ export const socialItems = [
   {
     platform: 'linkedin',
     path: 'https://linkedin.com/in/elliot-richardson',
-    icon: <FontAwesomeIcon icon={faSquareLinkedin} />,
+    icon: faGithubSquare,
   },
   {
     platform: 'twitter-square',
     path: 'https://twitter.com/mixermanelliot',
-    icon: <FontAwesomeIcon icon={faTwitterSquare} />,
+    icon: faTwitterSquare,
   },
   {
     platform: 'github-square',
     path: 'https://github.com/ear78',
-    icon: <FontAwesomeIcon icon={faGithubSquare} />,
+    icon: faGithubSquare,
   },
   {
     platform: 'instagram',
     path: 'https://instagram.com/elliot.richardson',
-    icon: <FontAwesomeIcon icon={faInstagramSquare} />,
+    icon: faInstagramSquare,
   },
 ];
 
@@ -294,7 +294,7 @@ export const dropperData = [
   },
 ];
 
-export const esliderData = [
+export const esliderData: any = [
   {
     id: 0,
     image: pinkBuildingJpg,

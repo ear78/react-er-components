@@ -1,7 +1,6 @@
 import React, {
   Suspense, lazy, useEffect, useState,
 } from 'react';
-import Grid from '@mui/material/Grid';
 import Edit from '@mui/icons-material/Edit';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Dashboard.module.scss';
@@ -9,11 +8,11 @@ import logo from '../../assets/img/er-logo.svg';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings, setIsModalActive } from '../../assets/js/lib/redux/modules/app';
 import User from '../../components/User/User';
+import PageTitle from '@/components/PageTitle/PageTitle';
 
 // Lazy load components
 const Modal = lazy(() => import('../../components/Modal/Modal'));
 const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
-const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
 
 function Dashboard() {
   // Redux
@@ -193,62 +192,62 @@ function Dashboard() {
   let cards;
   if (components) {
     cards = components.map((component: any) => (
-      <Grid key={component.id} size={{ xs: 12, md: 6 }}>
-        <div className={styles.Card}>
-          <p className={styles.Header}>
-            <img src={logo} alt="logo" />
-            {component.component}
-          </p>
-          <p className={styles.Description}>
-            {component.description}
-            {Object.keys(component.settings).length > 1
-              ? Object.entries(component.settings).map(([key, value]: any) => (
-                <span key={key} className={styles.SettingsPill}>
-                  <b>{`${key}:`}</b>
-                  &nbsp;
-                  {typeof value === 'boolean' && value ? 'True'
-                    : typeof value === 'boolean' && !value ? 'False'
-                      : truncate(value)}
-                </span>
-              ))
-              : <span className={styles.SettingsPill}>Default Settings</span>}
-          </p>
-          <p className={styles.Footer}>
-            <span className={styles.Circle} />
-            {component.component}
-            &nbsp; settings
-            <button type="button" aria-label={`Edit settings for ${component.component}`} onClick={() => editSettings(component.id)} className={styles.EditBtn}>
-              <Edit fontSize="inherit">edit</Edit>
-            </button>
-          </p>
-        </div>
-      </Grid>
+      <div key={component.id} className={`${styles.Card} h-auto`}>
+        <p className={styles.Header}>
+          <img src={logo} alt="logo" />
+          {component.component}
+        </p>
+        <p className={styles.Description}>
+          {component.description}
+          {Object.keys(component.settings).length > 1
+            ? Object.entries(component.settings).map(([key, value]: any) => (
+              <span key={key} className={styles.SettingsPill}>
+                <b>{`${key}:`}</b>
+                &nbsp;
+                {typeof value === 'boolean' && value ? 'True'
+                  : typeof value === 'boolean' && !value ? 'False'
+                    : truncate(value)}
+              </span>
+            ))
+            : <span className={styles.SettingsPill}>Default Settings</span>}
+        </p>
+        <p className={styles.Footer}>
+          <span className={styles.Circle} />
+          {component.component}
+          &nbsp; settings
+          <button type="button" aria-label={`Edit settings for ${component.component}`} onClick={() => editSettings(component.id)} className={styles.EditBtn}>
+            <Edit fontSize="inherit">edit</Edit>
+          </button>
+        </p>
+      </div>
     ));
   } else {
     cards = null;
   }
 
   return (
-    <Grid container columnSpacing={2} className={`${styles.Dashboard} ${isDarkMode ? styles.Dark : ''}`}>
+    <div className={`${styles.Dashboard} ${isDarkMode ? styles.Dark : ''}`}>
       <Suspense fallback="<div>Loading...</div>">
         <Modal isModalActive={isModalActive} click={toggleModal} isDarkMode={isDarkMode}>
           <AppForm click={handleSettingsSave} formData={formData} isDarkMode={isDarkMode} />
         </Modal>
       </Suspense>
-      <Grid size={12} mb={6}>
+      <div className='mb-6'>
         <Suspense fallback="<div>Loading...</div>">
           <PageTitle title="Dashboard" />
         </Suspense>
-      </Grid>
-      <Grid size={{ xs: 12, sm: 3 }} style={{ position: 'relative' }}>
-        <User />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 9 }}>
-        <Grid container rowSpacing={2} columnSpacing={2}>
-          {cards}
-        </Grid>
-      </Grid>
-    </Grid>
+      </div>
+      <div className='flex gap-5'>
+        <div className='w-full sm:w-1/4 relative'>
+          <User />
+        </div>
+        <div className='w-full sm:w-3/4'>
+          <div className='grid grid-cols-2 gap-4'>
+            {cards}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

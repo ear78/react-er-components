@@ -58,7 +58,7 @@ function App() {
         <Spinner mounted={appLoading} isDarkMode={isDarkMode} />
         <ScrollToTop />
 
-        <Container component="main" maxWidth="lg" className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''}`}>
+        <main className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''} max-w-7xl mx-auto px-4`}>
           <Nav />
 
           <Grid component="section" className={styles.Content}>
@@ -91,7 +91,7 @@ function App() {
           </Grid>
           <Footer />
           <BackToTopButton />
-        </Container>
+        </main>
 
       </Router>
     </div>

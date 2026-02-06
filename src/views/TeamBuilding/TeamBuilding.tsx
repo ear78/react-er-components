@@ -8,7 +8,7 @@ import { forms } from '../../assets/js/data';
 const TeamCard = lazy(() => import('../../components/TeamCard/TeamCard'));
 const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
 const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
-const Typography = lazy(() => import('../../components/Typography/Typography'));
+const Typography = lazy(() => import('@/components/Heading/Heading'));
 const AdjusterMenu = lazy(() => import('../../components/AdjusterMenu/AdjusterMenu'));
 
 function TeamBuilding() {

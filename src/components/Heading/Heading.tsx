@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Typography.module.scss';
+import styles from '@/components/Heading/Heading.module.scss';
 
 type TypographyProps = {
   sx?: object;
