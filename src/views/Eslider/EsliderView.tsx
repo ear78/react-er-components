@@ -1,9 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
 import Eslider from '../../components/Eslider/Eslider';
-
-// Lazy load components
-const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
+import PageTitle from '@/components/PageTitle/PageTitle';
 
 type EsliderViewProps = {
   data: {
@@ -17,9 +15,7 @@ export default function EsliderView({ data }: EsliderViewProps) {
   return (
     <Grid container component="section">
       <Grid size={12} mb={6}>
-        <Suspense fallback="<div>Loading...</div>">
-          <PageTitle title="EasySlider" />
-        </Suspense>
+        <PageTitle title="EasySlider" />
       </Grid>
       <Grid size={12}>
         <Eslider data={data} />

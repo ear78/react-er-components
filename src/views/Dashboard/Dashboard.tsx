@@ -11,8 +11,10 @@ import User from '../../components/User/User';
 import PageTitle from '@/components/PageTitle/PageTitle';
 
 // Lazy load components
-const Modal = lazy(() => import('../../components/Modal/Modal'));
-const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
+// @ts-ignore
+const Modal = lazy(() => import('@/components/Modal/Modal.tsx'));
+// @ts-ignore
+const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
 
 function Dashboard() {
   // Redux

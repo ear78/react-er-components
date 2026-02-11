@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import { dropperData } from '../../assets/js/data';
 import styles from './DropperView.module.scss';
-import colors from '../../assets/js/colors';
+import colors from '../../assets/js/colors.js';
 
 // Lazy load components
-const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
-const Dropper = lazy(() => import('../../components/Dropper/Dropper'));
+// @ts-ignore
+const PageTitle = lazy(() => import('@/components/PageTitle/PageTitle.tsx'));
+// @ts-ignore
+const Dropper = lazy(() => import('@/components/Dropper/Dropper.tsx'));
 
 function DropperParent() {
   const { isDarkMode } = useSelector((state: any) => state.app);

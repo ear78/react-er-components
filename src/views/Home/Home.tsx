@@ -1,12 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import Grid from '@mui/material/Grid';
 import { useSelector } from 'react-redux';
+import PageTitle from '@/components/PageTitle/PageTitle';
 import styles from './Home.module.scss';
 import { homeData, pageSectionData } from '../../assets/js/data';
 
 // Lazy load components
-const PageTitle = lazy(() => import('../../components/PageTitle/PageTitle'));
-const PageSection = lazy(() => import('../../components/PageSection/PageSection'));
+// @ts-ignore
+const PageSection = lazy(() => import('@/components/PageSection/PageSection.tsx'));
 
 function Home() {
   const { isDarkMode } = useSelector((state: any) => state.app);

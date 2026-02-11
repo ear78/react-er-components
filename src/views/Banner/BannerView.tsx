@@ -8,10 +8,14 @@ import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 
 // Lazy load components
-const Banner = lazy(() => import('../../components/Banner/Banner'));
-const AdjusterMenu = lazy(() => import('../../components/AdjusterMenu/AdjusterMenu'));
-const AppForm = lazy(() => import('../../components/AppForm/AppForm'));
-const Typography = lazy(() => import('@/components/Heading/Heading'));
+// @ts-ignore
+const Banner = lazy(() => import('@/components/Banner/Banner.tsx'));
+// @ts-ignore
+const AdjusterMenu = lazy(() => import('@/components/AdjusterMenu/AdjusterMenu.tsx'));
+// @ts-ignore
+const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
+// @ts-ignore
+const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 
 function BannerParent() {
   const dispatch = useDispatch();
@@ -131,7 +135,7 @@ function BannerParent() {
     <div className={styles.BannerParent}>
       <Suspense fallback="<div>Loading...</div>">
         <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
-          <Typography sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Typography>
+          <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
           <AppForm
             click={handleSettingsSave}
             formData={formData}

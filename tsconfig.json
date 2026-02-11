@@ -4,10 +4,11 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": [],
     "typeRoots": ["./src/types"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "nodenext",
@@ -21,5 +22,5 @@
       "@/*": ["./src/*"],
     },
   },
-  "include": ["src"]
+  "include": ["src"],
 }
