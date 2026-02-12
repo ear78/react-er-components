@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './SocialComp.module.scss';
 import SocialIcon from '../SocialIcon/SocialIcon';
 
@@ -14,7 +15,7 @@ function SocialComp({ data, isDarkMode }: SocialCompProps) {
       path={item.path}
       isDarkMode={isDarkMode}
     >
-      {item.icon}
+      <FontAwesomeIcon icon={item.icon} />
     </SocialIcon>
   ));
   return (

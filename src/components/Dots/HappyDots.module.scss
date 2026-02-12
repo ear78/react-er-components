@@ -78,8 +78,8 @@
     &::before {
       position: absolute;
       content: "";
-      top: -1px;
-      left: -1px;
+      top: 0;
+      left: 0;
       height: 12px;
       width: 12px;
       background-color: $white;
@@ -92,8 +92,6 @@
       animation-iteration-count: infinite;
     }
   }
-
-  
 }
 
 @keyframes blinker {

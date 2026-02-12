@@ -1,0 +1,32 @@
+// vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import viteTsconfigPaths from 'vite-tsconfig-paths';
+import netlify from "@netlify/vite-plugin";
+import path from 'path';
+import tailwindcss from '@tailwindcss/vite';
+import autoprefixer from 'autoprefixer';
+
+export default defineConfig({
+  // depending on your application, base can also be "/"
+  base: '/',
+  plugins: [react(), viteTsconfigPaths(), tailwindcss()],
+  server: {
+    // this ensures that the browser opens upon server start
+    open: true,
+    // this sets a default port to 3000
+    port: 3000,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [
+        autoprefixer({})
+      ],
+    }
+  }
+});

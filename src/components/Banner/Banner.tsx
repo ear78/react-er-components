@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Banner.module.scss';
-import Button from '../Button/Button';
+import Button from '@/components/Button/Button';
+import Heading from '@/components/Heading/Heading';
 
 /**
  * Banner prop types
@@ -80,7 +81,7 @@ function Banner({
       </picture>
       <div className={`${styles.Overlay} ${bannerOverlayFull} ${bannerOverlayDark} ${bannerOverlay}`}>
         <p className={`${styles.PreTitle} ${bannerTextColor}`}>{bannerPreTitle}</p>
-        <h1 className={`${styles.Title} ${bannerTextColor}`}>{bannerTitle}</h1>
+        <Heading variant="h1">{bannerTitle}</Heading>
         <p className={`${styles.SubTitle} ${bannerTextColor}`}>{bannerSubTitle}</p>
         {showBtn
           ? (

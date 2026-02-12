@@ -1,35 +1,34 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGithubSquare,
   faInstagramSquare,
   faSquareLinkedin,
   faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import snowGhosts from '../img/snowghosts.jpg';
-import greyBuilding from '../img/building-resize.jpg';
+
+import snowGhosts from '@/assets/img/snowghosts.jpg';
+import greyBuilding from '@/assets/img/building-resize.jpg';
 // import about from '../img/ABOUT.jpg'
-import echoTower from '../img/echoTower.jpg';
-import jail from '../img/jail.jpg';
-import stairway from '../img/stairway.jpg';
-import stripes from '../img/stripes.jpg';
-import chairs from '../img/chairs.jpg';
-import echoTowerSml from '../img/echoTower-sml.jpg';
+import echoTower from '@/assets/img/echoTower.jpg';
+import jail from '@/assets/img/jail.jpg';
+import stairway from '@/assets/img/stairway.jpg';
+import stripes from '@/assets/img/stripes.jpg';
+import chairs from '@/assets/img/chairs.jpg';
+import echoTowerSml from '@/assets/img/echoTower-sml.jpg';
 // import jailSml from '../img/jail-sml.jpg'
 // import stairwaySml from '../img/stairway-sml.jpg'
-import stripesSml from '../img/stripes-sml.jpg';
-import chairsSml from '../img/chairs-sml.jpg';
-import portfolio11 from '../img/UserMale.svg';
-import portfolio12 from '../img/femaleUser.svg';
-import PageBanner from '../img/pagebanner-screenshot.png';
-import HoverPods from '../img/hoverpods-screenshot.png';
-import TeamBuilding from '../img/teambuilding-screenshot.png';
-import HappyDots from '../img/happydots-screenshot.png';
-import Dropper from '../img/dropper-screenshot.png';
-import EasySlider from '../img/easyslider-screenshot.png';
-import pinkBuildingWebp from '../img/pinkBuilding.webp';
-import pinkBuildingWebpSm from '../img/pinkBuilding-sm.webp';
-import pinkBuildingJpg from '../img/pinkBuilding.jpg';
+import stripesSml from '@/assets/img/stripes-sml.jpg';
+import chairsSml from '@/assets/img/chairs-sml.jpg';
+import portfolio11 from '@/assets/img/UserMale.svg';
+import portfolio12 from '@/assets/img/femaleUser.svg';
+import PageBanner from '@/assets/img/pagebanner-screenshot.webp';
+import HoverPods from '@/assets/img/hoverpods-screenshot.webp';
+import TeamBuilding from '@/assets/img/teambuilding-screenshot.webp';
+import HappyDots from '@/assets/img/happydots-screenshot.webp';
+import Dropper from '@/assets/img/dropper-screenshot.webp';
+import EasySlider from '@/assets/img/easyslider-screenshot.webp';
+import pinkBuildingWebp from '@/assets/img/pinkBuilding.webp';
+import pinkBuildingWebpSm from '@/assets/img/pinkBuilding-sm.webp';
+import pinkBuildingJpg from '@/assets/img/pinkBuilding.jpg';
 
 export const bannerImgWebp = pinkBuildingWebp;
 export const bannerImgWebpSm = pinkBuildingWebpSm;
@@ -211,22 +210,22 @@ export const socialItems = [
   {
     platform: 'linkedin',
     path: 'https://linkedin.com/in/elliot-richardson',
-    icon: <FontAwesomeIcon icon={faSquareLinkedin} />,
+    icon: faSquareLinkedin,
   },
   {
     platform: 'twitter-square',
     path: 'https://twitter.com/mixermanelliot',
-    icon: <FontAwesomeIcon icon={faTwitterSquare} />,
+    icon: faTwitterSquare,
   },
   {
     platform: 'github-square',
     path: 'https://github.com/ear78',
-    icon: <FontAwesomeIcon icon={faGithubSquare} />,
+    icon: faGithubSquare,
   },
   {
     platform: 'instagram',
     path: 'https://instagram.com/elliot.richardson',
-    icon: <FontAwesomeIcon icon={faInstagramSquare} />,
+    icon: faInstagramSquare,
   },
 ];
 
@@ -294,7 +293,7 @@ export const dropperData = [
   },
 ];
 
-export const esliderData = [
+export const esliderData: any = [
   {
     id: 0,
     image: pinkBuildingJpg,

@@ -1,5 +1,11 @@
 @import '../../assets/scss/variables';
 
+h1,h2,h3,h4,h5,h6 {
+  &.Typography {
+    font-weight: 700;
+  }
+}
+
 h1.Typography {
   font-size: 1.75rem;
   margin: 0;
@@ -46,7 +52,7 @@ h6.Typography {
 
 @include breakpoint(lg) {
   h1.Typography {
-    font-size: 4rem;
+    font-size: 5rem;
   }
   
   h2.Typography {

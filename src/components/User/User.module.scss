@@ -1,6 +1,10 @@
 @import '../../assets/scss/variables';
 
 .UserSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
   .Image {
     height: 100px;
     width: 100px;
@@ -87,6 +91,9 @@
 }
 
 .User {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
   margin-bottom: 1rem;
 
   img {
@@ -101,10 +108,6 @@
       min-height: 100px;
       max-width: 175px;
     }
-  }
-
-  .Name {
-    margin-bottom: 5px;
   }
 
   .Username {
