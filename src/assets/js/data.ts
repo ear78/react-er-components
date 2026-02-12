@@ -21,7 +21,7 @@ import chairsSml from '@/assets/img/chairs-sml.jpg';
 import portfolio11 from '@/assets/img/UserMale.svg';
 import portfolio12 from '@/assets/img/femaleUser.svg';
 import PageBanner from '@/assets/img/pagebanner-screenshot.png';
-import HoverPods from '@/assets./img/hoverpods-screenshot.png';
+import HoverPods from '@/assets/img/hoverpods-screenshot.png';
 import TeamBuilding from '@/assets/img/teambuilding-screenshot.png';
 import HappyDots from '@/assets/img/happydots-screenshot.png';
 import Dropper from '@/assets/img/dropper-screenshot.png';
