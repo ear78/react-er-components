@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": [],
+    "types": ["vite/client"],
     "typeRoots": ["./src/types"],
     "allowJs": true,
     "skipLibCheck": false,
