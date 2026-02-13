@@ -1,17 +1,15 @@
 import React, {
-  lazy, Suspense, useEffect, useRef, useState,
+  lazy, useEffect, useRef, useState,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './BannerView.module.scss';
+import Banner from '@/components/Banner/Banner';
+import styles from '@/views/Banner/BannerView.module.scss';
+import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 
 // Lazy load components
-// @ts-ignore
-const Banner = lazy(() => import('@/components/Banner/Banner.tsx'));
-// @ts-ignore
-const AdjusterMenu = lazy(() => import('@/components/AdjusterMenu/AdjusterMenu.tsx'));
 // @ts-ignore
 const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
 // @ts-ignore
@@ -133,37 +131,35 @@ function BannerParent() {
 
   return (
     <div className={styles.BannerParent}>
-      <Suspense fallback="<div>Loading...</div>">
-        <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
-          <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
-          <AppForm
-            click={handleSettingsSave}
-            formData={formData}
-            formRef={formRef}
-            isDarkMode={isDarkMode}
-          />
-        </AdjusterMenu>
+      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
+        <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
+        <AppForm
+          click={handleSettingsSave}
+          formData={formData}
+          formRef={formRef}
+          isDarkMode={isDarkMode}
+        />
+      </AdjusterMenu>
 
-        <div className={styles.Content}>
-          <Banner
-            bgImage={settings.bgImage}
-            preTitle={settings.preTitle}
-            title={settings.title}
-            subTitle={settings.subTitle}
-            btnText={settings.btnText}
-            ctaUrl={settings.ctaUrl}
-            btnColor={settings.btnColor}
-            overlay={settings.overlay}
-            overlayDark={settings.overlayDark}
-            overlayFull={settings.overlayFull}
-            textAlign={settings.textAlign}
-            showBtn={settings.showBtn}
-            target
-            webpSizes={{ lgWebp: bannerImgWebp, smWebp: bannerImgWebpSm }}
-            isLoading={appLoading}
-          />
-        </div>
-      </Suspense>
+      <div className={styles.Content}>
+        <Banner
+          bgImage={settings.bgImage}
+          preTitle={settings.preTitle}
+          title={settings.title}
+          subTitle={settings.subTitle}
+          btnText={settings.btnText}
+          ctaUrl={settings.ctaUrl}
+          btnColor={settings.btnColor}
+          overlay={settings.overlay}
+          overlayDark={settings.overlayDark}
+          overlayFull={settings.overlayFull}
+          textAlign={settings.textAlign}
+          showBtn={settings.showBtn}
+          target
+          webpSizes={{ lgWebp: bannerImgWebp, smWebp: bannerImgWebpSm }}
+          isLoading={appLoading}
+        />
+      </div>
     </div>
   );
 }

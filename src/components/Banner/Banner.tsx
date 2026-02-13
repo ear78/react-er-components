@@ -77,6 +77,7 @@ function Banner({
           onLoad={() => setIsImageLoaded(true)}
           loading="lazy"
           decoding="async"
+          width={2000}
         />
       </picture>
       <div className={`${styles.Overlay} ${bannerOverlayFull} ${bannerOverlayDark} ${bannerOverlay}`}>
