@@ -72,7 +72,7 @@ function Banner({
         ) : null}
         <img
           className={`${styles.Image} ${isImageLoaded && !isLoading ? styles.ImageLoaded : ''}`}
-          src={`${bannerImg}`}
+          src={bannerImg}
           alt={bannerTitle}
           onLoad={() => setIsImageLoaded(true)}
           loading="lazy"
