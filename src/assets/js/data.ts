@@ -8,11 +8,11 @@ import {
 import snowGhosts from '@/assets/img/snowghosts.jpg';
 import greyBuilding from '@/assets/img/building-resize.jpg';
 // import about from '../img/ABOUT.jpg'
-import echoTower from '@/assets/img/echoTower.jpg';
-import jail from '@/assets/img/jail.jpg';
-import stairway from '@/assets/img/stairway.jpg';
-import stripes from '@/assets/img/stripes.jpg';
-import chairs from '@/assets/img/chairs.jpg';
+import echoTower from '@/assets/img/echoTower.webp';
+import jail from '@/assets/img/jail.webp';
+import stairway from '@/assets/img/stairway.webp';
+import stripes from '@/assets/img/stripes.webp';
+import chairs from '@/assets/img/chairs.webp';
 import echoTowerSml from '@/assets/img/echoTower-sml.jpg';
 // import jailSml from '../img/jail-sml.jpg'
 // import stairwaySml from '../img/stairway-sml.jpg'

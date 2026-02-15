@@ -1,4 +1,4 @@
-@import "../../assets/scss/_variables.scss";
+@import '../../assets/scss/_variables.scss';
 
 .BackgroundImg {
   position: relative;
@@ -16,11 +16,12 @@
   object-fit: cover;
   filter: var(--image-blur);
   transition: filter 1s ease;
-  
+  aspect-ratio: auto 16/9;
+
   @include breakpoint(lg) {
     min-height: 500px;
   }
-  
+
   &.ImageLoaded {
     filter: blur(0);
   }

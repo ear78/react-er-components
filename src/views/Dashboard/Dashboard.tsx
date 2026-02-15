@@ -22,7 +22,6 @@ function Dashboard() {
   const { components, isModalActive, isDarkMode } = useSelector((state: any) => state.app);
 
   // Local State
-  // const [isModalActive, setIsModalActive] = useState(false);
   const [componentId, setComponentId] = useState<number>(0);
   const [formData, setFormData] = useState<{}[]>([]);
 
@@ -239,12 +238,12 @@ function Dashboard() {
           <PageTitle title="Dashboard" />
         </Suspense>
       </div>
-      <div className='flex gap-5'>
-        <div className='w-full sm:w-1/4 relative'>
+      <div className='grid md:grid-cols-[25%_minmax(0,1fr)] gap-5'>
+        <div className='w-full relative'>
           <User />
         </div>
-        <div className='w-full sm:w-3/4'>
-          <div className='grid grid-cols-2 gap-4'>
+        <div className='w-full'>
+          <div className='grid lg:grid-cols-2 gap-4'>
             {cards}
           </div>
         </div>

@@ -1,0 +1,34 @@
+.Image {
+  max-width: 100%;
+  height: auto;
+  filter: var(--image-blur);
+  transition: filter 1s ease;
+
+  &.ImageLoaded {
+    filter: blur(0);
+  }
+
+  &.ObjectFitContain {
+    object-fit: contain;
+  }
+
+  &.ObjectFitCover {
+    object-fit: cover;
+  }
+
+  &.ObjectFitFill {
+    object-fit: fill;
+  }
+
+  &.AspectRatioSquare {
+    aspect-ratio: 1/1;
+  }
+
+  &.AspectRatioLandscape {
+    aspect-ratio: 3/2;
+  }
+
+  &.AspectRatioVideo {
+    aspect-ratio: 16/9;
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -6,7 +6,9 @@ import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import styles from './AppForm.module.scss';
-import AlertBanner from '../AlertBanner/AlertBanner';
+
+// @ts-ignore
+const AlertBanner = lazy(() => import('@/components/AlertBanner/AlertBanner.tsx'));
 
 type AppFormProps = {
   formData: {}[];

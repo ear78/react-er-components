@@ -22,6 +22,27 @@
       border: none;
     }
 
+    .ImgContainer {
+      img {
+        aspect-ratio: auto 3/2;
+        object-fit: cover;
+      }
+
+      @include breakpoint(md) {
+        width: 50%;
+
+        img {
+          aspect-ratio: 1;
+        }
+      }
+
+      @include breakpoint(lg) {
+        img {
+          aspect-ratio: 3/2;
+        }
+      }
+    }
+
     .BgImage {
       filter: grayscale(100%);
       background-size: cover;
