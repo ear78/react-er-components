@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <section className={`flex-col-reverse md:row gap-4 ${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
+      <section className={`flex flex-col-reverse md:row gap-4 ${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
         <div className={`${styles.Left} w-full lg:w-1/2`}>
           <span>Welcome to ER Components! </span>
           {homeData.desc}
