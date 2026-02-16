@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import Eslider from '../../components/Eslider/Eslider';
 import PageTitle from '@/components/PageTitle/PageTitle';
 
@@ -13,13 +12,13 @@ type EsliderViewProps = {
 
 export default function EsliderView({ data }: EsliderViewProps) {
   return (
-    <Grid container component="section">
-      <Grid size={12} mb={6}>
+    <section>
+      <div className="mb-12">
         <PageTitle title="EasySlider" />
-      </Grid>
-      <Grid size={12}>
+      </div>
+      <div>
         <Eslider data={data} />
-      </Grid>
-    </Grid>
+      </div>
+    </section>
   );
 }

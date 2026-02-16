@@ -3,11 +3,11 @@ import React, {
 } from 'react';
 import Edit from '@mui/icons-material/Edit';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './Dashboard.module.scss';
-import logo from '../../assets/img/er-logo.svg';
+import styles from '@/views/Dashboard/Dashboard.module.scss';
+import logo from '@/assets/img/er-logo.svg';
 import { handleForm } from '../../assets/js/util/helpers';
 import { setComponentSettings, setIsModalActive } from '../../assets/js/lib/redux/modules/app';
-import User from '../../components/User/User';
+import User from '@/components/User/User';
 import PageTitle from '@/components/PageTitle/PageTitle';
 
 // Lazy load components
@@ -233,10 +233,8 @@ function Dashboard() {
           <AppForm click={handleSettingsSave} formData={formData} isDarkMode={isDarkMode} />
         </Modal>
       </Suspense>
-      <div className='mb-6'>
-        <Suspense fallback="<div>Loading...</div>">
-          <PageTitle title="Dashboard" />
-        </Suspense>
+      <div className='mb-12'>
+        <PageTitle title="Dashboard" />
       </div>
       <div className='grid md:grid-cols-[25%_minmax(0,1fr)] gap-5'>
         <div className='w-full relative'>

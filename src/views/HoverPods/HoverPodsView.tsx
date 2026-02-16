@@ -2,13 +2,12 @@ import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import PageTitle from '@/components/PageTitle/PageTitle';
 import HoverPods from '@/components/HoverPods/HoverPods';
+import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu';
 import styles from './HoverPodsView.module.scss';
 import { podData, forms } from '../../assets/js/data';
 import usePageSettings from '../../assets/js/hooks/usePageSettings';
 
 // Lazy Loaded Components
-// @ts-ignore
-const AdjusterMenu = lazy(() => import('@/components/AdjusterMenu/AdjusterMenu.tsx'));
 // @ts-ignore
 const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 // @ts-ignore
@@ -20,25 +19,25 @@ function HoverPodsView() {
 
   return (
     <section id={styles.HoverPodsView} className={`${isDarkMode ? styles.Dark : ''}`}>
-      <Suspense fallback="<div>Loading...</div>">
-        <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
+      <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
+        <Suspense fallback="<div>Loading...</div>">
           <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
           <AppForm
             click={pageSettings.handleSettingsSave}
             formData={pageSettings.formData}
             isDarkMode={isDarkMode}
           />
-        </AdjusterMenu>
+        </Suspense>
+      </AdjusterMenu>
 
-        <PageTitle title="HoverPods" />
-        <HoverPods
-          delay={100}
-          hoverColor={pageSettings.settings.hoverColor}
-          isSquared={pageSettings.settings.isSquared}
-          openTab={pageSettings.settings.openTab}
-          podData={podData}
-        />
-      </Suspense>
+      <PageTitle title="HoverPods" />
+      <HoverPods
+        delay={100}
+        hoverColor={pageSettings.settings.hoverColor}
+        isSquared={pageSettings.settings.isSquared}
+        openTab={pageSettings.settings.openTab}
+        podData={podData}
+      />
     </section>
   );
 }

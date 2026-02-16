@@ -2,10 +2,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
-import netlify from "@netlify/vite-plugin";
 import path from 'path';
 import tailwindcss from '@tailwindcss/vite';
-import autoprefixer from 'autoprefixer';
+import browserslist from 'browserslist';
+import { browserslistToTargets } from 'lightningcss';
 
 export default defineConfig({
   // depending on your application, base can also be "/"
@@ -23,10 +23,15 @@ export default defineConfig({
     },
   },
   css: {
-    postcss: {
-      plugins: [
-        autoprefixer({})
-      ],
-    }
-  }
+    transformer: 'lightningcss',
+    lightningcss: {
+      targets: browserslistToTargets(
+        browserslist('defaults and supports es6-module'),
+      ),
+      cssModules: true,
+    },
+  },
+  build: {
+    cssMinify: 'lightningcss',
+  },
 });

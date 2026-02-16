@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Grid from '@mui/material/Grid';
 import Heading from '../Heading/Heading';
 import styles from './PageSection.module.scss';
 import Button from '../Button/Button';
@@ -49,8 +48,8 @@ function PageSection({
   }, []);
 
   return (
-    <Grid container ref={refEl} component="section">
-      <Grid className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
+    <section ref={refEl}>
+      <div className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
         <Heading
           variant="h2"
           sx={{
@@ -71,8 +70,8 @@ function PageSection({
         </Heading>
         <Button tertiary center sx={{ margin: 'auto auto 35px' }} click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
         <img loading="lazy" src={data.img} alt="Easy Slider Component" />
-      </Grid>
-    </Grid>
+      </div>
+    </section>
   );
 }
 

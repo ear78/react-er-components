@@ -1,15 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import Grid from '@mui/material/Grid';
 import { dropperData } from '../../assets/js/data';
 import styles from './DropperView.module.scss';
 import colors from '../../assets/js/colors.js';
-
-// Lazy load components
-// @ts-ignore
-const PageTitle = lazy(() => import('@/components/PageTitle/PageTitle.tsx'));
-// @ts-ignore
-const Dropper = lazy(() => import('@/components/Dropper/Dropper.tsx'));
+import PageTitle from '@/components/PageTitle/PageTitle.tsx';
+import Dropper from '@/components/Dropper/Dropper.tsx';
 
 function DropperParent() {
   const { isDarkMode } = useSelector((state: any) => state.app);
@@ -20,20 +15,16 @@ function DropperParent() {
   ));
 
   return (
-    <Grid container component="section" flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperParent}>
-      <Grid container flexDirection={{ xs: 'column', sm: 'row' }} className={styles.DropperWrapper}>
-        <Grid size={{ xs: 12, sm: 5 }} className={styles.Left}>
-          <Suspense fallback="<div>Loading...</div>">
-            <PageTitle title="Dropper" color={colors.hotPink} />
-          </Suspense>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 7 }} className={styles.Right}>
-          <Suspense fallback="<div>Loading...</div>">
-            {dropper}
-          </Suspense>
-        </Grid>
-      </Grid>
-    </Grid>
+    <section className={`${styles.DropperParent} flex flex-col md:flex-row`}>
+      <div className={`${styles.DropperWrapper} flex flex-col md:flex-row`}>
+        <div className={`${styles.Left} w-full md:w-1/3`}>
+          <PageTitle title="Dropper" color={colors.hotPink} />
+        </div>
+        <div className={`${styles.Right} w-full md:w-2/3`}>
+          {dropper}
+        </div>
+      </div>
+    </section>
 
   );
 }

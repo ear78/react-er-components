@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 
 /* Icons */
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -25,14 +23,22 @@ import Spinner from './components/Spinner/Spinner';
 import BackToTopButton from './components/BackToTopButton/BackToTopButton';
 
 /* Views */
-import Home from './views/Home/Home';
-import BannerView from './views/Banner/BannerView';
-import HoverPodsView from './views/HoverPods/HoverPodsView';
-import TeamBuilding from './views/TeamBuilding/TeamBuilding';
-import HappyDotsView from './views/HappyDots/HappyDotsView';
-import DropperParent from './views/Dropper/DropperView';
-import Eslider from './views/Eslider/EsliderView';
-import Dashboard from './views/Dashboard/Dashboard';
+//@ts-ignore
+const Home = lazy(() => import('@/views/Home/Home.tsx'));
+//@ts-ignore
+const Eslider = lazy(() => import('@/views/Eslider/EsliderView.tsx'));
+//@ts-ignore
+const HappyDotsView = lazy(() => import('@/views/HappyDots/HappyDotsView.tsx'));
+//@ts-ignore
+const HoverPodsView = lazy(() => import('@/views/HoverPods/HoverPodsView.tsx'));
+//@ts-ignore
+const BannerView = lazy(() => import('@/views/Banner/BannerView.tsx'));
+//@ts-ignore
+const TeamBuilding = lazy(() => import('@/views/TeamBuilding/TeamBuilding.tsx'));
+//@ts-ignore
+const DropperParent = lazy(() => import('@/views/Dropper/DropperView.tsx'));
+//@ts-ignore
+const Dashboard = lazy(() => import('@/views/Dashboard/Dashboard.tsx'));
 
 /** Css */
 import styles from './App.module.scss';
@@ -61,7 +67,7 @@ function App() {
         <main className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''} max-w-7xl mx-auto px-4`}>
           <Nav />
 
-          <Grid component="section" className={styles.Content}>
+          <section className={styles.Content}>
             <Switch>
               <Route path="/dashboard">
                 <Dashboard />
@@ -88,7 +94,7 @@ function App() {
                 <Home />
               </Route>
             </Switch>
-          </Grid>
+          </section>
           <Footer />
           <BackToTopButton />
         </main>

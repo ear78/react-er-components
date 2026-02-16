@@ -9,13 +9,13 @@ import SocialComp from '../SocialComp/SocialComp';
 function Footer() {
   const { isDarkMode } = useSelector((state: any) => state.app);
   return (
-    <div className={styles.Footer}>
+    <footer className={styles.Footer}>
       <SocialComp
         data={socialItems}
         isDarkMode={isDarkMode}
       />
       <Copyright />
-    </div>
+    </footer>
   );
 }
 
