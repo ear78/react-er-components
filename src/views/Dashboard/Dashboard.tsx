@@ -1,20 +1,21 @@
 import React, {
   Suspense, lazy, useEffect, useState,
 } from 'react';
-import Edit from '@mui/icons-material/Edit';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './Dashboard.module.scss';
-import logo from '../../assets/img/er-logo.svg';
-import { handleForm } from '../../assets/js/util/helpers';
-import { setComponentSettings, setIsModalActive } from '../../assets/js/lib/redux/modules/app';
-import User from '../../components/User/User';
-import PageTitle from '@/components/PageTitle/PageTitle';
+import styles from '@/views/Dashboard/Dashboard.module.scss';
+import { handleForm } from '../../assets/js/util/helpers.ts';
+import { setComponentSettings, setIsModalActive } from '../../assets/js/lib/redux/modules/app.ts';
+import PageTitle from '@/components/PageTitle/PageTitle.tsx';
 
 // Lazy load components
+//@ts-ignore
+const DashboardCard = lazy(() => import('@/components/DashboardCard/DashboardCard.tsx'));
 // @ts-ignore
 const Modal = lazy(() => import('@/components/Modal/Modal.tsx'));
 // @ts-ignore
 const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
+// @ts-ignore
+const User = lazy(() => import('@/components/User/User.tsx'));
 
 function Dashboard() {
   // Redux
@@ -185,42 +186,10 @@ function Dashboard() {
     dispatch(setIsModalActive(false));
   };
 
-  const truncate = (str: any, maxLength = 30) => {
-    const truncated = str.length > maxLength ? `${str.slice(0, maxLength - 1)}...` : str;
-    return truncated;
-  };
-
   let cards;
   if (components) {
     cards = components.map((component: any) => (
-      <div key={component.id} className={`${styles.Card} h-auto`}>
-        <p className={styles.Header}>
-          <img src={logo} alt="logo" />
-          {component.component}
-        </p>
-        <p className={styles.Description}>
-          {component.description}
-          {Object.keys(component.settings).length > 1
-            ? Object.entries(component.settings).map(([key, value]: any) => (
-              <span key={key} className={styles.SettingsPill}>
-                <b>{`${key}:`}</b>
-                &nbsp;
-                {typeof value === 'boolean' && value ? 'True'
-                  : typeof value === 'boolean' && !value ? 'False'
-                    : truncate(value)}
-              </span>
-            ))
-            : <span className={styles.SettingsPill}>Default Settings</span>}
-        </p>
-        <p className={styles.Footer}>
-          <span className={styles.Circle} />
-          {component.component}
-          &nbsp; settings
-          <button type="button" aria-label={`Edit settings for ${component.component}`} onClick={() => editSettings(component.id)} className={styles.EditBtn}>
-            <Edit fontSize="inherit">edit</Edit>
-          </button>
-        </p>
-      </div>
+      <DashboardCard key={component.id} component={component} editSettings={editSettings} isDarkMode={isDarkMode} />
     ));
   } else {
     cards = null;
@@ -233,10 +202,8 @@ function Dashboard() {
           <AppForm click={handleSettingsSave} formData={formData} isDarkMode={isDarkMode} />
         </Modal>
       </Suspense>
-      <div className='mb-6'>
-        <Suspense fallback="<div>Loading...</div>">
-          <PageTitle title="Dashboard" />
-        </Suspense>
+      <div className='mb-12'>
+        <PageTitle title="Dashboard" />
       </div>
       <div className='grid md:grid-cols-[25%_minmax(0,1fr)] gap-5'>
         <div className='w-full relative'>

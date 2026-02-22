@@ -24,13 +24,18 @@
       height: 150px;
     }
 
-    @include breakpoint(lg) {
-
-      &:hover .HoverColor,
-      &:hover .HoverText {
+    @media(hover:hover) {
+       &:hover .HoverColor,
+       &:hover .HoverText {
         top: 45%;
         cursor: pointer;
         opacity: 1;
+      }
+
+      .HoverColor,
+      .HoverText {
+        opacity: 0;
+        top: 40%
       }
     }
 
@@ -64,15 +69,6 @@
   .HoverColor {
     &.Squared {
       border-radius: 0;
-    }
-  }
-
-  @include breakpoint(lg) {
-
-    .HoverColor,
-    .HoverText {
-      opacity: 0;
-      top: 40%
     }
   }
 

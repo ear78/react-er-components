@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from 'react';
-import Grid from '@mui/material/Grid';
 import { useSelector } from 'react-redux';
 import PageTitle from '@/components/PageTitle/PageTitle';
 import styles from './Home.module.scss';
@@ -17,20 +16,18 @@ function Home() {
 
   return (
     <>
-      <Grid container spacing={2} component="section" flexDirection={{ xs: 'column-reverse', md: 'row' }} className={`${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
-        <Grid size={{ xs: 12, md: 6 }} className={styles.Left}>
+      <section className={`flex flex-col-reverse md:row gap-4 ${styles.HomeContainer} ${isDarkMode ? styles.Dark : ''}`}>
+        <div className={`${styles.Left} w-full lg:w-1/2`}>
           <span>Welcome to ER Components! </span>
           {homeData.desc}
           &nbsp;
           <span>{homeData.components}</span>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }} className={styles.Right}>
+        </div>
+        <div className={`${styles.Right} w-full lg:w-1/2`}>
           <div className={styles.HomeTitle}>ER</div>
-          <Suspense fallback="<div>Loading...</div>">
-            <PageTitle title="Components" isDarkMode={isDarkMode} />
-          </Suspense>
-        </Grid>
-      </Grid>
+          <PageTitle title="Components" isDarkMode={isDarkMode} />
+        </div>
+      </section>
       <Suspense fallback="<div>Loading...</div>">
         {pageSection}
       </Suspense>

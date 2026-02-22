@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 
 /* Icons */
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -20,23 +18,27 @@ import { esliderData } from './assets/js/data';
 
 /* Global Layout Components */
 import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
 import Spinner from './components/Spinner/Spinner';
-import BackToTopButton from './components/BackToTopButton/BackToTopButton';
+
+//@ts-ignore
+const Footer = lazy(() => import('./components/Footer/Footer.tsx'));
+//@ts-ignore
+const ScrollToTop = lazy(() => import('./components/ScrollToTop/ScrollToTop.tsx'));
+//@ts-ignore
+const BackToTopButton = lazy(() => import('./components/BackToTopButton/BackToTopButton.tsx'));
 
 /* Views */
-import Home from './views/Home/Home';
-import BannerView from './views/Banner/BannerView';
-import HoverPodsView from './views/HoverPods/HoverPodsView';
-import TeamBuilding from './views/TeamBuilding/TeamBuilding';
-import HappyDotsView from './views/HappyDots/HappyDotsView';
-import DropperParent from './views/Dropper/DropperView';
-import Eslider from './views/Eslider/EsliderView';
-import Dashboard from './views/Dashboard/Dashboard';
+import Home from '@/views/Home/Home.tsx';
+import Eslider from '@/views/Eslider/EsliderView.tsx';
+import HappyDotsView from '@/views/HappyDots/HappyDotsView.tsx';
+import HoverPodsView from '@/views/HoverPods/HoverPodsView.tsx';
+import BannerView from '@/views/Banner/BannerView.tsx';
+import TeamBuilding from '@/views/TeamBuilding/TeamBuilding.tsx';
+import DropperView from '@/views/Dropper/DropperView.tsx';
+import Dashboard from '@/views/Dashboard/Dashboard.tsx';
 
 /** Css */
 import styles from './App.module.scss';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 /* Font Awesome */
 library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown);
@@ -61,7 +63,7 @@ function App() {
         <main className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''} max-w-7xl mx-auto px-4`}>
           <Nav />
 
-          <Grid component="section" className={styles.Content}>
+          <section className={styles.Content}>
             <Switch>
               <Route path="/dashboard">
                 <Dashboard />
@@ -82,13 +84,13 @@ function App() {
                 <TeamBuilding />
               </Route>
               <Route path="/dropper">
-                <DropperParent />
+                <DropperView />
               </Route>
               <Route path="/">
                 <Home />
               </Route>
             </Switch>
-          </Grid>
+          </section>
           <Footer />
           <BackToTopButton />
         </main>

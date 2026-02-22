@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Grid from '@mui/material/Grid';
-import Heading from '../Heading/Heading';
+import React, { lazy, useEffect, useRef, useState } from 'react';
 import styles from './PageSection.module.scss';
-import Button from '../Button/Button';
-import useResetApploading from '../../assets/js/hooks/useResetAppLoading';
+import Button from '../Button/Button.tsx';
+import useResetApploading from '../../assets/js/hooks/useResetAppLoading.ts';
+
+//@ts-ignore
+const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 
 type PageSectionProps = {
   setThreshold?: number;
@@ -49,8 +50,8 @@ function PageSection({
   }, []);
 
   return (
-    <Grid container ref={refEl} component="section">
-      <Grid className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
+    <section ref={refEl}>
+      <div className={`${styles.HomeSections} ${styles.LazyLoad} ${isIntersect ? styles.Active : ''}`}>
         <Heading
           variant="h2"
           sx={{
@@ -70,9 +71,9 @@ function PageSection({
           {data.description}
         </Heading>
         <Button tertiary center sx={{ margin: 'auto auto 35px' }} click={() => resetAppLoading()} href={data.page}>Go To Component</Button>
-        <img loading="lazy" src={data.img} alt="Easy Slider Component" />
-      </Grid>
-    </Grid>
+        <img loading="lazy" decoding="async" width={2100} src={data.img} alt="Easy Slider Component" />
+      </div>
+    </section>
   );
 }
 

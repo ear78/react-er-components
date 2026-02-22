@@ -1,18 +1,19 @@
 import React, { lazy, Suspense, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './HappyDotsView.module.scss';
-import PageTitle from '@/components/PageTitle/PageTitle';
-import Dots from '@/components/Dots/Dots';
-import Spacer from '@/components/Spacer/Spacer';
-import Heading from '@/components/Heading/Heading';
-import { happyData, sectionData, forms } from '../../assets/js/data';
-import usePageSettings from '../../assets/js/hooks/usePageSettings';
+import PageTitle from '@/components/PageTitle/PageTitle.tsx';
+import Spacer from '@/components/Spacer/Spacer.tsx';
+import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu.tsx';
+import { happyData, sectionData, forms } from '../../assets/js/data.ts';
+import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
 
 // Lazy load components
 // @ts-ignore
-const AdjusterMenu = lazy(() => import('@/components/AdjusterMenu/AdjusterMenu.tsx'));
+const Dots = lazy(() => import('@/components/Dots/Dots.tsx'));
 // @ts-ignore
 const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
+// @ts-ignore
+const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 
 function HappyDots() {
   const { isDarkMode } = useSelector((state: any) => state.app);
@@ -29,6 +30,7 @@ function HappyDots() {
         <img
           src={d.img}
           loading="lazy"
+          decoding="async"
           width={800}
         />
       </div>
