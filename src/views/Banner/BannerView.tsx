@@ -2,7 +2,7 @@ import React, {
   lazy, useEffect, useRef, useState,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Banner from '@/components/Banner/Banner';
+// import Banner from '@/components/Banner/Banner';
 import styles from '@/views/Banner/BannerView.module.scss';
 import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu';
 import { handleForm } from '../../assets/js/util/helpers';
@@ -10,6 +10,8 @@ import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
 import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 
 // Lazy load components
+// @ts-ignore
+const Banner = lazy(() => import('@/components/Banner/Banner.tsx'));
 // @ts-ignore
 const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
 // @ts-ignore

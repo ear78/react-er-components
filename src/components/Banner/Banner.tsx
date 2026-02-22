@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import styles from './Banner.module.scss';
 import Button from '@/components/Button/Button';
-import Heading from '@/components/Heading/Heading';
+
+//@ts-ignore
+const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 
 /**
  * Banner prop types

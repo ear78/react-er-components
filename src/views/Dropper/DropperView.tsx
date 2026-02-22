@@ -1,10 +1,12 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { dropperData } from '../../assets/js/data';
 import styles from './DropperView.module.scss';
 import colors from '../../assets/js/colors.js';
 import PageTitle from '@/components/PageTitle/PageTitle.tsx';
-import Dropper from '@/components/Dropper/Dropper.tsx';
+
+//@ts-ignore
+const Dropper = lazy(() => import('@/components/Dropper/Dropper.tsx'));
 
 function DropperParent() {
   const { isDarkMode } = useSelector((state: any) => state.app);

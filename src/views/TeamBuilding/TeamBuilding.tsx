@@ -1,18 +1,19 @@
 import React, { lazy, Suspense, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import usePageSettings from '../../assets/js/hooks/usePageSettings';
+import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
 import PageTitle from '@/components/PageTitle/PageTitle.tsx';
-import TeamCard from '@/components/TeamCard/TeamCard';
+import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu.tsx';
 import styles from './TeamBuilding.module.scss';
-import { forms } from '../../assets/js/data';
+import { forms } from '../../assets/js/data.ts';
 
 // Lazy Loaded Components
+// @ts-ignore
+const TeamCard = lazy(() => import('@/components/TeamCard/TeamCard.tsx'));
 // @ts-ignore
 const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
 // @ts-ignore
 const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
-// @ts-ignore
-const AdjusterMenu = lazy(() => import('@/components/AdjusterMenu/AdjusterMenu.tsx'));
+
 function TeamBuilding() {
   const { isDarkMode } = useSelector((state: any) => state.app);
   const pageSettings = usePageSettings(forms, 2);

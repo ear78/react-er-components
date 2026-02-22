@@ -1,6 +1,8 @@
-import React from 'react';
-import Eslider from '../../components/Eslider/Eslider';
-import PageTitle from '@/components/PageTitle/PageTitle';
+import React, { lazy } from 'react';
+import PageTitle from '@/components/PageTitle/PageTitle.tsx';
+
+//@ts-ignore
+const Eslider = lazy(() => import('@/components/Eslider/Eslider.tsx'));
 
 type EsliderViewProps = {
   data: {

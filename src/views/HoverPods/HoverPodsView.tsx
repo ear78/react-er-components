@@ -1,13 +1,14 @@
 import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import PageTitle from '@/components/PageTitle/PageTitle';
-import HoverPods from '@/components/HoverPods/HoverPods';
-import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu';
+import PageTitle from '@/components/PageTitle/PageTitle.tsx';
+import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu.tsx';
 import styles from './HoverPodsView.module.scss';
-import { podData, forms } from '../../assets/js/data';
-import usePageSettings from '../../assets/js/hooks/usePageSettings';
+import { podData, forms } from '../../assets/js/data.ts';
+import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
 
 // Lazy Loaded Components
+// @ts-ignore
+const HoverPods = lazy(() => import('@/components/HoverPods/HoverPods.tsx'));
 // @ts-ignore
 const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 // @ts-ignore

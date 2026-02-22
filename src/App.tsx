@@ -18,31 +18,27 @@ import { esliderData } from './assets/js/data';
 
 /* Global Layout Components */
 import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
 import Spinner from './components/Spinner/Spinner';
-import BackToTopButton from './components/BackToTopButton/BackToTopButton';
+
+//@ts-ignore
+const Footer = lazy(() => import('./components/Footer/Footer.tsx'));
+//@ts-ignore
+const ScrollToTop = lazy(() => import('./components/ScrollToTop/ScrollToTop.tsx'));
+//@ts-ignore
+const BackToTopButton = lazy(() => import('./components/BackToTopButton/BackToTopButton.tsx'));
 
 /* Views */
-//@ts-ignore
-const Home = lazy(() => import('@/views/Home/Home.tsx'));
-//@ts-ignore
-const Eslider = lazy(() => import('@/views/Eslider/EsliderView.tsx'));
-//@ts-ignore
-const HappyDotsView = lazy(() => import('@/views/HappyDots/HappyDotsView.tsx'));
-//@ts-ignore
-const HoverPodsView = lazy(() => import('@/views/HoverPods/HoverPodsView.tsx'));
-//@ts-ignore
-const BannerView = lazy(() => import('@/views/Banner/BannerView.tsx'));
-//@ts-ignore
-const TeamBuilding = lazy(() => import('@/views/TeamBuilding/TeamBuilding.tsx'));
-//@ts-ignore
-const DropperParent = lazy(() => import('@/views/Dropper/DropperView.tsx'));
-//@ts-ignore
-const Dashboard = lazy(() => import('@/views/Dashboard/Dashboard.tsx'));
+import Home from '@/views/Home/Home.tsx';
+import Eslider from '@/views/Eslider/EsliderView.tsx';
+import HappyDotsView from '@/views/HappyDots/HappyDotsView.tsx';
+import HoverPodsView from '@/views/HoverPods/HoverPodsView.tsx';
+import BannerView from '@/views/Banner/BannerView.tsx';
+import TeamBuilding from '@/views/TeamBuilding/TeamBuilding.tsx';
+import DropperView from '@/views/Dropper/DropperView.tsx';
+import Dashboard from '@/views/Dashboard/Dashboard.tsx';
 
 /** Css */
 import styles from './App.module.scss';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 /* Font Awesome */
 library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChevronDown);
@@ -88,7 +84,7 @@ function App() {
                 <TeamBuilding />
               </Route>
               <Route path="/dropper">
-                <DropperParent />
+                <DropperView />
               </Route>
               <Route path="/">
                 <Home />
