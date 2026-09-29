@@ -11,7 +11,7 @@ import { fab, faElementor } from '@fortawesome/free-brands-svg-icons';
 import { far, faCompass } from '@fortawesome/free-regular-svg-icons';
 
 /* Redux */
-import { setAppLoading } from './assets/js/lib/redux/modules/app';
+import { setAppLoading, setIsDrawerOpen } from './assets/js/lib/redux/modules/app';
 
 /* Data */
 import { esliderData } from './assets/js/data';
@@ -19,6 +19,8 @@ import { esliderData } from './assets/js/data';
 /* Global Layout Components */
 import Nav from './components/Nav/Nav';
 import Spinner from './components/Spinner/Spinner';
+import Drawer from './components/Drawer/Drawer';
+import BannerSettings from './views/Banner/BannerSettings.tsx';
 
 //@ts-ignore
 const Footer = lazy(() => import('./components/Footer/Footer.tsx'));
@@ -45,7 +47,9 @@ library.add(fas, fab, far, faAngleDown, faAngleUp, faCompass, faElementor, faChe
 
 function App() {
   const dispatch = useDispatch();
-  const { appLoading, isModalActive, isDarkMode } = useSelector((state: any) => state.app);
+  const {
+    appLoading, isModalActive, isDarkMode, isDrawerOpen,
+  } = useSelector((state: any) => state.app);
 
   useEffect(() => {
     // Fake data delay
@@ -59,6 +63,9 @@ function App() {
       <Router>
         <Spinner mounted={appLoading} isDarkMode={isDarkMode} />
         <ScrollToTop />
+        <Drawer isOpen={isDrawerOpen} onClose={() => dispatch(setIsDrawerOpen(false))}>
+          <BannerSettings />
+        </Drawer>
 
         <main className={`${styles.Main} ${isModalActive ? styles.OverflowHidden : ''} max-w-7xl mx-auto px-4`}>
           <Nav />

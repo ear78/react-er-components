@@ -5,6 +5,7 @@ export const dashboardSlice = createSlice({
   initialState: {
     appLoading: true,
     isModalActive: false,
+    isDrawerOpen: false,
     isDarkMode: false,
     components: [
       {
@@ -93,6 +94,9 @@ export const dashboardSlice = createSlice({
     setIsModalActive: (state, action) => {
       state.isModalActive = action.payload;
     },
+    setIsDrawerOpen: (state, action) => {
+      state.isDrawerOpen = action.payload;
+    },
     setComponentSettings: (state, action) => {
       const found = state.components.find((item) => item.id === action.payload.id);
       if (found) {
@@ -107,6 +111,7 @@ export const {
   setAppState,
   setComponentSettings,
   setIsModalActive,
+  setIsDrawerOpen,
   setAppLoading,
 } = dashboardSlice.actions;
 

@@ -1,147 +1,33 @@
-import React, {
-  lazy, useEffect, useRef, useState,
-} from 'react';
+import React, { lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import Banner from '@/components/Banner/Banner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/views/Banner/BannerView.module.scss';
-import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu';
-import { handleForm } from '../../assets/js/util/helpers';
-import { setComponentSettings } from '../../assets/js/lib/redux/modules/app';
+import { setIsDrawerOpen } from '../../assets/js/lib/redux/modules/app';
 import { bannerImgWebp, bannerImgWebpSm } from '../../assets/js/data';
 
 // Lazy load components
 // @ts-ignore
 const Banner = lazy(() => import('@/components/Banner/Banner.tsx'));
-// @ts-ignore
-const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
-// @ts-ignore
-const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
-
 function BannerParent() {
   const dispatch = useDispatch();
-  const { components, isDarkMode, appLoading } = useSelector((state: any) => state.app);
+  const { components, appLoading, isDrawerOpen } = useSelector((state: any) => state.app);
 
   const { settings } = components[0];
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  const [formData, setFormData] = useState<{}[]>([]);
-
-  useEffect(() => {
-    setFormData([
-      {
-        inputType: 'text',
-        labelText: 'Banner Pre Title',
-        inputVal: settings.preTitle,
-        name: 'preTitle',
-        change: updateSettings,
-      },
-      {
-        inputType: 'text',
-        labelText: 'Cta Url',
-        inputVal: settings.ctaUrl,
-        name: 'ctaUrl',
-        change: updateSettings,
-      },
-      {
-        inputType: 'text',
-        labelText: 'Banner Title',
-        inputVal: settings.title,
-        name: 'title',
-        change: updateSettings,
-      },
-      {
-        inputType: 'text',
-        labelText: 'Banner Sub Title',
-        inputVal: settings.subTitle,
-        name: 'subTitle',
-        change: updateSettings,
-      },
-      {
-        inputType: 'text',
-        labelText: 'Banner Button Text',
-        inputVal: settings.btnText,
-        name: 'btnText',
-        change: updateSettings,
-      },
-      {
-        inputType: 'color',
-        labelText: 'Banner Button Color',
-        inputVal: settings.btnColor,
-        name: 'btnColor',
-        change: updateSettings,
-      },
-      {
-        inputType: 'checkbox',
-        labelText: 'Banner Overlay',
-        inputVal: settings.overlay,
-        name: 'overlay',
-        change: updateSettings,
-      },
-      {
-        inputType: 'checkbox',
-        labelText: 'Banner Overlay Dark',
-        inputVal: settings.overlayDark,
-        name: 'overlayDark',
-        change: updateSettings,
-      },
-      {
-        inputType: 'checkbox',
-        labelText: 'Banner Overlay Full',
-        inputVal: settings.overlayFull,
-        name: 'overlayFull',
-        change: updateSettings,
-      },
-      {
-        inputType: 'checkbox',
-        labelText: 'Show CTA Button',
-        inputVal: settings.showBtn,
-        name: 'showBtn',
-        change: updateSettings,
-      },
-      {
-        inputType: 'radio',
-        labelText: 'Banner Alignment',
-        inputVal: settings.textAlign,
-        name: 'textAlign',
-        change: updateSettings,
-      },
-    ]);
-  }, [settings]);
-
-  const updateSettings = (event: any) => {
-    const formObj = handleForm(event);
-
-    dispatch(setComponentSettings({
-      ...settings,
-      ...formObj,
-    }));
-  };
-
-  const toggleAdjusterMenu = () => {
-    setIsMenuActive(!isMenuActive);
-  };
-
-  const handleSettingsSave = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    dispatch(setComponentSettings({
-      ...settings,
-    }));
-
-    setIsMenuActive(false);
-  };
+  const toggleDrawer = () => dispatch(setIsDrawerOpen(!isDrawerOpen));
 
   return (
     <div className={styles.BannerParent}>
-      <AdjusterMenu click={toggleAdjusterMenu} menuActive={isMenuActive}>
-        <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
-        <AppForm
-          click={handleSettingsSave}
-          formData={formData}
-          formRef={formRef}
-          isDarkMode={isDarkMode}
-        />
-      </AdjusterMenu>
+      <button
+        type="button"
+        aria-label={isDrawerOpen ? 'Close banner settings' : 'Open banner settings'}
+        aria-expanded={isDrawerOpen}
+        className="absolute right-4 top-4 z-10 grid place-items-center rounded-full size-8 cursor-pointer hover:opacity-90 hover:scale-110 group bg-white text-(--primary-color) shadow transition hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary-color)"
+        onClick={toggleDrawer}
+      >
+        <FontAwesomeIcon icon={faPlus} aria-hidden="true" className="group-hover:rotate-90 transition-transform" />
+      </button>
 
       <div className={styles.Content}>
         <Banner
