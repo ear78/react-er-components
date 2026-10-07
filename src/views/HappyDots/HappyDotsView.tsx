@@ -11,8 +11,6 @@ import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
 // @ts-ignore
 const Dots = lazy(() => import('@/components/Dots/Dots.tsx'));
 // @ts-ignore
-const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
-// @ts-ignore
 const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
 
 function HappyDots() {
@@ -48,16 +46,6 @@ function HappyDots() {
 
       <div className={styles.HappyDotsContainer}>
         <Suspense fallback="<div>Loading...</div>">
-          <AdjusterMenu
-            click={pageSettings.toggleAdjusterMenu}
-            menuActive={pageSettings.isMenuActive}
-            bgColor="white"
-          >
-            <AppForm
-              click={pageSettings.handleSettingsSave}
-              formData={pageSettings.formData}
-            />
-          </AdjusterMenu>
           <Dots
             refs={elementRefs}
             data={happyData}

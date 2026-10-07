@@ -1,7 +1,6 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import PageTitle from '@/components/PageTitle/PageTitle.tsx';
-import AdjusterMenu from '@/components/AdjusterMenu/AdjusterMenu.tsx';
 import styles from './HoverPodsView.module.scss';
 import { podData, forms } from '../../assets/js/data.ts';
 import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
@@ -9,10 +8,6 @@ import usePageSettings from '../../assets/js/hooks/usePageSettings.ts';
 // Lazy Loaded Components
 // @ts-ignore
 const HoverPods = lazy(() => import('@/components/HoverPods/HoverPods.tsx'));
-// @ts-ignore
-const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
-// @ts-ignore
-const AppForm = lazy(() => import('@/components/AppForm/AppForm.tsx'));
 
 function HoverPodsView() {
   const { isDarkMode } = useSelector((state: any) => state.app);
@@ -20,17 +15,6 @@ function HoverPodsView() {
 
   return (
     <section id={styles.HoverPodsView} className={`${isDarkMode ? styles.Dark : ''}`}>
-      <AdjusterMenu click={pageSettings.toggleAdjusterMenu} menuActive={pageSettings.isMenuActive} bgColor="white">
-        <Suspense fallback="<div>Loading...</div>">
-          <Heading sx={{ margin: '0 0 20px 0', color: isDarkMode ? 'var(--primary-color)' : '' }} variant="h3">Adjuster Menu</Heading>
-          <AppForm
-            click={pageSettings.handleSettingsSave}
-            formData={pageSettings.formData}
-            isDarkMode={isDarkMode}
-          />
-        </Suspense>
-      </AdjusterMenu>
-
       <PageTitle title="HoverPods" />
       <HoverPods
         delay={100}
