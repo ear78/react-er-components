@@ -1,7 +1,1 @@
-// src/types/svg.d.ts  
-declare module '*.svg' {  
-  // The SVG is imported as a file path string  
-  const src: string;  
- 
-  export default src;  
-}
+// Intentionally left blank. Vite already provides the standard SVG module declarations via vite/client.

@@ -1,11 +1,3 @@
-// styles.d.ts
-declare module '*.module.scss' {
-  const styles: { [key: string]: string };
-  export default styles;
-}
-
-declare module '*.module.css' {
-  const styles: { [key: string]: string };
-  export default styles;
-}
+// Vite provides CSS module typings via "vite/client".
+// Keeping this file empty avoids duplicate module declarations.
 

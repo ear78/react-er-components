@@ -10,7 +10,7 @@ const Heading = lazy(() => import('@/components/Heading/Heading.tsx'));
  */
 interface BannerProps {
   /** URL of the background image */
-  bgImage: string;
+  bgImage: string | undefined;
   /** Custom color of the button */
   btnColor?: string;
   /** Text displayed on the button */
@@ -55,7 +55,7 @@ function Banner({
   const bannerOverlayFull = overlayFull ? styles.Full : '';
   const bannerTextAlign = textAlign === 'center' ? styles.Center : textAlign === 'right' ? styles.Right : '';
   const bannerTextColor = textColor === 'dark' ? styles.DarkText : '';
-  const bannerImg = bgImage.length ? bgImage : '';
+  const bannerImg = bgImage?.length ? bgImage : undefined;
   const bannerPreTitle = !preTitle ? 'Welcome to Page Banner' : preTitle;
   const bannerTitle = !title ? 'Page Banner' : title;
   const bannerSubTitle = !subTitle ? 'Banners to help your site look great!' : subTitle;
