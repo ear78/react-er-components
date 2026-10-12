@@ -18,11 +18,14 @@ function User({ profileId = 'ear78' }: { profileId?: string }) {
   useEffect((): void => {
     try {
       const fetchData = async () => {
-        const response = await fetch(`https://api.github.com/users/${profileId}`, {
-          headers: {
-            accept: 'application/vnd.github.v3+json',
+        const response = await fetch(
+          `https://api.github.com/users/${profileId}`,
+          {
+            headers: {
+              accept: 'application/vnd.github.v3+json',
+            },
           },
-        });
+        );
 
         const data = await response.json();
         setGitData(data);
@@ -35,20 +38,31 @@ function User({ profileId = 'ear78' }: { profileId?: string }) {
       return undefined;
     } catch (err) {
       // setError(true);
-      return console.error(`Something went wrong with fetching the data ${err}`);
+      return console.error(
+        `Something went wrong with fetching the data ${err}`,
+      );
     }
   }, [userDataReady]);
 
   return (
     <>
-      <div className={`${styles.UserSkeleton} ${!userDataReady ? styles.FadeIn : styles.UserTransition}`}>
-        <p className={styles.Image} />
-        <p className={styles.Name} />
-        <p className={styles.Username} />
-        <p className={styles.Description} />
-      </div>
-      <section className={`${styles.User} ${styles.UserTransition} ${userDataReady ? styles.FadeIn : ''}`}>
-        <img src={gitData.avatar_url} alt={`${gitData.type} ${gitData.login}`} />
+      {!userDataReady && (
+        <div
+          className={`${styles.UserSkeleton} ${!userDataReady ? styles.FadeIn : styles.UserTransition}`}
+        >
+          <p className={styles.Image} />
+          <p className={styles.Name} />
+          <p className={styles.Username} />
+          <p className={styles.Description} />
+        </div>
+      )}
+      <section
+        className={`${styles.User} ${styles.UserTransition} ${userDataReady ? styles.FadeIn : ''}`}
+      >
+        <img
+          src={gitData.avatar_url}
+          alt={`${gitData.type} ${gitData.login}`}
+        />
         <h3 className={styles.Name}>{gitData.name}</h3>
         <p className={styles.Username}>{gitData.login}</p>
         <p className={styles.UserDescription}>{gitData.bio}</p>
